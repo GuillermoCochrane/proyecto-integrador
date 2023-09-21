@@ -1,0 +1,17 @@
+{
+  "name": "mercado-liebre",
+  "version": "1.0.0",
+  "description": "Proyecto integrador del Módulo anatomía de un sitio web: Mercado Liebre",
+  "main": "app.js",
+  "scripts": {
+    "start": " nodemon app.js"
+  },
+  "author": "Guillermo Cochrane",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
