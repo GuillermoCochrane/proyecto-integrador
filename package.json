@@ -4,7 +4,7 @@
   "description": "Proyecto integrador del Módulo anatomía de un sitio web: Mercado Liebre",
   "main": "app.js",
   "scripts": {
-    "start": " nodemon app.js"
+    "start": " nodemon ./src/app.js"
   },
   "author": "Guillermo Cochrane",
   "license": "ISC",
