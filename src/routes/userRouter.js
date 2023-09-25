@@ -3,14 +3,11 @@ const router = express.Router();
 const path = require('path');
 
 const userRouter = require("../controllers/userController");
+const userController = require('../controllers/userController');
 
-router.get('/login', (req,res) => {
-    res.sendFile(path.join(__dirname,"../views/login.html"))
-});
+router.get('/login', userRouter.login);
 
-router.get('/register', (req,res) => {
-    res.sendFile(path.join(__dirname,"../views/register.html"))
-});
+router.get('/register', userController.register);
 
 
 
