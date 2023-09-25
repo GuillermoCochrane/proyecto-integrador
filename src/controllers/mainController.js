@@ -1,8 +1,9 @@
-const path = require('path');
-
+const title = "Mercado liebre";
 const mainController ={
     index: function(req,res){
-        res.render('home')
+        res.render('home',{
+            title: title,
+        })
     },
     redirect: function(req,res){
         res.redirect('/');

@@ -422,6 +422,10 @@ footer section p{
         width: 23%;
     }
 
+    .login-form{
+        margin: 95px auto;
+    }
+
     .footer-box{
         display: flex;
         flex-wrap: nowrap;
