@@ -2,11 +2,11 @@
 const express = require("express");
 const path = require("path");
 const app = express();
-const mainRoutes = require("./routes/mainRouter")
-const userRoutes = require("./routes/userRouter")
+const mainRoutes = require("./src/routes/mainRouter")
+const userRoutes = require("./src/routes/userRouter")
 
 const port = process.env.PORT || 3003;
-const publicPath = path.join(__dirname, "../")
+const publicPath = path.join(__dirname, "./public")
 
 // seteamos la carpeta de recursos estáticos
 
@@ -15,7 +15,7 @@ app.use(express.static('public'));
 //Setemos el template engine
 
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, './views'))
+app.set('views', path.join(__dirname, './src/views'))
 
 // seteamos rutas
 
