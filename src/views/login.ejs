@@ -2,26 +2,23 @@
 <body>
 
     <%- include("./partials/header.ejs") %>
+    <div class="main-border-form">
+        <main>
+            <form action="/" method="post" class="login-form">
+                <div class="login-item">
+                    <label for="username">Nombre de usuari@</label>
+                    <input type="text" id="username" name="username">
+                </div>
 
-    <main>
+                <div class="login-item">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password">
+                </div>
 
-        <form action="/" method="post" class="login-form">
-            
-            <div class="login-item">
-                <label for="username">Nombre de usuari@</label>
-                <input type="text" id="username" name="username">
-            </div>
-
-            <div class="login-item">
-                <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password">
-            </div>
-
-            <button type="submit">Enviar</button>
-
-        </form>
-
-    </main>
+                <button type="submit">Enviar</button>
+            </form>
+        </main>
+    </div>
 
     <%- include("./partials/footer.ejs") %>
 

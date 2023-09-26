@@ -15,6 +15,10 @@ body{
 header{
     background-color: #EAC926;
     padding: 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
 }
 .logo-search{
     display: flex;
@@ -74,6 +78,7 @@ header{
     text-align: center;
     border-radius: 7px;
     margin-top: 10px;
+    padding-top: 5px;
 }
 
 .main-navbar{
@@ -117,6 +122,14 @@ header{
     width: 100%;
 }
 /* Estilos MAIN */
+
+.main-border-form{
+    margin-top: 205px;
+}
+
+.main-border{
+    margin-top: 170px;
+}
 
 main{
     margin: auto;
@@ -194,6 +207,7 @@ main section article i{
     right: 20px;
     top: -30px;
     transition: 300ms;
+    z-index: 50;
 }
 
 .price{
@@ -252,6 +266,7 @@ footer section h3{
     margin: 5px;
     font-size: 20px;
 }
+
 footer p,
 footer section p{
     padding: 7px;
@@ -298,6 +313,7 @@ footer section p{
 .login-item input{
     padding: 7px;
 }
+
 .form-radio{
     display: flex;
 }
@@ -316,6 +332,7 @@ footer section p{
     color: #ebebeb;
     border-radius: 5px;
 }
+
 .login-form button{
     width: 100%;
     margin: 15px 0;
@@ -333,9 +350,11 @@ footer section p{
         display: flex;
         justify-content: space-between;
     }
+
     .logo-search{
         flex-grow: 1;
     }
+
     .logo{
         width: 30%;
     }
@@ -351,27 +370,41 @@ footer section p{
         text-align: right;
         align-self: center;
     }
+
     .burger-menu{
         display: none;
     }
+
     .main-navbar{
         display: flex;
         justify-content: space-between;
     }
+
     .main-navbar ul{
         display: flex;
     }
+
     .navbar-left{
         flex-direction: row;
     }
+
     .main-navbar li{
         margin: 0 5px;
+    }
+
+    .main-border-form{
+        margin-top: 170px;
+    }
+
+    .main-border{
+        margin-top: 140px;
     }
 
     section article{
         width: 45%;
         min-width: none;
     }
+
     .form-frame{
         width: 45%;
     }
@@ -416,6 +449,18 @@ footer section p{
 
     .main-navbar a{
         font-size: 20px;
+    }
+
+    .main-border-form{
+        margin-top: 170px;
+    }
+
+    .main-border{
+        margin-top: 170px;
+    }
+
+    .main-border-form{
+        margin-top: 205px;
     }
 
     section article{
