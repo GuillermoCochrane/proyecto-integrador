@@ -1,13 +1,17 @@
-<article>
-    <a href="#" class="img-article">
-        <img src="/images/<%= product.productImage %>"  alt="<%= product.productName %>">
-    </a>
-    <div class="info-article-box">
-        <div class="info-article">
-            <i class="fas fa-truck"></i>
-            <p class="price">$<%= product.productPrice %></p>
-            <p class="discount"><%= product.productDiscount %>% OFF</p>
-        </div>
-        <h3 class="description"><%= product.productDescription %></h3>
-    </div>
-</article>
+<div class="article-box">
+    <article>
+        <a href="#" >
+            <figure class="img-article">
+                <img src="/images/<%= product.productImage %>"  alt="<%= product.productName %>">
+            </figure>
+            <div class="info-article-box">
+                <div class="info-article">
+                    <i class="fas fa-truck"></i>
+                    <p class="price">$<%= product.productPrice %></p>
+                    <p class="discount"><%= product.productDiscount %>% OFF</p>
+                </div>
+                <h3 class="description"><%= product.productDescription %></h3>
+            </div>
+        </a>
+    </article>
+</div>

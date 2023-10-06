@@ -148,14 +148,20 @@ main{
     justify-content: space-evenly;
 }
 
+.article-box{
+    width: 100%;
+    padding: 0 15px;
+    position: relative;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
 
 section article{
-    margin: 0px;
-    margin-bottom: 20px;
+    margin: 20px 0px;
     background-color: white;
-    min-width: 250px;
-    width: 320px;
     transition: all 450ms;
+    overflow: hidden;
+    border-radius: 5px;
 }
 
 section article:hover{
@@ -172,14 +178,13 @@ section article:hover .description{
 }
 
 .img-article{
-    margin: auto;
-    display: flex;
-    justify-content: center;
+    margin: 0;
+    padding: 0;
 }
 
 .img-article img{
     margin: auto;
-    width: 200px;
+    width: 100%;
 }
 
 .info-article-box{
@@ -215,7 +220,7 @@ main section article i{
     font-size: 18px;
     width: 30%;
     margin: 0 10px;
-    min-width: fit-content;
+    /* min-width: fit-content; */
 }
 
 .discount{
@@ -400,10 +405,11 @@ footer section p{
         margin-top: 140px;
     }
 
-    section article{
-        width: 45%;
-        min-width: none;
+    .article-box{
+        flex: 0 0 50%;
+        max-width: 50%;
     }
+
 
     .form-frame{
         width: 45%;
@@ -463,8 +469,22 @@ footer section p{
         margin-top: 205px;
     }
 
-    section article{
-        width: 23%;
+
+    .article-box{
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+    .price{
+        font-size: 25px;
+    }
+
+    .discount{
+        font-size: 16px;
+    }
+    
+    .description{
+        font-size: 18px;
     }
 
     .login-form{
