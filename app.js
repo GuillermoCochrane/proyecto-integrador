@@ -4,6 +4,7 @@ const path = require("path");
 const app = express();
 const mainRoutes = require("./src/routes/mainRouter")
 const userRoutes = require("./src/routes/userRouter")
+const productsRoutes = require("./src/routes/productsRouter")
 
 const port = process.env.PORT || 3003;
 const publicPath = path.join(__dirname, "./public")
@@ -21,8 +22,9 @@ app.set('views', path.join(__dirname, './src/views'))
 
 app.use('/', mainRoutes);
 app.use("/users", userRoutes);
+app.use("/products", productsRoutes);
 
 //levantamos el server 
 
-app.listen(port, ()=>{console.log("Levantando servidor en puerto " + port +  ": \nhttp://localhost:" + port)
+app.listen(port, ()=>{console.log("\n------------------------------------\nLevantando servidor en puerto " + port +  ": \nhttp://localhost:" + port + "\n------------------------------------\n")
 });

@@ -1,0 +1,28 @@
+<%- include("./partials/head.ejs") %>
+
+<body>
+    <%- include("./partials/header.ejs") %>
+    <div class="main-border">
+        <div class="banner">
+            <img src="/images/img-home-banner.jpg"  alt="Banner">
+        </div>
+
+        <main>
+            <section>
+                <h2 class="title">
+                    Todos los productos
+                </h2>
+
+                <div class="articles-box">
+                    <% for (product of products) {%>
+                        <%- include("./partials/article.ejs") %>
+                    <% } %>
+                </div>
+            </section>
+
+        </main>
+    </div>
+    <%- include("./partials/footer.ejs") %>
+
+</body>
+</html>
