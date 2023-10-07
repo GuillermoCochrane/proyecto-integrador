@@ -1,12 +1,12 @@
 <div class="article-box">
-    <article>
+    <article class="main-article">
         <a href="/products/<%= product.id %>">
             <figure class="img-article">
                 <img src="/images/products/<%= product.image %>"  alt="<%= product.name %>">
             </figure>
             <div class="info-article-box">
                 <div class="info-article">
-                    <i class="fas fa-truck"></i>
+                    <i class="fas fa-truck article"></i>
                     <p class="price">$<%= product.price %></p>
                     <p class="discount"><%= product.discount %>% OFF</p>
                 </div>

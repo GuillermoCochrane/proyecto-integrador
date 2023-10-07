@@ -15,7 +15,7 @@ const productsController ={
         let discountedPrice = (product.price - ((product.price)*(product.discount/100)) )
 		product.finalPrice = Math.round(discountedPrice)
         res.render("productDetail",{
-            title: "Editando " + product.name,
+            title: product.name,
             product: product,
             toThousand: tools.toThousand
         })
