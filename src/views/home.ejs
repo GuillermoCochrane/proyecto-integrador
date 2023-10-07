@@ -14,7 +14,7 @@
                 </h2>
 
                 <div class="articles-box">
-                    <% for (product of products) {%>
+                    <% for (product of visited) {%>
                         <%- include("./partials/article.ejs") %>
                     <% } %>
                 </div>
@@ -26,7 +26,7 @@
                 </h2>
 
                 <div class="articles-box">
-                    <% for (product of products) {%>
+                    <% for (product of inSale) {%>
                         <%- include("./partials/article.ejs") %>
                     <% } %>
                 </div>
