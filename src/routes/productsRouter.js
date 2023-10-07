@@ -3,9 +3,12 @@ const router = express.Router();
 const productsController = require("../controllers/productsController")
 
 
-// Rutas de productos
+//Products Routes
 
-//Todos los productos
+//All Products
 router.get('/', productsController.index)
+
+//Product detail
+router.get("/:id/", productsController.detail)
 
 module.exports = router

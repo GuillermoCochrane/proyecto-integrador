@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <script src="https://kit.fontawesome.com/8aa20abfbf.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="/css/app.css">
+	<link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <script src="/js/script.js"></script>
+    <title><%= title %></title>
+</head>
+<body>
+	<!-- Header -->
+	<%- include("./partials/header.ejs") %>
+
+
+	<!-- product detail -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Detalle del producto: <%= product.name %></h2>
+			</div>
+		</div>
+		<div class="product-detail">
+			<div class="row">
+				<div class="col-12 col-lg-8">
+					<img src="/images/products/<%= product.image %>" alt="<%= product.name %>" class="product-detail-img">
+					<p class="product-detail-description">
+						<%= product.description %>
+					</p>
+				</div>
+				<div class="col-12 col-lg-4">
+					<article class="product-detail-info">
+						<h2 class="product-detail-title"><%= product.name %></h2>
+
+							<% if (product.discount == 0) { %>
+								<br>
+								<p class="product-detail-price">
+									Precio Final
+								</p>
+								<p class="product-detail-price">
+									$<%= toThousand(product.price) %>
+								</p>
+								<br>
+							<% } else { %>
+								<p class="product-detail-price small">
+									<span>$<%= toThousand(product.price) %></span>
+									/
+									<b><%= product.discount %>% OFF</b>
+								</p>
+								<p class="product-detail-price">
+									Precio Final
+								</p>
+								<p class="product-detail-price">
+									$<%= toThousand(product.finalPrice) %>
+								</p>
+							<% } %>
+
+						<ul class="actions-list">
+							<li>
+								<i class="fas fa-credit-card"></i>
+								<p>Pagá en 12 cuotas sin interes</p>
+							</li>
+							<li>
+								<i class="fas fa-store"></i>
+								<p>Retiro gratis en locales del vendedor</p>
+							</li>
+						</ul>
+
+						<a href="#" class="buy-now-button">COMPRAR AHORA</a>
+						<hr>
+
+						<a href="/products/edit/<%= product.id %>" class="action-button edit">EDITAR PRODUCTO</a>
+						<form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+							<button type="submit" class="action-button delete">ELIMINAR</button>
+						</form>
+					</article>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /product detail -->
+
+	<!-- footer -->
+	<%- include("./partials/footer.ejs") %>
+	<!-- /footer -->
+
+</body>	
+</html>

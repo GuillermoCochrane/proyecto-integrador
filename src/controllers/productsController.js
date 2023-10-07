@@ -9,5 +9,17 @@ const productsController ={
         })
     },
 
+    detail: function(req,res){
+        let product = tools.filterByKey(req.params.id,"id");
+        product = product[0];
+        let discountedPrice = (product.price - ((product.price)*(product.discount/100)) )
+		product.finalPrice = Math.round(discountedPrice)
+        res.render("productDetail",{
+            title: "Editando " + product.name,
+            product: product,
+            toThousand: tools.toThousand
+        })
+    }
+
 }
 module.exports = productsController
