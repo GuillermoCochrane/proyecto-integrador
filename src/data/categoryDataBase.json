@@ -1,0 +1,22 @@
+[
+    {
+        "id":   1,
+        "category":  "Electro"
+    },
+    {
+        "id":   2,
+        "category":  "Moda"
+    },
+    {
+        "id":   3,
+        "category":  "Hogar"
+    },
+    {
+        "id":   4,
+        "category":  "Juguetería"
+    },
+    {
+        "id":   5,
+        "category":  "Vida sana"
+    }
+]

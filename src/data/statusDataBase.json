@@ -1,0 +1,14 @@
+[
+    {
+        "id":   1,
+        "status":  "En oferta"
+    },
+    {
+        "id":   2,
+        "status":  "Novedad"
+    },
+    {
+        "id":   3,
+        "status":  "Más Vendidos"
+    }
+]
