@@ -1,5 +1,7 @@
 const productsFunctions = require("../functions/productsFunctions")
 const functions = require("../functions/functions")
+const path = require('path');
+const fs = require('fs');
 
 const productsController ={
 
@@ -31,6 +33,12 @@ const productsController ={
             categories: functions.allCategories()
         })
     },
+
+    store: function(req,res){
+        let id = productsFunctions.newProduct(req.body)
+        let newProduct = productsFunctions.allProducts().pop()
+		res.redirect("/products/" + id)
+    }
 
 }
 module.exports = productsController

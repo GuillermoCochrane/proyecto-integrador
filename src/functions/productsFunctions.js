@@ -21,9 +21,31 @@ const productsFunctions ={
     newId: function(){
         let lastProduct = this.allProducts().pop();
 		if (lastProduct){
-            return lastProduct + 1
+            return lastProduct.id + 1
         }
         return 1
+    },
+
+    store: function(data){
+        fs.writeFileSync( this.pathDB, JSON.stringify(data) )
+        return true
+    },
+
+    newProduct: function(data){
+        let newProduct = {
+			id: 			this.newId(),
+			name: 			data.name,
+			price: 			parseInt(data.price),
+			discount: 		parseInt(data.discount),
+            status: 		parseInt(data.status),
+			category: 		parseInt(data.category),
+			description: 	data.description,
+			image: 			"default-image.png"
+		};
+        let products = this.allProducts()
+        products.push(newProduct);
+        productsFunctions.store(products)
+        return newProduct.id
     }
 }
 

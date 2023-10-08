@@ -10,7 +10,7 @@ router.get('/', productsController.index)
 
 //Create Products
 router.get("/create",productsController.create)
-//router.post("/create",productsController.store)
+router.post("/create",productsController.store)
 
 //Product detail
 router.get("/:id/", productsController.detail)

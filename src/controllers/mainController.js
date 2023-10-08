@@ -1,9 +1,10 @@
-const tools = require("../functions/productsFunctions")
+const tools = require("../functions/functions")
+const productsFunctions =require("../functions/productsFunctions")
 
 const mainController ={
     index: function(req,res){
-        let inSale = tools.filterByKey("in-sale","status");
-        let visited = tools.filterByKey("visited","status")
+        let inSale = productsFunctions.filterByKey("in-sale","status");
+        let visited = productsFunctions.filterByKey("visited","status")
         res.render("home",{
             inSale: inSale,
             visited: visited,

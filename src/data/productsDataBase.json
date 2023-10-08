@@ -144,5 +144,15 @@
     "status": "in-sale",
     "description": "Deja que la música dance cobre vida con EXTRA BASS™ Anima el ambiente con EXTRA BASS™1. Un radiador pasivo trabaja con el parlante monoaural para potenciar los tonos bajos y mejorar los graves, a pesar del tamaño compacto. ",
     "image": "img-parlante-sony.jpg"
+  },
+  {
+    "id": 17,
+    "name": "Zapatillas Reebok Nano X3",
+    "price": 23423,
+    "discount": 32,
+    "status": 1,
+    "category": 2,
+    "description": "Te presentamos las Nano X3 con el nuevo sistema Lift and Run Chassis. Una pieza en forma de cúpula en el talón se comprime bajo carga al levantarlo para crear una plataforma estable y se suaviza cuando empujas para correr. Todo ello sobre la galardonada espuma Floatride Energy Foam, que te proporciona una amortiguación ligera para que correr sea la parte más fácil del entrenamiento.",
+    "image": "default-image.png"
   }
 ]

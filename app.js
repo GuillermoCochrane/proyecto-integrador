@@ -1,30 +1,33 @@
-//modulos y configuraciones 
+//Require Dependecies and modules
 const express = require("express");
 const path = require("path");
-const app = express();
+
+//Routers dependencies
 const mainRoutes = require("./src/routes/mainRouter")
 const userRoutes = require("./src/routes/userRouter")
 const productsRoutes = require("./src/routes/productsRouter")
 
+//Configurations
+const app = express();
 const port = process.env.PORT || 3003;
-const publicPath = path.join(__dirname, "./public")
 
-// seteamos la carpeta de recursos estáticos
+app.use(express.static('public'));// Set Static Resources folder
+app.use(express.urlencoded({ extended: false })); // Required for processing POST method information
+app.use(express.json()); // Required for processing POST method information
 
-app.use(express.static('public'));
 
-//Setemos el template engine
+//Set Template Engine
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './src/views'))
 
-// seteamos rutas
+//Setting Routes
 
 app.use('/', mainRoutes);
 app.use("/users", userRoutes);
 app.use("/products", productsRoutes);
 
-//levantamos el server 
+//Server Up! 
 
 app.listen(port, ()=>{console.log("\n------------------------------------\nLevantando servidor en puerto " + port +  ": \nhttp://localhost:" + port + "\n------------------------------------\n")
 });
