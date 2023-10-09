@@ -4,7 +4,7 @@
     "name": "Cafetera Moulinex Dolce Gusto Edited",
     "price": 100,
     "discount": 50,
-    "status": "visited",
+    "status": 2,
     "description": "Cafetera Dolce Gusto Lumio. La cafetera Dolce Gusto Lumio es de variedad automática que ha llegado con un diseño radical al que nos tenía acostumbrados Dolce Gusto.En este post te contamos todo lo que necesitas saber sobre ella, desde sus características técnicas hasta la calidad de las cápsulas o price.",
     "image": "img-cafetera-moulinex.jpg"
   },
@@ -13,7 +13,7 @@
     "name": "Macbook Pro 2022",
     "price": 500,
     "discount": 3,
-    "status": "in-sale",
+    "status": 1,
     "description": "Macbook Pro 2019 Mpxq2ll/a Intel Core i5 2.3 Ghz 8gb RAM 128gb SSD Pantalla 13.3\" Retina Apple Nueva Original. Importada de USA. Se entrega con la factura de compra para contar con la garantía del fabricante",
     "image": "img-macbook-pro-2019.jpg"
   },
@@ -22,7 +22,7 @@
     "name": "Samsung Galaxy S10",
     "price": 72999,
     "discount": 25,
-    "status": "in-sale",
+    "status": 1,
     "description": "Experiencia visual excepcional. Mirá tus series y películas favoritas con la mejor definición.Tendrás colores brillantes y detalles precisos en todos tus contenidos.Disfrutá aún más del mejor entretenimiento gracias a su vasta pantalla y ángulos de visión amplios.",
     "image": "img-samsung-galaxy-s10.jpg",
     "finalPrice": 54749
@@ -34,7 +34,7 @@
     "price": 47900,
     "discount": 10,
     "image": "img-heladera-whirpool.jpg",
-    "status": "in-sale"
+    "status": 1
   },
   {
     "id": 5,
@@ -43,7 +43,7 @@
     "price": 53000,
     "discount": 20,
     "image": "img-camara-nikon.jpg",
-    "status": "in-sale"
+    "status": 1
   },
   {
     "id": 6,
@@ -52,7 +52,7 @@
     "price": 20999,
     "discount": 12,
     "image": "img-aire-acondicionado.jpg",
-    "status": "in-sale"
+    "status": 1
   },
   {
     "id": 7,
@@ -61,7 +61,7 @@
     "price": 36700,
     "discount": 5,
     "image": "img-laptop-lenovo.jpg",
-    "status": "in-sale"
+    "status": 1
   },
   {
     "id": 8,
@@ -70,7 +70,7 @@
     "price": 14800,
     "discount": 2,
     "image": "img-iphone-11.jpg",
-    "status": "in-sale"
+    "status": 1
   },
   {
     "id": 9,
@@ -79,7 +79,7 @@
     "price": 11399,
     "discount": 0,
     "image": "img-apple-magic-keyboard.jpg",
-    "status": "visited",
+    "status": 2,
     "finalPrice": 11399
   },
   {
@@ -89,7 +89,7 @@
     "price": 1200,
     "discount": 10,
     "image": "img-mouse-logitech.jpg",
-    "status": "visited"
+    "status": 2
   },
   {
     "id": 11,
@@ -98,7 +98,7 @@
     "price": 29990,
     "discount": 12,
     "image": "img-parlante-bose.jpg",
-    "status": "visited"
+    "status": 2
   },
   {
     "id": 12,
@@ -107,7 +107,7 @@
     "price": 32990,
     "discount": 0,
     "image": "img-home-theater-sony.jpg",
-    "status": "visited"
+    "status": 2
   },
   {
     "id": 13,
@@ -116,7 +116,7 @@
     "price": 34990,
     "discount": 0,
     "image": "img-tv-samsung-smart.jpg",
-    "status": "visited"
+    "status": 2
   },
   {
     "id": 14,
@@ -125,7 +125,7 @@
     "price": 10999,
     "discount": 5,
     "image": "img-sony-blueray.jpg",
-    "status": "visited"
+    "status": 2
   },
   {
     "id": 15,
@@ -134,14 +134,14 @@
     "price": 15979,
     "discount": 12,
     "image": "img-bicicleta-fierce.jpg",
-    "status": "visited"
+    "status": 2
   },
   {
     "id": 16,
     "name": "Sony Srs-xb12 Parlante Bluetooth Portátil",
     "price": 4699,
     "discount": 5,
-    "status": "in-sale",
+    "status": 1,
     "description": "Deja que la música dance cobre vida con EXTRA BASS™ Anima el ambiente con EXTRA BASS™1. Un radiador pasivo trabaja con el parlante monoaural para potenciar los tonos bajos y mejorar los graves, a pesar del tamaño compacto. ",
     "image": "img-parlante-sony.jpg"
   },

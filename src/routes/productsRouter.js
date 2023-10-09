@@ -15,5 +15,9 @@ router.post("/create",productsController.store)
 //Product detail
 router.get("/:id/", productsController.detail)
 
+//Edit Products
+router.get('/edit/:id', productsController.edit); 
+router.put('/edit/:id', productsController.update); 
+
 
 module.exports = router

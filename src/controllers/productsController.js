@@ -38,6 +38,20 @@ const productsController ={
         let id = productsFunctions.newProduct(req.body)
         let newProduct = productsFunctions.allProducts().pop()
 		res.redirect("/products/" + id)
+    },
+
+    edit: function(req,res){
+        let product = productsFunctions.filterByKey(req.params.id,"id")[0];
+        res.render("productEditForm",{
+            title: "Editar Producto" + functions.title,
+            status: functions.allStatus(),
+            categories: functions.allCategories(),
+            product: product
+        })
+    },
+
+    update: function(req,res){
+
     }
 
 }

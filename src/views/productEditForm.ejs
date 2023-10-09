@@ -1,0 +1,78 @@
+<!-- Include Head -->
+<%- include('partials/head') %>
+<body>
+	<!-- Header -->
+	<%- include('partials/header') %>
+	<!-- /Header -->
+
+	<main>
+		<section>
+			
+			<h2 class="title">
+				Estás editando: <i><%= product.name %>
+			</h2>
+
+			<div class="form-box">
+				<form action="/products/edit/<%= product.id %>_method=PUT" method="post">
+					<div class="form-content-box">
+						
+						<div class="form-input-label-box">
+							<label for="name" class="form-label">Nombre del producto:</label>
+							<input type="text" id="name" name="name" placeholder="Ej: Zapatillas Reebok" class="form-input" value="<%= product.name %>">
+						</div>
+
+						<div class="form-input-label-box">
+							<label for="img" class="form-label">Imagen del producto:</label>
+							<input type="file" id="img" name="img" class="form-input" value="" type=".jpg,.png,.bmp">
+						</div>
+
+						<div class="form-input-label-box">
+							<label for="category" class="form-label">Categoría:</label>
+							<select name="category" id="category" class="form-input">
+								<option value="">Elegí</option>
+								<% for (const category of categories) { %>
+									<option value="<%= category.id %>" <%= product.category == category.id ? "selected" : null %>> <%= category.category  %></option>
+								<% } %>
+							</select>
+						</div>
+
+						<div class="form-input-label-box">
+							<label for="status" class="form-label">Estado:</label>
+							<select name="status" id="status" class="form-input">
+								<option value="">Elegí</option>
+								<% for (const item of status) { %>
+									<option value="<%= item.id %>" <%= product.status == item.id ? "selected" : null %>> <%= item.status  %></option>
+								<% } %>
+							</select>
+						</div>
+
+						<div class="form-input-label-box">
+							<label for="price" class="form-label">Precio del producto:</label>
+							<input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input" value="<%= product.price %>">
+						</div>
+
+						<div class="form-input-label-box">
+							<label for="discount" class="form-label">Descuento:</label>
+							<input type="text" id="discount" name="discount" placeholder="Ej: 15" class="form-input" value="<%= product.discount %>">
+						</div>
+
+						<div class="form-big-box">
+							<label for="description" class="form-label">Descipción:</label>
+							<textarea name="description" id="description" class="form-input"><%= product.description %></textarea>
+						</div>
+
+						<div class="form-big-box">
+							<button type="submit" class="save-button">Guardar producto</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</section>
+	</main>
+	<!-- /todos los productos -->
+
+	<!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+</body>	
+</html>
