@@ -1,14 +1,35 @@
 const productsFunctions = require("../functions/productsFunctions")
 const functions = require("../functions/functions")
-const path = require('path');
-const fs = require('fs');
 
 const productsController ={
 
     index: function(req,res){
         res.render("allProducts",{
             title: "Todos los productos" + functions.title,
-            products: productsFunctions.allProducts()
+            products: productsFunctions.allProducts(),
+            label: "Todos los productos"
+        })
+    },
+    
+    category: function(req,res){
+        let products = productsFunctions.filterByKey(req.params.idCat,"category");
+        let categories = functions.allCategories()
+        let category = categories.filter(cat => cat.id == req.params.idCat)[0]
+        res.render("allProducts",{
+            products: products,
+            title:  "Productos: " + category.category + functions.title,
+            label: "Productos: " + category.category
+        })
+    },
+
+    status: function(req,res){
+        let products = productsFunctions.filterByKey(req.params.idStatus,"status");
+        let status = functions.allStatus()
+        let selectedStatus = status.filter(s => s.id == req.params.idStatus)[0]
+        res.render("allProducts",{
+            products: products,
+            title:  "Productos: " + selectedStatus.status + functions.title,
+            label: "Productos: " + selectedStatus.status
         })
     },
 
@@ -50,20 +71,8 @@ const productsController ={
     },
 
     update: function(req,res){
-        let products = productsFunctions.allProducts();
-        for (const product of products) {
-			if(product.id == req.params.id){
-				product.name = req.body.name
-				product.price = req.body.price
-				product.discount = req.body.discount
-				product.category = req.body.category
-				product.status = req.body.status
-                product.description = req.body.description
-			}
-		}
-		let productJSON = JSON.stringify(products);
-		fs.writeFileSync(productsFunctions.pathDB,productJSON);
-		res.redirect("/products/"+req.params.id)
+        let id = productsFunctions.editProduct(req.params.id, req.body)
+		res.redirect("/products/" + id)
     }
 
 }

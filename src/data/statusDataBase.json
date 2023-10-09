@@ -1,14 +1,18 @@
 [
     {
         "id":   1,
-        "status":  "En oferta"
+        "status":  "En Oferta"
     },
     {
         "id":   2,
-        "status":  "Novedad"
+        "status":  "Novedades"
     },
     {
         "id":   3,
         "status":  "Más Vendidos"
+    },
+    {
+        "id":   4,
+        "status":  "Recomendados"
     }
 ]
