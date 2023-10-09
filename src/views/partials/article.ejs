@@ -7,7 +7,7 @@
             <div class="info-article-box">
                 <div class="info-article">
                     <i class="fas fa-truck article"></i>
-                    <p class="price">$<%= product.price %></p>
+                    <p class="price">$<%= toThousand(product.price) %></p>
                     <p class="discount"><%= product.discount %>% OFF</p>
                 </div>
                 <h3 class="description"><%= product.name %></h3>

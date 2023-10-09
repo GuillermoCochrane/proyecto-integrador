@@ -8,7 +8,18 @@ const mainController ={
         res.render("home",{
             inSale: inSale,
             visited: visited,
-            title: "Bienvenido" + tools.title
+            title: "Bienvenido" + tools.title,
+            toThousand: tools.toThousand,
+        })
+    },
+
+    search: function(req,res){
+        let searchResults = productsFunctions.search(req.query.search)
+        res.render("allProducts",{
+            title: searchResults.label + tools.title,
+            label: searchResults.label,
+            products: searchResults.results,
+            toThousand: tools.toThousand,
         })
     },
 

@@ -7,34 +7,34 @@ const productsController ={
         res.render("allProducts",{
             title: "Todos los productos" + functions.title,
             products: productsFunctions.allProducts(),
-            label: "Todos los productos"
+            label: "Todos los productos",
+            toThousand: functions.toThousand,
         })
     },
     
     category: function(req,res){
-        let products = productsFunctions.filterByKey(req.params.idCat,"category");
-        let categories = functions.allCategories()
-        let category = categories.filter(cat => cat.id == req.params.idCat)[0]
+        let data = productsFunctions.productsByCategory(req.params.idCat);
         res.render("allProducts",{
-            products: products,
-            title:  "Productos: " + category.category + functions.title,
-            label: "Productos: " + category.category
+            products: data.products,
+            title:  "Productos: " + data.category + functions.title,
+            label: "Productos: " + data.category,
+            toThousand: functions.toThousand,
         })
     },
 
     status: function(req,res){
-        let products = productsFunctions.filterByKey(req.params.idStatus,"status");
-        let status = functions.allStatus()
-        let selectedStatus = status.filter(s => s.id == req.params.idStatus)[0]
+        let data = productsFunctions.productsByStatus(req.params.idStatus)
         res.render("allProducts",{
-            products: products,
-            title:  "Productos: " + selectedStatus.status + functions.title,
-            label: "Productos: " + selectedStatus.status
+            products: data.products,
+            title:  "Productos: " + data.status + functions.title,
+            label: "Productos: " + data.status,
+            toThousand: functions.toThousand,
         })
     },
 
     detail: function(req,res){
         let product = productsFunctions.filterByKey(req.params.id,"id")[0];
+        
         if(product){
             let discountedPrice = (product.price - ((product.price)*(product.discount/100)) )
             product.finalPrice = Math.round(discountedPrice)

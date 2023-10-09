@@ -6,6 +6,8 @@ const mainController = require("../controllers/mainController")
 
 router.get('/', mainController.index);
 
+router.get("/search", mainController.search)
+
 router.post('/', mainController.redirect);
 
 router.post('/register', mainController.redirect);
