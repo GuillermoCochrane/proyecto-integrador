@@ -3,8 +3,8 @@ const productsFunctions =require("../functions/productsFunctions")
 
 const mainController ={
     index: function(req,res){
-        let inSale = productsFunctions.filterByKey("in-sale","status");
-        let visited = productsFunctions.filterByKey("visited","status")
+        let inSale = productsFunctions.filterByKey(1,"status");
+        let visited = productsFunctions.filterByKey(2,"status")
         res.render("home",{
             inSale: inSale,
             visited: visited,

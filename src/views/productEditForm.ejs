@@ -9,11 +9,11 @@
 		<section>
 			
 			<h2 class="title">
-				Estás editando: <i><%= product.name %>
+				Estás editando: <i><%= product.name %></i>
 			</h2>
 
 			<div class="form-box">
-				<form action="/products/edit/<%= product.id %>_method=PUT" method="post">
+				<form action="/products/edit/<%= product.id %>?_method=PUT" method="post">
 					<div class="form-content-box">
 						
 						<div class="form-input-label-box">

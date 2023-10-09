@@ -36,14 +36,13 @@ const productsController ={
 
     store: function(req,res){
         let id = productsFunctions.newProduct(req.body)
-        let newProduct = productsFunctions.allProducts().pop()
 		res.redirect("/products/" + id)
     },
 
     edit: function(req,res){
         let product = productsFunctions.filterByKey(req.params.id,"id")[0];
         res.render("productEditForm",{
-            title: "Editar Producto" + functions.title,
+            title: "Editando - " + product.name,
             status: functions.allStatus(),
             categories: functions.allCategories(),
             product: product
@@ -51,7 +50,20 @@ const productsController ={
     },
 
     update: function(req,res){
-
+        let products = productsFunctions.allProducts();
+        for (const product of products) {
+			if(product.id == req.params.id){
+				product.name = req.body.name
+				product.price = req.body.price
+				product.discount = req.body.discount
+				product.category = req.body.category
+				product.status = req.body.status
+                product.description = req.body.description
+			}
+		}
+		let productJSON = JSON.stringify(products);
+		fs.writeFileSync(productsFunctions.pathDB,productJSON);
+		res.redirect("/products/"+req.params.id)
     }
 
 }
