@@ -1,0 +1,74 @@
+<!-- Include Head -->
+<%- include('partials/head') %>
+<body>
+	<!-- Header -->
+	<%- include('partials/header') %>
+	<!-- /Header -->
+
+	<main>
+		<section>
+			
+			<h2 class="title">
+				Mapa del sitio
+			</h2>
+
+			<div class="form-box">
+				<div class="form-content-box">
+					
+					<div class="form-input-label-box">
+						<label class="map-label">Todos los productos:</label>
+						<a href="/products"><button class="map-button">Ir</button></a>
+					</div>
+
+					<div class="form-input-label-box">
+						<label class="map-label">Crear producto:</label>
+						<a href="/products/create"><button class="map-button">Ir</button></a>
+					</div>
+
+					<div class="form-input-label-box">
+						<label for="category" class="map-label">Categorías:</label>
+						<form action="/category" method="post">
+							<select name="category" id="category" class="form-input">
+								<option value="">Elegí</option>
+								<% for (const category of categories) { %>
+									<option value="<%= category.id %>"> <%= category.category  %></option>
+								<% } %>
+							</select>
+							<button type="submit" class="map-button">Ir</button>
+						</form>
+					</div>
+
+					<div class="form-input-label-box">
+						<label for="status" class="map-label">Estados:</label>
+						<form action="/status" method="post">
+							<select name="status" id="status" class="form-input">
+								<option value="">Elegí</option>
+								<% for (const item of status) { %>
+									<option value="<%= item.id %>"> <%= item.status  %></option>
+								<% } %>
+							</select>
+							<button type="submit" class="map-button">Ir</button>
+					</form>
+					</div>
+
+					<div class="form-input-label-box">
+						<label class="map-label">Registrarse:</label>
+						<a href="/users/register"><button class="map-button">Ir</button></a>
+					</div>
+
+					<div class="form-input-label-box">
+						<label class="map-label">Login:</label>
+						<a href="/users/login"><button class="map-button">Ir</button></a>
+					</div>
+
+				</div>
+			</div>
+		</section>
+	</main>
+	<!-- /todos los productos -->
+
+	<!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+</body>	
+</html>

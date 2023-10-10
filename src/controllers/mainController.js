@@ -23,6 +23,22 @@ const mainController ={
         })
     },
 
+    help: function(req,res){
+        res.render("help",{
+            title: "Mapa del sitio" + tools.title,
+            status: tools.allStatus(),
+            categories: tools.allCategories()
+        })
+    },
+
+    status: function(req,res){
+        res.redirect("/products/status/"+req.body.status)
+    },
+
+    category:   function(req,res){
+        res.redirect("/products/category/"+req.body.category)
+    },
+
     redirect: function(req,res){
         res.redirect('/');
     },
