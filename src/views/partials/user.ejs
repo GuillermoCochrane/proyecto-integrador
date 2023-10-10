@@ -1,0 +1,17 @@
+<div class="article-box">
+    <article class="main-article">
+        <a href="/users/<%= user.id %>">
+            <figure class="img-article">
+                <img src="/images/users/<%= user.image %>"  alt="<%= user.user %>">
+            </figure>
+            <div class="info-article-box">
+                <div class="info-article">
+                    <i class="fa-solid fa-circle-user article"></i>
+                    <p class="price"><%= user.user %></p>
+                    <p class="discount"><%= user.name %></p>
+                </div>
+                <h3 class="description"><%= user.email %></h3>
+            </div>
+        </a>
+    </article>
+</div>

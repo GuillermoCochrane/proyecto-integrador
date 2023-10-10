@@ -1,14 +1,24 @@
-const title =["Login","Registrate"]
-const path = require('path');
+const functions = require("../functions/functions");
+const userssFunctions = require("../functions/usersFunctions")
+
 const userController = {
+
+    index: function(req,res){
+        res.render("allusers",{
+            title: "Todos los usuarios" + functions.title,
+            users: userssFunctions.allUsers(),
+            label: "Todos los usuarios",
+        })
+    },
+
     login: function(req,res){
         res.render("login",{
-            title: title[0] + " - Mercado Liebre",
+            title: "Login" + " - Mercado Liebre",
         })
     },
     register: function(req, res){
         res.render("register",{
-            title: title[1] + " - Mercado Liebre",
+            title: "Registrate" + " - Mercado Liebre",
         })
     }
 }

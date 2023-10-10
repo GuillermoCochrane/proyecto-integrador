@@ -47,7 +47,6 @@ const productsController ={
                 toThousand: functions.toThousand
             })
         }
-        
     },
 
     create: function(req,res){

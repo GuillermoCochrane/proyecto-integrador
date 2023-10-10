@@ -1,0 +1,171 @@
+[
+ {
+  "id": 1,
+  "name": "Gus Fring",
+  "user": "ElChileno",
+  "email": "GusFring@LosPollosHermanos.com",
+  "bornDate": "1963-07-20",
+  "address": "Chile 123",
+  "perfil": "vendedor",
+  "intereses": [
+   "electro",
+   "hogar!",
+   "vida-sana"
+  ],
+  "password": "$2a$10$p3PDgg/YUlT0Gm6RqcFfR.979ZUQ2WPX3hUUOb6.272DYHRmw.9bO",
+  "image": "img-user1660968491868.jpg",
+  "admin": "no"
+ },
+ {
+  "id": 2,
+  "name": "Robb Stark",
+  "user": "YoungWolf",
+  "email": "Winter@isComing.com",
+  "bornDate": "2002-02-20",
+  "address": "Winterfell 123",
+  "perfil": "comprador",
+  "intereses": [
+   "hogar!",
+   "vida-sana"
+  ],
+  "password": "$2a$10$/7IqEqsUOZR4PjDpU18VK.H5IX2J9xNC0KPwuzNk1Y6MFx7ChCGpm",
+  "image": "img-user1660968556765.jpg"
+ },
+ {
+  "id": 3,
+  "name": "Annie January",
+  "user": "Starlight",
+  "email": "Starlight@vought.com",
+  "bornDate": "1997-09-21",
+  "address": "Des Moines 678",
+  "perfil": "comprador",
+  "intereses": [
+   "indumentaria",
+   "hogar!",
+   "vida-sana"
+  ],
+  "password": "$2a$10$KdiMfIGturwW2o0ld2./tekVVxNtMkKVUZYocPxXvC6TbMcu8agD2",
+  "image": "img-user1660968609495.jpg"
+ },
+ {
+  "id": 4,
+  "name": "Octavia Blake",
+  "user": "Blodreina",
+  "email": "Octavia@komUankru.net",
+  "bornDate": "2132-01-17",
+  "address": "Arcadia 2413",
+  "perfil": "comprador",
+  "intereses": [
+   "electro",
+   "indumentaria",
+   "hogar!",
+   "jugueteria",
+   "vida-sana"
+  ],
+  "password": "$2a$10$nGsWl0WO.YoOaT4TVNHJ9uB8rzQpmdn9aPcz4Fmwxf2IKWfpCH.9a",
+  "image": "img-user1660968681032.jpg",
+  "admin": "no"
+ },
+ {
+  "id": 5,
+  "name": "Anthony Stark",
+  "user": "IronMan",
+  "email": "TonyStark@StarkIndustries.com",
+  "bornDate": "1970-05-29",
+  "address": "Malibu Point 10880",
+  "perfil": "vendedor",
+  "intereses": [
+   "electro",
+   "hogar!",
+   "jugueteria"
+  ],
+  "password": "$2a$10$A1BDvuRJP8j1eok1AE7Dee1waWWGH9OYbExkTFME.750lj0V5Ijp2",
+  "image": "img-user1660968750660.jpg",
+  "admin": "no"
+ },
+ {
+  "id": 6,
+  "name": "Lagertha Lothbrok",
+  "user": "Ingstad",
+  "email": "TheShieldMaiden@Kattegat.gov",
+  "bornDate": "0763-12-24",
+  "address": "Earls Road 567",
+  "perfil": "comprador",
+  "intereses": [
+   "hogar!",
+   "jugueteria",
+   "vida-sana"
+  ],
+  "password": "$2a$10$wS4OcJbkDpO32XY0j.3uN..7tpV8Cu9CTZTc9JzTpzw3q.lNtX4z6",
+  "image": "img-user1660968832691.png",
+  "admin": "no"
+ },
+ {
+  "id": 7,
+  "name": "Lucifer Morningstar",
+  "user": "HellDaddy",
+  "email": "lucifer@lux.com",
+  "bornDate": "0001-01-01",
+  "address": "Sunset Boulevard 8358 ",
+  "perfil": "vendedor",
+  "intereses": [
+   "electro",
+   "indumentaria",
+   "hogar!",
+   "jugueteria"
+  ],
+  "password": "$2a$10$JRLxVi81fnifdU9S2/4FquyxzSgDTeS3fA5TKXOXnBmRWlG21yxN.",
+  "image": "img-user1660968898302.jpg",
+  "admin": "no"
+ },
+ {
+  "id": 8,
+  "name": "Charlotte Hale",
+  "user": "HaleCeo",
+  "email": "Chale@delos.com",
+  "bornDate": "1983-10-03",
+  "address": "Backwater Street 651",
+  "perfil": "vendedor",
+  "intereses": [
+   "electro",
+   "hogar!",
+   "jugueteria"
+  ],
+  "password": "$2a$10$6jM/ABwsOgrr6i3ZZLP8fedtLV6GaAagbkZo4w5C7Eau0TwxAxl4e",
+  "image": "img-user1660968939498.jpg",
+  "admin": "no"
+ },
+ {
+  "id": 9,
+  "name": "Thomas Anderson",
+  "user": "Neo",
+  "email": "IamTheChosenOne@zion.com",
+  "bornDate": "1971-09-13",
+  "address": "Lower Downtown 653",
+  "perfil": "comprador",
+  "intereses": [
+   "electro",
+   "jugueteria",
+   "vida-sana"
+  ],
+  "password": "$2a$10$NQ9omDfUd7KtFNr0ert77udKktXWWlYbiIHRZ4roDjsxtU5WU4kce",
+  "image": "img-user1660968971991.jpg",
+  "admin": "no"
+ },
+ {
+  "id": 10,
+  "name": "Guillermo Cochrane",
+  "user": "Pildo",
+  "email": "guilleac81@gmail.com",
+  "bornDate": "1981-10-12",
+  "address": "Belgrano 351",
+  "perfil": "comprador",
+  "intereses": [
+   "electro",
+   "jugueteria"
+  ],
+  "password": "$2a$10$FvVVRn2uK4RUDTKIlOXHAeq8qQ2dE8GbsF7HOCHlIY1aUSkvtmmbm",
+  "image": "img-user1660969064390.jpg",
+  "admin": "si"
+ }
+]
