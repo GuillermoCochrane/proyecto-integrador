@@ -23,6 +23,10 @@ router.post("/create",productsController.store)
 router.get('/edit/:id', productsController.edit); 
 router.put('/edit/:id', productsController.update); 
 
+//Product delete
+router.get('/delete/:id', productsController.delete);
+router.delete('/delete/:id', productsController.destroy); 
+
 //Product detail
 router.get("/:id/", productsController.detail)
 

@@ -73,7 +73,20 @@ const productsController ={
     update: function(req,res){
         let id = productsFunctions.editProduct(req.params.id, req.body)
 		res.redirect("/products/" + id)
-    }
+    },
+
+    delete: function(req,res){
+        let product = productsFunctions.filterByKey(req.params.id,"id")[0];
+        res.render("productConfirmDelete",{
+            product: product,
+            title: "Eliminando - " + product.name,
+        })
+    },
+
+    destroy: function(req,res){
+        productsFunctions.deleteProduct(req.params.id)
+		res.redirect("/");
+    },
 
 }
 module.exports = productsController

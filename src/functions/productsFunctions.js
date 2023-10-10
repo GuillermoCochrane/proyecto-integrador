@@ -22,29 +22,29 @@ const productsFunctions ={
 
     productsByCategory: function(id){
         let products = this.filterByKey(id,"category");
-        let categories = functions.allCategories()
-        let category = categories.filter(cat => cat.id == id)[0]
+        let categories = functions.allCategories();
+        let category = categories.filter(cat => cat.id == id)[0];
         return { products: products, category: category.category }
     },
 
     productsByStatus:function(id){
         let products = this.filterByKey(id,"status");
-        let status = functions.allStatus()
-        let selectedStatus = status.filter(cat => cat.id == id)[0]
+        let status = functions.allStatus();
+        let selectedStatus = status.filter(cat => cat.id == id)[0];
         return { products: products, status: selectedStatus.status }
     },
 
     search: function(searchkey){
-        let products = this.allProducts()
+        let products = this.allProducts();
         let results = products.filter ( product => (
             product.name.toUpperCase().includes(searchkey.toUpperCase()) || 
             product.description.toUpperCase().includes(searchkey.toUpperCase())
             ));
-        let label = "Resultados de la Búsqueda: " + results.length
+        let label = "Resultados de la Búsqueda: " + results.length;
             return {
                 results:    results,
                 label:      label
-            }
+            };
     },
 
     newId: function(){
@@ -87,10 +87,17 @@ const productsFunctions ={
 				product.category =      data.category
 				product.status =        data.status
                 product.description =   data.description
-            }
-        }
-        this.store(products)
+            };
+        };
+        this.store(products);
         return id
+    },
+
+    deleteProduct: function(id){
+        let products = this.allProducts();
+        let newProducts = products.filter((product)=> product.id != id);
+		this.store(newProducts);
+        return true
     }
 }
 

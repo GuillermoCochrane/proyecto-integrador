@@ -65,7 +65,7 @@
 
                                 <div class="button-box">
                                     <a href="/products/edit/<%= product.id %>" class="description-button edit">EDITAR PRODUCTO</a>
-                                    <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+                                    <form action="/products/delete/<%= product.id %>" method="get" style="display: inline-flex">
                                         <button type="submit" class="description-button delete">ELIMINAR</button>
                                     </form>
                                 </div>

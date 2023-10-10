@@ -9,6 +9,7 @@ body {
     font-family: 'roboto', Arial, Helvetica, sans-serif;
     font-size: 12px;
     color: #03264C;
+    min-height: 100vh;
 }
 
 /* HEADER */
@@ -490,6 +491,11 @@ footer section p {
 }
 
 /* Create / Edit Form */
+.delete-product{
+    width: 85%;
+    margin: auto;
+    text-align: center;
+}
 
 .form-box{
     position: relative;
@@ -500,7 +506,25 @@ footer section p {
     max-width: 100%
 }
 
+.form-box-delete{
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    flex: 0 0 100%;
+    max-width: 100%;
+    /* justify-content: space-evenly; */
+}
+
 .form-content-box{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #c8c8c8;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.form-content-box-delete{
     display: flex;
     flex-wrap: wrap;
     background-color: #c8c8c8;
@@ -515,6 +539,17 @@ footer section p {
     padding-left: 15px;
     flex: 0 0 100%;
     max-width: 100%
+}
+
+.form-delete-box{
+    position: relative;
+    width: 100%;
+    padding: 15px;
+    flex: 0 0 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .form-label {
@@ -544,6 +579,17 @@ footer section p {
     max-width: 100%
 }
 
+.form-big-box-delete{
+    position: relative;
+    width: 100%;
+    padding: 15px;
+    /* padding-left: 15px; */
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+    font-size: 25px;
+}
+
 textarea.form-input {
     min-height: 140px;
     resize: vertical;
@@ -561,6 +607,20 @@ textarea.form-input {
     border-radius: 8px;
     border: none;
     margin-bottom: 15px;
+    
+}
+
+.save-button-delete{
+    background-color: #1259c3;
+    font-size: 16px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border-radius: 8px;
+    border: none;
+    margin: 11px;
 }
 
 
@@ -646,6 +706,11 @@ textarea.form-input {
     }
 
     .form-input-label-box{
+        flex: 0 0 50%;
+        max-width: 50%
+    }
+
+    .form-delete-box{
         flex: 0 0 50%;
         max-width: 50%
     }
@@ -752,5 +817,11 @@ textarea.form-input {
 
     .small {
         font-size: 18px;
+    }
+
+    .delete-product{
+        width: 70%;
+        margin-top: 60px;
+        margin-bottom: 165px;
     }
 }

@@ -1,0 +1,45 @@
+<!-- Include Head -->
+<%- include('partials/head') %>
+<body>
+	<!-- Header -->
+	<%- include('partials/header') %>
+	<!-- /Header -->
+
+	<main>
+		<section class="delete-product">
+			
+			<h2 class="title">
+				Eliminación de Producto
+			</h2>
+
+			<div class="form-box-delete">
+				<div class="form-content-box-delete">
+
+					<h2 class="form-big-box-delete">
+						¿Confirma eliminar el producto <%= product.id %> - <%= product.name %>?
+					</h2>
+
+					<div class="form-delete-box">
+						<form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST">
+							<button type="submit" class="save-button-delete">Eliminar producto</button>
+						</form>
+					</div>
+
+					<div class="form-delete-box">
+						<form action="/products/<%= product.id %>" method="">
+							<button type="submit" class="save-button-delete">Cancelar</button>
+						</form>
+					</div>
+
+				</div>
+			</div>
+			
+		</section>
+	</main>
+	<!-- /todos los productos -->
+
+	<!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+</body>	
+</html>
