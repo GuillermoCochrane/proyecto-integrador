@@ -1,0 +1,81 @@
+<%- include("./partials/head.ejs") %>
+
+<body>
+    <%- include("./partials/header.ejs") %>
+    <div>
+
+        <main>
+            <section>
+                <h2 class="title">
+                    Detalle del Usuario <%= user.id %>: <%= user.user %>
+                </h2>
+
+                <div class="detail-box">
+                    <!-- <div class="row"> -->
+                        <div class="detail-img-description-box">
+                            <img src="/images/users/<%= user.image %>" alt="<%= user.user %>" class="detail-img">
+                            <div class="detail-description user">
+                                <ul class="info-list">
+                                    <h2 class="detail-title">Intereses:</h2>
+                                    <div class="interest">
+                                        <% for (const interes of user.intereses) { %>
+                                            <li>
+                                                <p><%= interes %></p>
+                                            </li>
+                                        <% } %>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="detail-info-box">
+                            <article class="detail-info users">
+                                <h2 class="detail-title">Usuario  -  <%= user.user %></h2>
+                                <br>
+                                <h2 class="detail-title">Nombre: </h2>
+                                <br>
+                                <p class="detail-user">
+                                    <%= user.name %> %>
+                                </p>
+                                <br>
+                                <ul class="info-list">
+                                    <li>
+                                        <i class="fa-solid fa-at"></i>
+                                        <p>Email: <%= user.email %> </p>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        <p>Direccion: <%= user.address %></p>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-calendar-days"></i>
+                                        <p>Fecha de nacimiento: <%= user.bornDate %></p>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-address-card"></i>
+                                        <p>Perfil: <%= user.perfil %></p>
+                                    </li>
+                                </ul>
+
+                                <br>
+                                <br>
+                                <br>
+                                <hr>
+
+                                <div class="button-box">
+                                    <a href="/users/edit/<%= user.id %>" class="description-button edit">EDITAR USUARIO</a>
+                                    <form action="/users/delete/<%= user.id %>" method="get" style="display: inline-flex">
+                                        <button type="submit" class="description-button delete">ELIMINAR</button>
+                                    </form>
+                                </div>
+                            </article>
+                        </div>
+                    <!-- </div> -->
+                </div>
+
+
+        </main>
+    </div>
+    <%- include("./partials/footer.ejs") %>
+
+</body>
+</html>

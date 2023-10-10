@@ -391,6 +391,7 @@ footer section p {
     line-height: 1.2;
     text-align: justify;
 }
+/* .user{padding: 12px;} */
 
 .detail-info-box {
     position: relative;
@@ -407,6 +408,12 @@ footer section p {
     height: 100%;
     position: relative;
 }
+.users{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: stretch;
+}
 
 .detail-title {
     font-weight: 400;
@@ -415,6 +422,11 @@ footer section p {
 
 .detail-price {
     font-size: 40px;
+    margin: 10px 0;
+}
+
+.detail-user {
+    font-size: 45px;
     margin: 10px 0;
 }
 
@@ -431,11 +443,26 @@ footer section p {
     margin-bottom: 50px;
 }
 
+.interest{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.user .info-list{
+    margin-bottom: 0
+}
+
+
 .info-list li {
     display: flex;
     align-items: center;
     margin: 20px 0;
     padding: 20px 0;
+}
+
+.interest  li{
+    padding: 7px;
+    margin: 15px;
 }
 
 .info-list i {

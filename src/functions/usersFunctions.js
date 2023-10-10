@@ -4,7 +4,7 @@ const functions = require('./functions');
 
 const usersFunctions ={
 
-    pathDB: path.join(__dirname, '../data/usersDataBase.json'),
+    pathDB: path.join(__dirname, '../data/usersDataBase1.json'),
 
     allUsers: function()  {
         let users = [];
