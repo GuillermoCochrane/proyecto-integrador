@@ -7,10 +7,15 @@ const productsFunctions ={
     pathDB: path.join(__dirname, '../data/productsDataBase.json'),
 
     allProducts: function()  {
-		return JSON.parse(fs.readFileSync(this.pathDB, 'utf-8'));
+        let products = [];
+        let readProducts = fs.readFileSync(this.pathDB, 'utf-8');
+        if (readProducts != ""){
+            products = JSON.parse(readProducts);
+        };
+        return products;
     },
 
-    filterByID : function(id){
+    filterByID : function(id){        
         let data = this.allProducts();
         return data.filter(product => product.id == id)
     },
@@ -21,13 +26,21 @@ const productsFunctions ={
     },
 
     productsByCategory: function(id){
-        let products = this.filterByKey(id,"category");
+        let lastcategory = functions.allCategories().pop();
+        if (lastcategory.id < id){
+            id = lastcategory.id
+        };
         let categories = functions.allCategories();
+        let products = this.filterByKey(id,"category");
         let category = categories.filter(cat => cat.id == id)[0];
         return { products: products, category: category.category }
     },
 
     productsByStatus:function(id){
+        let lastStatus = functions.allStatus().pop();
+        if(lastStatus.id < id){
+            id = lastStatus.id
+        };
         let products = this.filterByKey(id,"status");
         let status = functions.allStatus();
         let selectedStatus = status.filter(cat => cat.id == id)[0];

@@ -9,6 +9,9 @@ router.get('/', productsController.index)
 router.get("/category",productsController.index)
 router.get("/status",productsController.index)
 
+//product not found
+router.get('/notFound',productsController.productNotFound)
+
 //Product by Category
 router.get("/category/:idCat",productsController.category)
 

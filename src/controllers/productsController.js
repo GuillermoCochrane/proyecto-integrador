@@ -33,18 +33,21 @@ const productsController ={
     },
 
     detail: function(req,res){
-        let product = productsFunctions.filterByKey(req.params.id,"id")[0];
-        
-        if(product){
-            let discountedPrice = (product.price - ((product.price)*(product.discount/100)) )
-            product.finalPrice = Math.round(discountedPrice)
+        let product = productsFunctions.filterByID(req.params.id)[0];
+        if (!product){
+            return res.redirect("/products/notFound")
+        } else {
+            if(product){
+                let discountedPrice = (product.price - ((product.price)*(product.discount/100)) )
+                product.finalPrice = Math.round(discountedPrice)
+            }
+            return res.render("productDetail",{
+                title: product.name,
+                product: product,
+                toThousand: functions.toThousand
+            })
         }
         
-        res.render("productDetail",{
-            title: product.name,
-            product: product,
-            toThousand: functions.toThousand
-        })
     },
 
     create: function(req,res){
@@ -61,13 +64,18 @@ const productsController ={
     },
 
     edit: function(req,res){
-        let product = productsFunctions.filterByKey(req.params.id,"id")[0];
-        res.render("productEditForm",{
-            title: "Editando - " + product.name,
-            status: functions.allStatus(),
-            categories: functions.allCategories(),
-            product: product
-        })
+        let product = productsFunctions.filterByID(req.params.id)[0];
+        if (!product){
+            return res.redirect("/products/notFound")
+        }else{
+            return res.render("productEditForm",{
+                title: "Editando - " + product.name,
+                status: functions.allStatus(),
+                categories: functions.allCategories(),
+                product: product
+            })
+        }
+        
     },
 
     update: function(req,res){
@@ -76,17 +84,28 @@ const productsController ={
     },
 
     delete: function(req,res){
-        let product = productsFunctions.filterByKey(req.params.id,"id")[0];
+        let product = productsFunctions.filterByID(req.params.id)[0];
+        if (!product){
+            return res.redirect("/products/notFound")
+        }else{
         res.render("productConfirmDelete",{
             product: product,
             title: "Eliminando - " + product.name,
-        })
+        })}
     },
 
     destroy: function(req,res){
         productsFunctions.deleteProduct(req.params.id)
 		res.redirect("/");
     },
+
+    productNotFound: function(req, res){
+        return res.render("allProducts",{
+            products: [],
+            title:  "Producto no encontrado" + functions.title,
+            label: "Producto no encontrado", 
+        })
+    }
 
 }
 module.exports = productsController

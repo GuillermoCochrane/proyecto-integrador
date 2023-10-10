@@ -11,7 +11,15 @@ const productsRoutes = require("./src/routes/productsRouter")
 //Settings
 const app = express();
 const port = process.env.PORT || 3003;
-
+/* app.use((req,res,next) =>{
+    res.status(404).res.render('allProducts',{
+        title: "Pagina no encontrada" + functions.title,
+        products: [],
+        label: "Error 404 - Pagina no encontrada",
+        toThousand: functions.toThousand,
+    })
+})
+ */
 app.use(express.static('public'));// Set Static Resources folder
 app.use(express.urlencoded({ extended: false })); // Required for processing POST method information
 app.use(express.json()); // Required for processing POST method information
@@ -28,7 +36,14 @@ app.use('/', mainRoutes);
 app.use("/users", userRoutes);
 app.use("/products", productsRoutes);
 
-//Server Up! 
+app.use((req,res,next) =>{
+    res.status(404).render('allProducts',{
+        title: "Pagina no encontrada",
+        products: [],
+        label: "Error 404 - Pagina no encontrada",
+    })
+})
 
+//Server Up!
 app.listen(port, ()=>{console.log("\n------------------------------------\nLevantando servidor en puerto " + port +  ": \nhttp://localhost:" + port + "\n------------------------------------\n")
 });

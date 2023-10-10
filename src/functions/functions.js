@@ -14,11 +14,21 @@ const functions ={
     },
 
     allCategories: function()  {
-		return JSON.parse(fs.readFileSync(this.pathCategoriesDB, 'utf-8'));
+    let category = [];
+    let readCategory = fs.readFileSync(this.pathCategoriesDB, 'utf-8');
+    if (readCategory != ""){
+      category = JSON.parse(readCategory)
+    };
+    return category;
     },
 
     allStatus: function()  {
-		return JSON.parse(fs.readFileSync(this.pathStatusDB, 'utf-8'));
+      let status = []
+      let readStatus = fs.readFileSync(this.pathStatusDB, 'utf-8');
+      if(readStatus != ""){
+        status = JSON.parse(readStatus)
+      }
+		return status
     },
 
 }
