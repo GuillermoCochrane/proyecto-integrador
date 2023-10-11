@@ -242,6 +242,7 @@ main section article i.article  {
     display: none;
     margin-left: 5px;
     transition: 450ms;
+    overflow: scroll;
 }
 
 /* FOOTER */
@@ -288,10 +289,14 @@ footer section p {
 .form-frame {
     margin: auto;
     margin-top: 20px;
-    padding: 10px 15px;
-    width: 70%;
+    padding: 10px 16px;
+    width: 80%;
     background-color: #c8c8c8;
     font-size: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: top;
 }
 
 .login-form {
@@ -301,7 +306,9 @@ footer section p {
 
 .login-item,
 .form-item {
-    margin: 5px 0;
+    margin: 5px 0px;
+    padding: 3px 0px;
+    width: 100%;
 }
 
 .login-item label,
@@ -731,6 +738,7 @@ textarea.form-input {
 
     .form-frame {
         width: 45%;
+        justify-content: space-between;
     }
 
     .detail-description {
@@ -806,12 +814,9 @@ textarea.form-input {
         font-size: 20px;
     }
 
-
     .main-border {
         margin-top: 186px;
     }
-
-
 
     .article-box {
         flex: 0 0 25%;
@@ -830,6 +835,18 @@ textarea.form-input {
         font-size: 18px;
     }
 
+    .form-item{
+        max-width: 45%;
+        flex: 0 0 45%;
+    }
+
+    .big-box{
+        position: relative;
+        width: 100%;
+        flex: 0 0 100%;
+        max-width: 100%
+    }
+
     .login-form {
         margin: 95px auto;
     }
@@ -837,10 +854,6 @@ textarea.form-input {
     .footer-box {
         display: flex;
         flex-wrap: nowrap;
-    }
-
-    .form-frame {
-        width: 25%;
     }
 
     .detail-img-description-box {

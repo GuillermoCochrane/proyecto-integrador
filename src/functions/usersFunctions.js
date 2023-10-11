@@ -6,6 +6,8 @@ const usersFunctions ={
 
     pathDB: path.join(__dirname, '../data/usersDataBase1.json'),
 
+    pathProfile: path.join(__dirname,"../data/profileDataBase.json"),
+
     allUsers: function()  {
         let users = [];
         let readUsers = fs.readFileSync(this.pathDB, 'utf-8');
@@ -13,6 +15,15 @@ const usersFunctions ={
             users = JSON.parse(readUsers);
         };
         return users;
+    },
+
+    profiles: function()  {
+        let profiles = [];
+        let readProfiles = fs.readFileSync(this.pathProfile, 'utf-8');
+        if (readProfiles != ""){
+            profiles = JSON.parse(readProfiles);
+        };
+        return profiles;
     },
 
     filterByID : function(id){        

@@ -12,6 +12,7 @@ router.get('/login', userController.login);
 
 //User Register
 router.get('/register', userController.register);
+router.post("/register", userController.store);
 
 //User detailed info
 router.get("/:id", userController.detail)

@@ -1,0 +1,92 @@
+<%- include("./partials/head.ejs") %>
+<body class="register-form">
+    
+    <%- include("./partials/header.ejs") %>
+
+    <div class="main-border-form">
+        <main>
+
+            <form action="/register" method="post" class="form-frame">
+                
+                <div class="form-item big-box">
+                    <label for="name">Nombre y apellido</label>
+                    <input class="form-field" type="text" id="name" name="name" required minlength="3" maxlength="30" placeholder="Tony Stark">
+                </div>
+
+                <div class="form-item">
+                    <label for="username">Nombre de usuari@</label>
+                    <input class="form-field" type="text" id="username" name="username" required minlength="3" maxlength="15" placeholder="IronMan">
+                </div>
+
+                <div class="form-item">
+                    <label for="email">E-Mail</label>
+                    <input class="form-field" type="text" id="email" name="email" required minlength="3" maxlength="15" placeholder="IronMan">
+                </div>
+
+                <div class="form-item">
+                    <label for="phone">Teléfono</label>
+                    <input class="form-field" type="number" id="phone" name="phone" required minlength="3" maxlength="15" placeholder="IronMan">
+                </div>
+
+                <div class="form-item">
+                    <label for="address">Domicilio</label>
+                    <input class="form-field" type="text" id="address" name="address" placeholder="Calle Falsa 123">
+                </div>
+
+                <div class="form-item">
+                    <label for="borndate">Fecha de nacimiento</label>
+                    <input class="form-field" type="date" id="borndate" name="borndate" required>
+                </div>
+
+                <div class="form-item">
+                    <label for="photo">Foto de usuario</label>
+                    <input class="form-field" type="file" type=".jpg,.png,.bmp" id="photo" name="photo">
+                </div>
+
+
+                <div class="form-item">
+                    <label >Categorías de interés</label>
+                    <% for (const category of categories) { %>
+                        <div class="form-radio">
+                            <input  type="checkbox" name="categories" value="<%= category.id %>" id="<%= category.category %>">
+                            <label for="<%= category.category %>"><%= category.category %></label>
+                        </div>
+                    <% } %>
+                </div>
+
+                
+
+                <div class="form-item">
+                    <label>Perfil del usuario</label>
+                    <% for (const profile of profiles) { %>
+                        <div class="form-radio">
+                            <input  type="radio" id="<%= profile.profile %>" name="profile" value="<%= profile.id %>" <%= profile.id == 1 ? "checked" : null %>>
+
+                            <label for="<%= profile.profile %>"><%= profile.profile %></label>
+                        </div>
+                    <% } %>
+                </div>
+
+                <div class="form-item">
+                    <label for="password">Contraseña</label>
+                    <input class="form-field" type="password" id="password" name="password" required minlength="8" maxlength="16">
+                </div>
+
+                <div class="form-item">
+                    <label for="confirm">Confirmar contraseña</label>
+                    <input class="form-field" type="password" id="confirm" name="confirm"required minlength="8" maxlength="16">
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit">Enviar</button>
+                    <button type="reset">Borrar</button>
+                </div>
+            </form>
+
+        </main>
+    </div>
+
+    <%- include("./partials/footer.ejs") %>
+
+</body>
+</html>

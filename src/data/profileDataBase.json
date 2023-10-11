@@ -1,0 +1,14 @@
+[
+    {
+        "id":   1,
+        "profile":  "Comprador"
+    },
+    {
+        "id":   2,
+        "profile":  "Vendedor"
+    },
+    {
+        "id":   3,
+        "profile":  "Administrador"
+    }
+]

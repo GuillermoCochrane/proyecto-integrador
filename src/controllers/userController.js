@@ -30,11 +30,24 @@ const userController = {
     },
 
     register: function(req, res){
-        res.render("register",{
-            title: "Registrate" + " - Mercado Liebre",
+        let profiles = usersFunctions.profiles()
+        profiles.pop()
+        res.render("userRegister",{
+            title: "Registrate" + functions.title,
+            categories: functions.allCategories(),
+            profiles: profiles
         })
     },
 
+    store:  function(req, res){
+
+    },
+    
+
+    /* store: function(req,res){
+        let id = productsFunctions.newProduct(req.body)
+		res.redirect("/products/" + id)
+    }, */
 
 }
 module.exports = userController
