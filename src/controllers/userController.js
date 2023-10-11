@@ -4,7 +4,7 @@ const usersFunctions = require("../functions/usersFunctions")
 const userController = {
 
     index: function(req,res){
-        res.render("allusers",{
+        res.render("allUsers",{
             title: "Todos los usuarios" + functions.title,
             users: usersFunctions.allUsers(),
             label: "Todos los usuarios",
