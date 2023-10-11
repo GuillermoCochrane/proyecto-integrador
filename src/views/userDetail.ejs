@@ -7,20 +7,22 @@
         <main>
             <section>
                 <h2 class="title">
-                    Detalle del Usuario <%= user.id %>: <%= user.user %>
+                    Detalle del Usuario <%= user.id %>: <%= user.username %>
                 </h2>
 
                 <div class="detail-box">
                     <!-- <div class="row"> -->
                         <div class="detail-img-description-box">
-                            <img src="/images/users/<%= user.image %>" alt="<%= user.user %>" class="detail-img">
+                            <img src="/images/users/<%= user.photo %>" alt="<%= user.username %>" class="detail-img">
                             <div class="detail-description user">
                                 <ul class="info-list">
                                     <h2 class="detail-title">Intereses:</h2>
                                     <div class="interest">
-                                        <% for (const interes of user.intereses) { %>
+                                        <% for (const interes of user.categories) { %>
                                             <li>
-                                                <p><%= interes %></p>
+                                                <% for (const category of categories) {%>
+                                                    <%= category.id == interes ? category.category : null  %> 
+                                                <% } %>
                                             </li>
                                         <% } %>
                                     </div>
@@ -29,7 +31,7 @@
                         </div>
                         <div class="detail-info-box">
                             <article class="detail-info users">
-                                <h2 class="detail-title">Usuario  -  <%= user.user %></h2>
+                                <h2 class="detail-title">Usuario  -  <%= user.username %></h2>
                                 <br>
                                 <h2 class="detail-title">Nombre: </h2>
                                 <br>
@@ -48,11 +50,14 @@
                                     </li>
                                     <li>
                                         <i class="fa-solid fa-calendar-days"></i>
-                                        <p>Fecha de nacimiento: <%= user.bornDate %></p>
+                                        <p>Fecha de nacimiento: <%= user.borndate %></p>
                                     </li>
                                     <li>
                                         <i class="fa-solid fa-address-card"></i>
-                                        <p>Perfil: <%= user.perfil %></p>
+                                        <p>Perfil: <% for (const profile of profiles) {%>
+                                                        <%= profile.id == user.profile ? profile.profile : null  %> 
+                                                    <% } %>
+                                    </p>
                                     </li>
                                 </ul>
 

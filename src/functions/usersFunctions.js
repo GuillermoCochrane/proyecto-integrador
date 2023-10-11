@@ -4,7 +4,7 @@ const functions = require('./functions');
 
 const usersFunctions ={
 
-    pathDB: path.join(__dirname, '../data/usersDataBase1.json'),
+    pathDB: path.join(__dirname, '../data/usersDataBase.json'),
 
     pathProfile: path.join(__dirname,"../data/profileDataBase.json"),
 
@@ -50,10 +50,26 @@ const usersFunctions ={
     },
 
     newUser: function(data){
+        let categories =[];
+        if( typeof data.categories == "string" ){
+            categories.push(parseInt(data.categories))
+        }else if(typeof data.categories == "object"){
+            for (const category of data.categories) {
+                categories.push(parseInt(category))
+            }
+        };
         let newUser = {
 			id: 			this.newId(),
-			name: 			data.name,
-			image: 			"default-image.png"
+            name:           data.name,
+			username: 		data.username,
+            email: 			data.email,
+            phone: 			parseInt(data.phone),
+            address: 		data.address,
+            borndate: 		data.borndate,
+            photo: 			"default.png",
+            categories: 	categories,
+            profile: 		parseInt(data.profile),
+            password:       data.password,
 		};
         let users = this.allUsers();
         users.push(newUser);

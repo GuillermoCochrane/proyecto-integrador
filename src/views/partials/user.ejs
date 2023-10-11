@@ -2,12 +2,12 @@
     <article class="main-article">
         <a href="/users/<%= user.id %>">
             <figure class="img-article">
-                <img src="/images/users/<%= user.image %>"  alt="<%= user.user %>">
+                <img src="/images/users/<%= user.photo %>"  alt="<%= user.username %>">
             </figure>
             <div class="info-article-box">
                 <div class="info-article">
                     <i class="fa-solid fa-circle-user article"></i>
-                    <p class="price"><%= user.user %></p>
+                    <p class="price"><%= user.username %></p>
                     <p class="discount"><%= user.name %></p>
                 </div>
                 <h3 class="description"><%= user.email %></h3>

@@ -242,7 +242,8 @@ main section article i.article  {
     display: none;
     margin-left: 5px;
     transition: 450ms;
-    overflow: scroll;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* FOOTER */

@@ -25,6 +25,8 @@ const userController = {
             return res.render("userDetail",{
                 title: user.name,
                 user: user,
+                profiles: usersFunctions.profiles(),
+                categories: functions.allCategories()
             })
         }
     },
@@ -40,14 +42,9 @@ const userController = {
     },
 
     store:  function(req, res){
-
+        let id = usersFunctions.newUser(req.body)
+        res.redirect("/users/"+id)
     },
-    
-
-    /* store: function(req,res){
-        let id = productsFunctions.newProduct(req.body)
-		res.redirect("/products/" + id)
-    }, */
 
 }
 module.exports = userController
