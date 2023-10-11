@@ -14,6 +14,10 @@ router.get('/login', userController.login);
 router.get('/register', userController.register);
 router.post("/register", userController.store);
 
+//Edit User
+router.get('/edit/:id', userController.edit); 
+router.put('/edit/:id', userController.update); 
+
 //User detailed info
 router.get("/:id", userController.detail)
 

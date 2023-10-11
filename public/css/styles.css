@@ -9,7 +9,10 @@ body {
     font-family: 'roboto', Arial, Helvetica, sans-serif;
     font-size: 12px;
     color: #03264C;
-    min-height: 100vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* HEADER */
@@ -138,7 +141,7 @@ header.fixed{
 
 main {
     margin: auto;
-    width: 90%
+    width: 90%;
 }
 
 .title {
@@ -849,7 +852,7 @@ textarea.form-input {
     }
 
     .login-form {
-        margin: 95px auto;
+        margin: 60px auto;
     }
 
     .footer-box {

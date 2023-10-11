@@ -46,5 +46,23 @@ const userController = {
         res.redirect("/users/"+id)
     },
 
+    edit: function(req,res){
+        let user = usersFunctions.filterByID(req.params.id)[0];
+        if (!user){
+            return res.redirect("/products/notFound")
+        }else{
+            let profiles = usersFunctions.profiles()
+            profiles.pop()
+            return res.render("userEdit",{
+                title: "Editando usuario:" + user.username + functions.title,
+                categories: functions.allCategories(),
+                profiles: profiles,
+                user: user
+            })
+        }
+    },
+
+    update: function(){},
+
 }
 module.exports = userController

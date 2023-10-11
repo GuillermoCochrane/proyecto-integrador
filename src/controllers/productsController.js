@@ -74,7 +74,6 @@ const productsController ={
                 product: product
             })
         }
-        
     },
 
     update: function(req,res){
