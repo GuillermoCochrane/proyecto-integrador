@@ -79,7 +79,10 @@
         <input class="form-field" type="password" id="confirm" name="confirm" minlength="8" maxlength="16" <%= !locals.user  ? "required" : null %>>
     </div>
 
+    <span class="form-item big-box error"><%= locals.passwordError ? passwordError: null %></span>
+
     <div class="form-buttons">
         <button type="submit">Enviar</button>
         <button type="reset">Borrar</button>
     </div>
+    <span class="form-item big-box"></span>

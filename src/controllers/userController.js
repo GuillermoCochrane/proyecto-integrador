@@ -50,6 +50,17 @@ const userController = {
     },
 
     store:  function(req, res){
+        if(req.body.password != req.body.confirm){
+            let profiles = usersFunctions.profiles()
+            profiles.pop()
+            return  res.render("userRegister",{
+                title: "Registrate" + functions.title,
+                categories: functions.allCategories(),
+                profiles: profiles,
+                passwordError: "Las contraseñas no coinciden",
+                user: req.body
+            })
+        }
         let id = usersFunctions.newUser(req.body)
         res.redirect("/users/"+id)
     },
@@ -71,6 +82,17 @@ const userController = {
     },
 
     update: function(req, res){
+        if(req.body.password != req.body.confirm){
+            let profiles = usersFunctions.profiles()
+            profiles.pop()
+            return  res.render("userRegister",{
+                title: "Registrate" + functions.title,
+                categories: functions.allCategories(),
+                profiles: profiles,
+                passwordError: "Las contraseñas no coinciden",
+                user: req.body
+            })
+        }
         let id = usersFunctions.editUser(req.params.id, req.body);
         res.redirect("/users/"+id)
     },

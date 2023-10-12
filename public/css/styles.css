@@ -851,6 +851,14 @@ textarea.form-input {
         max-width: 100%
     }
 
+    .error{
+        color: tomato;
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 11px;
+        text-align: center;
+    }
+
     .login-form {
         margin: 60px auto;
     }
