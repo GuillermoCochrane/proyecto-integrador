@@ -62,7 +62,10 @@ const userController = {
         }
     },
 
-    update: function(){},
+    update: function(req, res){
+        let id = usersFunctions.editUser(req.params.id, req.body);
+        res.redirect("/users/"+id)
+    },
 
 }
 module.exports = userController
