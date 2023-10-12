@@ -7,6 +7,9 @@ const userController = require('../controllers/userController');
 //All Users
 router.get('/',userController.index);
 
+//product not found
+router.get('/notFound',userController.userNotFound)
+
 //User Login
 router.get('/login', userController.login);
 

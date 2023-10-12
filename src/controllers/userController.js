@@ -17,10 +17,18 @@ const userController = {
         })
     },
 
+    userNotFound: function(req,res){
+        return res.render("allProducts",{
+            products: [],
+            title:  "Usuario no encontrado" + functions.title,
+            label: "Usuario no encontrado", 
+        })
+    },
+
     detail: function(req,res){
         let user = usersFunctions.filterByID(req.params.id)[0];
         if (!user){
-            return res.redirect("/products/notFound")
+            return res.redirect("/users/notFound")
         } else {
             return res.render("userDetail",{
                 title: user.name,
@@ -49,7 +57,7 @@ const userController = {
     edit: function(req,res){
         let user = usersFunctions.filterByID(req.params.id)[0];
         if (!user){
-            return res.redirect("/products/notFound")
+            return res.redirect("/users/notFound")
         }else{
             let profiles = usersFunctions.profiles()
             profiles.pop()
