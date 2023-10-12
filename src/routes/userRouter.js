@@ -21,6 +21,10 @@ router.post("/register", userController.store);
 router.get('/edit/:id', userController.edit); 
 router.put('/edit/:id', userController.update); 
 
+//Delete User
+router.get('/delete/:id', userController.delete);
+router.delete('/delete/:id', userController.destroy)
+
 //User detailed info
 router.get("/:id", userController.detail)
 

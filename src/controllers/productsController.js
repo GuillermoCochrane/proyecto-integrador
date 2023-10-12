@@ -86,9 +86,11 @@ const productsController ={
         if (!product){
             return res.redirect("/products/notFound")
         }else{
-        res.render("productConfirmDelete",{
+        res.render("confirmDelete",{
             product: product,
             title: "Eliminando - " + product.name,
+            label: "Producto",
+            path: "products",
         })}
     },
 
@@ -101,9 +103,8 @@ const productsController ={
         return res.render("allProducts",{
             products: [],
             title:  "Producto no encontrado" + functions.title,
-            label: "Producto no encontrado", 
+            label: "Producto no encontrado",
         })
     }
-
 }
 module.exports = productsController

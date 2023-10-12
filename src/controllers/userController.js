@@ -75,5 +75,28 @@ const userController = {
         res.redirect("/users/"+id)
     },
 
+    delete: function(req,res){
+        let user = usersFunctions.filterByID(req.params.id)[0];
+        if(!user){
+            return res.redirect("/users/notFound");
+        }else{
+            let product = {
+                id: user.id,
+                name: user.username,
+            };
+            return res.render("confirmDelete",{
+                product: product,
+                title: "Eliminando - " + product.name,
+                label: "Usuario",
+                path: "users"
+            });
+        };
+    },
+
+    destroy: function(req,res){
+        usersFunctions.deleteUser(req.params.id);
+		res.redirect("/");
+    }
+
 }
 module.exports = userController

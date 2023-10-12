@@ -9,24 +9,24 @@
 		<section class="delete-product">
 			
 			<h2 class="title">
-				Eliminación de Producto
+				Eliminación de <%= label %>
 			</h2>
 
 			<div class="form-box-delete">
 				<div class="form-content-box-delete">
 
 					<h2 class="form-big-box-delete">
-						¿Confirma eliminar el producto <%= product.id %> - <%= product.name %>?
+						¿Confirma eliminar el <%= label %> <%= product.id %> - <%= product.name %>?
 					</h2>
 
 					<div class="form-delete-box">
-						<form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST">
-							<button type="submit" class="save-button-delete">Eliminar producto</button>
+						<form action="/<%= path %>/delete/<%= product.id %>?_method=DELETE" method="POST">
+							<button type="submit" class="save-button-delete">Eliminar <%= label %></button>
 						</form>
 					</div>
 
 					<div class="form-delete-box">
-						<form action="/products/<%= product.id %>" method="">
+						<form action="/<%= path %>/<%= product.id %>" method="get">
 							<button type="submit" class="save-button-delete">Cancelar</button>
 						</form>
 					</div>
