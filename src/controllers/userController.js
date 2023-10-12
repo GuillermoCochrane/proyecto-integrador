@@ -13,8 +13,30 @@ const userController = {
 
     login: function(req,res){
         res.render("login",{
-            title: "Login" + " - Mercado Liebre",
+            title: "Login" + functions.title,
         })
+    },
+
+    processLogin: function(req,res){
+        let users = usersFunctions.allUsers();
+        let password = req.body.password;
+        let user = users.filter( user => user.username.toUpperCase() == req.body.username.toUpperCase())[0]
+        if (user){
+            if (user.password == req.body.password){
+                return res.redirect("/users/" + user.id)
+            }
+            let error = "Contraseña Incorrecta";
+            return res.render("login",{
+                title: error + functions.title,
+                error: error,
+                old: user.username,
+            })
+        }
+        let error = "Usuario Incorrecto";
+            return res.render("login",{
+                title: error + functions.title,
+                error: error
+            })
     },
 
     userNotFound: function(req,res){

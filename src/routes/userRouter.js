@@ -12,6 +12,7 @@ router.get('/notFound',userController.userNotFound)
 
 //User Login
 router.get('/login', userController.login);
+router.post('/login', userController.processLogin)
 
 //User Register
 router.get('/register', userController.register);
