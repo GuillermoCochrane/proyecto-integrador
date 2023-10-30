@@ -5,7 +5,7 @@
 
 <div class="form-input-label-box">
     <label for="img" class="form-label">Imagen del producto:</label>
-    <input type="file" id="img" name="img" class="form-input" value="" type=".jpg,.png,.bmp">
+    <input type="file" id="img" name="img" class="form-input" value="" type=".jpg,.png,.bmp,.gif">
 </div>
 
 <div class="form-input-label-box">
@@ -30,12 +30,12 @@
 
 <div class="form-input-label-box">
     <label for="price" class="form-label">Precio del producto:</label>
-    <input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input" value="<%= locals.product ? product.price : null %>" >
+    <input type="number" id="price" name="price" placeholder="Ej: 5678" class="form-input" value="<%= locals.product ? product.price : null %>" >
 </div>
 
 <div class="form-input-label-box">
     <label for="discount" class="form-label">Descuento:</label>
-    <input type="text" id="discount" name="discount" placeholder="Ej: 15" class="form-input" value="<%= locals.product ? product.discount : null %>">
+    <input type="number" id="discount" name="discount" placeholder="Ej: 15" class="form-input" value="<%= locals.product ? product.discount : null %>">
 </div>
 
 <div class="form-big-box">

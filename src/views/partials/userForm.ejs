@@ -15,7 +15,7 @@
 
     <div class="form-item">
         <label for="phone">Teléfono</label>
-        <input class="form-field" type="number" id="phone" name="phone" required minlength="3" maxlength="15" placeholder="6594520439" value="<%= locals.user ? user.phone : null %>" >
+        <input class="form-field" type="tel" id="phone" name="phone" required minlength="3" maxlength="15" placeholder="6594520439" value="<%= locals.user ? user.phone : null %>" >
     </div>
 
     <div class="form-item">
@@ -30,7 +30,7 @@
 
     <div class="form-item">
         <label for="photo">Foto de usuario</label>
-        <input class="form-field" type="file" type=".jpg,.png,.bmp" id="photo" name="photo">
+        <input class="form-field" type="file" type=".jpg,.png,.bmp,.gif" id="photo" name="photo">
     </div>
 
 
@@ -79,7 +79,7 @@
         <input class="form-field" type="password" id="confirm" name="confirm" minlength="8" maxlength="16" <%= !locals.user  ? "required" : null %>>
     </div>
 
-    <span class="form-item big-box error"><%= locals.passwordError ? passwordError: null %></span>
+    <span class="form-item big-box error"><%= locals.passwordError ? passwordError : null %></span>
 
     <div class="form-buttons">
         <button type="submit">Enviar</button>

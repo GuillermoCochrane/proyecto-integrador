@@ -13,7 +13,7 @@
 			</h2>
 
 			<div class="form-box">
-				<form action="/products/edit/<%= product.id %>?_method=PUT" method="post">
+				<form action="/products/edit/<%= product.id %>?_method=PUT" method="post" enctype="multipart/form-data">
 					<div class="form-content-box">
 						
 						<%- include("partials/productForm.ejs") %>

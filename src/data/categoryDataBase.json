@@ -1,11 +1,11 @@
 [
     {
         "id":   1,
-        "category":  "Electro"
+        "category":  "PC & Notebooks"
     },
     {
         "id":   2,
-        "category":  "Deportes"
+        "category":  "Celulares y accesorios"
     },
     {
         "id":   3,
@@ -13,6 +13,10 @@
     },
     {
         "id":   4,
-        "category":  "Juguetes"
+        "category":  "Audio & Video"
+    },
+    {
+        "id":   5,
+        "category":  "Actividades al Aire Libre"
     }
 ]
