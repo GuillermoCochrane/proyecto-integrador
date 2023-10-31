@@ -31,6 +31,24 @@ const functions ={
 		return status
     },
 
+    productFormData: function(title, product){
+      let data = {
+        title: title + this.title,
+        status: this.allStatus(),
+        categories: this.allCategories(),
+        product: product,
+      };      
+      return data
+    },
+
+    extValidator: function(file){
+      let ext = path.extname(file.originalname);
+      if (ext != ".jpg" && ext != ".png" && ext != ".bmp" && ext != ".gif" ){
+        return true
+      } else {
+        return false
+      }
+    },
 }
 
 module.exports = functions
