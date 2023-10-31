@@ -1,6 +1,5 @@
 const productsFunctions = require("../functions/productsFunctions")
 const functions = require("../functions/functions")
-/* const path = require('path'); */
 
 const productsController ={
 
@@ -61,14 +60,12 @@ const productsController ={
     store: function(req,res){
         let file = req.file;
         if (file){
-            /* let ext = path.extname(file.originalname);
-            if (ext != ".jpg" && ext != ".png" && ext != ".bmp" && ext != ".gif" ) */
             if(functions.extValidator(file)){
                 let old = functions.productFormData("Crear Producto",req.body)
                 old.error = "El formato del archivo es incompatible" 
                 res.render('productCreateForm',old)
             }
-            let id = productsFunctions.newProduct(req.body);
+            let id = productsFunctions.newProduct(req.body, file);
             res.redirect("/products/" + id);
         } else {
             let old = functions.productFormData("Crear Producto",req.body)

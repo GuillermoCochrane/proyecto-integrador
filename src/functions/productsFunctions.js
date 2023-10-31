@@ -73,7 +73,7 @@ const productsFunctions ={
         return true
     },
 
-    newProduct: function(data){
+    newProduct: function(data,file){
         let newProduct = {
 			id: 			this.newId(),
 			name: 			data.name,
@@ -82,7 +82,7 @@ const productsFunctions ={
             status: 		parseInt(data.status),
 			category: 		parseInt(data.category),
 			description: 	data.description,
-			image: 			"default-image.png"
+			image: 			file.filename
 		};
         let products = this.allProducts();
         products.push(newProduct);
