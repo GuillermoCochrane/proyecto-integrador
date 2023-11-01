@@ -6,7 +6,7 @@
     <div class="main-border-form">
         <main>
 
-            <form action="/users/edit/<%= user.id %>?_method=PUT" method="post" class="form-frame">
+            <form action="/users/edit/<%= user.id %>?_method=PUT" method="post" class="form-frame" enctype="multipart/form-data">
                 
                 <%- include("./partials/userForm.ejs") %>
                 
