@@ -51,6 +51,16 @@ const functions ={
       return data
     },
 
+    userFormData: function(title, user, profiles){
+      let data = {
+        title: title + this.title,
+        categories: this.allCategories(),
+        profiles: profiles,
+        user: user
+      };
+      return data
+    },
+
     extValidator: function(file){
       let ext = path.extname(file.originalname);
       if (ext != ".jpg" && ext != ".png" && ext != ".bmp" && ext != ".gif" ){

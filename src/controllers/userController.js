@@ -72,19 +72,24 @@ const userController = {
     },
 
     store:  function(req, res){
-        if(req.body.password != req.body.confirm){
-            let profiles = usersFunctions.profiles()
-            profiles.pop()
-            return  res.render("userRegister",{
-                title: "Registrate" + functions.title,
-                categories: functions.allCategories(),
-                profiles: profiles,
-                passwordError: "Las contraseñas no coinciden",
-                user: req.body
-            })
+        let file = req.file;
+        let profiles = usersFunctions.profiles()
+        profiles.pop()
+        let old = functions.userFormData("Registrate", req.body, profiles) 
+        if (file){
+            if(functions.extValidator(file)){
+                old.error = "El formato del archivo es incompatible";
+                return res.render('userRegister',old)
+            }
+            if(req.body.password != req.body.confirm){
+                old.passwordError = "Las contraseñas no coinciden";
+                return  res.render("userRegister", old)
+            }
+            let id = usersFunctions.newUser(req.body,file);
+            return res.redirect("/users/"+id)
         }
-        let id = usersFunctions.newUser(req.body)
-        res.redirect("/users/"+id)
+        old.error = "Hubo un problema en la carga de la imagen";
+        return res.render(res.render('userRegister',old))
     },
 
     edit: function(req,res){
@@ -129,7 +134,7 @@ const userController = {
                 name: user.username,
             };
             return res.render("confirmDelete",{
-                product: product,
+                products: product,
                 title: "Eliminando - " + product.name,
                 label: "Usuario",
                 path: "users"
