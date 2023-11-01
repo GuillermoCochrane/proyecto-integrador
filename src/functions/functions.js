@@ -17,16 +17,16 @@ const functions ={
     let category = [];
     let readCategory = fs.readFileSync(this.pathCategoriesDB, 'utf-8');
     if (readCategory != ""){
-      category = JSON.parse(readCategory)
+      category = JSON.parse(readCategory);
     };
     return category;
     },
 
     allStatus: function()  {
-      let status = []
+      let status = [];
       let readStatus = fs.readFileSync(this.pathStatusDB, 'utf-8');
       if(readStatus != ""){
-        status = JSON.parse(readStatus)
+        status = JSON.parse(readStatus);
       }
 		return status
     },
@@ -49,6 +49,12 @@ const functions ={
         return false
       }
     },
+
+    finalPrice: function(product){
+      let discountedPrice = (product.price - ((product.price)*(product.discount/100)) );
+      let price = Math.round(discountedPrice);
+      return price
+    }
 }
 
 module.exports = functions

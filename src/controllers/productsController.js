@@ -1,5 +1,5 @@
-const productsFunctions = require("../functions/productsFunctions")
-const functions = require("../functions/functions")
+const productsFunctions = require("../functions/productsFunctions");
+const functions = require("../functions/functions");
 
 const productsController ={
 
@@ -23,7 +23,7 @@ const productsController ={
     },
 
     status: function(req,res){
-        let data = productsFunctions.productsByStatus(req.params.idStatus)
+        let data = productsFunctions.productsByStatus(req.params.idStatus);
         res.render("allProducts",{
             products: data.products,
             title:  "Productos: " + data.status + functions.title,
@@ -38,8 +38,7 @@ const productsController ={
             return res.redirect("/products/notFound")
         } else {
             if(product){
-                let discountedPrice = (product.price - ((product.price)*(product.discount/100)) )
-                product.finalPrice = Math.round(discountedPrice)
+                product.finalPrice =  functions.finalPrice(product);
             }
             return res.render("productDetail",{
                 title: product.name,
@@ -61,15 +60,15 @@ const productsController ={
         let file = req.file;
         if (file){
             if(functions.extValidator(file)){
-                let old = functions.productFormData("Crear Producto",req.body)
-                old.error = "El formato del archivo es incompatible" 
+                let old = functions.productFormData("Crear Producto",req.body);
+                old.error = "El formato del archivo es incompatible";
                 res.render('productCreateForm',old)
             }
             let id = productsFunctions.newProduct(req.body, file);
             res.redirect("/products/" + id);
         } else {
-            let old = functions.productFormData("Crear Producto",req.body)
-            old.error = "Hubo un problema en la carga de la imagen"
+            let old = functions.productFormData("Crear Producto",req.body);
+            old.error = "Hubo un problema en la carga de la imagen";
             res.render(res.render('productCreateForm',old))
         }
     },
@@ -89,7 +88,7 @@ const productsController ={
     },
 
     update: function(req,res){
-        let id = productsFunctions.editProduct(req.params.id, req.body)
+        let id = productsFunctions.editProduct(req.params.id, req.body);
 		res.redirect("/products/" + id)
     },
 
@@ -107,7 +106,7 @@ const productsController ={
     },
 
     destroy: function(req,res){
-        productsFunctions.deleteProduct(req.params.id)
+        productsFunctions.deleteProduct(req.params.id);
 		res.redirect("/");
     },
 
