@@ -90,7 +90,7 @@ const productsFunctions ={
         return newProduct.id
     },
 
-    editProduct: function(id,data){
+    editProduct: function(id,data, file){
         let products = this.allProducts();
         for (const product of products) {
 			if(product.id == id){
@@ -100,6 +100,7 @@ const productsFunctions ={
 				product.category =      data.category
 				product.status =        data.status
                 product.description =   data.description
+                product.image =         file.filename
             };
         };
         this.store(products);
