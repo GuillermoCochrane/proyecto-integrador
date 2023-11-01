@@ -41,6 +41,16 @@ const functions ={
       return data
     },
 
+    productData: function(title, products, label ){
+      let data = {
+        title: title + this.title,
+        products: products,
+        label: label,
+        toThousand: this.toThousand,
+      };
+      return data
+    },
+
     extValidator: function(file){
       let ext = path.extname(file.originalname);
       if (ext != ".jpg" && ext != ".png" && ext != ".bmp" && ext != ".gif" ){

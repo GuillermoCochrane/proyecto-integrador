@@ -4,32 +4,21 @@ const functions = require("../functions/functions");
 const productsController ={
 
     index: function(req,res){
-        res.render("allProducts",{
-            title: "Todos los productos" + functions.title,
-            products: productsFunctions.allProducts(),
-            label: "Todos los productos",
-            toThousand: functions.toThousand,
-        })
+        let title = "Todos los productos";
+        let products = productsFunctions.allProducts();
+        res.render("allProducts", functions.productData(title, products, title));
     },
     
     category: function(req,res){
         let data = productsFunctions.productsByCategory(req.params.idCat);
-        res.render("allProducts",{
-            products: data.products,
-            title:  "Productos: " + data.category + functions.title,
-            label: "Productos: " + data.category,
-            toThousand: functions.toThousand,
-        })
+        let title = "Productos: " + data.category
+        res.render("allProducts", functions.productData(title, data.products, title));
     },
 
     status: function(req,res){
         let data = productsFunctions.productsByStatus(req.params.idStatus);
-        res.render("allProducts",{
-            products: data.products,
-            title:  "Productos: " + data.status + functions.title,
-            label: "Productos: " + data.status,
-            toThousand: functions.toThousand,
-        })
+        let title = "Productos: " + data.status;
+        res.render("allProducts",functions.productData(title, data.products, title));
     },
 
     detail: function(req,res){
@@ -99,15 +88,14 @@ const productsController ={
 
     delete: function(req,res){
         let product = productsFunctions.filterByID(req.params.id)[0];
+        let title = "Eliminando - " + product.name;
+        let info = functions.productData(title, product, "Producto");
+        info.path = "products"
         if (!product){
             return res.redirect("/products/notFound")
         }else{
-        res.render("confirmDelete",{
-            product: product,
-            title: "Eliminando - " + product.name,
-            label: "Producto",
-            path: "products",
-        })}
+            res.render("confirmDelete", info);
+        }
     },
 
     destroy: function(req,res){
@@ -116,11 +104,8 @@ const productsController ={
     },
 
     productNotFound: function(req, res){
-        return res.render("allProducts",{
-            products: [],
-            title:  "Producto no encontrado" + functions.title,
-            label: "Producto no encontrado",
-        })
+        let title = "Producto no encontrado";
+        return res.render("allProducts",functions.productData(title, [], title))
     }
 }
 module.exports = productsController

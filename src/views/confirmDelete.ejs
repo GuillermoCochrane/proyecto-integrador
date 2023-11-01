@@ -16,17 +16,17 @@
 				<div class="form-content-box-delete">
 
 					<h2 class="form-big-box-delete">
-						¿Confirma eliminar el <%= label %> <%= product.id %> - <%= product.name %>?
+						¿Confirma eliminar el <%= label %> <%= products.id %> - <%= products.name %>?
 					</h2>
 
 					<div class="form-delete-box">
-						<form action="/<%= path %>/delete/<%= product.id %>?_method=DELETE" method="POST">
+						<form action="/<%= path %>/delete/<%= products.id %>?_method=DELETE" method="POST">
 							<button type="submit" class="save-button-delete">Eliminar <%= label %></button>
 						</form>
 					</div>
 
 					<div class="form-delete-box">
-						<form action="/<%= path %>/<%= product.id %>" method="get">
+						<form action="/<%= path %>/<%= products.id %>" method="get">
 							<button type="submit" class="save-button-delete">Cancelar</button>
 						</form>
 					</div>
@@ -36,8 +36,6 @@
 			
 		</section>
 	</main>
-	<!-- /todos los productos -->
-
 	<!-- footer -->
 	<%- include('partials/footer') %>
 	<!-- /footer -->
