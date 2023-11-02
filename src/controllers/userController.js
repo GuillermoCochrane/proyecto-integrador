@@ -62,13 +62,10 @@ const userController = {
     },
 
     register: function(req, res){
-        let profiles = usersFunctions.profiles()
-        profiles.pop()
-        res.render("userRegister",{
-            title: "Registrate" + functions.title,
-            categories: functions.allCategories(),
-            profiles: profiles
-        })
+        let profiles = usersFunctions.profiles();
+        profiles.pop();
+        let data = functions.userFormData("Registrate", [] , profiles)
+        res.render("userRegister", data)
     },
 
     store:  function(req, res){
@@ -94,34 +91,37 @@ const userController = {
 
     edit: function(req,res){
         let user = usersFunctions.filterByID(req.params.id)[0];
+        let profiles = usersFunctions.profiles();
+        profiles.pop();
+        let data = functions.userFormData(("Editando usuario: " + user.username), user , profiles)
         if (!user){
             return res.redirect("/users/notFound")
         }else{
-            let profiles = usersFunctions.profiles()
-            profiles.pop()
-            return res.render("userEdit",{
-                title: "Editando usuario:" + user.username + functions.title,
-                categories: functions.allCategories(),
-                profiles: profiles,
-                user: user
-            })
+            return res.render("userEdit", data)
         }
     },
 
     update: function(req, res){
-        if(req.body.password != req.body.confirm){
-            let profiles = usersFunctions.profiles()
-            profiles.pop()
-            return  res.render("userRegister",{
-                title: "Registrate" + functions.title,
-                categories: functions.allCategories(),
-                profiles: profiles,
-                passwordError: "Las contraseñas no coinciden",
-                user: req.body
-            })
+        let file = req.file;
+        let profiles = usersFunctions.profiles()
+        profiles.pop()
+        let data = req.body
+        data.id = req.params.id
+        let old = functions.userFormData("Registrate", data, profiles)
+        if (file){
+            if(functions.extValidator(file)){
+                old.error = "El formato del archivo es incompatible";
+                return res.render('userEdit',old)
+            }
+            if(req.body.password != req.body.confirm){
+                old.passwordError = "Las contraseñas no coinciden";
+                return  res.render("userEdit", old)
+            }
+            let id = usersFunctions.editUser(req.params.id, data, file);
+            return res.redirect("/users/"+id)
         }
-        let id = usersFunctions.editUser(req.params.id, req.body);
-        res.redirect("/users/"+id)
+        old.error = "Hubo un problema en la carga de la imagen";
+        return res.render(res.render('userEdit',old))
     },
 
     delete: function(req,res){

@@ -82,7 +82,7 @@ const usersFunctions ={
         return newUser.id
     },
 
-    editUser: function(id,data){
+    editUser: function(id,data, file){
         let categories = this.processCategories(data);
         let users = this.allUsers();
         for (const user of users) {
@@ -93,7 +93,7 @@ const usersFunctions ={
                 user.phone =         data.phone;
                 user.address =       data.address;
                 user.borndate =      data.borndate
-                user.photo =         user.photo;
+                user.photo =         file.filename;
                 user.categories =    categories;
                 user.profile =       parseInt(data.profile)
                 user.password =      (data.password ? data.password : user.password);
