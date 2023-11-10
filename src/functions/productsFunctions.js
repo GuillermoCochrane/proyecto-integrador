@@ -82,7 +82,8 @@ const productsFunctions ={
             status: 		parseInt(data.status),
 			category: 		parseInt(data.category),
 			description: 	data.description,
-			image: 			file.filename
+			image: 			file.filename,
+            views:          0
 		};
         let products = this.allProducts();
         products.push(newProduct);
@@ -112,7 +113,18 @@ const productsFunctions ={
         let newProducts = products.filter((product)=> product.id != id);
 		this.store(newProducts);
         return true
+    },
+
+    productViews: function(req){
+        let id = req.params.id;
+        let products = this.allProducts();
+        for (const product of products) {
+            if(product.id == id){
+                product.views = product.views + 1;
+            }}
+            this.store(products);
     }
+    
 }
 
 module.exports = productsFunctions

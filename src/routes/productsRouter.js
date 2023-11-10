@@ -3,6 +3,7 @@ const router = express.Router();
 const productsController = require("../controllers/productsController")
 //Middlewares
 const upload = require("../middlewares/productsMulterMDW")
+const viewsCounter = require("../middlewares/productViewsCounterMDW")
 
 //Products Routes
 
@@ -33,6 +34,6 @@ router.get('/delete/:id', productsController.delete);
 router.delete('/delete/:id', productsController.destroy); 
 
 //Product detail
-router.get("/:id/", productsController.detail)
+router.get("/:id/", viewsCounter, productsController.detail)
 
 module.exports = router
