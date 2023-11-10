@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const productsController = require("../controllers/productsController")
+const productsController = require("../controllers/productsController");
+
 //Middlewares
 const upload = require("../middlewares/productsMulterMDW")
 const viewsCounter = require("../middlewares/productViewsCounterMDW")
+const productValidations = require("../middlewares/productValidationsMDW")
 
 //Products Routes
 
@@ -23,11 +25,11 @@ router.get("/status/:idStatus",productsController.status)
 
 //Create Products
 router.get("/create",productsController.create)
-router.post("/create",upload.single("img"),productsController.store)
+router.post("/create",upload.single("img"), productValidations, productsController.store)
 
 //Edit Products
 router.get('/edit/:id', productsController.edit); 
-router.put('/edit/:id', upload.single("img"), productsController.update); 
+router.put('/edit/:id', upload.single("img"), productValidations, productsController.update); 
 
 //Product delete
 router.get('/delete/:id', productsController.delete);

@@ -1,5 +1,6 @@
 const productsFunctions = require("../functions/productsFunctions");
 const functions = require("../functions/functions");
+const { validationResult } = require('express-validator')
 
 const productsController ={
 
@@ -43,18 +44,15 @@ const productsController ={
     },
 
     store: function(req,res){
-        let file = req.file;
+        let errors = validationResult(req)
         let old = functions.productFormData("Crear Producto",req.body);
-        if (file){
-            if(functions.extValidator(file)){
-                old.error = "El formato del archivo es incompatible";
-                return res.render('productCreateForm',old)
-            }
-            let id = productsFunctions.newProduct(req.body, file);
+        if (errors.isEmpty()){
+            let id = productsFunctions.newProduct(req.body, req.file);
             return res.redirect("/products/" + id);
+        } else {
+            old.error = errors.mapped()
+            return res.render(res.render('productCreateForm',old))
         }
-        old.error = "Hubo un problema en la carga de la imagen";
-        return res.render(res.render('productCreateForm',old))
     },
 
     edit: function(req,res){
