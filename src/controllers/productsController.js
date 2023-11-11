@@ -44,14 +44,14 @@ const productsController ={
     },
 
     store: function(req,res){
-        let errors = validationResult(req)
+        let errors = validationResult(req);
         let old = functions.productFormData("Crear Producto",req.body);
         if (errors.isEmpty()){
             let id = productsFunctions.newProduct(req.body, req.file);
             return res.redirect("/products/" + id);
         } else {
-            old.error = errors.mapped()
-            return res.render(res.render('productCreateForm',old))
+            old.errors = errors.mapped();
+            return res.render('productCreateForm',old);
         }
     },
 
@@ -66,21 +66,17 @@ const productsController ={
     },
 
     update: function(req,res){
-        let file = req.file;
+        let errors = validationResult(req);
         let title = "Editando - " + req.body.name;
         let data = req.body;
         data.id = req.params.id
         let old = functions.productFormData(title, data);
-        if (file){
-            if(functions.extValidator(file)){
-                old.error = "El formato del archivo es incompatible";
-                return res.render('productEditForm',old)
-            }
-            let id = productsFunctions.editProduct(req.params.id, data, file);
-            return res.redirect("/products/" + id)
+        if (errors.isEmpty()){
+            let id = productsFunctions.editProduct(data.id, data, req.file);
+            return res.redirect("/products/" + id);
         } else {
-            old.error = "Hubo un problema en la carga de la imagen";
-            return res.render(res.render('productEditForm',old))
+            old.errors = errors.mapped();
+            return res.render('productEditForm',old);
         }
     },
 
