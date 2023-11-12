@@ -97,13 +97,21 @@ const userController = {
     },
 
     update: function(req, res){
+        let errors = validationResult(req);
         let file = req.file;
-        let profiles = usersFunctions.profiles()
-        profiles.pop()
-        let data = req.body
-        data.id = req.params.id
-        let old = functions.userFormData("Registrate", data, profiles)
-        if (file){
+        let profiles = usersFunctions.profiles();
+        profiles.pop();
+        let data = req.body;
+        data.id = req.params.id;
+        let old = functions.userFormData("Registrate", data, profiles);
+        if (errors.isEmpty()){
+            let id = usersFunctions.editUser(data.id, data, file);
+            return res.redirect("/users/"+id)
+        } else {
+            old.errors = errors.mapped();
+            return res.render('userEdit',old)
+        }
+        /* if (file){
             if(functions.extValidator(file)){
                 old.error = "El formato del archivo es incompatible";
                 return res.render('userEdit',old)
@@ -116,7 +124,7 @@ const userController = {
             return res.redirect("/users/"+id)
         }
         old.error = "Hubo un problema en la carga de la imagen";
-        return res.render(res.render('userEdit',old))
+        return res.render(res.render('userEdit',old)) */
     },
 
     delete: function(req,res){
