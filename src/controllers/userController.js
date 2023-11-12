@@ -72,23 +72,16 @@ const userController = {
     store:  function(req, res){
         let errors = validationResult(req);
         let file = req.file;
-        let profiles = usersFunctions.profiles()
-        profiles.pop()
-        let old = functions.userFormData("Registrate", req.body, profiles) 
-        if (file){
-            if(functions.extValidator(file)){
-                old.error = "El formato del archivo es incompatible";
-                return res.render('userRegister',old)
-            }
-            if(req.body.password != req.body.confirm){
-                old.passwordError = "Las contraseñas no coinciden";
-                return  res.render("userRegister", old)
-            }
+        let profiles = usersFunctions.profiles();
+        profiles.pop();
+        let old = functions.userFormData("Registrate", req.body, profiles);
+        if (errors.isEmpty()){
             let id = usersFunctions.newUser(req.body,file);
-            return res.redirect("/users/"+id)
+            return res.redirect("/users/" + id)
+        } else {
+            old.errors = errors.mapped();
+            return res.render('userRegister',old)
         }
-        old.error = "Hubo un problema en la carga de la imagen";
-        return res.render(res.render('userRegister',old))
     },
 
     edit: function(req,res){

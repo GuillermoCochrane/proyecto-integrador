@@ -29,7 +29,7 @@ const usertValidations = [
             throw new Error("las contraseñas no coinciden");
         }
         return true
-    }),//validar password fuerte
+    }),//validar password
     body('photo').custom((value, {req}) => {
         let file = req.file;
         let acceptedExt = [".bpm", ".png", ".jpg", ".gif"]
