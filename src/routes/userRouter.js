@@ -3,6 +3,7 @@ const router = express.Router();
 const userController = require('../controllers/userController');
 //Middlewares
 const upload = require("../middlewares/usersMulterMDW")
+const userValidations = require("../middlewares/userValidationsMDW")
 
 //Users Routes
 
@@ -18,11 +19,11 @@ router.post('/login', userController.processLogin)
 
 //User Register
 router.get('/register', userController.register);
-router.post("/register",upload.single("photo"), userController.store);
+router.post("/register",upload.single("photo"), userValidations, userController.store);
 
 //Edit User
 router.get('/edit/:id', userController.edit); 
-router.put('/edit/:id',upload.single("photo"), userController.update); 
+router.put('/edit/:id',upload.single("photo"), userValidations, userController.update); 
 
 //Delete User
 router.get('/delete/:id', userController.delete);

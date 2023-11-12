@@ -1,5 +1,6 @@
 const functions = require("../functions/functions");
 const usersFunctions = require("../functions/usersFunctions")
+const { validationResult } = require('express-validator')
 
 const userController = {
 
@@ -69,6 +70,7 @@ const userController = {
     },
 
     store:  function(req, res){
+        let errors = validationResult(req);
         let file = req.file;
         let profiles = usersFunctions.profiles()
         profiles.pop()
