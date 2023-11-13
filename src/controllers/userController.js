@@ -111,20 +111,6 @@ const userController = {
             old.errors = errors.mapped();
             return res.render('userEdit',old)
         }
-        /* if (file){
-            if(functions.extValidator(file)){
-                old.error = "El formato del archivo es incompatible";
-                return res.render('userEdit',old)
-            }
-            if(req.body.password != req.body.confirm){
-                old.passwordError = "Las contraseñas no coinciden";
-                return  res.render("userEdit", old)
-            }
-            let id = usersFunctions.editUser(req.params.id, data, file);
-            return res.redirect("/users/"+id)
-        }
-        old.error = "Hubo un problema en la carga de la imagen";
-        return res.render(res.render('userEdit',old)) */
     },
 
     delete: function(req,res){

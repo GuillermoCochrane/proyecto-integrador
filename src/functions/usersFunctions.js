@@ -33,7 +33,7 @@ const usersFunctions ={
 
     filterByKey: function(data,key){
         let alldata = this.allUsers();
-        return alldata.filter(user => user[key] == data)
+        return alldata.filter(user => user[key].toUpperCase() == data.toUpperCase())
     },
 
     newId: function(){

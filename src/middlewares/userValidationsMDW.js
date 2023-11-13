@@ -1,5 +1,6 @@
 const path = require('path');
 const { body } = require('express-validator');
+const usersFunctions = require("../functions/usersFunctions")
 
 const usertValidations = [
     body('name')
@@ -7,7 +8,15 @@ const usertValidations = [
         .isLength({min:3, max:30}).withMessage("El nombre debe tener entre 3 y 30 caracteres"),
     body('username')
         .notEmpty().withMessage('Debes completar el nombre de usuario').bail()
-        .isLength({min:3, max:30}).withMessage("El nombre de usuario debe tener entre 3 y 30 caracteres"),//validar que no se repita
+        .isLength({min:3, max:30}).withMessage("El nombre de usuario debe tener entre 3 y 30 caracteres")
+        .custom((value, {req}) =>{
+            let user = usersFunctions.filterByKey(value, "username" )[0]
+            console.log(user);
+            if (user){
+                throw new Error(`El nombre de usuario ${user.username} se encuentra en uso`);
+            }
+            return true
+        }),//validar que no se repita
     body('email')
         .notEmpty().withMessage('Debes completar el E-Mail ').bail()
         .isEmail().withMessage("Debes ingresar un E-Mail valido").bail()
@@ -26,7 +35,7 @@ const usertValidations = [
         .isLength({min:8, max:16}).withMessage("La contraseña debe tener entre 8 y 16 caracteres").bail()
         .custom((value, {req}) => {
         if(value != req.body.confirm){
-            throw new Error("las contraseñas no coinciden");
+            throw new Error("Las contraseñas no coinciden");
         }
         return true
     }),//validar password
