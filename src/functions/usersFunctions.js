@@ -36,6 +36,11 @@ const usersFunctions ={
         return alldata.filter(user => user[key].toUpperCase() == data.toUpperCase())
     },
 
+    filterByKeyExact: function(data,key){
+        let alldata = this.allUsers();
+        return alldata.filter(user => user[key] == data)
+    },
+
     newId: function(){
         let lastUser = this.allUsers().pop();
 		if (lastUser){
