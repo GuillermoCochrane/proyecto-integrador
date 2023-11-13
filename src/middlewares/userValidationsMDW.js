@@ -22,7 +22,17 @@ const usertValidations = [
     body('email')
         .notEmpty().withMessage('Debes completar el E-Mail ').bail()
         .isEmail().withMessage("Debes ingresar un E-Mail valido").bail()
-        .isLength({min:8, max:20}).withMessage("El E-Mail debe tener entre 8 y 20 caracteres"),//validar que no se repita
+        .isLength({min:8, max:20}).withMessage("El E-Mail debe tener entre 8 y 20 caracteres")
+        .custom((value, {req}) =>{
+            let user = usersFunctions.filterByKey(value, "email" )[0]
+            if (user){
+                if(user.id == req.params.id){
+                    return true
+                }
+                throw new Error(`${user.email} se encuentra en uso`);
+            }
+            return true
+        }),
     body('phone')
         .notEmpty().withMessage('Debes completar el número de teléfono').bail()
         .isNumeric().withMessage('El dato ingresado debe ser un número').bail()
