@@ -11,12 +11,14 @@ const usertValidations = [
         .isLength({min:3, max:30}).withMessage("El nombre de usuario debe tener entre 3 y 30 caracteres")
         .custom((value, {req}) =>{
             let user = usersFunctions.filterByKey(value, "username" )[0]
-            console.log(user);
             if (user){
+                if(user.id == req.params.id){
+                    return true
+                }
                 throw new Error(`El nombre de usuario ${user.username} se encuentra en uso`);
             }
             return true
-        }),//validar que no se repita
+        }),
     body('email')
         .notEmpty().withMessage('Debes completar el E-Mail ').bail()
         .isEmail().withMessage("Debes ingresar un E-Mail valido").bail()
