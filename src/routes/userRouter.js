@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
 //Middlewares
-const upload = require("../middlewares/usersMulterMDW")
-const userValidations = require("../middlewares/userValidationsMDW")
-
+const upload = require("../middlewares/usersMulterMDW");
+const userValidations = require("../middlewares/userValidationsMDW");
+const loginValidations = require("../middlewares/loginValidationsMDW");
 //Users Routes
 
 //All Users
@@ -15,7 +15,7 @@ router.get('/notFound',userController.userNotFound)
 
 //User Login
 router.get('/login', userController.login);
-router.post('/login', userController.processLogin)
+router.post('/login', loginValidations, userController.processLogin)
 
 //User Register
 router.get('/register', userController.register);

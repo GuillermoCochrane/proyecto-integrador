@@ -19,25 +19,18 @@ const userController = {
     },
 
     processLogin: function(req,res){
-        let users = usersFunctions.allUsers();
-        let password = req.body.password;
-        let user = users.filter( user => user.username.toUpperCase() == req.body.username.toUpperCase())[0]
-        if (user){
-            if (user.password == req.body.password){
-                return res.redirect("/users/" + user.id)
-            }
-            let error = "Contraseña Incorrecta";
-            return res.render("login",{
-                title: error + functions.title,
+        let errors = validationResult(req);
+        let user = usersFunctions.filterByKey(req.body.username, "username" )[0]
+        if (errors.isEmpty()){
+            return res.redirect("/users/" + user.id)
+        } else {
+            let error = errors.mapped();
+            return res.render('login',{
+                title: "Login" + functions.title,
                 error: error,
-                old: user.username,
+                old: req.body.username
             })
         }
-        let error = "Usuario Incorrecto";
-            return res.render("login",{
-                title: error + functions.title,
-                error: error
-            })
     },
 
     userNotFound: function(req,res){

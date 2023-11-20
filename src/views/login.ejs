@@ -9,13 +9,14 @@
                     <label for="username">Nombre de usuari@</label>
                     <input type="text" id="username" name="username" value="<%= locals.old ? old : null %>">
                 </div>
+                <span class="login-item error"><%= locals.error && error.username ? error.username.msg : null %></span>
 
                 <div class="login-item">
                     <label for="password">Contraseña</label>
                     <input type="password" id="password" name="password">
                 </div>
 
-                <span class="login-item error"><%= locals.error ? error : null %></span>
+                <span class="login-item error"><%= locals.error && error.password ? error.password.msg : null %></span>
 
                 <button type="submit">Enviar</button>
             </form>
