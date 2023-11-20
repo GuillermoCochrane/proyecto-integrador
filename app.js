@@ -2,6 +2,8 @@
 const express = require("express");
 const path = require("path");
 const methodOverride =  require('method-override'); // Required for use methods PUT and DELETE
+var cookieParser = require('cookie-parser');
+const session = require('express-session');
 
 //Routers dependencies
 const mainRoutes = require("./src/routes/mainRouter")
@@ -11,19 +13,12 @@ const productsRoutes = require("./src/routes/productsRouter")
 //Settings
 const app = express();
 const port = process.env.PORT || 3003;
-/* app.use((req,res,next) =>{
-    res.status(404).res.render('allProducts',{
-        title: "Pagina no encontrada" + functions.title,
-        products: [],
-        label: "Error 404 - Pagina no encontrada",
-        toThousand: functions.toThousand,
-    })
-})
- */
 app.use(express.static('public'));// Set Static Resources folder
 app.use(express.urlencoded({ extended: false })); // Required for processing POST method information
 app.use(express.json()); // Required for processing POST method information
 app.use(methodOverride('_method')); // For overriding method="POST" in forms, with PUT and DELETE
+app.use(cookieParser()); // Required for cookies creation
+app.use(session({secret: "You know nothing", resave: false, saveUninitialized: false})) // Session Require for login process
 
 //Set Template Engine
 
