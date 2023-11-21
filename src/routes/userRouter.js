@@ -20,6 +20,13 @@ router.post('/login', loginValidations, userController.processLogin)
 //User Profile
 router.get("/profile", userController.profile)
 
+//User Logout
+router.get("/logout", userController.logout)
+
+//User test sessions
+router.get("/test", userController.test)
+
+
 //User Register
 router.get('/register', userController.register);
 router.post("/register",upload.single("photo"), userValidations, userController.store);

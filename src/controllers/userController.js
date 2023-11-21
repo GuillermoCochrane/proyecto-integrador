@@ -45,6 +45,15 @@ const userController = {
         })
     },
 
+    logout: function(req,res){
+        req.session.destroy();
+        res.redirect('/')
+    },
+
+    test: function(req,res){
+        res.send(req.session.userlogged)
+    },
+
     userNotFound: function(req,res){
         return res.render("allProducts",{
             products: [],
