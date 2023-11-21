@@ -17,6 +17,9 @@ router.get('/notFound',userController.userNotFound)
 router.get('/login', userController.login);
 router.post('/login', loginValidations, userController.processLogin)
 
+//User Profile
+router.get("/profile", userController.profile)
+
 //User Register
 router.get('/register', userController.register);
 router.post("/register",upload.single("photo"), userValidations, userController.store);

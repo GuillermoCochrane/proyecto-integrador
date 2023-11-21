@@ -20,9 +20,11 @@ const userController = {
 
     processLogin: function(req,res){
         let errors = validationResult(req);
-        let user = usersFunctions.filterByKey(req.body.username, "username" )[0]
         if (errors.isEmpty()){
-            return res.redirect("/users/" + user.id)
+            let user = usersFunctions.filterByKey(req.body.username, "username" )[0]
+            delete user.password;
+            req.session.userlogged = user;
+            return res.redirect("/users/profile" )
         } else {
             let error = errors.mapped();
             return res.render('login',{
@@ -31,6 +33,16 @@ const userController = {
                 old: req.body.username
             })
         }
+    },
+
+    profile: function(req,res){
+        let user = req.session.userlogged;
+        return res.render("userDetail",{
+            title: user.name,
+            user: user,
+            profiles: usersFunctions.profiles(),
+            categories: functions.allCategories()
+        })
     },
 
     userNotFound: function(req,res){
