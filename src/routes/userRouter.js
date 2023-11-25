@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
 //Middlewares
+const guestMDW = require("../middlewares/guestMDW")
 const upload = require("../middlewares/usersMulterMDW");
 const userValidations = require("../middlewares/userValidationsMDW");
 const loginValidations = require("../middlewares/loginValidationsMDW");
@@ -10,11 +11,11 @@ const loginValidations = require("../middlewares/loginValidationsMDW");
 //All Users
 router.get('/',userController.index);
 
-//product not found
+//User not found
 router.get('/notFound',userController.userNotFound)
 
 //User Login
-router.get('/login', userController.login);
+router.get('/login', guestMDW, userController.login);
 router.post('/login', loginValidations, userController.processLogin)
 
 //User Profile
@@ -26,9 +27,8 @@ router.get("/logout", userController.logout)
 //User test sessions
 router.get("/test", userController.test)
 
-
 //User Register
-router.get('/register', userController.register);
+router.get('/register', guestMDW, userController.register);
 router.post("/register",upload.single("photo"), userValidations, userController.store);
 
 //Edit User

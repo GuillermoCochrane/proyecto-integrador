@@ -14,8 +14,4 @@ router.post("/status", mainController.status)
 
 router.get("/help", mainController.help)
 
-router.post('/', mainController.redirect);
-
-router.post('/register', mainController.redirect);
-
 module.exports = router

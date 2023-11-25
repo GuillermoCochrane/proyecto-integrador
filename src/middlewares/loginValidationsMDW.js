@@ -1,3 +1,4 @@
+//Middleware de configuración de express-validator para el formulario de login
 const { body } = require('express-validator');
 const usersFunctions = require("../functions/usersFunctions")
 

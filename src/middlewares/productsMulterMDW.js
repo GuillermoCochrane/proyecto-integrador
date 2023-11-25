@@ -1,3 +1,4 @@
+//Middleware de configuración de multer para el rutas de productos
 const path = require('path');
 const multer = require('multer');
 
