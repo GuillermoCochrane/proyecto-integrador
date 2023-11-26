@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
 //Middlewares
+const loggedMDW = require("../middlewares/loggedMDW")
 const guestMDW = require("../middlewares/guestMDW")
 const upload = require("../middlewares/usersMulterMDW");
 const userValidations = require("../middlewares/userValidationsMDW");
@@ -19,7 +20,7 @@ router.get('/login', guestMDW, userController.login);
 router.post('/login', loginValidations, userController.processLogin)
 
 //User Profile
-router.get("/profile", userController.profile)
+router.get("/profile", loggedMDW, userController.profile)
 
 //User Logout
 router.get("/logout", userController.logout)

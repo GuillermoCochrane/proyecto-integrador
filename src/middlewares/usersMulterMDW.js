@@ -1,4 +1,4 @@
-//Middleware de configuración de multer para el rutas de usuarios
+//Middleware de configuración de multer para rutas de usuarios
 const path = require('path');
 const multer = require('multer');
 

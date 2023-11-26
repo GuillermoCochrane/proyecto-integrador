@@ -1,4 +1,4 @@
-//Middleware de configuración de express-validator para el rutas de usuarios
+//Middleware de configuración de express-validator para rutas de usuarios
 const path = require('path');
 const { body } = require('express-validator');
 const usersFunctions = require("../functions/usersFunctions")

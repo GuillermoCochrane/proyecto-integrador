@@ -1,4 +1,4 @@
-//Middleware de configuración de express-validator para el rutas de productos
+//Middleware de configuración de express-validator para rutas de productos
 const path = require('path');
 const { body } = require('express-validator');
 
