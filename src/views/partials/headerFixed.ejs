@@ -33,7 +33,9 @@
         <ul class="navbar-right">
             <li><a href="/products">Todos los productos</a></li>
             <li><a href="/products/status/1">Ofertas</a></li>
-            <li><a href="/products/create">Vender</a></li>
+            <% if (isLogged && userlogged.profile != 1 ) { %>
+                <li><a href="/products/create">Vender</a></li>
+            <% } %>
             <li><a href="/help">Ayuda</a></li>
         </ul>
 
