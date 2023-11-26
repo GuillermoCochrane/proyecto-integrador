@@ -23,7 +23,7 @@ router.post('/login', loginValidations, userController.processLogin)
 router.get("/profile", loggedMDW, userController.profile)
 
 //User Logout
-router.get("/logout", userController.logout)
+router.get("/logout", loggedMDW, userController.logout)
 
 //User test sessions
 router.get("/test", userController.test)
@@ -33,14 +33,14 @@ router.get('/register', guestMDW, userController.register);
 router.post("/register",upload.single("photo"), userValidations, userController.store);
 
 //Edit User
-router.get('/edit/:id', userController.edit); 
+router.get('/edit/:id', loggedMDW, userController.edit); 
 router.put('/edit/:id',upload.single("photo"), userValidations, userController.update); 
 
 //Delete User
-router.get('/delete/:id', userController.delete);
+router.get('/delete/:id', loggedMDW, userController.delete);
 router.delete('/delete/:id', userController.destroy)
 
 //User detailed info
-router.get("/:id", userController.detail)
+router.get("/:id", loggedMDW, userController.detail)
 
 module.exports = router

@@ -4,6 +4,7 @@ const path = require("path");
 const methodOverride =  require('method-override'); // Required for use methods PUT and DELETE
 var cookieParser = require('cookie-parser');
 const session = require('express-session');
+const userloggedMDW = require("./src/middlewares/userLoggedMDW");
 
 //Routers dependencies
 const mainRoutes = require("./src/routes/mainRouter")
@@ -19,6 +20,7 @@ app.use(express.json()); // Required for processing POST method information
 app.use(methodOverride('_method')); // For overriding method="POST" in forms, with PUT and DELETE
 app.use(cookieParser()); // Required for cookies creation
 app.use(session({secret: "You know nothing", resave: false, saveUninitialized: false})) // Session Require for login process
+app.use(userloggedMDW); // Middleware that set configurations in locals, whether user is logged or not
 
 //Set Template Engine
 

@@ -34,10 +34,14 @@
         </ul>
 
         <ul class="navbar-left">
-            <li><a href="/users/register">Creá tu cuenta<i class="fa-regular fa-address-card"></i></a></li>
-            <li><a href="/users/login">Ingresá<i class="fa-solid fa-right-to-bracket"></i></a></li>
-            <li><a href="/users/logout">Salir<i class="fa-solid fa-right-from-bracket"></i></a></li>
-            <li><a href="#">Mis compras<i class="fa-solid fa-basket-shopping"></i></a></li>
+            <% if (!isLogged) { %>
+                <li><a href="/users/register">Creá tu cuenta<i class="fa-regular fa-address-card"></i></a></li>
+                <li><a href="/users/login">Ingresá<i class="fa-solid fa-right-to-bracket"></i></a></li>
+            <% } else { %>
+                <li><a href="/users/profile">Mi Perfil<i class="fa-regular fa-address-card"></i></a></li>
+                <li><a href="/users/logout">Salir<i class="fa-solid fa-right-from-bracket"></i></a></li>
+                <li><a href="#">Mis compras<i class="fa-solid fa-basket-shopping"></i></a></li>
+            <% } %>
         </ul>
 
     </nav>
