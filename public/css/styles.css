@@ -75,6 +75,12 @@ header.fixed{
     text-align: center;
 }
 
+.info-header-img {
+    width: 50px; 
+    border-radius: 100%;
+    margin: 5px
+}
+
 .close-menu,
 .burger-menu {
     background-color: #03264C;
