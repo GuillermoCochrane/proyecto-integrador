@@ -133,7 +133,7 @@ const productsFunctions ={
     arrayReducer: function(array,n){
         let newArray = [];
         if(array.length < n){
-            n = array.lenght;
+            n = array.length;
         }
         for(i=0; i<n; i++){
             newArray.push(array[i]);

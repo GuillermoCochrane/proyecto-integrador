@@ -5,12 +5,16 @@ const mainController ={
     index: function(req,res){
         let mostViewed = productsFunctions.sortByViews();
         let topData = productsFunctions.arrayReducer(mostViewed,8)
-        let bottomData = productsFunctions.filterByKey(4,"status")
+        let bottomData = productsFunctions.filterByKey(2,"status")
         let topTitle = "Más Buscados"
-        let bottomTitle = "Recomendados"
+        let bottomTitle = "Novedades"
         if(req.session.userlogged){
             let userPreferences = productsFunctions.recomended(req.session.userlogged);
-            topData = userPreferences.userPreferences;
+            if (userPreferences.userPreferences.length !=0 ){
+                topData = userPreferences.userPreferences;
+            } else{
+                topData = productsFunctions.filterByKey(4,"status")
+            }
             topTitle = userPreferences.title;
         }
         res.render("home",{
