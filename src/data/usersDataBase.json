@@ -128,7 +128,7 @@
   "categories": [
    1,
    3,
-   4
+   5
   ],
   "password": "123456789",
   "phone": "3584120108",
@@ -143,7 +143,7 @@
   "address": "Lower Downtown 653",
   "profile": 1,
   "categories": [
-   1,
+   5,
    4,
    2
   ],
@@ -160,12 +160,12 @@
   "address": "Belgrano 351",
   "profile": 1,
   "categories": [
-   1,
-   2,
-   4
-  ],
-  "password": "asdasdasd1",
-  "photo": "user1701048087634.jpg",
+    5,
+    4,
+    2
+   ],
+  "password": "asdasdasd",
+  "photo": "user1701110802857.jpg",
   "phone": "3584120101"
  }
 ]

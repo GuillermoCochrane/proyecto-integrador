@@ -132,6 +132,9 @@ const productsFunctions ={
 
     arrayReducer: function(array,n){
         let newArray = [];
+        if(array.length < n){
+            n = array.lenght;
+        }
         for(i=0; i<n; i++){
             newArray.push(array[i]);
         };
@@ -147,11 +150,23 @@ const productsFunctions ={
             }
         };
         return productsSelected
-    }
+    },
 
-    /* randomizer: function(data){
+    randomizer: function(data){
         return data.sort(()=> Math.random()-0.5)
-    } */
+    },
+
+    recomended: function(data){
+        let userPreferences = data.categories;
+        let preferences = this.preferences(userPreferences);
+        let random = this.randomizer(preferences);
+        let reducedPreferences = this.arrayReducer(random,8);
+        let title = "Productos recomendados para " + data.username;
+        return {
+            userPreferences: reducedPreferences,
+            title: title
+        }
+    }
 }
 
 module.exports = productsFunctions

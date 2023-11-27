@@ -9,7 +9,9 @@ const mainController ={
         let topTitle = "Más Buscados"
         let bottomTitle = "Recomendados"
         if(req.session.userlogged){
-            
+            let userPreferences = productsFunctions.recomended(req.session.userlogged);
+            topData = userPreferences.userPreferences;
+            topTitle = userPreferences.title;
         }
         res.render("home",{
             sectionTop: {
