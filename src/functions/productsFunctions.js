@@ -136,6 +136,15 @@ const productsFunctions ={
             newArray.push(array[i]);
         };
         return newArray
+    },
+
+    preferences: function(preferences){
+        let productsSelected = []
+        for (const preference of preferences) {
+            let selected = this.filterByKey(preference, "category")
+            productsSelected.push(selected)
+        };
+        return productsSelected
     }
 }
 
