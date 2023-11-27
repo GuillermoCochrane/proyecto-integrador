@@ -3,11 +3,20 @@ const productsFunctions =require("../functions/productsFunctions")
 
 const mainController ={
     index: function(req,res){
-        let inSale = productsFunctions.filterByKey(2,"status");
-        let visited = productsFunctions.filterByKey(3,"status")
+        let mostViewed = productsFunctions.sortByViews();
+        let topData = productsFunctions.arrayReducer(mostViewed,8)
+        let bottomData = productsFunctions.filterByKey(4,"status")
+        let topTitle = "Más Buscados"
+        let bottomTitle = "Recomendados"
         res.render("home",{
-            inSale: inSale,
-            visited: visited,
+            sectionTop: {
+                data: topData,
+                title: topTitle
+            },
+            sectionBottom: {
+                data: bottomData,
+                title: bottomTitle
+            },
             title: "Bienvenido" + tools.title,
             toThousand: tools.toThousand,
         })

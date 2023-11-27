@@ -10,11 +10,11 @@
         <main>
             <section>
                 <h2 class="title">
-                    Novedades
+                    <%= sectionTop.title %>
                 </h2>
 
                 <div class="articles-box">
-                    <% for (product of visited) {%>
+                    <% for (product of sectionTop.data) {%>
                         <%- include("./partials/article.ejs") %>
                     <% } %>
                 </div>
@@ -22,11 +22,11 @@
 
             <section>
                 <h2 class="title">
-                    Más Vendidos
+                    <%= sectionBottom.title %>
                 </h2>
 
                 <div class="articles-box">
-                    <% for (product of inSale) {%>
+                    <% for (product of sectionBottom.data) {%>
                         <%- include("./partials/article.ejs") %>
                     <% } %>
                 </div>

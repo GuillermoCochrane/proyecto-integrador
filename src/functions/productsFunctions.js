@@ -123,8 +123,20 @@ const productsFunctions ={
                 product.views = product.views + 1;
             }}
             this.store(products);
+    },
+
+    sortByViews: function(){
+        let products = this.allProducts();
+        return products.sort((a,b)=> b.views - a.views)
+    },
+
+    arrayReducer: function(array,n){
+        let newArray = [];
+        for(i=0; i<n; i++){
+            newArray.push(array[i]);
+        };
+        return newArray
     }
-    
 }
 
 module.exports = productsFunctions
