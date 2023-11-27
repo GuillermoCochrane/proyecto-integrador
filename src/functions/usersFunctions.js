@@ -50,7 +50,7 @@ const usersFunctions ={
     },
 
     store: function(data){
-        fs.writeFileSync( this.pathDB, JSON.stringify(data) );
+        fs.writeFileSync( this.pathDB, JSON.stringify(data, null, ' ') );
         return true
     },
 

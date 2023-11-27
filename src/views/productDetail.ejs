@@ -11,7 +11,7 @@
                 </h2>
 
                 <div class="detail-box">
-                    <!-- <div class="row"> -->
+                    
                         <div class="detail-img-description-box">
                             <img src="/images/products/<%= product.image %>" alt="<%= product.name %>" class="detail-img">
                             <p class="detail-description">
@@ -58,17 +58,26 @@
                                 <br>
                                 <br>
                                 <br>
-        
-                                <a href="#" class="buy-button">COMPRAR AHORA</a>
-                                
-                                <hr>
+                                <% if (isLogged) { %>
+                                    <% if (userlogged.profile == 1) { %>
+                                        
+                                        <a href="#" class="buy-button">COMPRAR AHORA</a>
+                                        
+                                        <% } else { %>
 
-                                <div class="button-box">
-                                    <a href="/products/edit/<%= product.id %>" class="description-button edit">EDITAR PRODUCTO</a>
-                                    <form action="/products/delete/<%= product.id %>" method="get" style="display: inline-flex">
-                                        <button type="submit" class="description-button delete">ELIMINAR</button>
-                                    </form>
-                                </div>
+                                        <div class="button-box">
+                                            <a href="/products/edit/<%= product.id %>" class="description-button edit">EDITAR PRODUCTO</a>
+                                            <form action="/products/delete/<%= product.id %>" method="get" style="display: inline-flex">
+                                                <button type="submit" class="description-button delete">ELIMINAR</button>
+                                            </form>
+                                        </div>
+                                    <% } %>
+
+                                    
+
+                                <% } %>
+        
+                                
                             </article>
                         </div>
                     <!-- </div> -->
