@@ -19,7 +19,7 @@ body {
 
 header {
     background-color: #EAC926;
-    padding: 20px;
+    padding: 10px;
     top: 0;
     width: 100%;
     z-index: 100;
@@ -99,7 +99,6 @@ header.fixed{
     margin: auto;
     text-align: center;
     border-radius: 7px;
-    margin-top: 10px;
     padding-top: 5px;
 }
 
@@ -139,6 +138,7 @@ header.fixed{
 .banner {
     width: 100%;
     margin: auto;
+    margin-bottom: 60px;
 }
 
 .banner img {
@@ -149,7 +149,7 @@ header.fixed{
 
 
 .main-border {
-    margin-top: 170px;
+    margin-top: 120px;
 }
 
 main {
@@ -418,7 +418,7 @@ footer section p {
     line-height: 1.2;
     text-align: justify;
 }
-/* .user{padding: 12px;} */
+
 
 .detail-info-box {
     position: relative;
@@ -570,7 +570,6 @@ footer section p {
     padding-left: 15px;
     flex: 0 0 100%;
     max-width: 100%;
-    /* justify-content: space-evenly; */
 }
 
 .form-content-box{
@@ -647,7 +646,6 @@ footer section p {
     position: relative;
     width: 100%;
     padding: 15px;
-    /* padding-left: 15px; */
     flex: 0 0 100%;
     max-width: 100%;
     text-align: center;
@@ -728,6 +726,10 @@ textarea.form-input {
         align-self: center;
     }
 
+    .userLogged-detail{
+        display: flex;
+    }
+
     .burger-menu {
         display: none;
     }
@@ -751,7 +753,7 @@ textarea.form-input {
 
 
     .main-border {
-        margin-top: 140px;
+        margin-top: 127px;
     }
 
     .article-box {
@@ -838,7 +840,7 @@ textarea.form-input {
     }
 
     .main-border {
-        margin-top: 186px;
+        margin-top: 165px;
     }
 
     .article-box {

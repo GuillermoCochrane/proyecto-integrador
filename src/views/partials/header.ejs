@@ -12,10 +12,12 @@
                 </button>
             </form>
         </div>
-        <div class="userLogged-detail">
+        <div class="userLogged-detail-box">
             <% if (isLogged) { %>
-                <img  src="/images/users/<%= userlogged.photo  %>" alt="<%= userlogged.username %>" class="info-header-img" >
-                <h2 class="info-header">Hola <%= userlogged.username %>! </h2>
+                <div class="userLogged-detail hidden">
+                    <img  src="/images/users/<%= userlogged.photo  %>" alt="<%= userlogged.username %>" class="info-header-img" >
+                    <h2 class="info-header">Hola <%= userlogged.username %>! </h2>
+                </div>
             <% } else { %>
                 <h2 class="info-header"><i class="fa-solid fa-hand-holding-dollar"></i>Comprá en cuotas y sin tarjeta de crédito</h2>
             <% } %>
