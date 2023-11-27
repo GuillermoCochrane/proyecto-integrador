@@ -142,10 +142,16 @@ const productsFunctions ={
         let productsSelected = []
         for (const preference of preferences) {
             let selected = this.filterByKey(preference, "category")
-            productsSelected.push(selected)
+            for (const product of selected) {
+                productsSelected.push(product)
+            }
         };
         return productsSelected
     }
+
+    /* randomizer: function(data){
+        return data.sort(()=> Math.random()-0.5)
+    } */
 }
 
 module.exports = productsFunctions

@@ -8,6 +8,9 @@ const mainController ={
         let bottomData = productsFunctions.filterByKey(4,"status")
         let topTitle = "Más Buscados"
         let bottomTitle = "Recomendados"
+        if(req.session.userlogged){
+            
+        }
         res.render("home",{
             sectionTop: {
                 data: topData,
