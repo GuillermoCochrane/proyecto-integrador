@@ -24,7 +24,10 @@ const userController = {
             let user = usersFunctions.filterByKey(req.body.username, "username" )[0]
             delete user.password;
             req.session.userlogged = user;
-            return res.redirect("/users/profile" )
+            if(req.body.rememberMe){
+                res.cookie("userID", user.id, {maxAge: (1000*60)*30} ) //1000*60 = 1000ms * 60s == 1 min
+            }
+            return res.redirect("/")
         } else {
             let error = errors.mapped();
             return res.render('login',{
@@ -46,6 +49,7 @@ const userController = {
     },
 
     logout: function(req,res){
+        res.clearCookie("userID")
         req.session.destroy();
         res.redirect('/')
     },

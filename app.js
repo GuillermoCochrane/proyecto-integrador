@@ -10,6 +10,7 @@ const userloggedMDW = require("./src/middlewares/userLoggedMDW");
 const mainRoutes = require("./src/routes/mainRouter")
 const userRoutes = require("./src/routes/userRouter")
 const productsRoutes = require("./src/routes/productsRouter")
+const cartRoutes = require("./src/routes/cartRouter")
 
 //Settings
 const app = express();
@@ -32,7 +33,9 @@ app.set('views', path.join(__dirname, './src/views'))
 app.use('/', mainRoutes);
 app.use("/users", userRoutes);
 app.use("/products", productsRoutes);
+app.use("/cart", cartRoutes);
 
+//error 404
 app.use((req,res,next) =>{
     res.status(404).render('allProducts',{
         title: "Pagina no encontrada",
