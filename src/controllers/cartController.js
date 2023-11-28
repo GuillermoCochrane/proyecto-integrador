@@ -1,16 +1,16 @@
-
+const cartFunctions = require("../functions/cartFunctions")
 const mainController ={
     index: function(req,res){
-        res.send("esta en el carrito")
+        let userID = req.session.userlogged.id;
+        res.send(cartFunctions.filterByKey(userID, "userID"))
     },
+
     add: function(req,res){
-        let user = req.session.userlogged
-        console.log(user);
-        res.send({
-            data: req.body, 
-            idProduct: req.params.id,
-            user: user
-        })
+        let userID = req.session.userlogged.id;
+        let productID = req.params.id;
+        let quantity = req.body.quantity;
+        let usercart = cartFunctions.newEntry(userID,productID,quantity)
+        res.send( usercart );
     }
 
 }
