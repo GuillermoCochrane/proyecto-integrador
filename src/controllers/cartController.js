@@ -22,7 +22,11 @@ const mainController ={
     },
 
     update: function(req,res){
-    }
+        cartFunctions.editProduct(req.params.id, req.body.quantity)
+        res.redirect("/cart")
+    },
+
+    
 
 }
 module.exports = mainController

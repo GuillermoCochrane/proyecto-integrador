@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
-const productFunctions = require("../functions/productsFunctions")
-const userFunctions = require("../functions/usersFunctions")
-const functions = require("../functions/functions")
+const productFunctions = require("../functions/productsFunctions");
+const userFunctions = require("../functions/usersFunctions");
+const functions = require("../functions/functions");
 
 const cartFunctions = {
 
@@ -19,25 +19,25 @@ const cartFunctions = {
 
     filterByID : function(id){        
         let data = this.allEntries();
-        return data.filter(cart => cart.id == id)
+        return data.filter(cart => cart.id == id);
     },
 
     filterByKey: function(data,key){
         let alldata = this.allEntries();
-        return alldata.filter(cart => cart[key] == data)
+        return alldata.filter(cart => cart[key] == data);
     },
 
     newId: function(){
         let lastEntry = this.allEntries().pop();
 		if (lastEntry){
-            return lastEntry.id + 1
+            return lastEntry.id + 1;
         }
-        return 1
+        return 1;
     },
 
     store: function(data){
         fs.writeFileSync( this.pathDB, JSON.stringify(data, null, ' ') );
-        return true
+        return true;
     },
 
     newEntry: function(userID,productID,quantity){
@@ -65,11 +65,11 @@ const cartFunctions = {
         let entries = this.allEntries();
         for (const entry of entries) {
 			if(entry.id == id){
-				entry.quantity = data
+				entry.quantity = parseInt(data);
             };
         };
         this.store(entries);
-        return id
+        return id;
     },
 
     deleteProduct: function(id){
@@ -110,18 +110,16 @@ const cartFunctions = {
 
     editCartData: function(id){
         let entry = this.filterByID(id)[0];
-        console.log(entry);
         let user = userFunctions.filterByID(entry.userID)[0]
         let product = productFunctions.filterByID(entry.productID)[0]
-        let finalPrice = functions.finalPrice(product);
         let data = {
-            username: user.username,
-            price: finalPrice,
-            product: product.name,
-            image: product.image,
-            quantity: entry.quantity,
+            id:         id,
+            username:   user.username,
+            product:    product.name,
+            image:      product.image,
+            quantity:   entry.quantity,
             toThousand: functions.toThousand,
-            title: "Editando producto de carrito"
+            title:      "Editando entrada de carrito"
         }
         return data
     }

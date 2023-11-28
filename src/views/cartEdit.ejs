@@ -4,12 +4,12 @@
     <%- include("./partials/headerFixed.ejs") %>
     <main class="main-border">
         
-            <h2 class="title">
-                Editando producto <%= product %> del carrito  de  <%= username %>
-            </h2>
+        <h2 class="title">
+            Editando producto <%= product %> del carrito  de  <%= username %>
+        </h2>
 
-            <article class="detail-box max">
-                
+        <article class="detail-box max">
+            <form action="/cart/edit/<%= id %>?_method=PUT" method="post">
                 <div class="cart-product">
                     <figure >
                         <img class="cart-product-img" src="/images/products/<%= image %>" alt="<%= product %>" >
@@ -31,8 +31,9 @@
                         </div>
                     </div>
                 </div>
+            </form>
             
-            </article>
+        </article>
 
             
     </main>
