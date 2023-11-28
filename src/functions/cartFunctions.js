@@ -105,8 +105,25 @@ const cartFunctions = {
             title: "Carrito de " + user.username,
             products: allproducts
         }
-        /* console.log(cartData); */
         return cartData
+    },
+
+    editCartData: function(id){
+        let entry = this.filterByID(id)[0];
+        console.log(entry);
+        let user = userFunctions.filterByID(entry.userID)[0]
+        let product = productFunctions.filterByID(entry.productID)[0]
+        let finalPrice = functions.finalPrice(product);
+        let data = {
+            username: user.username,
+            price: finalPrice,
+            product: product.name,
+            image: product.image,
+            quantity: entry.quantity,
+            toThousand: functions.toThousand,
+            title: "Editando producto de carrito"
+        }
+        return data
     }
 
 }

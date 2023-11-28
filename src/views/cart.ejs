@@ -15,9 +15,13 @@
             <h2 class="title">
                 Valor total de la compra: $<%= toThousand(cartAmount) %>
             </h2>
-            <a href="/">
-                <button type="submit" class="buy-button">Comprar</button>
-            </a>
+
+            <div class="cart-buy-button">
+                <a href="/" >
+                    <button type="submit" class="buy-button-cart">Comprar</button>
+                </a>
+            </div>
+            
             
     </main>
     <%- include("./partials/footer.ejs") %>

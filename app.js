@@ -5,6 +5,7 @@ const methodOverride =  require('method-override'); // Required for use methods 
 var cookieParser = require('cookie-parser');
 const session = require('express-session');
 const userloggedMDW = require("./src/middlewares/userLoggedMDW");
+const loggedMDW = require("./src/middlewares/loggedMDW")
 
 //Routers dependencies
 const mainRoutes = require("./src/routes/mainRouter")
@@ -33,7 +34,7 @@ app.set('views', path.join(__dirname, './src/views'))
 app.use('/', mainRoutes);
 app.use("/users", userRoutes);
 app.use("/products", productsRoutes);
-app.use("/cart", cartRoutes);
+app.use("/cart", loggedMDW, cartRoutes);
 
 //error 404
 app.use((req,res,next) =>{

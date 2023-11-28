@@ -507,7 +507,7 @@ footer section p {
     font-size: 15px;
     margin: 0;
 }
-
+.buy-button-cart,
 .buy-button {
     background-color: #1259c3;
     font-size: 18px;
@@ -519,6 +519,9 @@ footer section p {
     border-radius: 8px;
     border: none;
     margin: 5px 0;
+}
+.buy-button-cart{
+    margin: auto;
 }
 
 .button-box {
@@ -707,7 +710,7 @@ textarea.form-input {
     margin-bottom: 15px;
 }
 .cart-product{
-    margin: auto;
+    margin: 0;
 }
 
 .cart-product-img{
@@ -755,6 +758,28 @@ textarea.form-input {
     display: flex;
     justify-content: space-around;
     padding: 0px;
+}
+
+.cart-buy-button{
+    margin: auto;
+}
+
+.cart-edit-quantity{
+    margin: 17px;
+}
+.cart-label{
+    font-size: 17px;
+    font-weight: bolder;
+    /* padding: 0px; */
+}
+
+.cart-input{
+    margin: 0 5px;
+    border: none;
+    font-size: 16px;
+    padding: 0px;
+    width: 60px;
+    text-align: end;
 }
 
 
