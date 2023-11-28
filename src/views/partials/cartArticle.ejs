@@ -1,0 +1,31 @@
+<article class="detail-box max">
+                
+    <div class="cart-product">
+        <figure >
+            <img class="cart-product-img" src="/images/products/<%= product.image %>" alt="<%= product.name %>" >
+        </figure>
+        <div class="cart-product-detail-container">
+            <div class="cart-product-detail">
+                <h2 class="cart-product-name"><%= product.name %></h2>
+                <div class="cart-product-info">
+                    <div class="cart-product-info-detail">
+                        <p class="cart-product-price">
+                            <strong>Precio Final: </strong><%= product.finalPrice %>
+                        </p>
+                        <p class="cart-product-quantity">
+                            <strong>Cantidad:</strong> <%= product.quantity %>
+                        </p>
+                    </div>
+                    <h3 class="cart-product-final-price">Total: <%= product.amount %></h3>
+                </div>
+            </div>
+            <div class="cart-button-box">
+                <a href="/cart/edit/<%= product.id %>" class="description-button edit">EDITAR COMPRA</a>
+                <form action="/products/delete/<%= product.id %>" method="get" style="display: inline-flex">
+                    <button type="submit" class="description-button delete">ELIMINAR</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</article>

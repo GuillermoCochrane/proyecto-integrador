@@ -1,0 +1,18 @@
+<%- include("./partials/head.ejs") %>
+
+<body>
+    <%- include("./partials/headerFixed.ejs") %>
+    <main class="main-border">
+        
+            <h2 class="title">
+                Carrito  de  <%=  %>
+            </h2>
+
+            <% for (product of products) {%>
+                <%- include("./partials/cartArticle.ejs") %>
+            <% } %>
+    </main>
+    <%- include("./partials/footer.ejs") %>
+
+</body>
+</html>
