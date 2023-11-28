@@ -5,12 +5,20 @@
     <main class="main-border">
         
             <h2 class="title">
-                Carrito  de  <%=  %>
+                Carrito  de  <%= username %>
             </h2>
 
             <% for (product of products) {%>
                 <%- include("./partials/cartArticle.ejs") %>
             <% } %>
+
+            <h2 class="title">
+                Valor total de la compra: $<%= toThousand(cartAmount) %>
+            </h2>
+            <a href="/">
+                <button type="submit" class="buy-button">Comprar</button>
+            </a>
+            
     </main>
     <%- include("./partials/footer.ejs") %>
 

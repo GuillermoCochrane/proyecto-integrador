@@ -10,18 +10,18 @@
                 <div class="cart-product-info">
                     <div class="cart-product-info-detail">
                         <p class="cart-product-price">
-                            <strong>Precio Final: </strong><%= product.finalPrice %>
+                            <strong>Precio Final: </strong>$<%=  toThousand(product.finalPrice) %>
                         </p>
                         <p class="cart-product-quantity">
                             <strong>Cantidad:</strong> <%= product.quantity %>
                         </p>
                     </div>
-                    <h3 class="cart-product-final-price">Total: <%= product.amount %></h3>
+                    <h3 class="cart-product-final-price">Total: $<%= toThousand(product.amount) %></h3>
                 </div>
             </div>
             <div class="cart-button-box">
-                <a href="/cart/edit/<%= product.id %>" class="description-button edit">EDITAR COMPRA</a>
-                <form action="/products/delete/<%= product.id %>" method="get" style="display: inline-flex">
+                <a href="/cart/edit/<%= product.cartID %>" class="description-button edit">EDITAR COMPRA</a>
+                <form action="/products/delete/<%= product.cartID %>" method="get" style="display: inline-flex">
                     <button type="submit" class="description-button delete">ELIMINAR</button>
                 </form>
             </div>

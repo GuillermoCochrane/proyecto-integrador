@@ -1,6 +1,8 @@
-const { log } = require('console');
 const fs = require('fs');
 const path = require('path');
+const productFunctions = require("../functions/productsFunctions")
+const userFunctions = require("../functions/usersFunctions")
+const functions = require("../functions/functions")
 
 const cartFunctions = {
 
@@ -76,6 +78,36 @@ const cartFunctions = {
 		this.store(newEntries);
         return true
     },
+
+    processCartData : function(userID){
+        let allEntries = this.filterByKey(userID,"userID")
+        let user = userFunctions.filterByID(userID)[0]
+        let allproducts = []
+        let cartAmount = 0
+        for (const entry of allEntries) {
+            let product = productFunctions.filterByID(entry.productID)[0]
+            let finalPrice = functions.finalPrice(product);
+            let data = {
+                image:      product.image,
+                name:       product.name,
+                amount:      finalPrice*entry.quantity,
+                finalPrice: finalPrice,
+                quantity:   entry.quantity,
+                cartID:     entry.id
+            }
+            cartAmount = cartAmount + data.amount;
+            allproducts.push(data)
+        }
+        let cartData = {
+            toThousand: functions.toThousand,
+            cartAmount: cartAmount,
+            username: user.username,
+            title: "Carrito de " + user.username,
+            products: allproducts
+        }
+        /* console.log(cartData); */
+        return cartData
+    }
 
 }
 

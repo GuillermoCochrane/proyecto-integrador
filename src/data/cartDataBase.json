@@ -3,13 +3,13 @@
   "id": 1,
   "userID": 10,
   "productID": 8,
-  "quantity": 1
+  "quantity": 5
  },
  {
   "id": 2,
   "userID": 10,
   "productID": 15,
-  "quantity": 1
+  "quantity": 3
  },
  {
   "id": 3,
