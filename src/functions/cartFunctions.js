@@ -3,7 +3,6 @@ const path = require('path');
 const productFunctions = require("../functions/productsFunctions");
 const userFunctions = require("../functions/usersFunctions");
 const functions = require("../functions/functions");
-const { log } = require('console');
 
 const cartFunctions = {
 
@@ -41,6 +40,24 @@ const cartFunctions = {
         return true;
     },
 
+    editEntry: function(id,data){
+        let entries = this.allEntries();
+        for (const entry of entries) {
+			if(entry.id == id){
+				entry.quantity = parseInt(data);
+            };
+        };
+        this.store(entries);
+        return id;
+    },
+
+    deleteEntry: function(id){
+        let entries = this.allEntries();
+        let newEntries = entries.filter((entry)=> entry.id != id);
+		this.store(newEntries);
+        return true
+    },
+
     newEntry: function(userID,productID,quantity){
         let userEntries = this.filterByKey(userID,"userID");
         let productEntry = userEntries.filter(entry => entry.productID == productID)[0];
@@ -62,29 +79,11 @@ const cartFunctions = {
         return this.filterByKey(userID,"userID");
     },
 
-    editEntry: function(id,data){
-        let entries = this.allEntries();
-        for (const entry of entries) {
-			if(entry.id == id){
-				entry.quantity = parseInt(data);
-            };
-        };
-        this.store(entries);
-        return id;
-    },
-
-    deleteEntry: function(id){
-        let entries = this.allEntries();
-        let newEntries = entries.filter((entry)=> entry.id != id);
-		this.store(newEntries);
-        return true
-    },
-
     processCartData : function(userID){
         let allEntries = this.filterByKey(userID,"userID")
         let user = userFunctions.filterByID(userID)[0]
-        let allproducts = []
-        let cartAmount = 0
+        let allproducts = [];
+        let cartAmount = 0;
         for (const entry of allEntries) {
             let product = productFunctions.filterByID(entry.productID)[0]
             let finalPrice = functions.finalPrice(product);
@@ -98,14 +97,14 @@ const cartFunctions = {
             }
             cartAmount = cartAmount + data.amount;
             allproducts.push(data)
-        }
+        };
         let cartData = {
             toThousand: functions.toThousand,
             cartAmount: cartAmount,
             username: user.username,
             title: "Carrito de " + user.username,
             products: allproducts
-        }
+        };
         return cartData
     },
 
@@ -121,8 +120,18 @@ const cartFunctions = {
             quantity:   entry.quantity,
             toThousand: functions.toThousand,
             title:      "Editando entrada de carrito"
-        }
+        };
         return data
+    },
+
+    deleteCartData: function(id){
+        let entry = this.filterByID(id)[0];
+        let product = productFunctions.filterByID(entry.productID)[0];
+        let title = "Eliminando - " + product.name;
+        let info = functions.productData(title, product, "Entrada");
+        info.path = "cart";
+        info.products.id = id;
+        return info
     }
 
 }
