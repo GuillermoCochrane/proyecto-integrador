@@ -11,29 +11,43 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
             </form>
+            <a href="#" class="burger-menu">
+                <i class="fa-solid fa-bars"></i>
+            </a>
+            <a href="#" class="close-menu hidden">
+                <i class="fa-solid fa-xmark"></i>
+            </a>
         </div>
-        <div class="userLogged-detail-box">
-            <% if (isLogged) { %>
-                <div class="userLogged-detail hidden">
-                    <img  src="/images/users/<%= userlogged.photo  %>" alt="<%= userlogged.username %>" class="info-header-img" >
-                    <h2 class="info-header">Hola <%= userlogged.username %>! </h2>
-                </div>
-            <% } else { %>
-                <h2 class="info-header"><i class="fa-solid fa-hand-holding-dollar"></i>Comprá en cuotas y sin tarjeta de crédito</h2>
-            <% } %>
-        </div>
+        <a href="">
+            <div class="userLogged-detail-box">
+                <% if (isLogged) { %>
+                    <div class="userLogged-detail ">
+                        <img  src="/images/users/<%= userlogged.photo  %>" alt="<%= userlogged.username %>" class="info-header-img" >
+                        <h2 class="info-header">Hola <%= userlogged.username %>! </h2>
+                    </div>
+                <% } else { %>
+                    <h2 class="info-header"><i class="fa-solid fa-hand-holding-dollar"></i>Comprá en cuotas y sin tarjeta de crédito</h2>
+                <% } %>
+                <a href="#" class="burger-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </a>
+                <a href="#" class="close-menu hidden">
+                    <i class="fa-solid fa-xmark"></i>
+                </a>
+            </div>
+        </a>
     </div>
 
 
-    <a href="#" class="burger-menu">
+<!--     <a href="#" class="burger-menu">
         <i class="fa-solid fa-bars"></i>
     </a>
 
     <a href="#" class="close-menu hidden">
         <i class="fa-solid fa-xmark"></i>
     </a>
-
-    <nav class="main-navbar hidden" id="main-navbar">
+ -->
+    <nav class="main-navbar" id="main-navbar">
         <ul class="navbar-right">
             <li><a href="/products">Todos los productos</a></li>
             <li><a href="/products/status/1">Ofertas</a></li>

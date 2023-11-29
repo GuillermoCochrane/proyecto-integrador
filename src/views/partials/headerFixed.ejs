@@ -5,13 +5,25 @@
             <a href="/" class="logo">
                 <img src="/images/logo-mercado-liebre.svg" alt="logo" >
             </a>
-            <form action="/search" method="get" class="search-bar">
+            <form action="/search" method="get" class="search-bar hidden1">
                 <input type="search" class="search-field" name="search">
                 <button type="submit" class="search-icon">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
             </form>
+            <a href="#" class="burger-menu">
+                <i class="fa-solid fa-bars"></i>
+            </a>
+            <a href="#" class="close-menu hidden">
+                <i class="fa-solid fa-xmark"></i>
+            </a>
         </div>
+        <form action="/search" method="get" class="search-bar1 hidden">
+            <input type="search" class="search-field" name="search">
+            <button type="submit" class="search-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
         <div class="userLogged-detail hidden">
             <% if (isLogged) { %>
                 <div class="userLogged-detail">
@@ -21,18 +33,15 @@
             <% } else { %>
                 <h2 class="info-header"><i class="fa-solid fa-hand-holding-dollar"></i>Comprá en cuotas y sin tarjeta de crédito</h2>
             <% } %>
+            <a href="#" class="burger-menu1 hidden1 ">
+                <i class="fa-solid fa-bars"></i>
+            </a>
+            <a href="#" class="close-menu1 hidden1 ">
+                <i class="fa-solid fa-xmark"></i>
+            </a>
         </div>
         
     </div>
-
-
-    <a href="#" class="burger-menu">
-        <i class="fa-solid fa-bars"></i>
-    </a>
-
-    <a href="#" class="close-menu hidden">
-        <i class="fa-solid fa-xmark"></i>
-    </a>
 
     <nav class="main-navbar hidden" id="main-navbar">
         <ul class="navbar-right">
