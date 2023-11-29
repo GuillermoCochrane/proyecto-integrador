@@ -19,7 +19,7 @@
   "description": "Macbook Pro 2019 Mpxq2ll/a Intel Core i5 2.3 Ghz 8gb RAM 128gb SSD Pantalla 13.3\" Retina Apple Nueva Original. Importada de USA. Se entrega con la factura de compra para contar con la garantía del fabricante",
   "image": "img-macbook-pro-2019.jpg",
   "category": "1",
-  "views": 46
+  "views": 48
  },
  {
   "id": 3,
@@ -42,7 +42,7 @@
   "image": "img-heladera-whirpool.jpg",
   "status": "4",
   "category": "3",
-  "views": 3
+  "views": 5
  },
  {
   "id": 5,
@@ -53,7 +53,7 @@
   "image": "img-camara-nikon.jpg",
   "status": "3",
   "category": "5",
-  "views": 13
+  "views": 17
  },
  {
   "id": 6,
@@ -64,7 +64,7 @@
   "image": "img-aire-acondicionado.jpg",
   "status": "1",
   "category": "3",
-  "views": 3
+  "views": 4
  },
  {
   "id": 7,
@@ -75,7 +75,7 @@
   "image": "img-laptop-lenovo.jpg",
   "status": "4",
   "category": "1",
-  "views": 3
+  "views": 4
  },
  {
   "id": 8,
@@ -98,7 +98,7 @@
   "status": "2",
   "finalPrice": 11399,
   "category": "1",
-  "views": 3
+  "views": 4
  },
  {
   "id": 10,
@@ -120,7 +120,7 @@
   "image": "img-parlante-bose.jpg",
   "status": "2",
   "category": "2",
-  "views": 2
+  "views": 4
  },
  {
   "id": 12,
@@ -131,7 +131,7 @@
   "image": "img-home-theater-sony.jpg",
   "status": "4",
   "category": "4",
-  "views": 4
+  "views": 5
  },
  {
   "id": 13,

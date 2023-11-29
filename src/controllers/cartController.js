@@ -1,4 +1,7 @@
 const cartFunctions = require("../functions/cartFunctions")
+const productFunctions = require("../functions/productsFunctions");
+const userFunctions = require("../functions/usersFunctions");
+const functions = require("../functions/functions")
 
 const mainController ={
     index: function(req,res){
@@ -22,11 +25,27 @@ const mainController ={
     },
 
     update: function(req,res){
-        cartFunctions.editProduct(req.params.id, req.body.quantity)
+        cartFunctions.editEntry(req.params.id, req.body.quantity)
         res.redirect("/cart")
     },
 
-    
+    delete: function(req,res){
+        let entry = cartFunctions.filterByID(req.params.id)[0];
+        let product = productFunctions.filterByID(entry.productID)[0];
+        let title = "Eliminando - " + product.name;
+        let info = functions.productData(title, product, "Entrada")
+        info.path = "cart"
+        info.products.id = req.params.id
+        if (!product){
+            return res.redirect("/products/notFound")
+        }else{
+            res.render("confirmDelete", info);
+        }
+    },
 
+    destroy: function(req,res){
+        cartFunctions.deleteEntry(req.params.id) //productsFunctions.deleteProduct(req.params.id);
+		res.redirect("/cart")
+    },
 }
 module.exports = mainController

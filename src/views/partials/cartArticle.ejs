@@ -21,7 +21,7 @@
             </div>
             <div class="cart-button-box">
                 <a href="/cart/edit/<%= product.cartID %>" class="description-button edit">EDITAR COMPRA</a>
-                <form action="/products/delete/<%= product.cartID %>" method="get" style="display: inline-flex">
+                <form action="/cart/delete/<%= product.cartID %>" method="get" style="display: inline-flex">
                     <button type="submit" class="description-button delete">ELIMINAR</button>
                 </form>
             </div>

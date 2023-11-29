@@ -3,6 +3,7 @@ const path = require('path');
 const productFunctions = require("../functions/productsFunctions");
 const userFunctions = require("../functions/usersFunctions");
 const functions = require("../functions/functions");
+const { log } = require('console');
 
 const cartFunctions = {
 
@@ -46,7 +47,7 @@ const cartFunctions = {
         let pq = parseInt(quantity);
         if (productEntry){
             pq = pq + productEntry.quantity;
-            this.editProduct(productEntry.id,pq);
+            this.editEntry(productEntry.id,pq);
         }else{
             let newEntry = {
                 id: 			this.newId(),
@@ -61,7 +62,7 @@ const cartFunctions = {
         return this.filterByKey(userID,"userID");
     },
 
-    editProduct: function(id,data){
+    editEntry: function(id,data){
         let entries = this.allEntries();
         for (const entry of entries) {
 			if(entry.id == id){
@@ -72,7 +73,7 @@ const cartFunctions = {
         return id;
     },
 
-    deleteProduct: function(id){
+    deleteEntry: function(id){
         let entries = this.allEntries();
         let newEntries = entries.filter((entry)=> entry.id != id);
 		this.store(newEntries);

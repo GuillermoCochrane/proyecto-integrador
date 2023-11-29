@@ -16,8 +16,8 @@ router.post("/add/:id", cartController.add)
 router.get('/edit/:id', cartController.edit); 
 router.put('/edit/:id', cartController.update); 
 
-/* //Product in cart delete
+//Product in cart delete
 router.get('/delete/:id', cartController.delete);
 router.delete('/delete/:id', cartController.destroy); 
- */
+
 module.exports = router
