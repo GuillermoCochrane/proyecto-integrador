@@ -40,14 +40,18 @@ header.fixed{
     max-width: 150px;
 }
 
-.search-bar1,
+
 .search-bar {
     display: flex;
     width: 90%;
-    /* padding: 5px 0; */
+    padding: 5px 0;
+    margin: -1px 29px;
+}
+
+.search-bar1{
+    display: flex;
+    width: 90%;
     margin: auto;
-    /* margin-top: 0; */
-    /* margin-bottom: 0; */
 }
 
 .search-icon,
@@ -76,7 +80,14 @@ header.fixed{
 
 .userLogged-detail{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+
+.userLogged-detail-box{
+    display: flex;
+    justify-content: center;
     flex-direction: row;
     align-items: center;
 }
@@ -84,7 +95,8 @@ header.fixed{
 .info-header {
     font-weight: 400;
     text-align: center;
-    padding: 10px;
+    padding: 4px;
+    margin-right: 6px;
 }
 
 .info-header-img {
@@ -106,6 +118,17 @@ header.fixed{
     text-align: center;
     border-radius: 7px;
     padding-top: 5px;
+}
+
+.close-menu1,
+.burger-menu1 {
+    background-color: #03264C;
+    color: #ebebeb;
+    width: 36px;
+    padding: 8px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 7px;
 }
 
 .main-navbar {
@@ -140,9 +163,15 @@ header.fixed{
 .hidden {
     display: none;
 }
+
 .hidden1 {
     display: none;
 }
+
+.flex-hidden{
+    display: flex;
+}
+
 
 .banner {
     width: 100%;
@@ -779,7 +808,6 @@ textarea.form-input {
 .cart-label{
     font-size: 17px;
     font-weight: bolder;
-    /* padding: 0px; */
 }
 
 .cart-input{
@@ -789,6 +817,14 @@ textarea.form-input {
     padding: 0px;
     width: 60px;
     text-align: end;
+}
+
+.error{
+    color: tomato;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 11px;
+    text-align: center;
 }
 
 
@@ -809,7 +845,7 @@ textarea.form-input {
     .search-bar {
         width: 70%;
         justify-content: center;
-        margin-right: 10px;
+        /* margin-right: 10px; */
     }
 
     .info-header {
@@ -820,6 +856,7 @@ textarea.form-input {
 
     .userLogged-detail{
         display: flex;
+        /* justify-content: flex-start; */
     }
 
     .main-navbar {
@@ -841,7 +878,7 @@ textarea.form-input {
 
 
     .main-border {
-        margin-top: 127px;
+        margin-top: 84px;
     }
 
     .article-box {
@@ -923,6 +960,12 @@ textarea.form-input {
         justify-content: space-between;
         padding: 0 25px;
     }
+    .hidden1 {
+        display: flex;
+    }
+    .hidden2 {
+        display: none;
+    }
     .hidden {
         display: none;
     }
@@ -945,7 +988,7 @@ textarea.form-input {
 
     .search-icon,
     .search-field {
-        margin: 18px 0;
+        margin: 20px 0;
         padding: 0px 8px;
         font-size: 20px;
     }
@@ -955,6 +998,7 @@ textarea.form-input {
         min-width: none;
         font-size: 19px;
         font-weight: 400;
+        margin-right: 15px;
     }
 
     .main-navbar {
@@ -970,7 +1014,7 @@ textarea.form-input {
     }
 
     .main-border {
-        margin-top: 165px;
+        margin-top: 106px;
     }
 
     .article-box {
@@ -1000,14 +1044,6 @@ textarea.form-input {
         width: 100%;
         flex: 0 0 100%;
         max-width: 100%
-    }
-
-    .error{
-        color: tomato;
-        font-size: 22px;
-        font-weight: bold;
-        margin-bottom: 11px;
-        text-align: center;
     }
 
     .login-form {

@@ -1,73 +1,65 @@
-<header class="main-header">
-
-    <div class="main-header-top">
-        <div class="logo-search">
-            <a href="/" class="logo">
-                <img src="/images/logo-mercado-liebre.svg" alt="logo" >
-            </a>
-            <form action="/search" method="get" class="search-bar">
-                <input type="text" class="search-field" name="search">
-                <button type="submit" class="search-icon">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </form>
-            <a href="#" class="burger-menu">
-                <i class="fa-solid fa-bars"></i>
-            </a>
-            <a href="#" class="close-menu hidden">
-                <i class="fa-solid fa-xmark"></i>
-            </a>
-        </div>
-        <a href="">
-            <div class="userLogged-detail-box">
-                <% if (isLogged) { %>
-                    <div class="userLogged-detail ">
-                        <img  src="/images/users/<%= userlogged.photo  %>" alt="<%= userlogged.username %>" class="info-header-img" >
-                        <h2 class="info-header">Hola <%= userlogged.username %>! </h2>
-                    </div>
-                <% } else { %>
-                    <h2 class="info-header"><i class="fa-solid fa-hand-holding-dollar"></i>Comprá en cuotas y sin tarjeta de crédito</h2>
-                <% } %>
-                <a href="#" class="burger-menu">
-                    <i class="fa-solid fa-bars"></i>
-                </a>
-                <a href="#" class="close-menu hidden">
-                    <i class="fa-solid fa-xmark"></i>
-                </a>
-            </div>
+<div class="main-header-top">
+    <div class="logo-search">
+        <a href="/" class="logo">
+            <img src="/images/logo-mercado-liebre.svg" alt="logo" >
+        </a>
+        <form action="/search" method="get" class="search-bar hidden1">
+            <input type="search" class="search-field" name="search">
+            <button type="submit" class="search-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
+        <a href="#" class="burger-menu hidden2">
+            <i class="fa-solid fa-bars"></i>
+        </a>
+        <a href="#" class="close-menu hidden">
+            <i class="fa-solid fa-xmark"></i>
         </a>
     </div>
+    <form action="/search" method="get" class="search-bar1 hidden">
+        <input type="search" class="search-field" name="search">
+        <button type="submit" class="search-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+    </form>
+    <div class="userLogged-detail-box hidden1">
+        <% if (isLogged) { %>
+            <div class="userLogged-detail">
+                <img  src="/images/users/<%= userlogged.photo  %>" alt="<%= userlogged.username %>" class="info-header-img" >
+                <h2 class="info-header">Hola <%= userlogged.username %>! </h2>
+            </div>
+        <% } else { %>
+            <h2 class="info-header"><i class="fa-solid fa-hand-holding-dollar"></i>Comprá en cuotas y sin tarjeta de crédito</h2>
+        <% } %>
+        <a href="#" class="burger-menu1 hidden1 ">
+            <i class="fa-solid fa-bars"></i>
+        </a>
+        <a href="#" class="close-menu1 hidden">
+            <i class="fa-solid fa-xmark"></i>
+        </a>
+    </div>
+    
+</div>
 
+<nav class="main-navbar hidden" id="main-navbar">
+    <ul class="navbar-right">
+        <li><a href="/products">Todos los productos</a></li>
+        <li><a href="/products/status/1">Ofertas</a></li>
+        <% if (isLogged && userlogged.profile != 1 ) { %>
+            <li><a href="/products/create">Vender</a></li>
+        <% } %>
+        <li><a href="/help">Ayuda</a></li>
+    </ul>
 
-<!--     <a href="#" class="burger-menu">
-        <i class="fa-solid fa-bars"></i>
-    </a>
+    <ul class="navbar-left">
+        <% if (!isLogged) { %>
+            <li><a href="/users/register">Creá tu cuenta<i class="fa-regular fa-address-card"></i></a></li>
+            <li><a href="/users/login">Ingresá<i class="fa-solid fa-right-to-bracket"></i></a></li>
+        <% } else { %>
+            <li><a href="/users/profile">Mi Perfil<i class="fa-regular fa-address-card"></i></a></li>
+            <li><a href="/users/logout">Salir<i class="fa-solid fa-right-from-bracket"></i></a></li>
+            <li><a href="/cart">Mis compras<i class="fa-solid fa-basket-shopping"></i></a></li>
+        <% } %>
+    </ul>
 
-    <a href="#" class="close-menu hidden">
-        <i class="fa-solid fa-xmark"></i>
-    </a>
- -->
-    <nav class="main-navbar" id="main-navbar">
-        <ul class="navbar-right">
-            <li><a href="/products">Todos los productos</a></li>
-            <li><a href="/products/status/1">Ofertas</a></li>
-            <% if (isLogged && userlogged.profile != 1 ) { %>
-                <li><a href="/products/create">Vender</a></li>
-            <% } %>
-            <li><a href="/help">Ayuda</a></li>
-        </ul>
-
-        <ul class="navbar-left">
-            <% if (!isLogged) { %>
-                <li><a href="/users/register">Creá tu cuenta<i class="fa-regular fa-address-card"></i></a></li>
-                <li><a href="/users/login">Ingresá<i class="fa-solid fa-right-to-bracket"></i></a></li>
-            <% } else { %>
-                <li><a href="/users/profile">Mi Perfil<i class="fa-regular fa-address-card"></i></a></li>
-                <li><a href="/users/logout">Salir<i class="fa-solid fa-right-from-bracket"></i></a></li>
-                <li><a href="/cart">Mis compras<i class="fa-solid fa-basket-shopping"></i></a></li>
-            <% } %>
-        </ul>
-
-    </nav>
-
-</header>
+</nav>
