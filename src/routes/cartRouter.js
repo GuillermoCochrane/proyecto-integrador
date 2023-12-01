@@ -20,4 +20,9 @@ router.put('/edit/:id', cartController.update);
 router.get('/delete/:id', cartController.delete);
 router.delete('/delete/:id', cartController.destroy); 
 
+//Cart payment
+router.get('/payment', cartController.payment);
+router.post('/payment', cartController.processPayment);
+
+
 module.exports = router

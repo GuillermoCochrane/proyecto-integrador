@@ -90,7 +90,7 @@ const cartFunctions = {
             let data = {
                 image:      product.image,
                 name:       product.name,
-                amount:      finalPrice*entry.quantity,
+                amount:     finalPrice*entry.quantity,
                 finalPrice: finalPrice,
                 quantity:   entry.quantity,
                 cartID:     entry.id

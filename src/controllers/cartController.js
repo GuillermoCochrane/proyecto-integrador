@@ -1,4 +1,5 @@
-const cartFunctions = require("../functions/cartFunctions")
+const cartFunctions = require("../functions/cartFunctions");
+let salesFunctions = require("../functions/salesFunctions")
 
 const mainController ={
     index: function(req,res){
@@ -39,5 +40,18 @@ const mainController ={
         cartFunctions.deleteEntry(req.params.id);
 		res.redirect("/cart")
     },
+    
+    payment: function(req,res){
+        let user = req.session.userlogged
+        let userPurchases = salesFunctions.filterByKey(user.id,"userID");
+        res.send(userPurchases);
+    },
+
+    processPayment: function(req,res){
+        let user = req.session.userlogged
+        salesFunctions.newSale(user.id);
+        return res.redirect("/cart/payment")
+    },
+    
 }
 module.exports = mainController

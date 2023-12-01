@@ -1,0 +1,82 @@
+const fs = require('fs');
+const path = require('path');
+const productFunctions = require("./productsFunctions");
+const userFunctions = require("./usersFunctions");
+const functions = require("./functions");
+const cartFunctions = require("./cartFunctions");
+
+const salesFunctions = {
+
+    pathDB: path.join(__dirname,"../data/salesDataBase.json"),
+
+    allSales: function()  {
+        let sales = [];
+        let readSales = fs.readFileSync(this.pathDB, 'utf-8');
+        if (readSales != ""){
+            sales = JSON.parse(readSales);
+        };
+        return sales;
+    },
+
+    filterByID : function(id){        
+        let data = this.allSales();
+        return data.filter(sale => sale.id == id);
+    },
+
+    filterByKey: function(data,key){
+        let alldata = this.allSales();
+        return alldata.filter(sale => sale[key] == data);
+    },
+
+    newId: function(){
+        let lastEntry = this.allSales().pop();
+		if (lastEntry){
+            return lastEntry.id + 1;
+        }
+        return 1;
+    },
+
+    store: function(data){
+        fs.writeFileSync( this.pathDB, JSON.stringify(data, null, ' ') );
+        return true;
+    },
+
+    newSale: function(userID){
+        let cartEntries = cartFunctions.filterByKey(userID,"userID");
+        let products = [];
+        let amount = 0;
+        let quantity = 0
+        if(cartEntries.length != 0){
+            for (const entry of cartEntries) {
+                let product = productFunctions.filterByID(entry.productID)[0];
+                let finalPrice = functions.finalPrice(product);
+                let data = {
+                    name:       product.name,
+                    image:      product.image,
+                    finalPrice: finalPrice,
+                    quantity:   entry.quantity,
+                    amount:     finalPrice*entry.quantity,
+                };
+                products.push(data);
+                amount = amount + data.amount;
+                quantity = quantity + data.quantity;
+                cartFunctions.deleteEntry(entry.id);
+            };
+            let sale ={
+                id: this.newId(),
+                userID: userID,
+                amount: amount,
+                quantity: quantity,
+                products: products,
+            };
+            let sales = this.allSales();
+            sales.push(sale);
+            this.store(sales);
+            return true
+        } else {
+            return false
+        }
+    }
+};
+
+module.exports = salesFunctions;
