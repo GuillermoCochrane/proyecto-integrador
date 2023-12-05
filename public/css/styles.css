@@ -8,7 +8,7 @@ body {
     background-color: #ebebee;
     font-family: 'roboto', Arial, Helvetica, sans-serif;
     font-size: 12px;
-    color: #03264C;
+    color: #d48502;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -153,7 +153,7 @@ header.fixed{
 
 .main-navbar a {
     text-decoration: none;
-    color: #03264C;
+    color: #d48502;
     padding: 1px 0;
     font-size: 15px;
     display: inline-block;
@@ -161,6 +161,7 @@ header.fixed{
 
 .main-navbar i {
     padding: 0 3px;
+    color: #03264C;
 }
 
 .hidden {

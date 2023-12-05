@@ -7,7 +7,7 @@ const functions ={
 
     pathCategoriesDB: path.join(__dirname,"../data/categoryDataBase.json"),
 
-    title: " - Mercado Liebre",
+    title: " - MultiHogar",
 
     toThousand: function(n){
         return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
