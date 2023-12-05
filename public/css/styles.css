@@ -18,7 +18,7 @@ body {
 /* HEADER */
 
 header {
-    background-color: #EAC926;
+    background-color: #666666;
     padding: 10px;
     top: 0;
     width: 100%;
@@ -36,10 +36,13 @@ header.fixed{
 
 .logo {
     width: 50%;
-    margin: 14px;
-    max-width: 150px;
+    margin: auto;
 }
 
+.logo-img{
+    max-width: 150px;
+    margin: auto;
+}
 
 .search-bar {
     display: flex;
@@ -836,10 +839,11 @@ textarea.form-input {
 
     .logo-search {
         flex-grow: 1;
+        max-width: 300px;
     }
 
     .logo {
-        width: 30%;
+        width: 59%;
     }
 
     .search-bar {
@@ -973,7 +977,7 @@ textarea.form-input {
 
 @media (min-width:1200px) {
     .logo {
-        min-width: 215px;
+        min-width: 218px;
     }
 
     .main-header-top,
