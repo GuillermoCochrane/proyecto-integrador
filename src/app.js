@@ -4,14 +4,14 @@ const path = require("path");
 const methodOverride =  require('method-override'); // Required for use methods PUT and DELETE
 var cookieParser = require('cookie-parser');
 const session = require('express-session');
-const userloggedMDW = require("./src/middlewares/userLoggedMDW");
-const loggedMDW = require("./src/middlewares/loggedMDW")
+const userloggedMDW = require("./middlewares/userLoggedMDW");
+const loggedMDW = require("./middlewares/loggedMDW")
 
 //Routers dependencies
-const mainRoutes = require("./src/routes/mainRouter")
-const userRoutes = require("./src/routes/userRouter")
-const productsRoutes = require("./src/routes/productsRouter")
-const cartRoutes = require("./src/routes/cartRouter")
+const mainRoutes = require("./routes/mainRouter")
+const userRoutes = require("./routes/userRouter")
+const productsRoutes = require("./routes/productsRouter")
+const cartRoutes = require("./routes/cartRouter")
 
 //Settings
 const app = express();
