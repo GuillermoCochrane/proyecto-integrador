@@ -835,15 +835,16 @@ textarea.form-input {
     .main-header-top {
         display: flex;
         justify-content: space-between;
+        /* margin: 0px; */
     }
 
     .logo-search {
-        flex-grow: 1;
-        max-width: 300px;
+        width: 100%;
+        margin: auto;
     }
 
     .logo {
-        width: 59%;
+        width: auto;
     }
 
     .search-bar {
@@ -853,8 +854,8 @@ textarea.form-input {
     }
 
     .info-header {
-        max-width: 210px;
-        text-align: right;
+        /* max-width: 210px; */
+        text-align: center;
         align-self: center;
     }
 
