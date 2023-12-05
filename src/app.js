@@ -27,7 +27,7 @@ app.use(userloggedMDW); // Middleware that set configurations in locals, whether
 //Set Template Engine
 
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, './src/views'))
+app.set('views', path.join(__dirname, './views'))
 
 //Setting Routes
 
