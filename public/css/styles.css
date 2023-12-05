@@ -103,9 +103,9 @@ header.fixed{
 }
 
 .info-header-img {
-    width: 50px; 
+    width: 50px;
     border-radius: 100%;
-    margin: 5px
+    margin: 5px;
 }
 
 .close-menu,
@@ -857,11 +857,14 @@ textarea.form-input {
         /* max-width: 210px; */
         text-align: center;
         align-self: center;
+        font-size: 17px;
+        font-weight: bold;
     }
 
     .userLogged-detail{
-        display: flex;
+        /* display: flex; */
         /* justify-content: flex-start; */
+        padding: 0 7px;
     }
 
     .main-navbar {
@@ -977,8 +980,17 @@ textarea.form-input {
 }
 
 @media (min-width:1200px) {
+    .logo-search {
+        display: flex;
+        justify-content: space-between;
+    }
     .logo {
         min-width: 218px;
+    }
+
+    .logo-img{
+        max-width: 185px;
+        margin: auto;
     }
 
     .main-header-top,
@@ -993,7 +1005,7 @@ textarea.form-input {
 
     .search-icon,
     .search-field {
-        margin: 20px 0;
+        margin: 15px 0;
         padding: 0px 8px;
         font-size: 20px;
     }
@@ -1001,9 +1013,9 @@ textarea.form-input {
     .info-header {
         margin: 0;
         min-width: none;
-        font-size: 19px;
-        font-weight: 400;
-        margin-right: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        /* margin-right: 0px; */
     }
 
     .main-navbar {
