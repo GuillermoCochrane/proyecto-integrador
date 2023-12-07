@@ -51,8 +51,6 @@ const usertValidations = [
     body('address')
         .notEmpty().withMessage('Debes completar con tu dirección ').bail()
         .isLength({min:3, max:30}).withMessage("La dirección debe tener entre 3 y 30 caracteres"),
-    body('borndate').notEmpty().withMessage('Debes completar con tu Fecha de nacimiento'), // validar que se fecha
-    body('profile').notEmpty().withMessage('Debes seleccionar un perfil de usuario'),
     body('password')
         .notEmpty().withMessage('Debes ingresar una contraseña').bail()
         .isLength({min:8, max:16}).withMessage("La contraseña debe tener entre 8 y 16 caracteres").bail()
@@ -66,7 +64,7 @@ const usertValidations = [
         let file = req.file;
         let acceptedExt = [".bpm", ".png", ".jpg", ".gif"]
         if(!file){
-            throw new Error("Debes incluir una imagen para el producto");
+            throw new Error("Debes incluir una imagen de perfil");
         } else {
             let ext = path.extname(file.originalname)
             if(!acceptedExt.includes(ext)){

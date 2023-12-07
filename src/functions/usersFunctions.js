@@ -78,7 +78,7 @@ const usersFunctions ={
             borndate: 		data.borndate,
             photo: 			file.filename,
             categories: 	categories,
-            profile: 		parseInt(data.profile),
+            profile: 		1,
             password:       data.password,
 		};
         let users = this.allUsers();
@@ -100,7 +100,6 @@ const usersFunctions ={
                 user.borndate =      data.borndate
                 user.photo =         file.filename;
                 user.categories =    categories;
-                user.profile =       parseInt(data.profile)
                 user.password =      (data.password ? data.password : user.password);
             };
         };

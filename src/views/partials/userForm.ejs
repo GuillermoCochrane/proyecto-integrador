@@ -29,19 +29,6 @@
     </div>
 
     <div class="form-item">
-        <label for="borndate">Fecha de nacimiento</label>
-        <input class="form-field" type="date" id="borndate" name="borndate" value="<%= locals.user ? user.borndate : null %>">
-        <span class="login-item error"><%= (locals.errors && errors.borndate) ? errors.borndate.msg : null %></span>
-    </div>
-
-    <div class="form-item">
-        <label for="photo">Foto de usuario</label>
-        <input class="form-field" type="file"  id="photo" name="photo">
-        <span class="login-item error"><%= (locals.errors && errors.photo) ? errors.photo.msg : null %></span>
-    </div>
-
-
-    <div class="form-item">
         <label >Categorías de interés</label>
         <% for (const category of categories) { %>
             <div class="form-radio">
@@ -61,19 +48,9 @@
     </div>
 
     <div class="form-item">
-        <label>Perfil del usuario</label>
-        <% for (const profile of profiles) { %>
-            <div class="form-radio">
-                <input  type="radio" 
-                        id="<%= profile.profile %>"
-                        name="profile" 
-                        value="<%= profile.id %>" 
-                        <%= locals.user &&  (profile.id == user.profile) ? "checked" : null %>
-                >
-                <label for="<%= profile.profile %>"><%= profile.profile %></label>
-            </div>
-        <% } %>
-        <span class="login-item error"><%= (locals.errors && errors.profile) ? errors.profile.msg : null %></span>
+        <label for="photo">Imagen de perfil</label>
+        <input class="form-field" type="file"  id="photo" name="photo">
+        <span class="login-item error"><%= (locals.errors && errors.photo) ? errors.photo.msg : null %></span>
     </div>
 
     <div class="form-item">
@@ -83,11 +60,10 @@
     </div>
 
     <div class="form-item">
-        <label for="confirm">Confirmar contraseña</label>
-        <input class="form-field" type="password" id="confirm" name="confirm" <%= !locals.user  ? "required" : null %>>
+        <label for="confirm">Confirmar Contraseña</label>
+        <input class="form-field" type="password" id="confirm" name="confirm" <%= !locals.user  ? "required" : null %> >
+        <span class="login-item error"></span>
     </div>
-
-    <!-- <span class="form-item big-box error"><%= locals.passwordError ? passwordError : null %></span> -->
 
     <div class="form-buttons">
         <button type="submit">Enviar</button>
