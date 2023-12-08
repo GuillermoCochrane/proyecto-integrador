@@ -1,0 +1,145 @@
+<%- include("./partials/head.ejs") %>
+
+<body>
+    <%- include("./partials/headerStatic.ejs") %>
+    <main>
+        <section class="profile-avatar-box">
+            <div class="avatar-box">
+                <img src="/images/users/default.png" alt="avatar">
+            </div>
+            <h3 class="username-box">
+                Nombre de Usuario
+            </h3>
+            <div class="profile-button-box">
+                <div class="button-container">
+                    <a href="#">
+                        <button>
+                            Perfil
+                        </button>
+                    </a>
+                </div>
+                <div class="button-container">
+                    <a href="#">
+                        <button>
+                            Historial de compras
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="profile-user-data">
+            <article>
+                <ul>
+                    <li>    
+                        <i class="fa-solid fa-at"></i>
+                        <p>Nombre:  </p>
+                    </li>
+                    <li>    
+                        <i class="fa-solid fa-at"></i>
+                        <p>Nombre de usuario:  </p>
+                    </li>
+                    <li>    
+                        <i class="fa-solid fa-at"></i>
+                        <p>Email:  </p>
+                    </li>
+                    <li>    
+                        <i class="fa-solid fa-at"></i>
+                        <p>direccion:  </p>
+                    </li>
+                    <li>    
+                        <i class="fa-solid fa-at"></i>
+                        <p>Telefono:  </p>
+                    </li>
+                </ul>    
+            </article>
+            <article>
+                <ul>
+                    <h3>intereses</h3>
+                    <li>
+                        <p>
+                            interes 1
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            interes 2
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            interes 3
+                        </p>
+                    </li>
+                </ul>
+            </article>
+            <article>
+                <a href="#">
+                    <button>
+                        Editar Informacion
+                    </button>
+                </a>
+                <a href="#">
+                    <button>
+                        Cambiar contraseña
+                    </button>
+                </a>
+                <a href="#">
+                    <button>
+                        Cambiar Avatar
+                    </button>
+                </a>
+            </article>
+
+        </section>
+
+        <section class="purchase-history">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Monto</th>
+                            <th>Cantidad</th>
+                            <th>Productos</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Monto</th>
+                            <th>Cantidad</th>
+                            <th>Productos</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>12/12/23</td>
+                            <td>$587964</td>
+                            <td>5</td>
+                            <td>productos</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>12/12/23</td>
+                            <td>$587964</td>
+                            <td>5</td>
+                            <td>productos</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>12/12/23</td>
+                            <td>$587964</td>
+                            <td>5</td>
+                            <td>productos</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+        </section>
+
+    </main>
+    <%- include("./partials/footer.ejs") %>
+
+</body>
+</html>

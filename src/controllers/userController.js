@@ -40,7 +40,7 @@ const userController = {
 
     profile: function(req,res){
         let user = req.session.userlogged;
-        return res.render("userDetail",{
+        return res.render("userProfile",{
             title: user.name,
             user: user,
             profiles: usersFunctions.profiles(),
