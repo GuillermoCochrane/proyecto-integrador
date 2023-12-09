@@ -18,24 +18,6 @@
   "quantity": 4
  },
  {
-  "id": 4,
-  "userID": 9,
-  "productID": 12,
-  "quantity": 1
- },
- {
-  "id": 5,
-  "userID": 9,
-  "productID": 4,
-  "quantity": 3
- },
- {
-  "id": 6,
-  "userID": 9,
-  "productID": 9,
-  "quantity": 2
- },
- {
   "id": 7,
   "userID": 10,
   "productID": 5,
@@ -46,11 +28,5 @@
   "userID": 10,
   "productID": 6,
   "quantity": 3
- },
- {
-  "id": 9,
-  "userID": 9,
-  "productID": 5,
-  "quantity": 2
  }
 ]

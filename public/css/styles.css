@@ -875,7 +875,6 @@ textarea.form-input {
     border-top: 2px solid #444444;
     border-left: 2px solid #444444;
     margin: 0px 19px;
-    width: 100%;
 }
 
 .profile-data{
@@ -988,17 +987,15 @@ textarea.form-input {
 /* profile table */
 .purchase-history{
     margin: auto;
+    margin-top: 20px;
     width: 90%;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-between;
 }
 table {
     border-collapse: collapse;
     width: auto;
-    margin-bottom: 1rem;
-    color: #858796;
+    margin-bottom: 3px;
+    color: #03264C;
+    text-align: center;
 }
 
 .table td,
@@ -1010,7 +1007,7 @@ table {
 
 .table thead th {
     vertical-align: bottom;
-    border-bottom: 2px solid #e3e6f0
+    border-bottom: 2px solid #629398;
 }
 
 .table-bordered {
@@ -1019,18 +1016,19 @@ table {
 
 .table-bordered td,
 .table-bordered th {
-    border: 1px solid #e3e6f0;
+    border: 2px solid #629398;
     background: white;
 }
 
 .table-bordered thead td,
 .table-bordered thead th {
-    border-bottom-width: 2px
+    border-bottom-width: 2px;
 }
 
 .table-responsive{
     display: flex;
-    width: 90%;
+    width: 100%;
+    font-size: 14px;
 }
 
 .hidden {

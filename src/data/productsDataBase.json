@@ -8,7 +8,7 @@
   "category": "3",
   "status": "2",
   "description": "Cafetera Dolce Gusto Lumio. La cafetera Dolce Gusto Lumio es de variedad automática que ha llegado con un diseño radical al que nos tenía acostumbrados Dolce Gusto.En este post te contamos todo lo que necesitas saber sobre ella, desde sus características técnicas hasta la calidad de las cápsulas o price.",
-  "views": 17
+  "views": 18
  },
  {
   "id": 2,
@@ -64,7 +64,7 @@
   "image": "img-aire-acondicionado.jpg",
   "status": "1",
   "category": "3",
-  "views": 4
+  "views": 8
  },
  {
   "id": 7,
@@ -86,7 +86,7 @@
   "image": "img-iphone-11.jpg",
   "status": "1",
   "category": "2",
-  "views": 3
+  "views": 4
  },
  {
   "id": 9,
@@ -142,7 +142,7 @@
   "image": "img-tv-samsung-smart.jpg",
   "status": "2",
   "category": "4",
-  "views": 1
+  "views": 2
  },
  {
   "id": 14,
