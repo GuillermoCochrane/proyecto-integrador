@@ -3,145 +3,149 @@
 <body>
     <%- include("./partials/headerStatic.ejs") %>
     <main>
-        <section class="profile-avatar-box">
-            <div class="avatar-box">
-                <img src="/images/users/<%= user.photo %>" alt="<%= user.username %>">
-            </div>
-            <h3 class="username-box">
-                <%= user.username %>
-            </h3>
-            <div class="profile-button-box">
-                <div class="button-container hidden" id="profile-data-button">
-                    <a href="#">
-                        <button>
-                            Perfil
-                        </button>
-                    </a>
+        <div class="profile-container">
+            <section class="profile-avatar-box">
+                <div class="avatar-box">
+                    <img src="/images/users/<%= user.photo %>" alt="<%= user.username %>">
                 </div>
-                <div class="button-container" id="profile-history-button">
-                    <a href="#">
-                        <button>
-                            Historial de compras
-                        </button>
-                    </a>
+                <h3 class="username-box">
+                    <%= user.username %>
+                </h3>
+                <div class="profile-button-box">
+                    <div class="button-container hidden" id="profile-data-button">
+                        <a href="#">
+                            <button>
+                                Perfil
+                            </button>
+                        </a>
+                    </div>
+                    <div class="button-container" id="profile-history-button">
+                        <a href="#">
+                            <button>
+                                Historial de compras
+                            </button>
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <div class="profile-data">
-            <section class="profile-user-data" id="profile-user-data">
-                <div class="user-data-container">
-                    <article class="user-data">
-                        <ul>
-                            <li> 
-                                <div class="user-data-title">
-                                    <i class="fa-solid fa-address-card"></i>
-                                    <h4>Nombre:</h4>
-                                </div>
-                                <p> <%= user.name %> </p>
-                            </li>
-                            <li>
-                                <div class="user-data-title">
-                                    <i class="fa-solid fa-user"></i>
-                                    <h4>Nombre de usuario:</h4>
-                                </div>    
-                                <p><%= user.username %>  </p>
-                            </li>
-                            <li> 
-                                <div class="user-data-title">
-                                    <i class="fa-solid fa-at"></i>
-                                    <h4>Email: </h4>
-                                </div>
-                                <p><%= user.email %> </p>
-                            </li>
-                            <li> 
-                                <div class="user-data-title">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                    <h4>Dirección: </h4>
-                                </div >
-                                <p><%= user.address %></p>
-                            </li>
-                            <li>
-                                <div class="user-data-title">
-                                    <i class="fa-solid fa-square-phone"></i>
-                                    <h4>Teléfono: </h4>
-                                </div>    
-                                <p><%= user.phone %> </p>
-                            </li>
-                        </ul>    
-                    </article>
-                    <article class="user-interest">
-                        <ul>
-                            <h3>Intereses</h3>
-                            <% for (const interes of user.categories) { %>
-                                <li>
-                                    <% for (const category of categories) {%>
-                                        <%= category.id == interes ? category.category : null  %> 
-                                    <% } %>
+            </section>
+
+            <div class="profile-data">
+                
+                <section class="profile-user-data" id="profile-user-data">
+                    <div class="user-data-container">
+                        <article class="user-data">
+                            <ul>
+                                <li> 
+                                    <div class="user-data-title">
+                                        <i class="fa-solid fa-address-card"></i>
+                                        <h4>Nombre:</h4>
+                                    </div>
+                                    <p> <%= user.name %> </p>
                                 </li>
-                            <% } %>
-                    </article>
-                </div>
-                <div class="user-data-buttons">
-                    <a href="#">
-                        <button>
-                            Editar Informacion
-                        </button>
-                    </a>
-                    <a href="#">
-                        <button>
-                            Cambiar contraseña
-                        </button>
-                    </a>
-                    <a href="#">
-                        <button>
-                            Cambiar Avatar
-                        </button>
-                    </a>
-                </div>
-            </section>
-    
-            <section class="purchase-history hidden" id="purchase-history">
-                <div class="table-responsive">
-                    <table class="table table-bordered" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th colspan="5">Historial de compras</th>
-                            </tr>
-                            <tr>
-                                <th> </th>
-                                <th>Fecha</th>
-                                <th>Monto</th>
-                                <th>Cantidad</th>
-                                <th>Productos</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>12/12/23</td>
-                                <td>$587964</td>
-                                <td>5</td>
-                                <td>productos</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>12/12/23</td>
-                                <td>$587964</td>
-                                <td>5</td>
-                                <td>productos</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>12/12/23</td>
-                                <td>$587964</td>
-                                <td>5</td>
-                                <td>productos</td>
-                            </tr>
-                        </tbody>
-                    </table>
-    
-            </section>
-    
+                                <li>
+                                    <div class="user-data-title">
+                                        <i class="fa-solid fa-user"></i>
+                                        <h4>Nombre de usuario:</h4>
+                                    </div>    
+                                    <p><%= user.username %>  </p>
+                                </li>
+                                <li> 
+                                    <div class="user-data-title">
+                                        <i class="fa-solid fa-at"></i>
+                                        <h4>Email: </h4>
+                                    </div>
+                                    <p><%= user.email %> </p>
+                                </li>
+                                <li> 
+                                    <div class="user-data-title">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        <h4>Dirección: </h4>
+                                    </div >
+                                    <p><%= user.address %></p>
+                                </li>
+                                <li>
+                                    <div class="user-data-title">
+                                        <i class="fa-solid fa-square-phone"></i>
+                                        <h4>Teléfono: </h4>
+                                    </div>    
+                                    <p><%= user.phone %> </p>
+                                </li>
+                            </ul>    
+                        </article>
+                        <article class="user-interest">
+                            <ul>
+                                <h3>Intereses</h3>
+                                <% for (const interes of user.categories) { %>
+                                    <li>
+                                        <% for (const category of categories) {%>
+                                            <%= category.id == interes ? category.category : null  %> 
+                                        <% } %>
+                                    </li>
+                                <% } %>
+                        </article>
+                    </div>
+                    <div class="user-data-buttons">
+                        <a href="#">
+                            <button>
+                                Editar Informacion
+                            </button>
+                        </a>
+                        <a href="#">
+                            <button>
+                                Cambiar contraseña
+                            </button>
+                        </a>
+                        <a href="#">
+                            <button>
+                                Cambiar Avatar
+                            </button>
+                        </a>
+                    </div>
+                </section>
+        
+                <section class="purchase-history hidden" id="purchase-history">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th colspan="5">Historial de compras</th>
+                                </tr>
+                                <tr>
+                                    <th> </th>
+                                    <th>Fecha</th>
+                                    <th>Monto</th>
+                                    <th>Cantidad</th>
+                                    <th>Productos</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>12/12/23</td>
+                                    <td>$587964</td>
+                                    <td>5</td>
+                                    <td>productos</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>12/12/23</td>
+                                    <td>$587964</td>
+                                    <td>5</td>
+                                    <td>productos</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>12/12/23</td>
+                                    <td>$587964</td>
+                                    <td>5</td>
+                                    <td>productos</td>
+                                </tr>
+                            </tbody>
+                        </table>
+        
+                </section>
+        
+            </div>
         </div>
     </main>
     <%- include("./partials/footer.ejs") %>

@@ -888,6 +888,7 @@ textarea.form-input {
 
 .user-data-container{
     margin: 5px 0;
+    margin-left: 5px;
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -961,9 +962,6 @@ textarea.form-input {
     margin: 3px 0;
     font-size: 19px;
     font-weight: bold;
-}
-.user-interest p{
-    margin: auto;
 }
 
 .user-data-buttons{
@@ -1044,6 +1042,11 @@ table {
 }
 
 @media (min-width:768px) {
+    
+    main {
+        width: 95%;
+    }
+
     .main-header-top {
         display: flex;
         justify-content: space-between;
@@ -1180,6 +1183,77 @@ table {
         justify-content: space-between;
         padding: 0 25px;
     }
+
+    .profile-container{
+        display: flex;
+        padding: 5px;
+        align-items: stretch;
+        justify-content: space-between;
+    }
+    
+    .profile-avatar-box{
+        padding: 9px;
+    }
+
+    .profile-data{
+        margin: 10px 3px;
+        width: 100%;
+    }
+
+    .profile-user-data{
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user-data-container{
+        font-size: 20px;
+        align-self: stretch;
+    }
+
+    .user-data{
+        display: flex;
+    }
+        
+    .user-data li{
+        margin: 12px 0px;
+    }
+    
+    .user-data-title{
+        margin: 8px 0;
+    }
+    
+    .user-data h4{
+        font-size: 18px;
+        font-weight: bold;
+    }
+    
+    .user-data p{
+        font-size: 18px;
+        font-weight: bold;
+    }
+    
+    .user-interest h3{
+        margin: 10px 0;
+    }
+    
+    .user-interest li{
+        margin: 10px 0;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    
+    .user-data-buttons{
+        margin: 10px;
+    }
+    
+    .user-data-buttons button{
+        margin: 0px 20px;
+        padding: 5px 0;
+        font-size: 15px;
+    }
+
     .hidden1 {
         display: flex;
     }
