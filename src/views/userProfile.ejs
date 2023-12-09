@@ -11,14 +11,14 @@
                 <%= user.username %>
             </h3>
             <div class="profile-button-box">
-                <div class="button-container">
+                <div class="button-container hidden" id="profile-data-button">
                     <a href="#">
                         <button>
                             Perfil
                         </button>
                     </a>
                 </div>
-                <div class="button-container">
+                <div class="button-container" id="profile-history-button">
                     <a href="#">
                         <button>
                             Historial de compras
@@ -28,7 +28,7 @@
             </div>
         </section>
         <div class="profile-data">
-            <section class="profile-user-data">
+            <section class="profile-user-data" id="profile-user-data">
                 <div class="user-data-container">
                     <article class="user-data">
                         <ul>
@@ -100,7 +100,7 @@
                 </div>
             </section>
     
-            <section class="purchase-history">
+            <section class="purchase-history hidden" id="purchase-history">
                 <div class="table-responsive">
                     <table class="table table-bordered" cellspacing="0">
                         <thead>

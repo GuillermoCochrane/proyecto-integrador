@@ -164,19 +164,6 @@ header.fixed{
     color: #03264C;
 }
 
-.hidden {
-    display: none;
-}
-
-.hidden1 {
-    display: none;
-}
-
-.flex-hidden{
-    display: flex;
-}
-
-
 .banner {
     width: 100%;
     margin: auto;
@@ -874,6 +861,11 @@ textarea.form-input {
     font-size: 15px;
 }
 
+.button-container a{
+    margin: auto;
+    width: 100%;
+}
+
 .button-container button{
     padding: 5px 15px;
     border-radius: 8px;
@@ -882,6 +874,8 @@ textarea.form-input {
     font-weight: bold;
     border-top: 2px solid #444444;
     border-left: 2px solid #444444;
+    margin: 0px 19px;
+    width: 100%;
 }
 
 .profile-data{
@@ -1037,6 +1031,18 @@ table {
 .table-responsive{
     display: flex;
     width: 90%;
+}
+
+.hidden {
+    display: none;
+}
+
+.hidden1 {
+    display: none;
+}
+
+.flex-hidden{
+    display: flex;
 }
 
 @media (min-width:768px) {
