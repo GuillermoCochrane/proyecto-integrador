@@ -72,22 +72,13 @@
                     <article class="user-interest">
                         <ul>
                             <h3>Intereses</h3>
-                            <li>
-                                <p>
-                                    interes 1
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    interes 2
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    interes 3
-                                </p>
-                            </li>
-                        </ul>
+                            <% for (const interes of user.categories) { %>
+                                <li>
+                                    <% for (const category of categories) {%>
+                                        <%= category.id == interes ? category.category : null  %> 
+                                    <% } %>
+                                </li>
+                            <% } %>
                     </article>
                 </div>
                 <div class="user-data-buttons">

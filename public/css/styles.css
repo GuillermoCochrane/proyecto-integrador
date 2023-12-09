@@ -912,6 +912,7 @@ textarea.form-input {
 
 .user-data ul{
     margin: auto;
+    list-style: none;
 }
 
 .user-data li{
@@ -950,14 +951,23 @@ textarea.form-input {
 }
 
 .user-interest h3{
-    margin: auto;
+    margin: 0px;
+    margin-bottom: 5px;
+    font-size: 24px;
+    color: #03264C;
 }
 
 .user-interest ul{
-    margin: auto;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    list-style: none;
 }
 .user-interest li{
-    margin: auto;
+    margin: 3px 0;
+    font-size: 19px;
+    font-weight: bold;
 }
 .user-interest p{
     margin: auto;

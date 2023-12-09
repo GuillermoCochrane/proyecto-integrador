@@ -43,7 +43,6 @@ const userController = {
         return res.render("userProfile",{
             title: user.name,
             user: user,
-            profiles: usersFunctions.profiles(),
             categories: functions.allCategories()
         })
     },
