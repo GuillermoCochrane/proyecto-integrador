@@ -839,6 +839,7 @@ textarea.form-input {
     display: flex;
     flex-direction: column;
     background: #666666;
+    border-radius: 15px;
 }
 
 .avatar-box{
@@ -848,7 +849,8 @@ textarea.form-input {
 .avatar-box img{
     margin: auto;
     border-radius: 100%;
-    max-width: 300px;
+    max-width: 270px;
+    margin-top: 10px;
 }
 
 .username-box{
