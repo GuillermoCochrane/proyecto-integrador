@@ -410,7 +410,7 @@ footer section p {
 }
 
 .login-form button {
-    width: 100%;
+    width: 50%;
     margin: 15px 0;
     padding: 8px;
     font-size: 20px;
@@ -418,7 +418,8 @@ footer section p {
 }
 
 .login-form button:hover {
-    background-color: #0022AA;
+    background-color: #03264C;
+    color: #d48502;
 }
 
 /* Detail */
@@ -847,6 +848,7 @@ textarea.form-input {
 .avatar-box img{
     margin: auto;
     border-radius: 100%;
+    max-width: 300px;
 }
 
 .username-box{
@@ -896,6 +898,7 @@ textarea.form-input {
     justify-content: space-between;
     align-items: stretch;
     padding: 5px;
+    font-size: 16px;
 }
 
 .user-data{
@@ -911,14 +914,30 @@ textarea.form-input {
 
 .user-data li{
     margin: auto;
+    margin: 5px 0px;
+}
+
+.user-data-title{
+    display: flex;
+    margin: 2px;
+    color: #d48502;
 }
 
 .user-data i{
-    margin: auto;
+    margin: 0;
+    margin-right: 6px;
+    color: #03264C;
+}
+
+.user-data h4{
+    margin: 0;
+    font-size: 15px;
 }
 
 .user-data p{
     margin: auto;
+    color: #03264C;
+    font-size: 15px;
 }
 
 .user-interest{
@@ -953,7 +972,11 @@ textarea.form-input {
     padding: 4px 0;
     border-radius: 10px;
     font-size: 13px;
+    color: #03264C;
+    background-color: #629398;
     font-weight: bold;
+    border-top: 2px solid #444444;
+    border-left: 2px solid #444444;
 }
 
 /* profile table */
@@ -1238,6 +1261,7 @@ table {
 
     .login-form {
         margin: 60px auto;
+        max-width: 50%;
     }
 
     .footer-box {

@@ -5,10 +5,10 @@
     <main>
         <section class="profile-avatar-box">
             <div class="avatar-box">
-                <img src="/images/users/default.png" alt="avatar">
+                <img src="/images/users/<%= user.photo %>" alt="<%= user.username %>">
             </div>
             <h3 class="username-box">
-                Nombre de Usuario
+                <%= user.username %>
             </h3>
             <div class="profile-button-box">
                 <div class="button-container">
@@ -32,25 +32,40 @@
                 <div class="user-data-container">
                     <article class="user-data">
                         <ul>
-                            <li>    
-                                <i class="fa-solid fa-at"></i>
-                                <p>Nombre:  </p>
+                            <li> 
+                                <div class="user-data-title">
+                                    <i class="fa-solid fa-address-card"></i>
+                                    <h4>Nombre:</h4>
+                                </div>
+                                <p> <%= user.name %> </p>
                             </li>
-                            <li>    
-                                <i class="fa-solid fa-at"></i>
-                                <p>Nombre de usuario:  </p>
+                            <li>
+                                <div class="user-data-title">
+                                    <i class="fa-solid fa-user"></i>
+                                    <h4>Nombre de usuario:</h4>
+                                </div>    
+                                <p><%= user.username %>  </p>
                             </li>
-                            <li>    
-                                <i class="fa-solid fa-at"></i>
-                                <p>Email:  </p>
+                            <li> 
+                                <div class="user-data-title">
+                                    <i class="fa-solid fa-at"></i>
+                                    <h4>Email: </h4>
+                                </div>
+                                <p><%= user.email %> </p>
                             </li>
-                            <li>    
-                                <i class="fa-solid fa-at"></i>
-                                <p>direccion:  </p>
+                            <li> 
+                                <div class="user-data-title">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <h4>Dirección: </h4>
+                                </div >
+                                <p><%= user.address %></p>
                             </li>
-                            <li>    
-                                <i class="fa-solid fa-at"></i>
-                                <p>Telefono:  </p>
+                            <li>
+                                <div class="user-data-title">
+                                    <i class="fa-solid fa-square-phone"></i>
+                                    <h4>Teléfono: </h4>
+                                </div>    
+                                <p><%= user.phone %> </p>
                             </li>
                         </ul>    
                     </article>
