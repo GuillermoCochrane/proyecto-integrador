@@ -46,24 +46,13 @@
             </div>
         <% } %>
     </div>
+    <% if (!isLogged) { %>
+        
+        <%- include("./userFormAvatar.ejs") %>
 
-    <div class="form-item">
-        <label for="photo">Imagen de perfil</label>
-        <input class="form-field" type="file"  id="photo" name="photo">
-        <span class="login-item error"><%= (locals.errors && errors.photo) ? errors.photo.msg : null %></span>
-    </div>
-
-    <div class="form-item">
-        <label for="password">Contraseña</label>
-        <input class="form-field" type="password" id="password" name="password" <%= !locals.user  ? "required" : null %> >
-        <span class="login-item error"><%= (locals.errors && errors.password) ? errors.password.msg : null %></span>
-    </div>
-
-    <div class="form-item">
-        <label for="confirm">Confirmar Contraseña</label>
-        <input class="form-field" type="password" id="confirm" name="confirm" <%= !locals.user  ? "required" : null %> >
-        <span class="login-item error"></span>
-    </div>
+        <%- include("./userFormPassword.ejs") %>
+        
+    <% } %>
 
     <div class="form-buttons">
         <button type="submit">Enviar</button>

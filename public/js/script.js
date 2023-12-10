@@ -53,5 +53,24 @@ window.addEventListener("load", function(){
         profileData.classList.toggle("hidden");
         purchaseHistory.classList.toggle("hidden");
     });
+// profile /edit user data - edit  password - edit avatar
+    let editButton = this.document.querySelector("#edit-user-data");
+    let passwordButton = this.document.querySelector("#change-user-password");
+    let avatarButton = this.document.querySelector("#change-user-avatar");
+    let passwordForm = this.document.querySelector("#password-change-form");
+    let dataForm = this.document.querySelector("#profile-edit-form");
+    let avatarForm = this.document.querySelector("#avatar-change-form");
+
+    editButton.addEventListener("click",function(){
+        dataForm.classList.toggle("hidden");
+    });
+
+    passwordButton.addEventListener("click",function(){
+        passwordForm.classList.toggle("hidden");
+    });
+
+    avatarButton.addEventListener("click",function(){
+        avatarForm.classList.toggle("hidden");
+    });
 
 })

@@ -1,0 +1,5 @@
+<div class="form-item">
+    <label for="photo">Imagen de perfil</label>
+    <input class="form-field" type="file"  id="photo" name="photo">
+    <span class="login-item error"><%= (locals.errors && errors.photo) ? errors.photo.msg : null %></span>
+</div>

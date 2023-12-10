@@ -86,21 +86,58 @@
                     </div>
                     <div class="user-data-buttons">
                         <a href="#">
-                            <button>
+                            <button id="edit-user-data">
                                 Editar Informacion
                             </button>
                         </a>
                         <a href="#">
-                            <button>
+                            <button id="change-user-password">
                                 Cambiar contraseña
                             </button>
                         </a>
-                        <a href="#">
+                        <a href="#" id="change-user-avatar">
                             <button>
                                 Cambiar Avatar
                             </button>
                         </a>
                     </div>
+
+                    <div class="user-data-container hidden" id="password-change-form">
+                        <form action="/password?_method=PUT" method="post" class="form-frame">
+                            <%- include("./partials/userFormPassword.ejs") %>
+                            <div class="profile-button-box">
+                                <div class="button-container">
+                                    <a href="#">
+                                        <button type="submit">
+                                            Aceptar
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="user-data-container hidden" id="avatar-change-form">
+                        <form action="/avatar?_method=PUT" method="post" class="form-frame"  enctype="multipart/form-data">
+                            <%- include("./partials/userFormAvatar.ejs") %>
+                            <div class="profile-button-box">
+                                <div class="button-container">
+                                    <a href="#">
+                                        <button type="submit">
+                                            Aceptar
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="user-data-container hidden" id="profile-edit-form">
+                        <form action="/editdata?_method=PUT" method="post" class="form-frame">
+                            <%- include("./partials/userForm.ejs") %>
+                        </form>
+                    </div>
+
                 </section>
         
                 <section class="purchase-history hidden" id="purchase-history">

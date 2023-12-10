@@ -841,13 +841,14 @@ textarea.form-input {
 }
 
 .username-box{
-    margin: auto;
+    margin: 0;
     font-size: 22px;
     padding: 10px;
+    text-align: center;
 }
 
 .profile-button-box{
-    margin: auto;
+    margin: 0;
     display: flex;
     padding: 5px;
     justify-content: space-around;
@@ -1188,11 +1189,16 @@ table {
         display: flex;
         padding: 5px;
         align-items: stretch;
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
     
     .profile-avatar-box{
         padding: 9px;
+        justify-content: flex-start;
+    }
+
+    .avatar-box{
+        margin: 0;
     }
 
     .profile-data{
