@@ -1414,6 +1414,24 @@ table {
         /* margin: auto; */
     }
 
+    .profile-container{
+        width: 80%;
+        margin: auto;
+    }
+
+    .user-data ul{
+        margin-left: 30px;
+    }
+
+    .user-interest{
+        margin-right: 30px;
+    }
+
+    .user-data-buttons button{
+        padding: 5px;
+        margin: 0px 60px;
+    }
+
     .table-responsive {
         display: block;
         width: 100%;
