@@ -12,7 +12,7 @@
    3,
    2
   ],
-  "password": "123456789",
+  "password": "1",
   "phone": "3584120100",
   "photo": "img-user1660968491868.jpg"
  },
@@ -28,7 +28,7 @@
    3,
    2
   ],
-  "password": "123456789",
+  "password": "1",
   "phone": "3584120102",
   "photo": "img-user1660968556765.jpg"
  },
@@ -44,7 +44,7 @@
    3,
    2
   ],
-  "password": "123456789",
+  "password": "1",
   "phone": "3584120103",
   "photo": "img-user1660968609495.jpg"
  },
@@ -62,7 +62,7 @@
    4,
    2
   ],
-  "password": "123456789",
+  "password": "1",
   "phone": "3584120104",
   "photo": "img-user1660968681032.jpg"
  },
@@ -79,7 +79,7 @@
    3,
    4
   ],
-  "password": "123456789",
+  "password": "1",
   "phone": "3584120105",
   "photo": "img-user1660968750660.jpg"
  },
@@ -96,14 +96,14 @@
    4,
    2
   ],
-  "password": "123456789",
+  "password": "1",
   "phone": "3584120106",
   "photo": "img-user1660968832691.png"
  },
  {
   "id": 7,
   "name": "Lucifer Morningstar",
-  "username": "HellDaddy",
+  "username": "Lu",
   "email": "lucifer@lux.com",
   "borndate": "0001-01-01",
   "address": "Sunset Boulevard 8358 ",
@@ -113,7 +113,7 @@
    3,
    4
   ],
-  "password": "123456789",
+  "password": "1",
   "phone": "3584120107",
   "photo": "img-user1660968898302.jpg"
  },
@@ -130,7 +130,7 @@
    3,
    5
   ],
-  "password": "123456789",
+  "password": "1",
   "phone": "3584120108",
   "photo": "img-user1660968939498.jpg"
  },
@@ -147,7 +147,7 @@
    4,
    2
   ],
-  "password": "123456789",
+  "password": "1",
   "phone": "3584120109",
   "photo": "img-user1660968971991.jpg"
  },
