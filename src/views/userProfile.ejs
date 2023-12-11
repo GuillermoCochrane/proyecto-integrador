@@ -159,7 +159,7 @@
                                     <% for (const purchase of purchases) { %>
                                         <tr>
                                             <td><%= purchase.counter %></td>
-                                            <td>12/12/23</td>
+                                            <td><%= purchase.day %> / <%= purchase.month %> / <%= purchase.year %></td>
                                             <td>$<%= purchase.amount %></td>
                                             <td><%= purchase.quantity %></td>
                                         </tr>

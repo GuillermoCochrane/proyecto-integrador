@@ -4,6 +4,9 @@
   "userID": 9,
   "amount": 269918,
   "quantity": 8,
+  "day": 12,
+  "month": 10,
+  "year": 2023,
   "products": [
    {
     "name": "Home Theatre Sony Bdv-e4100",
@@ -40,6 +43,9 @@
   "userID": 9,
   "amount": 16622,
   "quantity": 7,
+  "day": 15,
+  "month": 11,
+  "year": 2023,
   "products": [
    {
     "name": "Cafetera Moulinex Dolce Gusto Edited",
@@ -63,5 +69,37 @@
     "amount": 14062
    }
   ]
+ },
+ {
+  "id": 3,
+  "userID": 9,
+  "amount": 70919,
+  "quantity": 6,
+  "products": [
+   {
+    "name": "Sony Srs-xb12 Parlante Bluetooth Portátil",
+    "image": "img-parlante-sony.jpg",
+    "finalPrice": 4464,
+    "quantity": 2,
+    "amount": 8928
+   },
+   {
+    "name": "Apple iPhone 11 Pro Dual SIM 256 GB",
+    "image": "img-iphone-11.jpg",
+    "finalPrice": 14504,
+    "quantity": 3,
+    "amount": 43512
+   },
+   {
+    "name": "Aire Acondicionado 3200w Frio / Calor",
+    "image": "img-aire-acondicionado.jpg",
+    "finalPrice": 18479,
+    "quantity": 1,
+    "amount": 18479
+   }
+  ],
+  "day": 11,
+  "month": 12,
+  "year": 2023
  }
 ]

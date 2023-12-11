@@ -46,6 +46,7 @@ const salesFunctions = {
         let products = [];
         let amount = 0;
         let quantity = 0
+        let date = new Date()
         if(cartEntries.length != 0){
             for (const entry of cartEntries) {
                 let product = productFunctions.filterByID(entry.productID)[0];
@@ -68,6 +69,9 @@ const salesFunctions = {
                 amount: amount,
                 quantity: quantity,
                 products: products,
+                day: date.getDate(),
+                month: (date.getMonth())+1,
+                year: date.getFullYear()
             };
             let sales = this.allSales();
             sales.push(sale);
