@@ -34,5 +34,34 @@
     "amount": 84800
    }
   ]
+ },
+ {
+  "id": 2,
+  "userID": 9,
+  "amount": 16622,
+  "quantity": 7,
+  "products": [
+   {
+    "name": "Cafetera Moulinex Dolce Gusto Edited",
+    "image": "img-cafetera-moulinex.jpg",
+    "finalPrice": 100,
+    "quantity": 4,
+    "amount": 400
+   },
+   {
+    "name": "Mouse Inalámbrico Logitech M280",
+    "image": "img-mouse-logitech.jpg",
+    "finalPrice": 1080,
+    "quantity": 2,
+    "amount": 2160
+   },
+   {
+    "name": "Bicicleta Mountain Bike Fierce Rodado 29",
+    "image": "img-bicicleta-fierce.jpg",
+    "finalPrice": 14062,
+    "quantity": 1,
+    "amount": 14062
+   }
+  ]
  }
 ]

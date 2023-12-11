@@ -145,38 +145,32 @@
                         <table class="table table-bordered" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th colspan="5">Historial de compras</th>
+                                    <th colspan="4">Historial de compras</th>
                                 </tr>
                                 <tr>
                                     <th> </th>
                                     <th>Fecha</th>
                                     <th>Monto</th>
                                     <th>Cantidad</th>
-                                    <th>Productos</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>12/12/23</td>
-                                    <td>$587964</td>
-                                    <td>5</td>
-                                    <td>productos</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>12/12/23</td>
-                                    <td>$587964</td>
-                                    <td>5</td>
-                                    <td>productos</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>12/12/23</td>
-                                    <td>$587964</td>
-                                    <td>5</td>
-                                    <td>productos</td>
-                                </tr>
+                                <% if (locals.purchases.length > 0) { %>
+                                    <% for (const purchase of purchases) { %>
+                                        <tr>
+                                            <td><%= purchase.counter %></td>
+                                            <td>12/12/23</td>
+                                            <td>$<%= purchase.amount %></td>
+                                            <td><%= purchase.quantity %></td>
+                                        </tr>
+                                    <% } %>
+                                    <% } else { %>
+                                        <tr>
+                                            <th colspan="4">Aún no ha realizado compras</th>
+                                        </tr>
+                                <% } %>
+                                
+                                
                             </tbody>
                         </table>
         

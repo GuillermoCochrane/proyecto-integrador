@@ -1004,6 +1004,7 @@ table {
     margin-bottom: 3px;
     color: #03264C;
     text-align: center;
+    width: 100%;
 }
 
 .table td,
@@ -1015,7 +1016,6 @@ table {
 
 .table thead th {
     vertical-align: bottom;
-    border-bottom: 2px solid #629398;
 }
 
 .table-bordered {
@@ -1060,7 +1060,6 @@ table {
     .main-header-top {
         display: flex;
         justify-content: space-between;
-        /* margin: 0px; */
     }
 
     .logo-search {
@@ -1075,11 +1074,9 @@ table {
     .search-bar {
         width: 70%;
         justify-content: center;
-        /* margin-right: 10px; */
     }
 
     .info-header {
-        /* max-width: 210px; */
         text-align: center;
         align-self: center;
         font-size: 17px;
@@ -1087,8 +1084,6 @@ table {
     }
 
     .userLogged-detail{
-        /* display: flex; */
-        /* justify-content: flex-start; */
         padding: 0 7px;
     }
 
@@ -1321,7 +1316,6 @@ table {
         min-width: none;
         font-size: 20px;
         font-weight: bold;
-        /* margin-right: 0px; */
     }
 
     .main-navbar {
@@ -1411,7 +1405,6 @@ table {
 
     .max{
         width: 60%;
-        /* margin: auto; */
     }
 
     .profile-container{
@@ -1434,9 +1427,7 @@ table {
 
     .table-responsive {
         display: block;
-        width: 100%;
         overflow-x: auto;
-        -webkit-overflow-scrolling: touch
     }
 
     .table-responsive>.table-bordered {

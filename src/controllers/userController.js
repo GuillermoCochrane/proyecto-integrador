@@ -1,5 +1,6 @@
 const functions = require("../functions/functions");
 const usersFunctions = require("../functions/usersFunctions")
+const salesFunctions = require("../functions/salesFunctions")
 const { validationResult } = require('express-validator')
 
 const userController = {
@@ -40,10 +41,19 @@ const userController = {
 
     profile: function(req,res){
         let user = req.session.userlogged;
+        purchases = salesFunctions.filterByKey(user.id, "userID");
+        let counter = 1;
+        if(purchases){
+            for (const purchase of purchases) {
+                purchase.counter = counter
+                counter = counter + 1
+            }
+        }
         return res.render("userProfile",{
             title: user.name,
             user: user,
-            categories: functions.allCategories()
+            categories: functions.allCategories(),
+            purchases: purchases
         })
     },
 
