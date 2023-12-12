@@ -16,6 +16,9 @@ const loginValidationsMDW = [
         .notEmpty().withMessage('Debes ingresar una contraseña').bail()
         .custom((value, {req}) => {
         let user = usersFunctions.filterByKey(req.body.username, "username" )[0]
+        if(!user){
+            return true
+        }
         if(user.password != value){
             throw new Error("Contraseña incorrecta");
         }
