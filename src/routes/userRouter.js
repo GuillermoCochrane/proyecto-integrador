@@ -36,6 +36,16 @@ router.post("/register",upload.single("photo"), userValidations, userController.
 router.get('/edit/:id', loggedMDW, userController.edit); 
 router.put('/edit/:id',upload.single("photo"), userValidations, userController.update); 
 
+//edit profile
+
+//change password
+router.put('/password', /* userValidations  modificar */ userController.changePassword);
+//change avatar
+router.put('/avatar', /*upload.single("photo"), userValidations  modificar */ userController.changeAvatar); 
+//Edit user Data
+router.put('/editdata', /* userValidations  modificar */ userController.updateData); 
+
+
 //Delete User
 router.get('/delete/:id', loggedMDW, userController.delete);
 router.delete('/delete/:id', userController.destroy)

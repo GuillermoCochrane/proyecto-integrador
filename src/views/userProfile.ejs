@@ -103,7 +103,7 @@
                     </div>
 
                     <div class="user-data-container hidden" id="password-change-form">
-                        <form action="/password?_method=PUT" method="post" class="form-frame">
+                        <form action="/users/password?_method=PUT" method="post" class="form-frame">
                             <%- include("./partials/userFormPassword.ejs") %>
                             <div class="profile-button-box">
                                 <div class="button-container">
@@ -118,7 +118,7 @@
                     </div>
 
                     <div class="user-data-container hidden" id="avatar-change-form">
-                        <form action="/avatar?_method=PUT" method="post" class="form-frame"  enctype="multipart/form-data">
+                        <form action="/users/avatar?_method=PUT" method="post" class="form-frame"  enctype="multipart/form-data">
                             <%- include("./partials/userFormAvatar.ejs") %>
                             <div class="profile-button-box">
                                 <div class="button-container">
@@ -133,7 +133,7 @@
                     </div>
 
                     <div class="user-data-container hidden" id="profile-edit-form">
-                        <form action="/editdata?_method=PUT" method="post" class="form-frame">
+                        <form action="/users/editdata?_method=PUT" method="post" class="form-frame">
                             <%- include("./partials/userForm.ejs") %>
                         </form>
                     </div>

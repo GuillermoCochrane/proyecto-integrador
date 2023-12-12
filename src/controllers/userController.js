@@ -140,6 +140,18 @@ const userController = {
         }
     },
 
+    changePassword: function(req,res){
+        res.send("se cambio la contraseña" )
+    },
+
+    changeAvatar:  function(req,res){
+        res.send("se cambio el avatar" )
+    },
+
+    updateData: function(req,res){
+        res.send("se cambiaron los datos del usuario" )
+    },
+
     delete: function(req,res){
         let user = usersFunctions.filterByID(req.params.id)[0];
         if(!user){
