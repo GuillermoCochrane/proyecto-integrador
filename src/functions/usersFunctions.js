@@ -107,6 +107,46 @@ const usersFunctions ={
         return id
     },
 
+    changePassword: function(id,data, file){
+        let users = this.allUsers();
+        for (const user of users) {
+			if(user.id == id){
+                user.password =      (data.password ? data.password : user.password);
+            };
+        };
+        this.store(users);
+        return id
+    },
+
+    changeAvatar: function(id,data, file){
+        let users = this.allUsers();
+        for (const user of users) {
+			if(user.id == id){
+                user.photo =         file.filename;
+                };
+        };
+        this.store(users);
+        return id
+    },
+
+    editUserData: function(id,data, file){
+        let categories = this.processCategories(data);
+        let users = this.allUsers();
+        for (const user of users) {
+			if(user.id == id){
+				user.name =          data.name;
+                user.username =      data.username;
+                user.email =         data.email;
+                user.phone =         data.phone;
+                user.address =       data.address;
+                user.borndate =      data.borndate
+                user.categories =    categories;
+            };
+        };
+        this.store(users);
+        return id
+    },
+
     deleteUser: function(id){
         let users = this.allUsers();
         let newUsers = users.filter((user)=> user.id != id);
