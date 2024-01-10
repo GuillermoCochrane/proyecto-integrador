@@ -66,6 +66,10 @@ const usersFunctions ={
         return categories
     },
 
+    userProfileData: function(id){
+
+    },
+
     newUser: function(data, file){
         let categories = this.processCategories(data, file);
         let newUser = {
@@ -111,7 +115,7 @@ const usersFunctions ={
         let users = this.allUsers();
         for (const user of users) {
 			if(user.id == id){
-                user.password =      (data.password ? data.password : user.password);
+                user.password =  (data.password ? data.password : user.password);
             };
         };
         this.store(users);
@@ -122,7 +126,7 @@ const usersFunctions ={
         let users = this.allUsers();
         for (const user of users) {
 			if(user.id == id){
-                user.photo =         file.filename;
+                user.photo = file.filename;
                 };
         };
         this.store(users);

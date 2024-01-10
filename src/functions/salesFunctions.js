@@ -41,6 +41,18 @@ const salesFunctions = {
         return true;
     },
 
+    purchasesCounter: function(userId){
+        purchases = this.filterByKey(userId, "userID");
+        let counter = 1;
+        if(purchases){
+            for (const purchase of purchases) {
+                purchase.counter = counter
+                counter = counter + 1
+            }
+        }
+        return purchases;
+    },
+
     newSale: function(userID){
         let cartEntries = cartFunctions.filterByKey(userID,"userID");
         let products = [];

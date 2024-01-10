@@ -41,14 +41,7 @@ const userController = {
 
     profile: function(req,res){
         let user = req.session.userlogged;
-        purchases = salesFunctions.filterByKey(user.id, "userID");
-        let counter = 1;
-        if(purchases){
-            for (const purchase of purchases) {
-                purchase.counter = counter
-                counter = counter + 1
-            }
-        }
+        purchases = salesFunctions.purchasesCounter(user.id)
         return res.render("userProfile",{
             title: user.name,
             user: user,
@@ -141,14 +134,25 @@ const userController = {
     },
 
     changePassword: function(req,res){
+        let user = req.session.userlogged;
         res.send("se cambio la contraseña" )
     },
 
     changeAvatar:  function(req,res){
-        res.send("se cambio el avatar" )
+        let errors = validationResult(req);
+        let file = req.file;
+        let user = req.session.userlogged;
+        if (errors.isEmpty()){
+            /* let id = usersFunctions.editUser(data.id, data, file); */
+            return res.redirect("/users/profile")
+        } else {
+            old.errors = errors.mapped();
+            return res.render('userEdit',old)
+        }
     },
 
     updateData: function(req,res){
+        let user = req.session.userlogged;
         res.send("se cambiaron los datos del usuario" )
     },
 
