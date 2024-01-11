@@ -142,13 +142,13 @@ const userController = {
         let errors = validationResult(req);
         let file = req.file;
         let user = req.session.userlogged;
-        if (errors.isEmpty()){
-            /* let id = usersFunctions.editUser(data.id, data, file); */
+        /* if (errors.isEmpty()){
+            let id = usersFunctions.editUser(data.id, data, file);
             return res.redirect("/users/profile")
         } else {
             old.errors = errors.mapped();
             return res.render('userEdit',old)
-        }
+        } */
     },
 
     updateData: function(req,res){
