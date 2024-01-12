@@ -6,6 +6,8 @@ const loggedMDW = require("../middlewares/loggedMDW")
 const guestMDW = require("../middlewares/guestMDW")
 const upload = require("../middlewares/usersMulterMDW");
 const userValidations = require("../middlewares/userValidationsMDW");
+const passwordValidations = require("../middlewares/userPasswordValidationsMDW");
+const avatarValidations = require("../middlewares/userAvatarValidationsMDW");
 const loginValidations = require("../middlewares/loginValidationsMDW");
 //Users Routes
 
@@ -30,20 +32,20 @@ router.get("/test", userController.test)
 
 //User Register
 router.get('/register', guestMDW, userController.register);
-router.post("/register",upload.single("photo"), userValidations, userController.store);
+router.post("/register",upload.single("photo"), userValidations, avatarValidations, passwordValidations, userController.store);
 
 //Edit User
 router.get('/edit/:id', loggedMDW, userController.edit); 
-router.put('/edit/:id',upload.single("photo"), userValidations, userController.update); 
+router.put('/edit/:id',upload.single("photo"), userValidations, avatarValidations, passwordValidations, userController.update); 
 
 //edit profile
 
 //change password
-router.put('/password', /* userValidations  modificar */ userController.changePassword);
+router.put('/password', passwordValidations, userController.changePassword);
 //change avatar
-router.put('/avatar', /*upload.single("photo"), userValidations  modificar */ userController.changeAvatar); 
+router.put('/avatar', upload.single("photo"), avatarValidations, userController.changeAvatar); 
 //Edit user Data
-router.put('/editdata', /* userValidations  modificar */ userController.updateData); 
+router.put('/editdata', userValidations, userController.updateData); 
 
 
 //Delete User

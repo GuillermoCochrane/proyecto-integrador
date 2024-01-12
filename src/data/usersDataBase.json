@@ -169,5 +169,20 @@
   "password": "1",
   "photo": "user1701110802857.jpg",
   "phone": "3584120101"
+ },
+ {
+  "id": 11,
+  "name": "Jon Snow",
+  "username": "White Wolf",
+  "email": "Jon@winterell.gov",
+  "phone": 3584220202,
+  "address": "Kennels 123",
+  "photo": "user1705100930019.png",
+  "categories": [
+   3,
+   5
+  ],
+  "profile": 1,
+  "password": "098765432"
  }
 ]

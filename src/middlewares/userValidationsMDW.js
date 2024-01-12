@@ -1,5 +1,4 @@
 //Middleware de configuración de express-validator para rutas de usuarios
-const path = require('path');
 const { body } = require('express-validator');
 const usersFunctions = require("../functions/usersFunctions")
 
@@ -11,9 +10,10 @@ const usertValidations = [
         .notEmpty().withMessage('Debes completar el nombre de usuario').bail()
         .isLength({min:3, max:30}).withMessage("El nombre de usuario debe tener entre 3 y 30 caracteres")
         .custom((value, {req}) =>{
-            let user = usersFunctions.filterByKey(value, "username" )[0]
+            let user = usersFunctions.filterByKey(value, "username" )[0];
+            let userlogged = req.session.userlogged;
             if (user){
-                if(user.id == req.params.id){
+                if(userlogged && (user.id == userlogged.id)){
                     return true
                 }
                 throw new Error(`El nombre de usuario ${user.username} se encuentra en uso`);
@@ -23,11 +23,12 @@ const usertValidations = [
     body('email')
         .notEmpty().withMessage('Debes completar el E-Mail ').bail()
         .isEmail().withMessage("Debes ingresar un E-Mail valido").bail()
-        .isLength({min:8, max:20}).withMessage("El E-Mail debe tener entre 8 y 20 caracteres")
+        .isLength({min:8, max:40}).withMessage("El E-Mail debe tener entre 8 y 40 caracteres")
         .custom((value, {req}) =>{
-            let user = usersFunctions.filterByKey(value, "email" )[0]
+            let user = usersFunctions.filterByKey(value, "email" )[0];
+            let userlogged = req.session.userlogged;
             if (user){
-                if(user.id == req.params.id){
+                if(userlogged && (user.id == userlogged.id)){
                     return true
                 }
                 throw new Error(`${user.email} se encuentra en uso`);
@@ -39,9 +40,10 @@ const usertValidations = [
         .isNumeric().withMessage('El dato ingresado debe ser un número').bail()
         .isLength({min:10, max:10}).withMessage("El Número de teléfono debe tener 10 numeros")
         .custom((value, {req}) =>{
-            let user = usersFunctions.filterByKeyExact(value, "phone" )[0]
+            let user = usersFunctions.filterByKeyExact(value, "phone" )[0];
+            let userlogged = req.session.userlogged;
             if (user){
-                if(user.id == req.params.id){
+                if(userlogged && (user.id == userlogged.id)){
                     return true
                 }
                 throw new Error(`${user.phone} se encuentra en uso`);
@@ -51,7 +53,7 @@ const usertValidations = [
     body('address')
         .notEmpty().withMessage('Debes completar con tu dirección ').bail()
         .isLength({min:3, max:30}).withMessage("La dirección debe tener entre 3 y 30 caracteres"),
-    body('password')
+    /* body('password')
         .notEmpty().withMessage('Debes ingresar una contraseña').bail()
         .isLength({min:8, max:16}).withMessage("La contraseña debe tener entre 8 y 16 caracteres").bail()
         .custom((value, {req}) => {
@@ -72,6 +74,6 @@ const usertValidations = [
             }
         }
         return true
-    }) 
+    }) */ 
 ]
 module.exports = usertValidations
