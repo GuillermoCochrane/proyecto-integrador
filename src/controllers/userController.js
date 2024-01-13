@@ -133,13 +133,16 @@ const userController = {
         let errors = validationResult(req);
         let file = req.file;
         let user = req.session.userlogged;
-        /* if (errors.isEmpty()){
-            let id = usersFunctions.editUser(data.id, data, file);
+        let purchases = salesFunctions.purchasesCounter(user.id);
+        let data = usersFunctions.userProfileData(user, purchases)
+        if (errors.isEmpty()){
+            /* guardo la imagen  y redirijo */
+            usersFunctions.changeAvatar(user.id, file);
             return res.redirect("/users/profile")
         } else {
-            old.errors = errors.mapped();
-            return res.render('userEdit',old)
-        } */
+            data.errors = errors.mapped();
+            return res.render("userProfile", data)
+        }
     },
 
     changePassword: function(req,res){

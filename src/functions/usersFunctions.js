@@ -128,7 +128,7 @@ const usersFunctions ={
         return id
     },
 
-    changeAvatar: function(id,data, file){
+    changeAvatar: function( id, file ){
         let users = this.allUsers();
         for (const user of users) {
 			if(user.id == id){
@@ -136,7 +136,7 @@ const usersFunctions ={
                 };
         };
         this.store(users);
-        return id
+        return true
     },
 
     editUserData: function(id,data, file){

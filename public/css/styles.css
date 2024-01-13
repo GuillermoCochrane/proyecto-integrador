@@ -104,8 +104,11 @@ header.fixed{
 
 .info-header-img {
     width: 50px;
+    height: 50px;
     border-radius: 100%;
     margin: 5px;
+    object-fit: contain;
+    border: 3px solid #777777;
 }
 
 .close-menu,
@@ -843,8 +846,11 @@ textarea.form-input {
 .avatar-box img{
     margin: auto;
     border-radius: 100%;
-    max-width: 270px;
+    width: 270px;
     margin-top: 10px;
+    object-fit: contain;
+    height: 270px;
+    border: 2px #777777 solid;
 }
 
 .username-box{

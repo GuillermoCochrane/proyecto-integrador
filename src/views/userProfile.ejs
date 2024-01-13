@@ -117,7 +117,7 @@
                         </form>
                     </div>
 
-                    <div class="user-data-container hidden" id="avatar-change-form">
+                    <div class="user-data-container <%= (locals.errors && errors.photo) ? null : "hidden" %>" id="avatar-change-form">
                         <form action="/users/avatar?_method=PUT" method="post" class="form-frame"  enctype="multipart/form-data">
                             <%- include("./partials/userFormAvatar.ejs") %>
                             <div class="profile-button-box">
