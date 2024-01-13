@@ -41,13 +41,9 @@ const userController = {
 
     profile: function(req,res){
         let user = req.session.userlogged;
-        purchases = salesFunctions.purchasesCounter(user.id)
-        return res.render("userProfile",{
-            title: user.name,
-            user: user,
-            categories: functions.allCategories(),
-            purchases: purchases
-        })
+        let purchases = salesFunctions.purchasesCounter(user.id);
+        let data = usersFunctions.userProfileData(user, purchases)
+        return res.render("userProfile", data)
     },
 
     logout: function(req,res){
@@ -133,11 +129,6 @@ const userController = {
         }
     },
 
-    changePassword: function(req,res){
-        let user = req.session.userlogged;
-        res.send("se cambio la contraseña" )
-    },
-
     changeAvatar:  function(req,res){
         let errors = validationResult(req);
         let file = req.file;
@@ -149,6 +140,11 @@ const userController = {
             old.errors = errors.mapped();
             return res.render('userEdit',old)
         } */
+    },
+
+    changePassword: function(req,res){
+        let user = req.session.userlogged;
+        res.send("se cambio la contraseña" )
     },
 
     updateData: function(req,res){

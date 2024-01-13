@@ -66,8 +66,14 @@ const usersFunctions ={
         return categories
     },
 
-    userProfileData: function(id){
-
+    userProfileData: function(user, purchases){
+        let data = {
+            title: user.name,
+            user: user,
+            categories: functions.allCategories(),
+            purchases: purchases
+        }
+        return data
     },
 
     newUser: function(data, file){
