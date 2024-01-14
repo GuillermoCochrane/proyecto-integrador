@@ -134,9 +134,8 @@ const userController = {
         let file = req.file;
         let user = req.session.userlogged;
         let purchases = salesFunctions.purchasesCounter(user.id);
-        let data = usersFunctions.userProfileData(user, purchases)
+        let data = usersFunctions.userProfileData(user, purchases);
         if (errors.isEmpty()){
-            /* guardo la imagen  y redirijo */
             usersFunctions.changeAvatar(user.id, file);
             return res.redirect("/users/profile")
         } else {
@@ -146,8 +145,18 @@ const userController = {
     },
 
     changePassword: function(req,res){
+        let errors = validationResult(req);
+        let info = req.body;
         let user = req.session.userlogged;
-        res.send("se cambio la contraseña" )
+        let purchases = salesFunctions.purchasesCounter(user.id);
+        let data = usersFunctions.userProfileData(user, purchases);
+        if (errors.isEmpty()){
+            usersFunctions.changePassword(user.id, info);
+            return res.redirect("/users/profile")
+        } else { 
+            data.errors = errors.mapped();
+            return res.render("userProfile", data)
+        }
     },
 
     updateData: function(req,res){

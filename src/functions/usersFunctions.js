@@ -117,15 +117,15 @@ const usersFunctions ={
         return id
     },
 
-    changePassword: function(id,data, file){
+    changePassword: function(id, data){
         let users = this.allUsers();
         for (const user of users) {
 			if(user.id == id){
-                user.password =  (data.password ? data.password : user.password);
+                user.password =  data.password
             };
         };
         this.store(users);
-        return id
+        return true
     },
 
     changeAvatar: function( id, file ){

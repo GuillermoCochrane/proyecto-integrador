@@ -102,7 +102,7 @@
                         </a>
                     </div>
 
-                    <div class="user-data-container hidden" id="password-change-form">
+                    <div class="user-data-container <%= (locals.errors && errors.password) ? null : "hidden" %>"" id="password-change-form">
                         <form action="/users/password?_method=PUT" method="post" class="form-frame">
                             <%- include("./partials/userFormPassword.ejs") %>
                             <div class="profile-button-box">
@@ -132,7 +132,7 @@
                         </form>
                     </div>
 
-                    <div class="user-data-container hidden" id="profile-edit-form">
+                    <div class="user-data-container <%= (locals.errors && errors.form) ? null : "hidden" %>" id="profile-edit-form">
                         <form action="/users/editdata?_method=PUT" method="post" class="form-frame">
                             <%- include("./partials/userForm.ejs") %>
                         </form>
