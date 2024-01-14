@@ -160,8 +160,19 @@ const userController = {
     },
 
     updateData: function(req,res){
+        let errors = validationResult(req);
+        let info = req.body;
         let user = req.session.userlogged;
-        res.send("se cambiaron los datos del usuario" )
+        let purchases = salesFunctions.purchasesCounter(user.id);
+        let data = usersFunctions.userProfileData(user, purchases);
+        if (errors.isEmpty()){
+            usersFunctions.editUserData(user.id, info);
+            return res.redirect("/users/profile")
+        } else { 
+            data.errors = errors.mapped();
+            data.errors.form = true;
+            return res.render("userProfile", data)
+        }
     },
 
     delete: function(req,res){

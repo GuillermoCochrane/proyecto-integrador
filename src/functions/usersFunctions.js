@@ -139,7 +139,7 @@ const usersFunctions ={
         return true
     },
 
-    editUserData: function(id,data, file){
+    editUserData: function(id,data){
         let categories = this.processCategories(data);
         let users = this.allUsers();
         for (const user of users) {
@@ -149,7 +149,6 @@ const usersFunctions ={
                 user.email =         data.email;
                 user.phone =         data.phone;
                 user.address =       data.address;
-                user.borndate =      data.borndate
                 user.categories =    categories;
             };
         };
