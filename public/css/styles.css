@@ -767,6 +767,12 @@ textarea.form-input {
     width: 270px;
 }
 
+.cart-product-detail-container{
+    text-align: center;
+    margin: auto;
+    width: 300px;
+}
+
 .cart-product-detail{
     padding: 0px 10px;
     text-align: center;
@@ -784,6 +790,7 @@ textarea.form-input {
 .cart-product-info{
     margin: auto;
     padding: 10px;
+    width: 100%;
 }
 
 .cart-product-info-detail{
