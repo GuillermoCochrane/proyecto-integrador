@@ -764,20 +764,21 @@ textarea.form-input {
 }
 
 .cart-product-img{
-    width: 280px;
+    width: 270px;
 }
 
 .cart-product-detail{
     padding: 0px 10px;
     text-align: center;
     margin: auto;
+    width: 100%;
 }
 
 .cart-product-name{
     margin: auto;
     padding: 5px;
     font-size: 20px;
-    max-width: 270px;
+    max-width: 300px;
 }
 
 .cart-product-info{
@@ -1193,10 +1194,6 @@ table {
         font-size: 22px;
     }
 
-    .cart-product-info{
-        /* margin: 20px 0px; */
-    }
-
     .cart-product-info-detail{
         font-size: 16px;
         margin: 10px;
@@ -1232,6 +1229,9 @@ table {
         margin: 0;
     }
 
+    .profile-button-box{
+        flex-direction: column;
+    }
     .profile-data{
         margin: 10px 3px;
         width: 100%;

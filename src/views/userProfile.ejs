@@ -11,6 +11,7 @@
                 <h3 class="username-box">
                     <%= user.username %>
                 </h3>
+                
                 <div class="profile-button-box">
                     <div class="button-container hidden" id="profile-data-button">
                         <a href="#">
@@ -26,6 +27,15 @@
                             </button>
                         </a>
                     </div>
+                    <% if (user.profile == 3) { %>
+                        <div class="button-container">
+                            <a href="/users/controlPanel">
+                                <button>
+                                    Panel de Control
+                                </button>
+                            </a>
+                        </div>
+                    <% } %>
                 </div>
             </section>
 
