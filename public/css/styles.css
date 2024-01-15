@@ -108,7 +108,7 @@ header.fixed{
     border-radius: 100%;
     margin: 5px;
     object-fit: contain;
-    border: 3px solid #777777;
+    border: 2px solid #03264C;
 }
 
 .close-menu,
@@ -749,8 +749,18 @@ textarea.form-input {
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
 .cart-product{
-    margin: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-product figure{
+    display: flex;
+    justify-content: center;
 }
 
 .cart-product-img{
@@ -760,18 +770,21 @@ textarea.form-input {
 .cart-product-detail{
     padding: 0px 10px;
     text-align: center;
+    margin: auto;
 }
 
 .cart-product-name{
     margin: auto;
     padding: 5px;
     font-size: 20px;
+    max-width: 270px;
 }
 
 .cart-product-info{
     margin: auto;
     display: flex;
     padding: 10px;
+    justify-content: space-between;
 }
 
 .cart-product-info-detail{
@@ -781,16 +794,17 @@ textarea.form-input {
 }
 
 .cart-product-price{
-    margin: auto;
+    margin: 2px 0;
 }
 
 .cart-product-quantity{
-    margin: auto;
+    margin: 2px 0;
 }
 
 .cart-product-final-price{
     margin-left: auto;
     text-align: right;
+    margin: 2px 0;
 }
 
 .cart-button-box{
@@ -850,7 +864,7 @@ textarea.form-input {
     margin-top: 10px;
     object-fit: contain;
     height: 270px;
-    border: 2px #777777 solid;
+    border: 2px #03264C solid;
 }
 
 .username-box{
@@ -1164,6 +1178,7 @@ table {
         margin: 0;
         display: flex;
         width: 100%;
+        flex-direction: row;
         align-items: center;
     }
 
