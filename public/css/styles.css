@@ -431,6 +431,8 @@ footer section p {
     overflow: hidden;
     display: flex;
     flex-wrap: wrap;
+    /* justify-content: space-between; */
+    /* align-items: center; */
 }
 
 .detail-img-description-box {
@@ -756,6 +758,10 @@ textarea.form-input {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+}
+
+.cart-form{
+    margin: auto;
 }
 
 .cart-product figure{
@@ -1216,7 +1222,7 @@ table {
 
     .cart-button-box{
         margin-bottom: 0;
-        justify-content: space-between;
+        justify-content: space-around;
         padding: 0 25px;
     }
 
