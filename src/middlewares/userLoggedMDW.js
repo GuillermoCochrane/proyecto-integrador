@@ -1,5 +1,6 @@
 //Middleware global que setea configuraciones en la variable locals, dependiendo si el usuario esta logeado o no
 let usersFunctions = require("../functions/usersFunctions")
+let cartFunctions = require("../functions/cartFunctions")
 function userLoggedMDW (req,res, next) {
     res.locals.isLogged = false;
     
@@ -12,7 +13,9 @@ function userLoggedMDW (req,res, next) {
 
     if(req.session.userlogged){
         res.locals.isLogged = true;
-        res.locals.userlogged = req.session.userlogged
+        res.locals.userlogged = req.session.userlogged;
+        let cartCount = cartFunctions.cartProductsCounter((req.session.userlogged.id));
+        res.locals.cartCount = cartCount;
     }
     next();
 }

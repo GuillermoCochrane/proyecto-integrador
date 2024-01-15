@@ -56,7 +56,12 @@
         <% } else { %>
             <li><a href="/users/profile"><i class="fa-regular fa-address-card"></i>Mi Perfil</a></li>
             <li><a href="/users/logout"><i class="fa-solid fa-right-from-bracket"></i>Salir</a></li>
-            <li><a href="/cart"><i class="fa-solid fa-basket-shopping"></i>Mis compras</a></li>
+            <li>
+                <a href="/cart">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    Mis compras: <%= cartCount %>
+                </a>
+            </li>
         <% } %>
     </ul>
 

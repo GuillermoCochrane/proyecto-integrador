@@ -79,6 +79,15 @@ const cartFunctions = {
         return this.filterByKey(userID,"userID");
     },
 
+    cartProductsCounter : function(userID){
+        let allEntries = this.filterByKey(userID,"userID");
+        let cartProductsCount = 0;
+        for (const entry of allEntries) {
+            cartProductsCount = cartProductsCount + entry.quantity;
+        };
+        return cartProductsCount
+    }, 
+
     processCartData : function(userID){
         let allEntries = this.filterByKey(userID,"userID")
         let user = userFunctions.filterByID(userID)[0]
