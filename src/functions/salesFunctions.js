@@ -88,7 +88,7 @@ const salesFunctions = {
             let sales = this.allSales();
             sales.push(sale);
             this.store(sales);
-            return true
+            return sale
         } else {
             return false
         }
