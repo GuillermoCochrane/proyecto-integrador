@@ -51,10 +51,12 @@ const mainController ={
     processPayment:  function(req,res){
         let user = req.session.userlogged
         let purchase = salesFunctions.newSale(user.id);
+        let siteMail = mailFunction.mail();
         if(purchase){
             let mailData = mailFunction.mailData(user,purchase);
             let text = mailData.headerMessage + mailData.detail;
-            mailFunction.send(mailData.to, mailData.subject, text)
+            mailFunction.send(mailData.to, mailData.subject, text);
+            mailFunction.send(siteMail, mailData.subject, text);
         }
         return res.redirect("/cart/payment") 
     },

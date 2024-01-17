@@ -73,8 +73,9 @@ const mailFunction = {
     
     mailData: function(user, sale){
         const to = user.email;
-        const subject = `Compra realizada el usuario ${user.username}, el dia ${sale.day}/${sale.month}/${sale.year}, en MultiHogar  `;
-        const headerMessage = `El día ${sale.day}/${sale.month}/${sale.year}, el usuario ${user.name} ha realizado una compra en Multihogar por el monto de $${sale.amount}.\n Detalle de la compra: \n`;
+        const subject = `Compra  en MultiHogar, realizada por ${user.username}`;
+        const headerMessage = `El día ${sale.day}/${sale.month}/${sale.year}, el usuario ${user.name} ha realizado una compra en Multihogar por el monto de $${sale.amount}.
+        \n----------------------------------------------------------\nDetalle de la compra:\n---------------------------------------------------------- \n`;
         const products = sale.products;
         let detail = "\n";
         for (const product of products) {

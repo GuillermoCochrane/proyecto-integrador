@@ -105,15 +105,15 @@
  {
   "id": 4,
   "userID": 11,
-  "amount": 14062,
+  "amount": 100,
   "quantity": 1,
   "products": [
    {
-    "name": "Bicicleta Mountain Bike Fierce Rodado 29",
-    "image": "img-bicicleta-fierce.jpg",
-    "finalPrice": 14062,
+    "name": "Cafetera Moulinex Dolce Gusto Edited",
+    "image": "img-cafetera-moulinex.jpg",
+    "finalPrice": 100,
     "quantity": 1,
-    "amount": 14062
+    "amount": 100
    }
   ],
   "day": 17,

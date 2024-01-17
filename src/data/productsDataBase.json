@@ -8,7 +8,7 @@
   "category": "3",
   "status": "2",
   "description": "Cafetera Dolce Gusto Lumio. La cafetera Dolce Gusto Lumio es de variedad automática que ha llegado con un diseño radical al que nos tenía acostumbrados Dolce Gusto.En este post te contamos todo lo que necesitas saber sobre ella, desde sus características técnicas hasta la calidad de las cápsulas o price.",
-  "views": 24
+  "views": 26
  },
  {
   "id": 2,
@@ -42,7 +42,7 @@
   "image": "img-heladera-whirpool.jpg",
   "status": "4",
   "category": "3",
-  "views": 9
+  "views": 11
  },
  {
   "id": 5,
@@ -53,7 +53,7 @@
   "image": "img-camara-nikon.jpg",
   "status": "3",
   "category": "5",
-  "views": 22
+  "views": 24
  },
  {
   "id": 6,
@@ -164,7 +164,7 @@
   "image": "img-bicicleta-fierce.jpg",
   "status": "4",
   "category": "5",
-  "views": 11
+  "views": 12
  },
  {
   "id": 16,
@@ -175,6 +175,6 @@
   "description": "Deja que la música dance cobre vida con EXTRA BASS™ Anima el ambiente con EXTRA BASS™1. Un radiador pasivo trabaja con el parlante monoaural para potenciar los tonos bajos y mejorar los graves, a pesar del tamaño compacto. ",
   "image": "img-parlante-sony.jpg",
   "category": "2",
-  "views": 6
+  "views": 7
  }
 ]
