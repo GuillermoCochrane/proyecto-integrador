@@ -75,7 +75,7 @@ const salesFunctions = {
                 quantity = quantity + data.quantity;
                 cartFunctions.deleteEntry(entry.id);
             };
-            let sale ={
+            let currentSale = {
                 id: this.newId(),
                 userID: userID,
                 amount: amount,
@@ -86,9 +86,9 @@ const salesFunctions = {
                 year: date.getFullYear()
             };
             let sales = this.allSales();
-            sales.push(sale);
+            sales.push(currentSale);
             this.store(sales);
-            return sale
+            return currentSale 
         } else {
             return false
         }

@@ -1,5 +1,6 @@
 const cartFunctions = require("../functions/cartFunctions");
-let salesFunctions = require("../functions/salesFunctions")
+let salesFunctions = require("../functions/salesFunctions");
+let mailFunction = require("../functions/mailFunction")
 
 const mainController ={
     index: function(req,res){
@@ -47,10 +48,15 @@ const mainController ={
         res.redirect("/");
     },
 
-    processPayment: function(req,res){
+    processPayment:  function(req,res){
         let user = req.session.userlogged
-        salesFunctions.newSale(user.id);
-        return res.redirect("/cart/payment")
+        let purchase = salesFunctions.newSale(user.id);
+        if(purchase){
+            let mailData = mailFunction.mailData(user,purchase);
+            let text = mailData.headerMessage + mailData.detail;
+            mailFunction.send(mailData.to, mailData.subject, text)
+        }
+        return res.redirect("/cart/payment") 
     },
     
 }

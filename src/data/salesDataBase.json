@@ -101,5 +101,23 @@
   "day": 11,
   "month": 12,
   "year": 2023
+ },
+ {
+  "id": 4,
+  "userID": 11,
+  "amount": 14062,
+  "quantity": 1,
+  "products": [
+   {
+    "name": "Bicicleta Mountain Bike Fierce Rodado 29",
+    "image": "img-bicicleta-fierce.jpg",
+    "finalPrice": 14062,
+    "quantity": 1,
+    "amount": 14062
+   }
+  ],
+  "day": 17,
+  "month": 1,
+  "year": 2024
  }
 ]

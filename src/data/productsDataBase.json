@@ -8,7 +8,7 @@
   "category": "3",
   "status": "2",
   "description": "Cafetera Dolce Gusto Lumio. La cafetera Dolce Gusto Lumio es de variedad automática que ha llegado con un diseño radical al que nos tenía acostumbrados Dolce Gusto.En este post te contamos todo lo que necesitas saber sobre ella, desde sus características técnicas hasta la calidad de las cápsulas o price.",
-  "views": 19
+  "views": 24
  },
  {
   "id": 2,
@@ -19,7 +19,7 @@
   "description": "Macbook Pro 2019 Mpxq2ll/a Intel Core i5 2.3 Ghz 8gb RAM 128gb SSD Pantalla 13.3\" Retina Apple Nueva Original. Importada de USA. Se entrega con la factura de compra para contar con la garantía del fabricante",
   "image": "img-macbook-pro-2019.jpg",
   "category": "1",
-  "views": 49
+  "views": 53
  },
  {
   "id": 3,
@@ -31,7 +31,7 @@
   "image": "img-samsung-galaxy-s10.jpg",
   "finalPrice": 54749,
   "category": "2",
-  "views": 14
+  "views": 15
  },
  {
   "id": 4,
@@ -42,7 +42,7 @@
   "image": "img-heladera-whirpool.jpg",
   "status": "4",
   "category": "3",
-  "views": 5
+  "views": 9
  },
  {
   "id": 5,
@@ -53,7 +53,7 @@
   "image": "img-camara-nikon.jpg",
   "status": "3",
   "category": "5",
-  "views": 18
+  "views": 22
  },
  {
   "id": 6,
@@ -64,7 +64,7 @@
   "image": "img-aire-acondicionado.jpg",
   "status": "1",
   "category": "3",
-  "views": 9
+  "views": 11
  },
  {
   "id": 7,
@@ -86,7 +86,7 @@
   "image": "img-iphone-11.jpg",
   "status": "1",
   "category": "2",
-  "views": 5
+  "views": 6
  },
  {
   "id": 9,
@@ -142,7 +142,7 @@
   "image": "img-tv-samsung-smart.jpg",
   "status": "2",
   "category": "4",
-  "views": 2
+  "views": 3
  },
  {
   "id": 14,
@@ -164,7 +164,7 @@
   "image": "img-bicicleta-fierce.jpg",
   "status": "4",
   "category": "5",
-  "views": 6
+  "views": 11
  },
  {
   "id": 16,
