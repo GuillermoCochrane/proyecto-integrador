@@ -1,9 +1,44 @@
 const nodemailer = require('nodemailer');
+const fs = require('fs');
+const path = require('path');
 
 const mailFunction = {
-    mail: "guilleac81@gmail.com",
 
-    pass: 'ekqc grzl vqbu rrhw',
+    pathDB: path.join(__dirname, "../data/mailDataBase.json"),
+
+    getMail: function()  {
+        let mailDB = [];
+        let readMail = fs.readFileSync(this.pathDB, 'utf-8');
+        if (readMail != ""){
+            mailDB = JSON.parse(readMail);
+        };
+        return mailDB[0];
+    },
+
+    mail:   function(){
+        let data = this.getMail();
+        return data.mail
+    },
+
+    pass:   function(){
+        let data = this.getMail();
+        return data.pass
+    },
+
+    store: function(data){
+        fs.writeFileSync( this.pathDB, JSON.stringify(data, null, ' ') );
+        return true
+    },
+
+    editMailData:   function(data){
+        let mail = this.getMail();
+        let mailNewData = [];
+        data.mail ? mail.mail = data.mail : mail.mail = mail.mail;
+        data.pass ? mail.pass = data.pass : mail.pass = mail.pass;
+        mailNewData.push(mail);
+        this.store(mailNewData);
+        return mail
+    },
 
     send: async function(to, subject, text){
         const mail = "guilleac81@gmail.com";
@@ -11,8 +46,8 @@ const mailFunction = {
             host: "smtp.gmail.com",
             port: 465,
             auth: {
-                user: this.mail,
-                pass: this.pass,
+                user: this.mail(),
+                pass: this.pass(),
             },
             secure: true,
         };
