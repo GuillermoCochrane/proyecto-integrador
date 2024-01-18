@@ -76,18 +76,14 @@ const usersFunctions ={
         return data
     },
 
-    newUser: function(data, file){
-        let categories = this.processCategories(data, file);
+    newUser: function(data){
+        let categories = this.processCategories(data);
         let newUser = {
 			id: 			this.newId(),
-            name:           data.name,
 			username: 		data.username,
             email: 			data.email,
-            phone: 			parseInt(data.phone),
-            address: 		data.address,
-            borndate: 		data.borndate,
-            photo: 			file.filename,
-            categories: 	categories,
+            photo: 			"default.png",
+            categories: 	[],
             profile: 		1,
             password:       data.password,
 		};

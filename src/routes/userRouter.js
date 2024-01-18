@@ -9,6 +9,7 @@ const userValidations = require("../middlewares/userValidationsMDW");
 const passwordValidations = require("../middlewares/userPasswordValidationsMDW");
 const avatarValidations = require("../middlewares/userAvatarValidationsMDW");
 const loginValidations = require("../middlewares/loginValidationsMDW");
+const mailUsernameValidations = require("../middlewares/userMailUsernameValidationsMDW")
 //Users Routes
 
 //All Users
@@ -32,11 +33,11 @@ router.get("/test", userController.test)
 
 //User Register
 router.get('/register', guestMDW, userController.register);
-router.post("/register",upload.single("photo"), userValidations, avatarValidations, passwordValidations, userController.store);
+router.post("/register",upload.single("photo"), mailUsernameValidations, passwordValidations, userController.store);
 
 //Edit User
 router.get('/edit/:id', loggedMDW, userController.edit); 
-router.put('/edit/:id',upload.single("photo"), userValidations, avatarValidations, passwordValidations, userController.update); 
+router.put('/edit/:id',upload.single("photo"), userValidations, mailUsernameValidations, avatarValidations, passwordValidations, userController.update); 
 
 //edit profile
 

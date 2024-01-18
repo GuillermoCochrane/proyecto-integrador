@@ -184,5 +184,14 @@
   ],
   "profile": 1,
   "password": "98765432"
+ },
+ {
+  "id": 12,
+  "username": "jon",
+  "email": "Jon@winterell.gov",
+  "photo": "default.png",
+  "categories": [],
+  "profile": 1,
+  "password": "asdasdasd"
  }
 ]

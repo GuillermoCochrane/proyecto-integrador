@@ -6,7 +6,7 @@ const usertValidations = [
     body('name')
         .notEmpty().withMessage('Debes completar con tu nombre').bail()
         .isLength({min:3, max:30}).withMessage("El nombre debe tener entre 3 y 30 caracteres"),
-    body('username')
+    /* body('username')
         .notEmpty().withMessage('Debes completar el nombre de usuario').bail()
         .isLength({min:3, max:30}).withMessage("El nombre de usuario debe tener entre 3 y 30 caracteres")
         .custom((value, {req}) =>{
@@ -35,7 +35,7 @@ const usertValidations = [
             }
             return true
         }),
-    body('phone')
+     */body('phone')
         .notEmpty().withMessage('Debes completar el número de teléfono').bail()
         .isNumeric().withMessage('El dato ingresado debe ser un número').bail()
         .isLength({min:10, max:10}).withMessage("El Número de teléfono debe tener 10 numeros")

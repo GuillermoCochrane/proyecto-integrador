@@ -92,7 +92,7 @@ const userController = {
         profiles.pop();
         let old = functions.userFormData("Registrate", req.body, profiles);
         if (errors.isEmpty()){
-            let id = usersFunctions.newUser(req.body,file);
+            let id = usersFunctions.newUser(req.body);
             return res.redirect("/users/" + id)
         } else {
             old.errors = errors.mapped();

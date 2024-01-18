@@ -7,9 +7,13 @@
         <main>
 
             <form action="/users/register" method="post" class="form-frame" enctype="multipart/form-data">
-                
-                <%- include("./partials/userForm.ejs") %>
-                
+
+                <%- include("./partials/userFormMailUsername.ejs") %>
+
+                <%- include("./partials/userFormPassword.ejs") %>
+
+                <%- include("./partials/userFormButtons.ejs") %>
+
             </form>
 
         </main>
