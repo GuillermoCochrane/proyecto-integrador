@@ -104,19 +104,19 @@
  },
  {
   "id": 4,
-  "userID": 11,
-  "amount": 100,
+  "userID": 4,
+  "amount": 485000,
   "quantity": 1,
   "products": [
    {
-    "name": "Cafetera Moulinex Dolce Gusto Edited",
-    "image": "img-cafetera-moulinex.jpg",
-    "finalPrice": 100,
+    "name": "Macbook Pro 2022",
+    "image": "img-macbook-pro-2019.jpg",
+    "finalPrice": 485000,
     "quantity": 1,
-    "amount": 100
+    "amount": 485000
    }
   ],
-  "day": 17,
+  "day": 18,
   "month": 1,
   "year": 2024
  }

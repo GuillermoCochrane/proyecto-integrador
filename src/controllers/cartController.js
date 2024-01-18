@@ -58,7 +58,7 @@ const mainController ={
             mailFunction.send(mailData.to, mailData.subject, text);
             mailFunction.send(siteMail, mailData.subject, text);
         }
-        return res.redirect("/cart/payment") 
+        return res.redirect("/cart/payment")  
     },
     
 }

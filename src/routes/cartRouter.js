@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const cartController = require("../controllers/cartController");
+const userdataMDW = require("../middlewares/userDataMDW")
 
 //Middlewares
 
@@ -22,7 +23,7 @@ router.delete('/delete/:id', cartController.destroy);
 
 //Cart payment
 router.get('/payment', cartController.payment);
-router.post('/payment', cartController.processPayment);
+router.post('/payment', userdataMDW, cartController.processPayment);
 
 
 module.exports = router
