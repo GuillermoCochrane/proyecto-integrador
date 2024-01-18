@@ -6,7 +6,7 @@
         <div class="profile-container">
             <section class="profile-avatar-box">
                 <div class="avatar-box">
-                    <img src="/images/users/<%= user.photo %>" alt="<%= user.username %>">
+                    <img src="/images/users/<%= user.avatar %>" alt="<%= user.username %>">
                 </div>
                 <h3 class="username-box">
                     <%= user.username %>
@@ -127,7 +127,7 @@
                         </form>
                     </div>
 
-                    <div class="user-data-container <%= (locals.errors && errors.photo) ? null : "hidden" %>" id="avatar-change-form">
+                    <div class="user-data-container <%= (locals.errors && errors.avatar) ? null : "hidden" %>" id="avatar-change-form">
                         <form action="/users/avatar?_method=PUT" method="post" class="form-frame"  enctype="multipart/form-data">
                             <%- include("./partials/userFormAvatar.ejs") %>
                             <div class="profile-button-box">

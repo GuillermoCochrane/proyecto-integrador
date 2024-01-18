@@ -33,18 +33,18 @@ router.get("/test", userController.test)
 
 //User Register
 router.get('/register', guestMDW, userController.register);
-router.post("/register",upload.single("photo"), mailUsernameValidations, passwordValidations, userController.store);
+router.post("/register",upload.single("avatar"), mailUsernameValidations, passwordValidations, userController.store);
 
 //Edit User
 router.get('/edit/:id', loggedMDW, userController.edit); 
-router.put('/edit/:id',upload.single("photo"), userValidations, mailUsernameValidations, avatarValidations, passwordValidations, userController.update); 
+router.put('/edit/:id',upload.single("avatar"), userValidations, mailUsernameValidations, avatarValidations, passwordValidations, userController.update); 
 
 //edit profile
 
 //change password
 router.put('/password', passwordValidations, userController.changePassword);
 //change avatar
-router.put('/avatar', upload.single("photo"), avatarValidations, userController.changeAvatar); 
+router.put('/avatar', upload.single("avatar"), avatarValidations, userController.changeAvatar); 
 //Edit user Data
 router.put('/editdata', userValidations, userController.updateData); 
 

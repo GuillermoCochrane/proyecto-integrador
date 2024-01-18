@@ -31,7 +31,7 @@
   "image": "img-samsung-galaxy-s10.jpg",
   "finalPrice": 54749,
   "category": "2",
-  "views": 15
+  "views": 17
  },
  {
   "id": 4,
@@ -120,7 +120,7 @@
   "image": "img-parlante-bose.jpg",
   "status": "2",
   "category": "2",
-  "views": 4
+  "views": 5
  },
  {
   "id": 12,
@@ -131,7 +131,7 @@
   "image": "img-home-theater-sony.jpg",
   "status": "4",
   "category": "4",
-  "views": 5
+  "views": 6
  },
  {
   "id": 13,

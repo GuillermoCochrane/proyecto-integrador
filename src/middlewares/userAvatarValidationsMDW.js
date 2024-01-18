@@ -3,7 +3,7 @@ const path = require('path');
 const { body } = require('express-validator');
 
 const usertValidations = [
-    body('photo').custom((value, {req}) => {
+    body('avatar').custom((value, {req}) => {
         let file = req.file;
         let acceptedExt = [".bpm", ".png", ".jpg", ".gif"]
         if(!file){

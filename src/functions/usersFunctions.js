@@ -82,7 +82,7 @@ const usersFunctions ={
 			id: 			this.newId(),
 			username: 		data.username,
             email: 			data.email,
-            photo: 			"default.png",
+            avatar: 			"default.png",
             categories: 	[],
             profile: 		1,
             password:       data.password,
@@ -104,7 +104,7 @@ const usersFunctions ={
                 user.phone =         data.phone;
                 user.address =       data.address;
                 user.borndate =      data.borndate
-                user.photo =         file.filename;
+                user.avatar =        file.filename;
                 user.categories =    categories;
                 user.password =      (data.password ? data.password : user.password);
             };
@@ -128,7 +128,7 @@ const usersFunctions ={
         let users = this.allUsers();
         for (const user of users) {
 			if(user.id == id){
-                user.photo = file.filename;
+                user.avatar = file.filename;
                 };
         };
         this.store(users);

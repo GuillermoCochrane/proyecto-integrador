@@ -14,7 +14,7 @@
   ],
   "password": "1",
   "phone": "3584120100",
-  "photo": "img-user1660968491868.jpg"
+  "avatar": "img-user1660968491868.jpg"
  },
  {
   "id": 2,
@@ -30,7 +30,7 @@
   ],
   "password": "1",
   "phone": "3584120102",
-  "photo": "img-user1660968556765.jpg"
+  "avatar": "img-user1660968556765.jpg"
  },
  {
   "id": 3,
@@ -46,7 +46,7 @@
   ],
   "password": "1",
   "phone": "3584120103",
-  "photo": "img-user1660968609495.jpg"
+  "avatar": "img-user1660968609495.jpg"
  },
  {
   "id": 4,
@@ -64,7 +64,7 @@
   ],
   "password": "1",
   "phone": "3584120104",
-  "photo": "img-user1660968681032.jpg"
+  "avatar": "img-user1660968681032.jpg"
  },
  {
   "id": 5,
@@ -81,7 +81,7 @@
   ],
   "password": "1",
   "phone": "3584120105",
-  "photo": "img-user1660968750660.jpg"
+  "avatar": "img-user1660968750660.jpg"
  },
  {
   "id": 6,
@@ -98,7 +98,7 @@
   ],
   "password": "1",
   "phone": "3584120106",
-  "photo": "img-user1660968832691.png"
+  "avatar": "img-user1660968832691.png"
  },
  {
   "id": 7,
@@ -115,7 +115,7 @@
   ],
   "password": "1",
   "phone": "3584120107",
-  "photo": "img-user1660968898302.jpg"
+  "avatar": "img-user1660968898302.jpg"
  },
  {
   "id": 8,
@@ -132,7 +132,7 @@
   ],
   "password": "1",
   "phone": "3584120108",
-  "photo": "img-user1660968939498.jpg"
+  "avatar": "img-user1660968939498.jpg"
  },
  {
   "id": 9,
@@ -149,7 +149,7 @@
   ],
   "password": "1",
   "phone": "3584120109",
-  "photo": "img-user1660968971991.jpg"
+  "avatar": "img-user1660968971991.jpg"
  },
  {
   "id": 10,
@@ -167,31 +167,7 @@
    1
   ],
   "password": "1",
-  "photo": "user1701110802857.jpg",
+  "avatar": "user1701110802857.jpg",
   "phone": "3584120101"
- },
- {
-  "id": 11,
-  "name": "Jon Snow",
-  "username": "White Wolf",
-  "email": "wtfgac@gmail.com",
-  "phone": 3584220202,
-  "address": "Kennels 123",
-  "photo": "user1705188719585.png",
-  "categories": [
-   3,
-   5
-  ],
-  "profile": 1,
-  "password": "98765432"
- },
- {
-  "id": 12,
-  "username": "jon",
-  "email": "Jon@winterell.gov",
-  "photo": "default.png",
-  "categories": [],
-  "profile": 1,
-  "password": "asdasdasd"
  }
 ]

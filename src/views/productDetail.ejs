@@ -59,25 +59,24 @@
                                 <br>
                                 <br>
                                 <% if (isLogged) { %>
-                                    <% if (userlogged.profile == 1) { %>
 
-                                        <form action="/cart/add/<%= product.id %>" method="post">
-                                            
-                                            <label for="quantity" class="form-label">Seleccione Cantidad</label>
-                                            
-                                            <select name="quantity" id="quantity" class="form-input">
-                                                <option value="1" selected> 1 </option>
-                                                <option value="2"> 2 </option>
-                                                <option value="3"> 3 </option>
-                                                <option value="4"> 4 </option>
-                                                <option value="5"> 5 </option>
-                                            </select>
-
-                                            <button type="submit" class="buy-button"><i class="fa-solid fa-cart-plus"></i>Agregar al Carrito</button>
-
-                                        </form>
+                                    <form action="/cart/add/<%= product.id %>" method="post">
                                         
-                                        <% } else { %>
+                                        <label for="quantity" class="form-label">Seleccione Cantidad</label>
+                                        
+                                        <select name="quantity" id="quantity" class="form-input">
+                                            <option value="1" selected> 1 </option>
+                                            <option value="2"> 2 </option>
+                                            <option value="3"> 3 </option>
+                                            <option value="4"> 4 </option>
+                                            <option value="5"> 5 </option>
+                                        </select>
+
+                                        <button type="submit" class="buy-button"><i class="fa-solid fa-cart-plus"></i>Agregar al Carrito</button>
+
+                                    </form>
+                                    
+                                    <% if (userlogged.profile == 3  ) { %>
 
                                         <div class="button-box">
                                             <a href="/products/edit/<%= product.id %>" class="description-button edit">EDITAR PRODUCTO</a>
@@ -85,9 +84,8 @@
                                                 <button type="submit" class="description-button delete">ELIMINAR</button>
                                             </form>
                                         </div>
-                                    <% } %>
 
-                                    
+                                    <% } %>
 
                                 <% } %>
         
