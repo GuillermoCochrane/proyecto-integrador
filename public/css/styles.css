@@ -419,6 +419,28 @@ footer section p {
     color: #d48502;
 }
 
+.login-options-container{
+    width: 100%;
+}
+
+.login-checkbox{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-options{
+    /* display: flex; */
+    /* justify-content: space-between; */
+    font-size: 14px;
+    color: #03264C;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.login-options div{
+    margin: 5px 0;
+}
+
 /* Detail */
 
 .detail {
@@ -1187,6 +1209,12 @@ table {
         max-width: 50%
     }
 
+    .login-options{
+        display: flex;
+        justify-content: space-evenly;
+        font-size: 15px;
+    }
+
     .cart-product{
         margin: 0;
         display: flex;
@@ -1402,6 +1430,7 @@ table {
         margin: 60px auto;
         max-width: 50%;
     }
+
 
     .footer-box {
         display: flex;
