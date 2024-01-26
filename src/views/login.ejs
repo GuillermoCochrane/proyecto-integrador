@@ -15,7 +15,8 @@
                     <label for="password">Contraseña</label>
                     <input type="password" id="password" name="password">
                 </div>
-                
+                <span class="login-item error"><%= locals.error && error.password ? error.password.msg : null %></span>
+
                 <div class="login-options-container">
                     <div class="login-checkbox">
                         <input type="checkbox" name="rememberMe" id="rememberMe">
@@ -26,9 +27,6 @@
                         <div><a href="/users/recovery">¿Olvidó su contraseña?</a></div>
                     </div>
                 </div>
-                
-
-                <span class="login-item error"><%= locals.error && error.password ? error.password.msg : null %></span>
 
                 <button type="submit">Enviar</button>
             </form>

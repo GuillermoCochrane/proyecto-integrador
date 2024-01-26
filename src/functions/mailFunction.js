@@ -87,7 +87,21 @@ const mailFunction = {
             headerMessage,
             detail
         }
-    }
+    },
+    mailRecovery:function(email, token, url){
+        const to = email;
+        const subject = `Recuperacion de Password de MultiHogar`;
+        const text  = `Para Recuperar su contraseña, ingrese el siguiente token en el formulario: \n
+        \n${token}\n
+        \n o haga click en el siguiente link: \n
+        \n ${url}
+        `;
+        return {
+            to,
+            subject,
+            text
+        }
+    },
 } 
 
 module.exports = mailFunction

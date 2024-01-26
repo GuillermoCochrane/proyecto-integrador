@@ -1,0 +1,30 @@
+<%- include("./partials/head.ejs") %>
+<body>
+
+    <%- include("./partials/headerStatic.ejs") %>
+    <div class="main-border-form">
+        <main>
+            <form action="/users/recovery" method="post" class="login-form">
+                <div class="login-item">
+                    <label for="email">Ingrese su E-Mail</label>
+                    <input type="text" id="email" name="email" value="<%= locals.old ? old : null %>">
+                </div>
+                <span class="login-item error"><%= locals.error && error.email ? error.email.msg : null %></span>
+
+                <% if (tokenInput) { %>
+                    <div class="login-item">
+                        <label for="token">Ingrese el código</label>
+                        <input type="token" id="token" name="token">
+                    </div>
+                    <span class="login-item error"><%= locals.error && error.token ? error.token.msg : null %></span>
+                <% } %>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </main>
+    </div>
+
+    <%- include("./partials/footer.ejs") %>
+
+</body>
+</html>

@@ -1,7 +1,9 @@
 const functions = require("../functions/functions");
 const usersFunctions = require("../functions/usersFunctions")
 const salesFunctions = require("../functions/salesFunctions")
-const { validationResult } = require('express-validator')
+const mailFunction = require("../functions/mailFunction");
+const { validationResult } = require('express-validator');
+const bcrypt = require('bcryptjs');
 
 const userController = {
 
@@ -176,8 +178,32 @@ const userController = {
     },
 
     recover: function(req,res){
-        let fullURL =   req.protocol + '://' + req.get('host');
-        return res.send(fullURL);
+        return res.render("recovery",{
+            title: "Recuperar Contraseña - " + functions.title,
+            tokenInput: false
+        })
+    },
+
+    processRecovery:  function(req,res){
+        let url =   req.protocol + '://' + req.get('host') + req.originalUrl;
+        let { email } = req.body
+        if (!req.body.token){
+            let recoveryToken = bcrypt.hashSync(email, 10);
+            let recoveryURL = `${url}/${recoveryToken}`;
+            let mailData = mailFunction.mailRecovery(email,recoveryToken,recoveryURL);
+            mailFunction.send(mailData.to, mailData.subject, mailData.text);
+            return res.send(mailData);
+        }
+        /* 
+            const bcrypt = require('bcrypt');
+            const password = '123456';
+            const passwordEncriptada = bcrypt.hashSync(password, 10);
+
+            if(bcrypt.compareSync(password,passwordEncriptada)){
+                console.log( 'El password es correcto')
+}
+        */
+        return res.send(url);
     },
 
     delete: function(req,res){

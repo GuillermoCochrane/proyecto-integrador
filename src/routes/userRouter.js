@@ -39,7 +39,7 @@ router.post("/register",upload.single("avatar"), mailUsernameValidations, passwo
 router.get('/edit/:id', loggedMDW, userController.edit); 
 router.put('/edit/:id',upload.single("avatar"), userValidations, mailUsernameValidations, avatarValidations, passwordValidations, userController.update); 
 
-//edit profile
+//edit profile:
 
 //change password
 router.put('/password', passwordValidations, userController.changePassword);
@@ -49,7 +49,8 @@ router.put('/avatar', upload.single("avatar"), avatarValidations, userController
 router.put('/editdata', userValidations, userController.updateData); 
 
 //Recover Password
-router.get('/recovery', userController.recover); 
+router.get('/recovery', userController.recover);
+router.post('/recovery', userController.processRecovery); 
 
 //Delete User
 router.get('/delete/:id', loggedMDW, userController.delete);
