@@ -48,6 +48,8 @@ router.put('/avatar', upload.single("avatar"), avatarValidations, userController
 //Edit user Data
 router.put('/editdata', userValidations, userController.updateData); 
 
+//Recover Password
+router.get('/recovery', userController.recover); 
 
 //Delete User
 router.get('/delete/:id', loggedMDW, userController.delete);

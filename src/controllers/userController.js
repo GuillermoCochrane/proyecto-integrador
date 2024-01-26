@@ -175,6 +175,11 @@ const userController = {
         }
     },
 
+    recover: function(req,res){
+        let fullURL =   req.protocol + '://' + req.get('host');
+        return res.send(fullURL);
+    },
+
     delete: function(req,res){
         let user = usersFunctions.filterByID(req.params.id)[0];
         if(!user){
