@@ -200,8 +200,7 @@ const userController = {
             const passwordEncriptada = bcrypt.hashSync(password, 10);
 
             if(bcrypt.compareSync(password,passwordEncriptada)){
-                console.log( 'El password es correcto')
-}
+                console.log( 'El password es correcto')}
         */
         return res.send(url);
     },
