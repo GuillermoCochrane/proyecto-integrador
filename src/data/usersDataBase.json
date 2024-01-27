@@ -169,5 +169,14 @@
   "password": "1",
   "avatar": "user1701110802857.jpg",
   "phone": "3584120101"
+ },
+ {
+  "id": 11,
+  "username": "Jon",
+  "email": "wtfgac@gmail.com",
+  "avatar": "default.png",
+  "categories": [],
+  "profile": 1,
+  "password": "qweqweqwe"
  }
 ]

@@ -186,24 +186,53 @@ const userController = {
 
     processRecovery:  function(req,res){
         let url =   req.protocol + '://' + req.get('host') + req.originalUrl;
-        let { email } = req.body
+        let { email } = req.body;
         if (!req.body.token){
             let recoveryToken = bcrypt.hashSync(email, 10);
             let recoveryURL = `${url}/${recoveryToken}`;
             let mailData = mailFunction.mailRecovery(email,recoveryToken,recoveryURL);
             mailFunction.send(mailData.to, mailData.subject, mailData.text);
-            return res.send(mailData);
+            return res.render('recovery',{
+                title: "Recuperar Contraseña - " + functions.title,
+                tokenInput: true,
+                old: email
+            });
+        } else {
+            if(bcrypt.compareSync(email,req.body.token)){
+                return res.render("newPassword",{
+                    title: "Nueva Contraseña - " + functions.title,
+                    old: email,
+                })
+            } else {
+                return res.render('recovery',{
+                title: "Recuperar Contraseña - " + functions.title,
+                tokenInput: true,
+                old: email,
+                error: {
+                    token:{
+                        msg: "Token Inválido"
+                    }
+                }
+            })
+            }
         }
-        /* 
-            const bcrypt = require('bcrypt');
-            const password = '123456';
-            const passwordEncriptada = bcrypt.hashSync(password, 10);
-
-            if(bcrypt.compareSync(password,passwordEncriptada)){
-                console.log( 'El password es correcto')}
-        */
-        return res.send(url);
     },
+
+    replacePassword: function(req,res){
+        let errors = validationResult(req);
+        let {email} = req.body;
+        let user = usersFunctions.filterByKey(email, "email")[0];
+        if (errors.isEmpty()){
+            usersFunctions.changePassword(user.id, req.body);
+            return res.redirect("/users/login")
+        } else {
+            return res.render("newPassword",{
+                title: "Nueva Contraseña - " + functions.title,
+                old: email,
+                errors: errors.mapped(),
+            })
+        }
+    }, 
 
     delete: function(req,res){
         let user = usersFunctions.filterByID(req.params.id)[0];

@@ -7,7 +7,7 @@
             <form action="/users/recovery" method="post" class="login-form">
                 <div class="login-item">
                     <label for="email">Ingrese su E-Mail</label>
-                    <input type="text" id="email" name="email" value="<%= locals.old ? old : null %>">
+                    <input type="email" id="email" name="email" value="<%= locals.old ? old : null %>">
                 </div>
                 <span class="login-item error"><%= locals.error && error.email ? error.email.msg : null %></span>
 

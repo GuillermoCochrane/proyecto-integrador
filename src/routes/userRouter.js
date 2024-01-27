@@ -9,6 +9,7 @@ const userValidations = require("../middlewares/userValidationsMDW");
 const passwordValidations = require("../middlewares/userPasswordValidationsMDW");
 const avatarValidations = require("../middlewares/userAvatarValidationsMDW");
 const loginValidations = require("../middlewares/loginValidationsMDW");
+const recoveryMailValidation = require("../middlewares/mailPasswordValidationsMDW")
 const mailUsernameValidations = require("../middlewares/userMailUsernameValidationsMDW")
 //Users Routes
 
@@ -50,7 +51,8 @@ router.put('/editdata', userValidations, userController.updateData);
 
 //Recover Password
 router.get('/recovery', userController.recover);
-router.post('/recovery', userController.processRecovery); 
+router.post('/recovery', userController.processRecovery);
+router.put('/newPassword', passwordValidations, recoveryMailValidation, userController.replacePassword);
 
 //Delete User
 router.get('/delete/:id', loggedMDW, userController.delete);
