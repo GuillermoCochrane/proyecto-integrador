@@ -55,7 +55,14 @@ const userController = {
     },
 
     test: function(req,res){
-        res.send(req.session.userlogged)
+        let message = "No hay informacion en session"
+        if(req.session.userlogged){
+            message = req.session.userlogged;
+        };
+        if(req.session.recovery){
+            message = req.session.recovery;
+        };
+        return res.send(message)
     },
 
     userNotFound: function(req,res){
@@ -203,13 +210,13 @@ const userController = {
             return res.render('recovery',{
                 title: "Recuperar Contraseña - " + functions.title,
                 tokenInput: true,
-                old: email
+                old: email,
             });
         } else {
             if(bcrypt.compareSync(email,req.body.token)){
+                req.session.recovery = email;
                 return res.render("newPassword",{
                     title: "Nueva Contraseña - " + functions.title,
-                    old: email,
                 })
             } else {
                 return res.render('recovery',{
@@ -236,9 +243,9 @@ const userController = {
             }
         }
         if(userEmail){
+            req.session.recovery = userEmail;
             return res.render("newPassword",{
                 title: "Nueva Contraseña - " + functions.title,
-                old: userEmail,
             })
         } else {
             return res.render('recovery',{
@@ -256,10 +263,11 @@ const userController = {
 
     replacePassword: function(req,res){
         let errors = validationResult(req);
-        let {email} = req.body;
+        let email = req.session.recovery;
         let user = usersFunctions.filterByKey(email, "email")[0];
         if (errors.isEmpty()){
             usersFunctions.changePassword(user.id, req.body);
+            req.session.destroy();
             return res.redirect("/users/login")
         } else {
             return res.render("newPassword",{
