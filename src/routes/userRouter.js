@@ -53,6 +53,7 @@ router.put('/editdata', userValidations, userController.updateData);
 router.get('/recovery',  userController.recover);
 router.post('/recovery', recoveryMailValidation, userController.processRecovery);
 router.put('/newPassword', passwordValidations, recoveryMailValidation, userController.replacePassword);
+router.get('/recovery/:token',  userController.recoverLink);
 
 //Delete User
 router.get('/delete/:id', loggedMDW, userController.delete);

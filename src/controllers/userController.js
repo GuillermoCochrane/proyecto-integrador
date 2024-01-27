@@ -226,6 +226,34 @@ const userController = {
         }
     },
 
+    recoverLink: function(req,res){
+        let {token} = req.params;
+        let allUsers = usersFunctions.allUsers();
+        let userEmail = ""
+        for (const user of allUsers) {
+            if(bcrypt.compareSync(user.email, token)){
+                userEmail = user.email;
+            }
+        }
+        if(userEmail){
+            return res.render("newPassword",{
+                title: "Nueva Contraseña - " + functions.title,
+                old: userEmail,
+            })
+        } else {
+            return res.render('recovery',{
+                title: "Recuperar Contraseña - " + functions.title,
+                tokenInput: true,
+                old: email,
+                error: {
+                    token:{
+                        msg: "Token Inválido"
+                    }
+                }
+            })
+        }
+    },
+
     replacePassword: function(req,res){
         let errors = validationResult(req);
         let {email} = req.body;
