@@ -186,7 +186,15 @@ const userController = {
 
     processRecovery:  function(req,res){
         let url =   req.protocol + '://' + req.get('host') + req.originalUrl;
+        let errors = validationResult(req);
         let { email } = req.body;
+        if (!errors.isEmpty()){
+            return res.render('recovery',{
+                title: "Recuperar Contraseña - " + functions.title,
+                tokenInput: false,
+                error: errors.mapped(),
+            });
+        }
         if (!req.body.token){
             let recoveryToken = bcrypt.hashSync(email, 10);
             let recoveryURL = `${url}/${recoveryToken}`;
@@ -205,15 +213,15 @@ const userController = {
                 })
             } else {
                 return res.render('recovery',{
-                title: "Recuperar Contraseña - " + functions.title,
-                tokenInput: true,
-                old: email,
-                error: {
-                    token:{
-                        msg: "Token Inválido"
+                    title: "Recuperar Contraseña - " + functions.title,
+                    tokenInput: true,
+                    old: email,
+                    error: {
+                        token:{
+                            msg: "Token Inválido"
+                        }
                     }
-                }
-            })
+                })
             }
         }
     },

@@ -50,8 +50,8 @@ router.put('/avatar', upload.single("avatar"), avatarValidations, userController
 router.put('/editdata', userValidations, userController.updateData); 
 
 //Recover Password
-router.get('/recovery', userController.recover);
-router.post('/recovery', userController.processRecovery);
+router.get('/recovery',  userController.recover);
+router.post('/recovery', recoveryMailValidation, userController.processRecovery);
 router.put('/newPassword', passwordValidations, recoveryMailValidation, userController.replacePassword);
 
 //Delete User
