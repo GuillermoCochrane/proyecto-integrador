@@ -1,4 +1,4 @@
-//Middleware de ruta que redireciona al perfil del usuario, cuando un usuario está logeado
+//Middleware de ruta que redireciona la ruta a home, cuando se setea la barriable en true
 function downMDW (req,res, next) {
     let downRoute = true;
     if(downRoute){

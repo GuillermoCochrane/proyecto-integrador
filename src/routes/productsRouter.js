@@ -3,9 +3,10 @@ const router = express.Router();
 const productsController = require("../controllers/productsController");
 
 //Middlewares
-const upload = require("../middlewares/productsMulterMDW")
-const viewsCounter = require("../middlewares/productViewsCounterMDW")
-const productValidations = require("../middlewares/productValidationsMDW")
+const upload = require("../middlewares/productsMulterMDW");
+const viewsCounter = require("../middlewares/productViewsCounterMDW");
+const productValidations = require("../middlewares/productValidationsMDW");
+const adminMDW = require("../middlewares/adminMDW");
 
 //Products Routes
 
@@ -24,15 +25,15 @@ router.get("/category/:idCat",productsController.category)
 router.get("/status/:idStatus",productsController.status)
 
 //Create Products
-router.get("/create",productsController.create)
+router.get("/create", adminMDW, productsController.create)
 router.post("/create",upload.single("img"), productValidations, productsController.store)
 
 //Edit Products
-router.get('/edit/:id', productsController.edit); 
+router.get('/edit/:id', adminMDW, productsController.edit); 
 router.put('/edit/:id', upload.single("img"), productValidations, productsController.update); 
 
 //Product delete
-router.get('/delete/:id', productsController.delete);
+router.get('/delete/:id', adminMDW, productsController.delete);
 router.delete('/delete/:id', productsController.destroy); 
 
 //Product detail
