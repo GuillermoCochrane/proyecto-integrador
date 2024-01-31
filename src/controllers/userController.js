@@ -204,6 +204,11 @@ const userController = {
         }
         if (!req.body.token){
             let recoveryToken = bcrypt.hashSync(email, 10);
+            let urlParams = recoveryToken.slice(-5)
+            return res.send({
+                hash: recoveryToken,
+                params: urlParams
+            })
             let recoveryURL = `${url}/${recoveryToken}`;
             let mailData = mailFunction.mailRecovery(email,recoveryToken,recoveryURL);
             mailFunction.send(mailData.to, mailData.subject, mailData.text);
@@ -234,7 +239,8 @@ const userController = {
     },
 
     recoverLink: function(req,res){
-        let {token} = req.params;
+        let token = req.params.token;
+        return res.send(token)
         let allUsers = usersFunctions.allUsers();
         let userEmail = ""
         for (const user of allUsers) {

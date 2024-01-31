@@ -74,6 +74,15 @@ const functions ={
       let discountedPrice = (product.price - ((product.price)*(product.discount/100)) );
       let price = Math.round(discountedPrice);
       return price
+    },
+
+    urlParam: function(token){
+      let data = token.slice(-10); 
+      let param = data;
+      if(data.includes("/")){
+        param = data.replaceAll(/\//g, 'X');
+      }
+      return param
     }
 }
 
