@@ -1,6 +1,8 @@
-const nodemailer = require('nodemailer');
 const fs = require('fs');
 const path = require('path');
+const bcrypt = require('bcryptjs');
+const nodemailer = require('nodemailer');
+const functions = require("./functions");
 
 const mailFunction = {
 
@@ -88,7 +90,8 @@ const mailFunction = {
             detail
         }
     },
-    mailRecovery:function(email, token, url){
+
+    mailRecoveryData:function(email, token, url){
         const to = email;
         const subject = `Recuperacion de Password de MultiHogar`;
         const text  = `Para Recuperar su contraseña, ingrese el siguiente token en el formulario: \n
@@ -102,6 +105,16 @@ const mailFunction = {
             text
         }
     },
+
+    mailRecovery: function(email,url){
+        let encrtyped = bcrypt.hashSync(email, 10);
+        let recoveryToken = functions.urlParam(encrtyped);
+        let recoveryURL = `${url}/${recoveryToken}`;
+        let mailData = this.mailRecoveryData(email,recoveryToken,recoveryURL);
+        this.send(mailData.to, mailData.subject, mailData.text);
+        return recoveryToken
+    },
+
 } 
 
 module.exports = mailFunction

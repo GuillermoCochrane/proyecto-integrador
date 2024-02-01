@@ -203,22 +203,16 @@ const userController = {
             });
         }
         if (!req.body.token){
-            let recoveryToken = bcrypt.hashSync(email, 10);
-            let urlParams = recoveryToken.slice(-5)
-            return res.send({
-                hash: recoveryToken,
-                params: urlParams
-            })
-            let recoveryURL = `${url}/${recoveryToken}`;
-            let mailData = mailFunction.mailRecovery(email,recoveryToken,recoveryURL);
-            mailFunction.send(mailData.to, mailData.subject, mailData.text);
+            let userToken = mailFunction.mailRecovery(email,url);
+            usersFunctions.changeToken(email,userToken);
             return res.render('recovery',{
                 title: "Recuperar Contraseña - " + functions.title,
                 tokenInput: true,
                 old: email,
             });
         } else {
-            if(bcrypt.compareSync(email,req.body.token)){
+            let user = usersFunctions.filterByKey(email, "email")[0];
+            if(user.token == req.body.token){
                 req.session.recovery = email;
                 return res.render("newPassword",{
                     title: "Nueva Contraseña - " + functions.title,
@@ -239,17 +233,17 @@ const userController = {
     },
 
     recoverLink: function(req,res){
-        let token = req.params.token;
-        return res.send(token)
-        let allUsers = usersFunctions.allUsers();
+        let {token} = req.params;
+        let user = usersFunctions.filterByKeyExact(token,"token")[0];
+        /* let allUsers = usersFunctions.allUsers();
         let userEmail = ""
         for (const user of allUsers) {
             if(bcrypt.compareSync(user.email, token)){
                 userEmail = user.email;
             }
-        }
-        if(userEmail){
-            req.session.recovery = userEmail;
+        } */
+        if(user){
+            req.session.recovery = user.email;
             return res.render("newPassword",{
                 title: "Nueva Contraseña - " + functions.title,
             })
@@ -257,7 +251,6 @@ const userController = {
             return res.render('recovery',{
                 title: "Recuperar Contraseña - " + functions.title,
                 tokenInput: true,
-                old: email,
                 error: {
                     token:{
                         msg: "Token Inválido"
@@ -274,11 +267,11 @@ const userController = {
         if (errors.isEmpty()){
             usersFunctions.changePassword(user.id, req.body);
             req.session.destroy();
+            usersFunctions.changeToken(email, true );
             return res.redirect("/users/login")
         } else {
             return res.render("newPassword",{
                 title: "Nueva Contraseña - " + functions.title,
-                old: email,
                 errors: errors.mapped(),
             })
         }

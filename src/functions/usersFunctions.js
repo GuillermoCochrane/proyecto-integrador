@@ -124,6 +124,17 @@ const usersFunctions ={
         return true
     },
 
+    changeToken: function(email, token){
+        let users = this.allUsers();
+        for (const user of users) {
+			if(user.email == email){
+                user.token = token
+            };
+        };
+        this.store(users);
+        return true
+    },
+
     changeAvatar: function( id, file ){
         let users = this.allUsers();
         for (const user of users) {
