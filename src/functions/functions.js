@@ -56,7 +56,8 @@ const functions ={
         title: title + this.title,
         categories: this.allCategories(),
         profiles: profiles,
-        user: user
+        user: user,
+        old: user
       };
       return data
     },

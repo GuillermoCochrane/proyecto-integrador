@@ -3,7 +3,6 @@ const usersFunctions = require("../functions/usersFunctions")
 const salesFunctions = require("../functions/salesFunctions")
 const mailFunction = require("../functions/mailFunction");
 const { validationResult } = require('express-validator');
-const bcrypt = require('bcryptjs');
 
 const userController = {
 
@@ -96,7 +95,6 @@ const userController = {
 
     store:  function(req, res){
         let errors = validationResult(req);
-        let file = req.file;
         let profiles = usersFunctions.profiles();
         profiles.pop();
         let old = functions.userFormData("Registrate", req.body, profiles);

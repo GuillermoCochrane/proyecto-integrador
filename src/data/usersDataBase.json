@@ -12,7 +12,8 @@
    3,
    2
   ],
-  "password": "1",
+  "password": "$2a$10$oKp5UUmX1v75gIfbuDHpBebT5KX/YEOC./cl9.CIsnzfO2n00Thjq",
+  "key": "$2a$10$oKp5UUmX1v75gIfbuDHpBebT5KX/YEOC./cl9.CIsnzfO2n00Thjq",
   "phone": "3584120100",
   "avatar": "img-user1660968491868.jpg"
  },
@@ -28,7 +29,7 @@
    3,
    2
   ],
-  "password": "1",
+  "password": "$2a$10$oKp5UUmX1v75gIfbuDHpBebT5KX/YEOC./cl9.CIsnzfO2n00Thjq",
   "phone": "3584120102",
   "avatar": "img-user1660968556765.jpg"
  },
@@ -44,7 +45,7 @@
    3,
    2
   ],
-  "password": "1",
+  "password": "$2a$10$oKp5UUmX1v75gIfbuDHpBebT5KX/YEOC./cl9.CIsnzfO2n00Thjq",
   "phone": "3584120103",
   "avatar": "img-user1660968609495.jpg"
  },
@@ -62,7 +63,7 @@
    4,
    2
   ],
-  "password": "1",
+  "password": "$2a$10$oKp5UUmX1v75gIfbuDHpBebT5KX/YEOC./cl9.CIsnzfO2n00Thjq",
   "phone": "3584120104",
   "avatar": "img-user1660968681032.jpg"
  },
@@ -79,7 +80,7 @@
    3,
    4
   ],
-  "password": "1",
+  "password": "$2a$10$oKp5UUmX1v75gIfbuDHpBebT5KX/YEOC./cl9.CIsnzfO2n00Thjq",
   "phone": "3584120105",
   "avatar": "img-user1660968750660.jpg"
  },
@@ -96,7 +97,7 @@
    4,
    2
   ],
-  "password": "1",
+  "password": "$2a$10$oKp5UUmX1v75gIfbuDHpBebT5KX/YEOC./cl9.CIsnzfO2n00Thjq",
   "phone": "3584120106",
   "avatar": "img-user1660968832691.png"
  },
@@ -113,7 +114,7 @@
    3,
    4
   ],
-  "password": "1",
+  "password": "$2a$10$oKp5UUmX1v75gIfbuDHpBebT5KX/YEOC./cl9.CIsnzfO2n00Thjq",
   "phone": "3584120107",
   "avatar": "img-user1660968898302.jpg"
  },
@@ -130,7 +131,7 @@
    3,
    5
   ],
-  "password": "1",
+  "password": "$2a$10$oKp5UUmX1v75gIfbuDHpBebT5KX/YEOC./cl9.CIsnzfO2n00Thjq",
   "phone": "3584120108",
   "avatar": "img-user1660968939498.jpg"
  },
@@ -147,7 +148,7 @@
    4,
    2
   ],
-  "password": "1",
+  "password": "$2a$10$oKp5UUmX1v75gIfbuDHpBebT5KX/YEOC./cl9.CIsnzfO2n00Thjq",
   "phone": "3584120109",
   "avatar": "img-user1660968971991.jpg"
  },
@@ -166,7 +167,8 @@
    3,
    1
   ],
-  "password": "1",
+  "password": "$2a$10$oKp5UUmX1v75gIfbuDHpBebT5KX/YEOC./cl9.CIsnzfO2n00Thjq",
+  "key": "1",
   "avatar": "user1701110802857.jpg",
   "phone": "3584120101"
  },
@@ -180,7 +182,8 @@
    5
   ],
   "profile": 1,
-  "password": "zxczxczxc",
+  "password": "$2a$10$ASiEp07lPzHlCUA6xKVddOM2njCS7D.MCL5b48vIAEiNU.BNeg1ZS",
+  "key": "asdasdasd",
   "token": true,
   "name": "Jon Snow",
   "phone": "3584220202",

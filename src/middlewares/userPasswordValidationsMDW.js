@@ -9,6 +9,6 @@ const usertValidations = [
             throw new Error("Las contraseñas no coinciden");
         }
         return true
-    }),//validar password 
+    }),//validar password (strong) 
 ]
 module.exports = usertValidations

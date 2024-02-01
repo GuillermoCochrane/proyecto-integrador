@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const functions = require('./functions');
+let bcrypt = require("bcryptjs");
 
 const usersFunctions ={
 
@@ -78,7 +79,7 @@ const usersFunctions ={
     },
 
     newUser: function(data){
-        let categories = this.processCategories(data);
+//        let categories = this.processCategories(data);
         let newUser = {
 			id: 			this.newId(),
 			username: 		data.username,
@@ -86,7 +87,7 @@ const usersFunctions ={
             avatar: 			"default.png",
             categories: 	[],
             profile: 		1,
-            password:       data.password,
+            password:       bcrypt.hashSync(data.password, 10),
 		};
         let users = this.allUsers();
         users.push(newUser);
@@ -118,7 +119,7 @@ const usersFunctions ={
         let users = this.allUsers();
         for (const user of users) {
 			if(user.id == id){
-                user.password =  data.password
+                user.password =  bcrypt.hashSync(data.password, 10)
             };
         };
         this.store(users);

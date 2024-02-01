@@ -1,6 +1,7 @@
 //Middleware de configuración de express-validator para el formulario de login
 const { body } = require('express-validator');
-const usersFunctions = require("../functions/usersFunctions")
+const usersFunctions = require("../functions/usersFunctions");
+const bcrypt = require("bcryptjs");
 
 const loginValidationsMDW = [
     body('username')
@@ -19,7 +20,7 @@ const loginValidationsMDW = [
         if(!user){
             return true
         }
-        if(user.password != value){
+        if(!bcrypt.compareSync(value,user.password)){
             throw new Error("Contraseña incorrecta");
         }
         return true
