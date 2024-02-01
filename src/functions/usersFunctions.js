@@ -70,6 +70,7 @@ const usersFunctions ={
         let data = {
             title: user.name,
             user: user,
+            old: user,
             categories: functions.allCategories(),
             purchases: purchases
         }

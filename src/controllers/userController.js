@@ -180,6 +180,7 @@ const userController = {
         } else { 
             data.errors = errors.mapped();
             data.errors.form = true;
+            data.old = info;
             return res.render("userProfile", data)
         }
     },
@@ -235,13 +236,6 @@ const userController = {
     recoverLink: function(req,res){
         let {token} = req.params;
         let user = usersFunctions.filterByKeyExact(token,"token")[0];
-        /* let allUsers = usersFunctions.allUsers();
-        let userEmail = ""
-        for (const user of allUsers) {
-            if(bcrypt.compareSync(user.email, token)){
-                userEmail = user.email;
-            }
-        } */
         if(user){
             req.session.recovery = user.email;
             return res.render("newPassword",{

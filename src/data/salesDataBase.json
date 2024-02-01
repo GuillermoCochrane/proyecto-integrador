@@ -144,5 +144,23 @@
   "day": 1,
   "month": 2,
   "year": 2024
+ },
+ {
+  "id": 6,
+  "userID": 11,
+  "amount": 13392,
+  "quantity": 3,
+  "products": [
+   {
+    "name": "Sony Srs-xb12 Parlante Bluetooth Portátil",
+    "image": "img-parlante-sony.jpg",
+    "finalPrice": 4464,
+    "quantity": 3,
+    "amount": 13392
+   }
+  ],
+  "day": 1,
+  "month": 2,
+  "year": 2024
  }
 ]
