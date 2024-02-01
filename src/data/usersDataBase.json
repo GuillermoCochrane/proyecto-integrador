@@ -175,9 +175,15 @@
   "username": "Jon",
   "email": "wtfgac@gmail.com",
   "avatar": "default.png",
-  "categories": [],
+  "categories": [
+   3,
+   5
+  ],
   "profile": 1,
   "password": "zxczxczxc",
-  "token": true
+  "token": true,
+  "name": "Jon Snow",
+  "phone": "3584220203",
+  "address": "Night Watch 123"
  }
 ]

@@ -43,9 +43,7 @@ const mainController ={
     },
     
     payment: function(req,res){
-        let user = req.session.userlogged
-        let userPurchases = salesFunctions.filterByKey(user.id,"userID");
-        res.redirect("/");
+        res.redirect("/users/profile");
     },
 
     processPayment:  function(req,res){

@@ -123,6 +123,20 @@ const productsFunctions ={
                 product.views = product.views + 1;
             }}
             this.store(products);
+            return true
+    },
+
+    productSales: function(id, quantity){
+        let products = this.allProducts();
+        for (const product of products) {
+            if(product.id == id){
+                if (!product.sales){
+                    product.sales = 0;
+                }
+                product.sales = product.sales + quantity;
+            }}
+            this.store(products);
+            return true
     },
 
     sortByViews: function(){

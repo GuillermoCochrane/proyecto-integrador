@@ -28,11 +28,5 @@
   "userID": 10,
   "productID": 6,
   "quantity": 3
- },
- {
-  "id": 9,
-  "userID": 11,
-  "productID": 13,
-  "quantity": 1
  }
 ]

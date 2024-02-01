@@ -119,5 +119,30 @@
   "day": 18,
   "month": 1,
   "year": 2024
+ },
+ {
+  "id": 5,
+  "userID": 11,
+  "amount": 57310,
+  "quantity": 6,
+  "products": [
+   {
+    "name": "Smart TV Samsung 4K 50",
+    "image": "img-tv-samsung-smart.jpg",
+    "finalPrice": 34990,
+    "quantity": 1,
+    "amount": 34990
+   },
+   {
+    "name": "Sony Srs-xb12 Parlante Bluetooth Portátil",
+    "image": "img-parlante-sony.jpg",
+    "finalPrice": 4464,
+    "quantity": 5,
+    "amount": 22320
+   }
+  ],
+  "day": 1,
+  "month": 2,
+  "year": 2024
  }
 ]

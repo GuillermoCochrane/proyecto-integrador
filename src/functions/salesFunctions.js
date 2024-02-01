@@ -70,6 +70,7 @@ const salesFunctions = {
                     quantity:   entry.quantity,
                     amount:     finalPrice*entry.quantity,
                 };
+                productFunctions.productSales(product.id,data.quantity);
                 products.push(data);
                 amount = amount + data.amount;
                 quantity = quantity + data.quantity;
