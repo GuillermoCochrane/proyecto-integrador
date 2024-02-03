@@ -1,6 +1,6 @@
 let adminController = {
     index: function(req,res){
-        return res.send("Bienvenido administrador")
+        return res.render("dashboardMain")
     },
 };
 

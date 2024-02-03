@@ -37,7 +37,7 @@ app.use('/', mainRoutes);
 app.use("/users", userRoutes);
 app.use("/products", productsRoutes);
 app.use("/cart", loggedMDW, cartRoutes);
-app.use("/admin", adminMDW,  adminRoutes);
+app.use("/dashboard", /* adminMDW, */  adminRoutes);
 
 //error 404
 app.use((req,res,next) =>{

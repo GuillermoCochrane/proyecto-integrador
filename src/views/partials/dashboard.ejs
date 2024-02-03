@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <script src="https://kit.fontawesome.com/8aa20abfbf.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <!-- <script src="/js/script.js"></script> -->
+    <title> Dashboard - <%= "title" %></title>
+</head>
+<body>
+    <header class="fixed">
+
+    <div class="header-container">
+
+        <details class="dropdown">
+            <summary role="button">
+                <a class="button">
+                    <i class="fa-solid fa-bars"></i>
+                    <i class="fa-solid fa-xmark"></i>
+                </a>
+            </summary>
+
+            <ul>
+                <li><a href="/dashboard">Panel del control</a></li>
+                <li><a href="/dashboard/email">Configuarción E-Mail</a></li>
+                <li><hr class="link-separator"></li>
+                <li><a href="/dashboard/new">Nuevo Producto</a></li>
+                <li><a href="/dashboard/search">Buscador de productos</a></li>
+<!--            <li><a href="#">Editar Producto</a></li>
+                <li><a href="#">Detalle de Producto</a></li> -->
+                <li><hr class="link-separator"></li>
+                <li><a href="/dashboard/users">Usuarios</a></li>
+                <li><a href="/dashboard/sells">Ventas</a></li>
+                <li><a href="/dashboard/pending">Ventas pendientes.</a></li>
+                <li><hr class="link-separator"></li>
+                <li><a href="/dashboard/categories">Categorías</a></li>
+                <li><a href="/dashboard/addCategory">Agregar Categorias</a></li>
+            </ul>
+        </details>
+
+        <div class="logo-contanier">
+            <a href="/" class="logo">
+                <img src="/images/logo-multihogar.png" alt="logo" class="logo-img" >
+            </a>
+        </div>
+
+        <% if (isLogged) { %>
+            <div class="admin-details">
+                <img  src="/images/users/<%= userlogged.avatar  %>" alt="<%= userlogged.username %>" class="admin-img" >
+                <h2 class="admin">Hola <%= userlogged.username %>! </h2>
+            </div>
+        <% } %>
+        
+    </div>
+
+    </header>
