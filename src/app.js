@@ -13,7 +13,7 @@ const mainRoutes = require("./routes/mainRouter");
 const userRoutes = require("./routes/userRouter");
 const productsRoutes = require("./routes/productsRouter");
 const cartRoutes = require("./routes/cartRouter");
-const adminRoutes = require("./routes/adminRouter");
+const dashboardRoutes = require("./routes/dashboardRouter");
 
 //Settings
 const app = express();
@@ -37,7 +37,7 @@ app.use('/', mainRoutes);
 app.use("/users", userRoutes);
 app.use("/products", productsRoutes);
 app.use("/cart", loggedMDW, cartRoutes);
-app.use("/dashboard", /* adminMDW, */  adminRoutes);
+app.use("/dashboard", /* adminMDW, */  dashboardRoutes);
 
 //error 404
 app.use((req,res,next) =>{

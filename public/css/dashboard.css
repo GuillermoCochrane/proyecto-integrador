@@ -197,6 +197,10 @@
     display: block;
   }
 
+  main{
+    margin-top: 100px;
+  }
+
   @media (min-width:768px) {
     .header-container {
       display: flex;
