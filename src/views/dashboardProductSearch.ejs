@@ -1,0 +1,47 @@
+<%- include("./partials/dashboard.ejs") %>
+
+<main>
+
+    <section>
+        
+            <div class="logo-search">
+                <form action="/dashboard/searchProducts" method="get" class="search-bar">
+                    <input type="search" class="search-field" name="search">
+                    <button type="submit" class="search-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+
+    </section>
+
+    <section>
+
+        <details name="products" open>
+            <summary>
+                Tarjetas
+            </summary>
+
+            <h2 class="title">
+                <%= label %>
+            </h2>
+
+            <div class="articles-box">
+                <% for (product of products) {%>
+                    <%- include("./partials/article.ejs") %>
+                <% } %>
+            </div>
+
+        </details>
+
+        <details name="products">
+            <summary>
+                Tabla
+            </summary>
+            Aca va la tabla
+        </details>
+    </section>
+</main>
+
+</body>
+</html>

@@ -1,3 +1,5 @@
+let productsFunctions = require("../functions/productsFunctions");
+let functions = require("../functions/functions");
 let dasboardController = {
     index: function(req,res){
         return res.render("dashboardMain",{
@@ -15,9 +17,11 @@ let dasboardController = {
         })
     },
     search: function(req,res){
-        return res.render("dashboardMain",{
-            title: "Todos los productos" 
-        })
+        let products = productsFunctions.allProducts();
+        let title = "Todos los productos";
+        return res.render("dashboardProductSearch",
+            functions.productData(title, products, title )
+        )
     },
     allUsers: function(req,res){
         return res.render("dashboardMain",{
