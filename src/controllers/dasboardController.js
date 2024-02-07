@@ -19,9 +19,16 @@ let dasboardController = {
     search: function(req,res){
         let products = productsFunctions.allProducts();
         let title = "Todos los productos";
-        return res.render("dashboardProductSearch",
-            functions.productData(title, products, title )
-        )
+        let label = title;
+
+        if(req.query.search){
+            let searchResults = productsFunctions.search(req.query.search);
+            products = searchResults.results;
+            label = searchResults.label;
+        }
+        let data = functions.productData(title, products, label )
+        data.categories = functions.allCategories()
+        return res.render("dashboardProductSearch", data)
     },
     allUsers: function(req,res){
         return res.render("dashboardMain",{

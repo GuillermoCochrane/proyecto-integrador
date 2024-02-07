@@ -17,7 +17,8 @@
 
     <section>
 
-        <details name="products" open>
+        <details name="products" >
+
             <summary>
                 Tarjetas
             </summary>
@@ -34,12 +35,50 @@
 
         </details>
 
-        <details name="products">
+        <details name="products" open >
+
             <summary>
                 Tabla
             </summary>
-            Aca va la tabla
+
+            <div class="table-responsive">
+                <table class="table table-bordered" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th colspan="7"><%= label %></th>
+                        </tr>
+                        <tr>
+                            <th> </th>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Descuento</th>
+                            <th>Categoría</th>
+                            <th>Visitas</th>
+                            <th>Ventas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <% for (const product of products) { %>
+                                <tr>
+                                    <td><%= product.id %></td>
+                                    <td><%= product.name %></td>
+                                    <td>$<%= toThousand(product.price) %></td>
+                                    <td><%= product.discount %></td>
+                                    <td>
+                                        <% for (const category of categories) {%>
+                                            <%= category.id == product.category ? category.category : null  %> 
+                                        <% } %>
+                                    </td>
+                                    <td><%= product.views ? product.views : 0 %></td>
+                                    <td><%= product.sold ? product.sold : 0 %></td>
+                                </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+            </div>
+
         </details>
+
     </section>
 </main>
 

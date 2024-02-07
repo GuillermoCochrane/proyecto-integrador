@@ -12,11 +12,11 @@ router.get('/email', dashboardRouter.email);
 router.get('/new', dashboardRouter.newProduct);
 //Display all prodcuts and Searchbar
 router.get('/search', dashboardRouter.search);
+router.get('/searchProducts', dashboardRouter.search);
 //Display all users and seachbar
 router.get('/users', dashboardRouter.allUsers);
 //Display all sales
 router.get('/sales', dashboardRouter.allSales);
-router.get('/searchProducts', dashboardRouter.allSales);
 //Display pending sales
 router.get('/pending', dashboardRouter.pendingSales);
 // Display all categories
