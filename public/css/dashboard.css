@@ -394,7 +394,7 @@ table {
 .table td,
 .table th {
     padding: 5px;
-    vertical-align: top;
+    vertical-align: auto;
     border-top: 1px solid #e3e6f0
 }
 
