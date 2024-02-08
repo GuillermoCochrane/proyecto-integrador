@@ -1,0 +1,91 @@
+<%- include("./partials/dashboard.ejs") %>
+
+<main>
+
+    <section>
+
+        <%- include("./partials/dashboardSearchbar.ejs") %>
+
+    </section>
+
+    <section>
+        <nav class="dashboard-products-buttons" >
+
+            <button onclick="toggleElement(1)">
+                Detalles
+            </button>
+
+            <button onclick="toggleElement(2)">
+                Tabla
+            </button>
+            
+        </nav>
+
+        <div class="dashboard-products hidden" id="dashboard-details">
+
+            <h2 class="products-title">
+                <%= label %>
+            </h2>
+
+            <div class="articles-box">
+                <% for (user of users) {%>
+                    <%- include("./partials/user.ejs") %>
+                <% } %>
+            </div>
+
+        </div>
+
+        <div class="dashboard-products" id="dashboard-table" >
+
+            <div class="table-responsive">
+                <table class="table table-bordered" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th colspan="8"><%= label %></th>
+                        </tr>
+                        <tr>
+                            <th> </th>
+                            <th>Usuario</th>
+                            <th>Nombre</th>
+                            <th>E-Mail</th>
+                            <th>Teléfono</th>
+                            <th>Dirección</th>
+                            <th>¿Es Administrador?</th>
+                            <th>Intereses</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <% let counter = 0 %>
+                            <% for (const user of users) { %>
+                                <tr>
+                                    <% counter = counter + 1 %>
+                                    <td><%= counter %></td>
+                                    <td><%= user.username %></td>
+                                    <td><%= user.name %></td>
+                                    <td><%= user.email %></td>
+                                    <td><%= user.phone %></td>
+                                    <td><%= user.address %></td>
+                                    <td><%= user.profile == 3 ? "Sí" : "No"  %></td>
+                                    <td>
+                                        <ul>
+                                            <% for (const interes of user.categories) { %>
+                                                <li>
+                                                    <% for (const category of categories) {%>
+                                                        <%= category.id == interes ? category.category : null  %> 
+                                                    <% } %>
+                                                </li>
+                                            <% } %>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </section>
+</main>
+</body>
+</html>

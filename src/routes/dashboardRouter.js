@@ -11,7 +11,7 @@ router.get('/email', dashboardRouter.email);
 //Create new product form
 router.get('/new', dashboardRouter.newProduct);
 //Display all prodcuts and Searchbar
-router.get('/search', dashboardRouter.search);
+router.get('/products', dashboardRouter.search);
 router.get('/searchProducts', dashboardRouter.search);
 //Display all users and seachbar
 router.get('/users', dashboardRouter.allUsers);

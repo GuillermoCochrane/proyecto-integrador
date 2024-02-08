@@ -30,6 +30,7 @@ body {
   align-items: center;
   color: #d48502;
   background-color: var(--dark);
+  text-align: center;
 }
 
 header {
@@ -421,6 +422,11 @@ table {
     width: 100%;
     font-size: 14px;
     overflow-x: scroll;
+}
+
+td ul{
+  list-style: none;
+  list-style-type: none;
 }
 
 .hidden{
