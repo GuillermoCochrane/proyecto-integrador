@@ -28,11 +28,12 @@ let dasboardController = {
         }
         let data = functions.productData(title, products, label )
         data.categories = functions.allCategories()
+        data.searchRoute = "searchProducts"
         return res.render("dashboardProductSearch", data)
     },
     allUsers: function(req,res){
         return res.render("dashboardMain",{
-            title: "Todos los usuarios" 
+            title: "Todas las ventas"
         })
     },
     allSales: function(req,res){

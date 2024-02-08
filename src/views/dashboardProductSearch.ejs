@@ -3,27 +3,27 @@
 <main>
 
     <section>
-        
-            <div class="logo-search">
-                <form action="/dashboard/searchProducts" method="get" class="search-bar">
-                    <input type="search" class="search-field" name="search">
-                    <button type="submit" class="search-icon">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                </form>
-            </div>
+
+        <%- include("./partials/dashboardSearchbar.ejs") %>
 
     </section>
 
     <section>
+        <nav class="dashboard-products-buttons" >
 
-        <details name="products" >
+            <button onclick="toggleElement(1)">
+                Detalles
+            </button>
 
-            <summary>
-                Tarjetas
-            </summary>
+            <button onclick="toggleElement(2)">
+                Tabla
+            </button>
+            
+        </nav>
 
-            <h2 class="title">
+        <div class="dashboard-products hidden" id="dashboard-details">
+
+            <h2 class="products-title">
                 <%= label %>
             </h2>
 
@@ -33,13 +33,9 @@
                 <% } %>
             </div>
 
-        </details>
+        </div>
 
-        <details name="products" open >
-
-            <summary>
-                Tabla
-            </summary>
+        <div class="dashboard-products" id="dashboard-table" >
 
             <div class="table-responsive">
                 <table class="table table-bordered" cellspacing="0">
@@ -58,9 +54,11 @@
                         </tr>
                     </thead>
                     <tbody>
+                            <% let counter = 0 %>
                             <% for (const product of products) { %>
                                 <tr>
-                                    <td><%= product.id %></td>
+                                    <% counter = counter + 1 %>
+                                    <td><%= counter %></td>
                                     <td><%= product.name %></td>
                                     <td>$<%= toThousand(product.price) %></td>
                                     <td><%= product.discount %></td>
@@ -77,10 +75,9 @@
                 </table>
             </div>
 
-        </details>
+        </div>
 
     </section>
 </main>
-
 </body>
 </html>
