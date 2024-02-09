@@ -59,7 +59,11 @@
                                 <tr>
                                     <% counter = counter + 1 %>
                                     <td><%= counter %></td>
-                                    <td><%= product.name %></td>
+                                    <td>
+                                        <a href="<%=  dashboardlink %>/products/<%= product.id %>">
+                                            <%= product.name %>
+                                        </a>
+                                    </td>
                                     <td>$<%= toThousand(product.price) %></td>
                                     <td><%= product.discount %></td>
                                     <td>

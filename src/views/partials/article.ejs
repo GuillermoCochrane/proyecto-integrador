@@ -1,6 +1,6 @@
 <div class="article-box">
     <article class="main-article">
-        <a href="/products/<%= product.id %>">
+        <a href="<%= locals.dashboardlink ? dashboardlink : null %>/products/<%= product.id %>">
             <figure class="img-article">
                 <img src="/images/products/<%= product.image %>"  alt="<%= product.name %>">
             </figure>

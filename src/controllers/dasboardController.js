@@ -20,10 +20,11 @@ let dasboardController = {
         })
     },
 
-    search: function(req,res){
+    allProducts: function(req,res){
         let products = productsFunctions.allProducts();
         let title = "Todos los productos";
         let label = title;
+        let dashboardlink = "/dashboard";
 
         if(req.query.search){
             let searchResults = productsFunctions.search(req.query.search);
@@ -31,20 +32,35 @@ let dasboardController = {
             label = searchResults.label;
             title = searchResults.label;
         }
+        
 
-        let data = functions.productData(title, products, label )
-        data.categories = functions.allCategories()
-        data.searchRoute = "searchProducts"
-        return res.render("dashboardProductSearch", data)
+        let data = functions.productData(title, products, label );
+        data.categories = functions.allCategories();
+        data.searchRoute = "searchProducts";
+        data.dashboardlink = dashboardlink
+        return res.render("dashboardProducts", data)
+    },
+
+    product: function(req,res){
+        res.redirect("/products/" + req.params.id )
     },
 
     allUsers: function(req,res){
         let users = userFunctions.allUsers();
         let title = "Todas los Usuarios";
         let label = title;
+
+        if(req.query.search){
+            let searchResults = productsFunctions.search(req.query.search); // hacer similar para usuarios
+            users = searchResults.results;
+            label = searchResults.label;
+            title = searchResults.label;
+        }
+
         let categories = functions.allCategories();
         let searchRoute = "searchUsers"
         let dashboardlink = "/dashboard"
+
         return res.render("dashboardUsers",{
             title,
             label,
