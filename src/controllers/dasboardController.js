@@ -44,13 +44,19 @@ let dasboardController = {
         let label = title;
         let categories = functions.allCategories();
         let searchRoute = "searchUsers"
+        let dashboardlink = "/dashboard"
         return res.render("dashboardUsers",{
             title,
             label,
             users,
             categories,
-            searchRoute
+            searchRoute,
+            dashboardlink
         })
+    },
+
+    user: function(req,res){
+        res.redirect("/users/" + req.params.id )
     },
 
     allSales: function(req,res){

@@ -57,10 +57,18 @@
                     <tbody>
                             <% let counter = 0 %>
                             <% for (const user of users) { %>
+                                
                                 <tr>
                                     <% counter = counter + 1 %>
-                                    <td><%= counter %></td>
-                                    <td><%= user.username %></td>
+                                    <td>
+                                        
+                                            <%= counter %></td>
+                                        </a>
+                                    <td>
+                                        <a href="<%=  dashboardlink %>/users/<%= user.id %>">       
+                                            <%= user.username %>
+                                        </a>
+                                    </td>
                                     <td><%= user.name %></td>
                                     <td><%= user.email %></td>
                                     <td><%= user.phone %></td>
@@ -78,6 +86,7 @@
                                         </ul>
                                     </td>
                                 </tr>
+                                
                             <% } %>
                     </tbody>
                 </table>

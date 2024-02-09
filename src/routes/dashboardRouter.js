@@ -15,6 +15,7 @@ router.get('/products', dashboardRouter.search);
 router.get('/searchProducts', dashboardRouter.search);
 //Display all users and seachbar
 router.get('/users', dashboardRouter.allUsers);
+router.get('/users/:id', dashboardRouter.user);
 //Display all sales
 router.get('/sales', dashboardRouter.allSales);
 //Display pending sales

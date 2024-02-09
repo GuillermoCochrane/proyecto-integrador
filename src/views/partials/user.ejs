@@ -1,6 +1,6 @@
 <div class="article-box">
     <article class="main-article">
-        <a href="/users/<%= user.id %>">
+        <a href="<%= locals.dashboardlink ? dashboardlink : null %>/users/<%= user.id %>">
             <figure class="img-article">
                 <img src="/images/users/<%= user.avatar %>"  alt="<%= user.username %>">
             </figure>
