@@ -32,7 +32,6 @@ let dasboardController = {
             label = searchResults.label;
             title = searchResults.label;
         }
-        
 
         let data = functions.productData(title, products, label );
         data.categories = functions.allCategories();
@@ -49,18 +48,16 @@ let dasboardController = {
         let users = userFunctions.allUsers();
         let title = "Todas los Usuarios";
         let label = title;
+        let categories = functions.allCategories();
+        let searchRoute = "searchUsers";
+        let dashboardlink = "/dashboard";
 
         if(req.query.search){
-            let searchResults = productsFunctions.search(req.query.search); // hacer similar para usuarios
+            let searchResults = userFunctions.search(req.query.search);
             users = searchResults.results;
             label = searchResults.label;
             title = searchResults.label;
         }
-
-        let categories = functions.allCategories();
-        let searchRoute = "searchUsers"
-        let dashboardlink = "/dashboard"
-
         return res.render("dashboardUsers",{
             title,
             label,

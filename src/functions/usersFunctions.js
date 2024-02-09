@@ -18,6 +18,21 @@ const usersFunctions ={
         return users;
     },
 
+    search: function(searchkey){
+        let users = this.allUsers();
+        let results = users.filter ( user => (
+            user.name.toUpperCase().includes(searchkey.toUpperCase()) || 
+            user.username.toUpperCase().includes(searchkey.toUpperCase()) ||
+            user.email.toUpperCase().includes(searchkey.toUpperCase()) 
+            ));
+        let label = "Resultados de la Búsqueda: " + results.length;
+            return {
+                results:    results,
+                label:      label
+            };
+    },
+
+
     profiles: function()  {
         let profiles = [];
         let readProfiles = fs.readFileSync(this.pathProfile, 'utf-8');
