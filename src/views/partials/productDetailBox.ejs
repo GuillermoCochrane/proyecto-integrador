@@ -1,0 +1,85 @@
+<h2 class="title">
+    Detalle del producto: <%= product.name %>
+</h2>
+<div class="detail-box">
+    <div class="detail-img-description-box">
+        <img src="/images/products/<%= product.image %>" alt="<%= product.name %>" class="detail-img">
+        <p class="detail-description">
+            <%= product.description %>
+        </p>
+    </div>
+    <div class="detail-info-box">
+        <article class="detail-info">
+            <h2 class="detail-title"><%= product.name %></h2>
+                <% if (product.discount == 0) { %>
+                    <br>
+                    <p class="detail-price">
+                        Precio Final
+                    </p>
+                    <p class="detail-price">
+                        $<%= toThousand(product.price) %>
+                    </p>
+                    <br>
+                <% } else { %>
+                    <p class="detail-price small">
+                        <span>$<%= toThousand(product.price) %></span>
+                        /
+                        <b><%= product.discount %>% OFF</b>
+                    </p>
+                    <p class="detail-price">
+                        Precio Final
+                    </p>
+                    <p class="detail-price">
+                        $<%= toThousand(product.finalPrice) %>
+                    </p>
+                <% } %>
+
+            <ul class="info-list">
+                <li>
+                    <i class="fas fa-credit-card"></i>
+                    <p>Pagá en 12 cuotas sin interes</p>
+                </li>
+                <li>
+                    <i class="fas fa-store"></i>
+                    <p>Retiro gratis en locales del vendedor</p>
+                </li>
+            </ul>
+
+            <br>
+            <br>
+            <br>
+            <% if (isLogged) { %>
+
+                <form action="/cart/add/<%= product.id %>" method="post">
+                    
+                    <label for="quantity" class="form-label">Seleccione Cantidad</label>
+                    
+                    <select name="quantity" id="quantity" class="form-input">
+                        <option value="1" selected> 1 </option>
+                        <option value="2"> 2 </option>
+                        <option value="3"> 3 </option>
+                        <option value="4"> 4 </option>
+                        <option value="5"> 5 </option>
+                    </select>
+
+                    <button type="submit" class="buy-button"><i class="fa-solid fa-cart-plus"></i>Agregar al Carrito</button>
+
+                </form>
+                
+                <% if (userlogged.profile == 3  ) { %>
+
+                    <div class="button-box">
+                        <a href="<%=locals.dashboardlink ? dashboardlink : null %>/products/edit/<%= product.id %>" class="description-button edit">EDITAR PRODUCTO</a>
+                        <form action="<%=locals.dashboardlink ? dashboardlink : null %>/products/edit/<%= product.id %>/products/delete/<%= product.id %>" method="get" style="display: inline-flex">
+                            <button type="submit" class="description-button delete">ELIMINAR</button>
+                        </form>
+                    </div>
+
+                <% } %>
+
+            <% } %>
+
+            
+        </article>
+    </div>
+</div>

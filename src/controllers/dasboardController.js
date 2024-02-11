@@ -41,7 +41,22 @@ let dasboardController = {
     },
 
     product: function(req,res){
-        res.redirect("/products/" + req.params.id )
+        /* res.redirect("/products/" + req.params.id ) */
+        let dashboardlink = "/dashboard";
+        let product = productsFunctions.filterByID(req.params.id)[0];
+        if (!product){
+            return res.redirect("/products/notFound")
+        } else {
+            if(product){
+                product.finalPrice =  functions.finalPrice(product);
+            }
+            return res.render("dashProductDetail",{
+                title: product.name,
+                product: product,
+                toThousand: functions.toThousand,
+                dashboardlink
+            })
+        }
     },
 
     allUsers: function(req,res){
