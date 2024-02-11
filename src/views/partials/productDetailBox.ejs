@@ -1,15 +1,15 @@
 <h2 class="title">
     Detalle del producto: <%= product.name %>
 </h2>
-<div class="detail-box">
-    <div class="detail-img-description-box">
-        <img src="/images/products/<%= product.image %>" alt="<%= product.name %>" class="detail-img">
-        <p class="detail-description">
+<div class="prooduct-detail-container">
+    <div class="prooduct-detail-box">
+        <img src="/images/products/<%= product.image %>" alt="<%= product.name %>" class="product-detail-img">
+        <p class="product-detail-description">
             <%= product.description %>
         </p>
     </div>
-    <div class="detail-info-box">
-        <article class="detail-info">
+    <div class="product-detail-info-container">
+        <article class="product-detail-info">
             <h2 class="detail-title"><%= product.name %></h2>
                 <% if (product.discount == 0) { %>
                     <br>
@@ -50,23 +50,27 @@
             <br>
             <% if (isLogged) { %>
 
-                <form action="/cart/add/<%= product.id %>" method="post">
-                    
-                    <label for="quantity" class="form-label">Seleccione Cantidad</label>
-                    
-                    <select name="quantity" id="quantity" class="form-input">
-                        <option value="1" selected> 1 </option>
-                        <option value="2"> 2 </option>
-                        <option value="3"> 3 </option>
-                        <option value="4"> 4 </option>
-                        <option value="5"> 5 </option>
-                    </select>
+                <% if (!locals.dashboardlink) { %>
 
-                    <button type="submit" class="buy-button"><i class="fa-solid fa-cart-plus"></i>Agregar al Carrito</button>
+                    <form action="/cart/add/<%= product.id %>" method="post">
+                    
+                        <label for="quantity" class="form-label">Seleccione Cantidad</label>
+                        
+                        <select name="quantity" id="quantity" class="form-input">
+                            <option value="1" selected> 1 </option>
+                            <option value="2"> 2 </option>
+                            <option value="3"> 3 </option>
+                            <option value="4"> 4 </option>
+                            <option value="5"> 5 </option>
+                        </select>
+    
+                        <button type="submit" class="buy-button"><i class="fa-solid fa-cart-plus"></i>Agregar al Carrito</button>
+    
+                    </form>
 
-                </form>
-                
-                <% if (userlogged.profile == 3  ) { %>
+                <% } %>
+
+                <% if (userlogged.profile == 3  && locals.dashboardlink ) { %>
 
                     <div class="button-box">
                         <a href="<%=locals.dashboardlink ? dashboardlink : null %>/products/edit/<%= product.id %>" class="description-button edit">EDITAR PRODUCTO</a>
