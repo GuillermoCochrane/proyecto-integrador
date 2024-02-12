@@ -6,8 +6,10 @@ const dashboardRouter = require("../controllers/dasboardController");
 
 //Admin
 router.get('/', dashboardRouter.index);
+
 //Modify site email
 router.get('/email', dashboardRouter.email);
+
 //Create new product form
 router.get('/new', dashboardRouter.newProduct);
 
@@ -15,18 +17,24 @@ router.get('/new', dashboardRouter.newProduct);
 router.get('/products', dashboardRouter.allProducts);
 router.get('/products/:id', dashboardRouter.product);
 router.get('/searchProducts', dashboardRouter.allProducts);
+
 // Edit product form
 router.get('/products/edit/:id', dashboardRouter.editProduct);
+
 //Display all users and seachbar
 router.get('/users', dashboardRouter.allUsers);
 router.get('/users/:id', dashboardRouter.user);
 router.get('/searchUsers', dashboardRouter.allUsers);
+
 //Display all sales
 router.get('/sales', dashboardRouter.allSales);
+
 //Display pending sales
 router.get('/pending', dashboardRouter.pendingSales);
+
 // Display all categories
 router.get('/categories', dashboardRouter.allCategories);
+
 // Create  new catergory form
 router.get('/addCategory', dashboardRouter.newCategory);
 

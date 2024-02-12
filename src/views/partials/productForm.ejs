@@ -1,18 +1,18 @@
 <div class="form-input-label-box">
-    <label for="name" class="form-label">Nombre del producto:</label>
-    <input type="text" id="name" name="name" placeholder="Ej: Zapatillas Reebok" class="form-input"  value="<%= locals.product ? product.name : null %>" >
+    <label for="name" class="form-label-product">Nombre del producto:</label>
+    <input type="text" id="name" name="name" placeholder="Ej: Zapatillas Reebok" class="form-input-product"  value="<%= locals.product ? product.name : null %>" >
     <span class="login-item error"><%= (locals.errors && errors.name) ? errors.name.msg : null %></span>
 </div>
 
 <div class="form-input-label-box">
-    <label for="img" class="form-label">Imagen del producto:</label>
-    <input type="file" id="img" name="img" class="form-input" value="" type=".jpg,.png,.bmp,.gif">
+    <label for="img" class="form-label-product">Imagen del producto:</label>
+    <input type="file" id="img" name="img" class="form-input-product" value="" type=".jpg,.png,.bmp,.gif">
     <span class="login-item error"><%= (locals.errors && errors.img) ? errors.img.msg : null %></span>
 </div>
 
 <div class="form-input-label-box">
-    <label for="category" class="form-label">Categoría:</label>
-    <select name="category" id="category" class="form-input">
+    <label for="category" class="form-label-product">Categoría:</label>
+    <select name="category" id="category" class="form-input-product">
         <option value="">Elegí</option>
         <% for (const category of categories) { %>
             <option value="<%= category.id %>" <%= locals.product && product.category == category.id ? "selected" : null %>> <%= category.category  %></option>
@@ -22,8 +22,8 @@
 </div>
 
 <div class="form-input-label-box">
-    <label for="status" class="form-label">Estado:</label>
-    <select name="status" id="status" class="form-input">
+    <label for="status" class="form-label-product">Estado:</label>
+    <select name="status" id="status" class="form-input-product">
         <option value="">Elegí</option>
         <% for (const item of status) { %>
             <option value="<%= item.id %>" <%= locals.product && product.status == item.id ? "selected" : null %>> <%= item.status  %></option>
@@ -33,20 +33,20 @@
 </div>
 
 <div class="form-input-label-box">
-    <label for="price" class="form-label">Precio del producto:</label>
-    <input type="number" id="price" name="price" placeholder="Ej: 5678" class="form-input" value="<%= locals.product ? product.price : null %>" >
+    <label for="price" class="form-label-product">Precio del producto:</label>
+    <input type="number" id="price" name="price" placeholder="Ej: 5678" class="form-input-product" value="<%= locals.product ? product.price : null %>" >
     <span class="login-item error"><%= (locals.errors && errors.price) ? errors.price.msg : null %></span>
 </div>
 
 <div class="form-input-label-box">
-    <label for="discount" class="form-label">Descuento:</label>
-    <input type="number" id="discount" name="discount" placeholder="Ej: 15" class="form-input" value="<%= locals.product ? product.discount : null %>">
+    <label for="discount" class="form-label-product">Descuento:</label>
+    <input type="number" id="discount" name="discount" placeholder="Ej: 15" class="form-input-product" value="<%= locals.product ? product.discount : null %>">
     <span class="login-item error"><%= (locals.errors && errors.discount) ? errors.discount.msg : null %></span>
 </div>
 
-<div class="form-big-box">
-    <label for="description" class="form-label">Descipción:</label>
-    <textarea name="description" id="description" class="form-input"><%= locals.product ? product.description : null %></textarea>
+<div class="form-input-label-box big-box"> <!-- form-big-box -->
+    <label for="description" class="form-label-product">Descipción:</label>
+    <textarea name="description" id="description" class="form-input-product"><%= locals.product ? product.description : null %></textarea>
     <span class="login-item error"><%= (locals.errors && errors.description) ? errors.description.msg : null %></span>
 </div>
 
