@@ -41,7 +41,6 @@ let dasboardController = {
     },
 
     product: function(req,res){
-        /* res.redirect("/products/" + req.params.id ) */
         let dashboardlink = "/dashboard";
         let product = productsFunctions.filterByID(req.params.id)[0];
         if (!product){
@@ -56,6 +55,17 @@ let dasboardController = {
                 toThousand: functions.toThousand,
                 dashboardlink
             })
+        }
+    },
+
+    editProduct: function(req,res){
+        let product = productsFunctions.filterByID(req.params.id)[0];
+        if (!product){
+            return res.redirect("/products/notFound")
+        }else{
+            let data = functions.productFormData("Editando - " + product.name, product);
+            data.edit = true;
+            return res.render("dashboardProductsForm", data)
         }
     },
 
