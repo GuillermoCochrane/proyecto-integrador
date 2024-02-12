@@ -723,7 +723,7 @@ footer section p {
     font-size: 25px;
 }
 
-textarea.form-input {
+textarea.form-input-product{
     min-height: 140px;
     resize: vertical;
     padding: 15px;

@@ -15,9 +15,15 @@ let dasboardController = {
     },
 
     newProduct: function(req,res){
-        return res.render("dashboardMain",{
+        let data = functions.productFormData("Crear Producto", null)
+        return res.render("dashboardProductsForm", data)
+/*let data = functions.productFormData("Editando - " + product.name, product);
+            data.edit = true;
+            return res.render("dashboardProductsForm", data)         
+
+return res.render("dashboardMain",{
             title: "Crear nuevo producto" 
-        })
+        }) */
     },
 
     allProducts: function(req,res){
