@@ -3,6 +3,8 @@ const router = express.Router();
 const dashboardRouter = require("../controllers/dasboardController");
 
 //Middlewares
+const upload = require("../middlewares/productsMulterMDW");
+const productValidations = require("../middlewares/productValidationsMDW");
 
 //Admin
 router.get('/', dashboardRouter.index);
@@ -12,6 +14,7 @@ router.get('/email', dashboardRouter.email);
 
 //Create new product form
 router.get('/new', dashboardRouter.newProduct);
+router.post("/products/create",upload.single("img"), productValidations, dashboardRouter.store);
 
 //Display all prodcuts and Searchbar
 router.get('/products', dashboardRouter.allProducts);

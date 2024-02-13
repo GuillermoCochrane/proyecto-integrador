@@ -494,7 +494,7 @@ td ul{
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 
 .detail-title {
@@ -517,7 +517,7 @@ td ul{
 }
 
 .info-list {
-  margin-bottom: 50px;
+  margin-bottom: 5px;
 }
 
 .info-list li {
@@ -832,7 +832,7 @@ textarea.form-input-product {
 
   .detail-price {
     font-size: 50px;
-    margin: 35px 0;
+    margin: 20px 0;
   }
 
   .small {

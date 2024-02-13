@@ -1,6 +1,8 @@
 let productsFunctions = require("../functions/productsFunctions");
 let functions = require("../functions/functions");
 let userFunctions = require("../functions/usersFunctions");
+const { validationResult } = require('express-validator');
+
 let dasboardController = {
     index: function(req,res){
         return res.render("dashboardMain",{
@@ -19,6 +21,20 @@ let dasboardController = {
         let dashboardlink = "/dashboard";
         data.dashboardlink = dashboardlink;
         return res.render("dashboardProductsForm", data)
+    },
+
+    store: function(req,res){
+        let errors = validationResult(req);
+        let dashboardlink = "/dashboard";
+        let old = functions.productFormData("Crear Producto",req.body);
+        if (errors.isEmpty()){
+            let id = productsFunctions.newProduct(req.body, req.file);
+            return res.redirect("/dashboard/products/" + id);
+        } else {
+            old.errors = errors.mapped();
+            old.dashboardlink = dashboardlink
+            return res.render('dashboardProductsForm',old);
+        }
     },
 
     allProducts: function(req,res){
