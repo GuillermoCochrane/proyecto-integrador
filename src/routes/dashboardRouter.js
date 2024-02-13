@@ -23,6 +23,7 @@ router.get('/searchProducts', dashboardRouter.allProducts);
 
 // Edit product form
 router.get('/products/edit/:id', dashboardRouter.editProduct);
+router.put('/products/edit/:id', upload.single("img"), productValidations, dashboardRouter.update); 
 
 //Display all users and seachbar
 router.get('/users', dashboardRouter.allUsers);

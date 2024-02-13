@@ -32,7 +32,7 @@ let dasboardController = {
             return res.redirect("/dashboard/products/" + id);
         } else {
             old.errors = errors.mapped();
-            old.dashboardlink = dashboardlink
+            old.dashboardlink = dashboardlink;
             return res.render('dashboardProductsForm',old);
         }
     },
@@ -85,6 +85,23 @@ let dasboardController = {
             data.edit = true;
             data.dashboardlink = dashboardlink;
             return res.render("dashboardProductsForm", data)
+        }
+    },
+
+    update: function(req,res){
+        let errors = validationResult(req);
+        let title = "Editando - " + req.body.name;
+        let dashboardlink = "/dashboard";
+        let data = req.body;
+        data.id = req.params.id
+        let old = functions.productFormData(title, data);
+        if (errors.isEmpty()){
+            let id = productsFunctions.editProduct(data.id, data, req.file);
+            return res.redirect("/dashboard/products/" + id);
+        } else {
+            old.errors = errors.mapped();
+            old.dashboardlink = dashboardlink;
+            return res.render('dashboardProductsForm',old);
         }
     },
 
