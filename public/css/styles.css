@@ -630,7 +630,6 @@ footer section p {
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
-    flex: 0 0 100%;
     max-width: 100%
 }
 
@@ -646,6 +645,7 @@ footer section p {
 .form-content-box{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
     background-color: #c8c8c8;
     border-radius: 8px;
     overflow: hidden;
@@ -660,12 +660,9 @@ footer section p {
 }
 
 .form-input-label-box{
-    position: relative;
+    margin: 5px 0px;
+    padding: 3px 15px;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    flex: 0 0 100%;
-    max-width: 100%
 }
 
 .form-delete-box{
@@ -1204,13 +1201,24 @@ table {
     }
 
     .form-input-label-box{
-        flex: 0 0 50%;
-        max-width: 50%
+        flex: 0 0 45%;
+        max-width: 45%
     }
 
     .form-delete-box{
         flex: 0 0 50%;
         max-width: 50%
+    }
+
+    .big-box{
+        position: relative;
+        width: 100%;
+        flex: 0 0 100%;
+        max-width: 94%
+    }
+
+    .form-big-box{
+        margin-left: 45px;
     }
 
     .login-options{
@@ -1423,11 +1431,8 @@ table {
         flex: 0 0 45%;
     }
 
-    .big-box{
-        position: relative;
-        width: 100%;
-        flex: 0 0 100%;
-        max-width: 100%
+    .form-big-box{
+        margin-left: 70px;
     }
 
     .login-form {

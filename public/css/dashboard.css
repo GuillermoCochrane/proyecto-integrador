@@ -607,6 +607,7 @@ td ul{
   margin: auto;
   margin-top: 20px;
   padding: 10px 16px;
+  border-radius: 10px;
 }
 
 .form-input-label-box{

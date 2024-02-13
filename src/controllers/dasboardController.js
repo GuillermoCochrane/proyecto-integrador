@@ -15,15 +15,10 @@ let dasboardController = {
     },
 
     newProduct: function(req,res){
-        let data = functions.productFormData("Crear Producto", null)
+        let data = functions.productFormData("Crear Producto", null);
+        let dashboardlink = "/dashboard";
+        data.dashboardlink = dashboardlink;
         return res.render("dashboardProductsForm", data)
-/*let data = functions.productFormData("Editando - " + product.name, product);
-            data.edit = true;
-            return res.render("dashboardProductsForm", data)         
-
-return res.render("dashboardMain",{
-            title: "Crear nuevo producto" 
-        }) */
     },
 
     allProducts: function(req,res){
@@ -42,7 +37,7 @@ return res.render("dashboardMain",{
         let data = functions.productData(title, products, label );
         data.categories = functions.allCategories();
         data.searchRoute = "searchProducts";
-        data.dashboardlink = dashboardlink
+        data.dashboardlink = dashboardlink;
         return res.render("dashboardProducts", data)
     },
 
@@ -66,11 +61,13 @@ return res.render("dashboardMain",{
 
     editProduct: function(req,res){
         let product = productsFunctions.filterByID(req.params.id)[0];
+        let dashboardlink = "/dashboard";
         if (!product){
             return res.redirect("/products/notFound")
         }else{
             let data = functions.productFormData("Editando - " + product.name, product);
             data.edit = true;
+            data.dashboardlink = dashboardlink;
             return res.render("dashboardProductsForm", data)
         }
     },

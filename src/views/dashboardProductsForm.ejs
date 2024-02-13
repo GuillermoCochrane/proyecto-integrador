@@ -6,17 +6,20 @@
 
         
 			<h2 class="title">
-                <%= locals.edit ?
-                    "Estás editando:  " + product.name :
-                    "Formulario de creación de productos" 
-                %>
+                <% if (locals.edit) { %>
+                     Estás editando: <i> <%= product.name %></i> 
+                <% } else { %>
+                    Formulario de creación de productos
+                <% } %>
+                
+                
 				
 			</h2>
 
 			<div class="form-box"> 
 				<form action="<%= locals.edit ?
-                "/products/edit/"+product.id+"?_method=PUT":
-                "/products/create"
+                (locals.dashboardlink ? dashboardlink : null) + "/products/edit/"+product.id+"?_method=PUT":
+                (locals.dashboardlink ? dashboardlink : null) +"/products/create"
                 %>" method="post" enctype="multipart/form-data">
 					<div class="form-content-box">
 
