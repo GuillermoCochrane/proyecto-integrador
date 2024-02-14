@@ -1,0 +1,83 @@
+<%- include("./partials/dashboard.ejs") %>
+
+<main>
+
+    <section>
+        <nav class="dashboard-products-buttons" >
+
+            <button onclick="toggleElement(1)">
+                Estados
+            </button>
+
+            <button onclick="toggleElement(2)">
+                Categorías
+            </button>
+            
+        </nav>
+
+        <div class="dashboard-products hidden" id="dashboard-details">
+
+            <h2 class="products-title">
+                Estados
+            </h2>
+
+            <div>
+                <a href="/dashboard/newCategorY">
+                    <button>
+                        Nuevo estado
+                    </button>
+                </a>
+            </div>
+
+            <ul>
+                <% for (category of categories) {%>
+                    <li>
+                        <span>
+                            <%= category.category %>
+                        </span>
+                        <a href="/dashboard/category/<%= category.id %>">
+                            <button>
+                                Editar
+                            </button>
+                        </a>
+                    </li>
+                <% } %>
+            </ul>
+
+        </div>
+
+        <div class="dashboard-products" id="dashboard-table" >
+
+            <h2 class="products-title">
+                Categorías
+            </h2>
+
+            <div>
+                <a href="/dashboard/newCategorY">
+                    <button>
+                        Nuevo estado
+                    </button>
+                </a>
+            </div>
+
+            <ul>
+                <% for (status of statuses) {%>
+                    <li>
+                        <span>
+                            <%= status.status %>
+                        </span>
+                        <a href="/dashboard/status/<%= status.id %>">
+                            <button>
+                                Editar
+                            </button>
+                        </a>
+                    </li>
+                <% } %>
+            </ul>
+
+        </div>
+
+    </section>
+</main>
+</body>
+</html>

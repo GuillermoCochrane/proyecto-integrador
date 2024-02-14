@@ -164,6 +164,14 @@ let dasboardController = {
     },
 
     allCategories: function(req,res){
+        let categories = functions.allCategories();
+        let statuses = functions.allStatus();
+        let title = "Categorías";
+        return res.render("dashboardCategories",{
+            categories,
+            statuses,
+            title
+        })
         return res.render("dashboardMain",{
             title: "Todas las categorías"
         })
