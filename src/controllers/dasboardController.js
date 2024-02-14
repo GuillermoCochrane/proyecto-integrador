@@ -61,7 +61,7 @@ let dasboardController = {
         let dashboardlink = "/dashboard";
         let product = productsFunctions.filterByID(req.params.id)[0];
         if (!product){
-            return res.redirect("/products/notFound")
+            return res.redirect("/dashboard/notFound")
         } else {
             if(product){
                 product.finalPrice =  functions.finalPrice(product);
@@ -79,7 +79,7 @@ let dasboardController = {
         let product = productsFunctions.filterByID(req.params.id)[0];
         let dashboardlink = "/dashboard";
         if (!product){
-            return res.redirect("/products/notFound")
+            return res.redirect("/dashboard/notFound")
         }else{
             let data = functions.productFormData("Editando - " + product.name, product);
             data.edit = true;
@@ -156,7 +156,12 @@ let dasboardController = {
             title: "Crear nueva categoría" 
         })
     },
-    
+
+    productNotFound: function(req, res){
+        let title = "Producto no encontrado";
+        return res.render("dashboardMain",{title})
+    }
+
 };
 
 module.exports = dasboardController;

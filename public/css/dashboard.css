@@ -85,7 +85,7 @@ header {
   border: 2px solid #03264C;
 }
 
-/* Boring button styles */
+/* dropdown menu button styles */
 a.button {
   /* Frame */
   display: inline-block;
@@ -197,10 +197,27 @@ summary::-webkit-details-marker {
   display: block;
 }
 
+/* dashboard body */
+
+
 main{
   margin-top: 100px;
   width: 80%;
+  min-height: 80vh;
 }
+
+.dashboard-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+h1{
+  margin: auto;
+  text-align: center;
+}
+
 
 /* Search Bar */
 

@@ -25,6 +25,9 @@ router.get('/searchProducts', dashboardRouter.allProducts);
 router.get('/products/edit/:id', dashboardRouter.editProduct);
 router.put('/products/edit/:id', upload.single("img"), productValidations, dashboardRouter.update); 
 
+// Product not found 
+router.get('/notFound', dashboardRouter.productNotFound);
+
 //Display all users and seachbar
 router.get('/users', dashboardRouter.allUsers);
 router.get('/users/:id', dashboardRouter.user);
