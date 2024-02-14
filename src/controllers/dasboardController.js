@@ -33,7 +33,7 @@ let dasboardController = {
         } else {
             old.errors = errors.mapped();
             old.dashboardlink = dashboardlink;
-            return res.render('dashboardProductsForm',old);
+            return res.render('dashboardProductsForm',old)
         }
     },
 
@@ -159,7 +159,9 @@ let dasboardController = {
 
     productNotFound: function(req, res){
         let title = "Producto no encontrado";
-        return res.render("dashboardMain",{title})
+        return res.render("dashboardMain",{
+            title
+        })
     }
 
 };
