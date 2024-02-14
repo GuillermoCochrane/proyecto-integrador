@@ -115,20 +115,6 @@ let dasboardController = {
         }else{
             return res.render("dashboardConfirmDelete", info);
         }
-        return res.render("dashboardMain",{
-            title: "Producto Borrado"
-        })
-        /* 
-        let product = productsFunctions.filterByID(req.params.id)[0];
-        let title = "Eliminando - " + product.name;
-        let info = functions.productData(title, product, "Producto");
-        info.path = "products"
-        if (!product){
-            return res.redirect("/products/notFound")
-        }else{
-            res.render("dashboardConfirmDelete", info);
-        }
-        */
     },
 
     destroy: function(req,res){

@@ -271,11 +271,12 @@ h1{
 }
 
 .save-button,
+.save-button-delete,
 .dashboard-products-buttons button{
   margin: 3px 6px;
   padding: 6px;
   border-radius: 10px;
-  font-size: 13px;
+  font-size: 15px;
   color: var(--darkblue);
   background-color: var(--greengrey);
   font-weight: bold;
@@ -284,6 +285,7 @@ h1{
 }
 
 .save-button:hover,
+.save-button-delete:hover,
 .dashboard-products-buttons button:hover{
   color: var(--greengrey);
   background-color: var(--darkblue);
@@ -675,6 +677,67 @@ textarea.form-input-product {
   resize: vertical;
   padding: 15px;
 }
+
+/* Confirm Delete */
+
+.delete-product{
+  width: 85%;
+  margin: auto;
+  text-align: center;
+}
+
+.form-box-delete{
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.form-content-box-delete{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--grey);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.form-big-box-delete{
+  position: relative;
+  width: 100%;
+  padding: 15px;
+  flex: 0 0 100%;
+  max-width: 100%;
+  text-align: center;
+  font-size: 25px;
+}
+
+.form-delete-box{
+  position: relative;
+  width: 100%;
+  padding: 15px;
+  flex: 0 0 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/* .save-button-delete{
+  background-color: #1259c3;
+  font-size: 16px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  margin: 11px;
+}
+ */
+
 @media (min-width:768px) {
   .header-container {
     display: flex;
@@ -761,6 +824,11 @@ textarea.form-input-product {
     flex: 0 0 100%;
     max-width: 94%;
   }
+
+  .form-delete-box{
+    flex: 0 0 50%;
+    max-width: 50%
+}
 
 }
 
@@ -854,6 +922,12 @@ textarea.form-input-product {
 
   .small {
     font-size: 18px;
+  }
+
+  .delete-product{
+    width: 70%;
+    margin-top: 60px;
+    margin-bottom: 165px;
   }
 
 }
