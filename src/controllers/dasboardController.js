@@ -118,13 +118,8 @@ let dasboardController = {
     },
 
     destroy: function(req,res){
-        return res.render("dashboardMain",{
-            title: "Borrado"
-        })
-        /* 
         productsFunctions.deleteProduct(req.params.id);
-		res.redirect("/");
-        */
+		return res.redirect("/dashboard/products");
     },
 
 
