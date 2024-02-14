@@ -28,6 +28,10 @@ router.put('/products/edit/:id', upload.single("img"), productValidations, dashb
 // Product not found 
 router.get('/notFound', dashboardRouter.productNotFound);
 
+//Product delete
+router.get('/delete/:id', dashboardRouter.delete);
+router.delete('/delete/:id', dashboardRouter.destroy); 
+
 //Display all users and seachbar
 router.get('/users', dashboardRouter.allUsers);
 router.get('/users/:id', dashboardRouter.user);

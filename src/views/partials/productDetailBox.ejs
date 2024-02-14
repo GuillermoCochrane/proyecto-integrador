@@ -71,7 +71,7 @@
 
                     <div class="button-box">
                         <a href="<%=locals.dashboardlink ? dashboardlink : null %>/products/edit/<%= product.id %>" class="description-button edit">EDITAR PRODUCTO</a>
-                        <form action="<%=locals.dashboardlink ? dashboardlink : null %>/products/edit/<%= product.id %>/products/delete/<%= product.id %>" method="get" style="display: inline-flex">
+                        <form action="<%=locals.dashboardlink ? dashboardlink : null %>/products/delete/<%= product.id %>" method="get" style="display: inline-flex">
                             <button type="submit" class="description-button delete">ELIMINAR</button>
                         </form>
                     </div>

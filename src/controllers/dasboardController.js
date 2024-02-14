@@ -105,6 +105,19 @@ let dasboardController = {
         }
     },
 
+    delete: function(req,res){
+        return res.render("dashboardMain",{
+            title: "Todas las ventas"
+        })
+    },
+
+    destroy: function(req,res){
+        return res.render("dashboardMain",{
+            title: "Todas las ventas"
+        })
+    },
+
+
     allUsers: function(req,res){
         let users = userFunctions.allUsers();
         let title = "Todas los Usuarios";
