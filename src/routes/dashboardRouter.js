@@ -25,12 +25,12 @@ router.get('/searchProducts', dashboardRouter.allProducts);
 router.get('/products/edit/:id', dashboardRouter.editProduct);
 router.put('/products/edit/:id', upload.single("img"), productValidations, dashboardRouter.update); 
 
+//Product delete
+router.get('/products/delete/:id', dashboardRouter.delete);
+router.delete('/products/delete/:id', dashboardRouter.destroy); 
+
 // Product not found 
 router.get('/notFound', dashboardRouter.productNotFound);
-
-//Product delete
-router.get('/delete/:id', dashboardRouter.delete);
-router.delete('/delete/:id', dashboardRouter.destroy); 
 
 //Display all users and seachbar
 router.get('/users', dashboardRouter.allUsers);

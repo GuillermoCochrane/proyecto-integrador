@@ -6,35 +6,7 @@
 	<!-- /Header -->
 
 	<main>
-		<section class="delete-product">
-			
-			<h2 class="title">
-				Eliminación de <%= label %>
-			</h2>
-
-			<div class="form-box-delete">
-				<div class="form-content-box-delete">
-
-					<h2 class="form-big-box-delete">
-						¿Confirma eliminar: <%= label %> <%= products.id %> - <%= products.name %>?
-					</h2>
-
-					<div class="form-delete-box">
-						<form action="/<%= path %>/delete/<%= products.id %>?_method=DELETE" method="POST">
-							<button type="submit" class="save-button-delete">Eliminar <%= label %></button>
-						</form>
-					</div>
-
-					<div class="form-delete-box">
-						<form action="/<%= path %>/<%= products.id %>" method="get">
-							<button type="submit" class="save-button-delete">Cancelar</button>
-						</form>
-					</div>
-
-				</div>
-			</div>
-			
-		</section>
+		<%- include('partials/confirmDelete.ejs') %>
 	</main>
 	<!-- footer -->
 	<%- include('partials/footer') %>
