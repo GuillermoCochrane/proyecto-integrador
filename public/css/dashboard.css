@@ -454,9 +454,8 @@ table {
     justify-content: center;
     align-items: center;
     margin: auto;
-    margin-block: 25px;
+    margin-block: 8px;
     border-radius: 10px;
-    background-color: #666666;
 }
 
 td ul{
@@ -645,6 +644,32 @@ td ul{
   border-radius: 10px;
 }
 
+.cat-stat{
+  background-color: var(--dark);
+  margin-top: 0;
+}
+
+form.cat-stat{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.cat-stat > .form-input-label-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cat-stat .form-input-label-box label{
+  text-align: center;
+  margin-block: 10px;
+  font-size: 20px;
+}
+
 .form-input-label-box{
   margin: 5px 0px;
   padding: 3px 0px;
@@ -798,8 +823,7 @@ textarea.form-input-product {
   }
 
   .dashboard-products-buttons{
-    margin: 20px;
-    margin-bottom: 30px;
+    margin: 15px;
   }
 
   a.dashboard-products-buttons{

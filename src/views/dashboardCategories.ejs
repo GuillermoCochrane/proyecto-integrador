@@ -17,12 +17,13 @@
 
         <div class="dashboard-products hidden" id="dashboard-details">
 
-            <div class="form-box">
-                <form action="/dashboard/newStatus" method="post" class="form-content-box">
+            <div class="form-box cat-stat">
+                <form action="/dashboard/newStatus" method="post" class="form-content-box cat-stat">
                     <div class="form-input-label-box">
-                        <label class="form-label-product">Nuevo estado
-                            <input type="text" class="form-input-product">
+                        <label class="form-label-product" id="newStatus">
+                            Nuevo estado
                         </label>
+                        <input type="text" class="form-input-product" id="newStatus" name="newStatus">
                     </div>
                     <div class="dashboard-products-buttons">
                         <button type="submit">
@@ -60,12 +61,13 @@
 
         <div class="dashboard-products" id="dashboard-table" >
 
-                <div class="form-box">
-                    <form action="/dashboard/newCategory" method="post" class="form-content-box">
+                <div class="form-box cat-stat">
+                    <form action="/dashboard/newCategory" method="post" class="form-content-box cat-stat">
                         <div class="form-input-label-box">
-                            <label class="form-label-product">Nueva Categoría
-                                <input type="text" class="form-input-product">
+                            <label class="form-label-product" for="newCat">
+                                Nueva Categoría
                             </label>
+                            <input type="text" class="form-input-product" id="newCat" name="newCat">
                         </div>
                         <div class="dashboard-products-buttons">
                             <button type="submit">
