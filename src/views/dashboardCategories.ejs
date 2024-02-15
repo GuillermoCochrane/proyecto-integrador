@@ -17,63 +17,88 @@
 
         <div class="dashboard-products hidden" id="dashboard-details">
 
-            <h2 class="products-title">
-                Estados
-            </h2>
-
-            <div>
-                <a href="/dashboard/newCategorY">
-                    <button>
-                        Nuevo estado
-                    </button>
-                </a>
+            <div class="form-box">
+                <form action="/dashboard/newStatus" method="post" class="form-content-box">
+                    <div class="form-input-label-box">
+                        <label class="form-label-product">Nuevo estado
+                            <input type="text" class="form-input-product">
+                        </label>
+                    </div>
+                    <div class="dashboard-products-buttons">
+                        <button type="submit">
+                            Agregar
+                        </button>
+                    </div>
+                    
+                </form>
             </div>
 
-            <ul>
-                <% for (category of categories) {%>
-                    <li>
-                        <span>
-                            <%= category.category %>
-                        </span>
-                        <a href="/dashboard/category/<%= category.id %>">
-                            <button>
-                                Editar
-                            </button>
-                        </a>
-                    </li>
-                <% } %>
-            </ul>
-
+            <div class="table-responsive">
+                <table class="table table-bordered" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Estados</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (const status of statuses) { %>
+                            <tr>
+                                <td><%= status.status %></td>
+                                <td class="table-button">
+                                    <a href="/dashboard/category/<%= status.id %>" class="dashboard-products-buttons">
+                                        <button>
+                                            Editar
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <div class="dashboard-products" id="dashboard-table" >
 
-            <h2 class="products-title">
-                Categorías
-            </h2>
-
-            <div>
-                <a href="/dashboard/newCategorY">
-                    <button>
-                        Nuevo estado
-                    </button>
-                </a>
-            </div>
-
-            <ul>
-                <% for (status of statuses) {%>
-                    <li>
-                        <span>
-                            <%= status.status %>
-                        </span>
-                        <a href="/dashboard/status/<%= status.id %>">
-                            <button>
-                                Editar
+                <div class="form-box">
+                    <form action="/dashboard/newCategory" method="post" class="form-content-box">
+                        <div class="form-input-label-box">
+                            <label class="form-label-product">Nueva Categoría
+                                <input type="text" class="form-input-product">
+                            </label>
+                        </div>
+                        <div class="dashboard-products-buttons">
+                            <button type="submit">
+                                Agregar
                             </button>
-                        </a>
-                    </li>
-                <% } %>
-            </ul>
+                        </div>
+                        
+                    </form>
+                </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Categorías</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (const category of categories) { %>
+                            <tr>
+                                <td><%= category.category %></td>
+                                <td class="table-button">
+                                    <a href="/dashboard/category/<%= category.id %>" class="dashboard-products-buttons">
+                                        <button>
+                                            Editar
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
 
         </div>
 

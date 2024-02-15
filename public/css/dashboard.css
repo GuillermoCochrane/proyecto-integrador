@@ -260,6 +260,11 @@ h1{
 
 .dashboard-products {
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: #666666; */
 }
 
 /* Products buttons */
@@ -268,6 +273,11 @@ h1{
   margin: 10px 5px;
   display: flex;
   justify-content: space-evenly;
+}
+
+a.dashboard-products-buttons{
+  margin: auto;
+  /* width: 121px; */
 }
 
 .save-button,
@@ -401,20 +411,22 @@ main section article i.article  {
 }
 
 /* Products  table */
+.table-bordered {
+    border: 1px solid #e3e6f0
+}
 
 table {
   border-collapse: collapse;
-  width: auto;
   margin-bottom: 3px;
   color: #03264C;
   text-align: center;
-  width: 100%;
+  width: fit-content;
+  margin: 20px;
 }
 
 .table td,
 .table th {
     padding: 5px;
-    vertical-align: auto;
     border-top: 1px solid #e3e6f0
 }
 
@@ -422,14 +434,11 @@ table {
     vertical-align: bottom;
 }
 
-.table-bordered {
-    border: 1px solid #e3e6f0
-}
-
 .table-bordered td,
 .table-bordered th {
     border: 2px solid #629398;
     background: white;
+    width: auto;
 }
 
 .table-bordered thead td,
@@ -439,15 +448,22 @@ table {
 
 .table-responsive{
     display: flex;
-    width: 100%;
+    width: -webkit-fill-available;
     font-size: 14px;
     overflow-x: scroll;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-block: 25px;
+    border-radius: 10px;
+    background-color: #666666;
 }
 
 td ul{
   list-style: none;
   list-style-type: none;
 }
+
 
 .hidden{
   display: none;
@@ -786,6 +802,11 @@ textarea.form-input-product {
     margin-bottom: 30px;
   }
 
+  a.dashboard-products-buttons{
+    margin: 0;
+  }
+  
+
   .save-button,
   .dashboard-products-buttons button{
     margin: 0px 20px;
@@ -891,7 +912,7 @@ textarea.form-input-product {
   }
 
   .table-responsive {
-    display: block;
+    /* display: block; */
     overflow-x: auto;
   }
 
@@ -899,8 +920,7 @@ textarea.form-input-product {
       border: 0
   }
 
-  
-  .prooduct-detail-box {
+.prooduct-detail-box {
     flex: 0 0 66.666667%;
     max-width: 66.666667%
   }
