@@ -448,14 +448,13 @@ table {
 
 .table-responsive{
     display: flex;
-    width: -webkit-fill-available;
     font-size: 14px;
-    overflow-x: scroll;
-    justify-content: center;
     align-items: center;
     margin: auto;
     margin-block: 8px;
     border-radius: 10px;
+    width: -webkit-fill-available;
+    overflow-x: scroll;
 }
 
 td ul{
@@ -875,6 +874,9 @@ textarea.form-input-product {
     max-width: 50%
 }
 
+.table-responsive {
+  justify-content: center;
+}
 }
 
 @media (min-width:1200px) {
@@ -935,15 +937,6 @@ textarea.form-input-product {
     font-size: 18px;
   }
 
-  .table-responsive {
-    /* display: block; */
-    overflow-x: auto;
-  }
-
-  .table-responsive>.table-bordered {
-      border: 0
-  }
-
 .prooduct-detail-box {
     flex: 0 0 66.666667%;
     max-width: 66.666667%
@@ -972,6 +965,14 @@ textarea.form-input-product {
     width: 70%;
     margin-top: 60px;
     margin-bottom: 165px;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+  }
+
+  .table-responsive>.table-bordered {
+      border: 0
   }
 
 }
