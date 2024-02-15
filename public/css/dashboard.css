@@ -457,6 +457,11 @@ table {
     overflow-x: scroll;
 }
 
+.table-cat-status{
+  justify-content: center;
+  width: 100%;
+}
+
 td ul{
   list-style: none;
   list-style-type: none;
