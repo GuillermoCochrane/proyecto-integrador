@@ -194,6 +194,11 @@ let dasboardController = {
         return res.redirect("/dashboard/categories")
     },
 
+    newStatus: function(req,res){
+        functions.newStatus(req.body);
+        return res.redirect("/dashboard/categories")
+    },
+
     editCategory: function(req,res){
         functions.editCategory(req.params.idCategory,req.body);
         return res.redirect("/dashboard/categories")

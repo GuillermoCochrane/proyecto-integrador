@@ -49,6 +49,9 @@ router.get("/categories", dashboardRouter.allCategories);
 //New Category
 router.post("/newCategory", dashboardRouter.newCategory);
 
+//New Status
+router.post("/newStatus", dashboardRouter.newStatus);
+
 //Edit category
 router.get("/category/:idCategory", dashboardRouter.allCategories);
 router.put("/editCategory/:idCategory", dashboardRouter.editCategory);

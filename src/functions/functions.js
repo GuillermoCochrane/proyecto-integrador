@@ -39,6 +39,14 @@ const functions ={
       return 1
     },
 
+    newStatusId: function(){
+      let lastStatus = this.allStatus().pop();
+      if (lastStatus){
+          return lastStatus.id + 1
+      }
+      return 1
+    },
+
     newCategory: function(data){
       let newCategory = {
         id: 			this.newCategoryId(),
@@ -48,7 +56,18 @@ const functions ={
       categories.push(newCategory);
       this.storeCategory(categories);
       return true
-  },
+    },
+
+    newStatus: function(data){
+    let newStatus = {
+      id: 			this.newStatusId(),
+      status:   data.newStatus
+    };
+    let status = this.allStatus();
+    status.push(newStatus);
+    this.storeStatus(status);
+    return true
+    },
 
     statusByID: function(id){
       let data = this.allStatus();
