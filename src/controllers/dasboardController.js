@@ -190,17 +190,13 @@ let dasboardController = {
     },
 
     newCategory: function(req,res){
-        return res.render("dashboardMain",{
-            title: "Crear nueva categoría" 
-        })
+        functions.newCategory(req.body);
+        return res.redirect("/dashboard/categories")
     },
 
     editCategory: function(req,res){
         functions.editCategory(req.params.idCategory,req.body);
         return res.redirect("/dashboard/categories")
-        return res.render("dashboardMain",{
-            title: "Editando categoría " + data.category
-        })
     },
 
     editStatus: function(req,res){

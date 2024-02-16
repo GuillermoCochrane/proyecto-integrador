@@ -31,6 +31,25 @@ const functions ={
 		return status
     },
 
+    newCategoryId: function(){
+      let lastCategory = this.allCategories().pop();
+      if (lastCategory){
+          return lastCategory.id + 1
+      }
+      return 1
+    },
+
+    newCategory: function(data){
+      let newCategory = {
+        id: 			this.newCategoryId(),
+        category: data.newCategory
+      };
+      let categories = this.allCategories();
+      categories.push(newCategory);
+      this.storeCategory(categories);
+      return true
+  },
+
     statusByID: function(id){
       let data = this.allStatus();
         return data.filter(status => status.id == id)[0]

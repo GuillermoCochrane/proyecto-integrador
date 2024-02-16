@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 const dashboardRouter = require("../controllers/dasboardController");
 
@@ -10,51 +10,54 @@ const productValidations = require("../middlewares/productValidationsMDW");
 router.get('/', dashboardRouter.index);
 
 //Modify site email
-router.get('/email', dashboardRouter.email);
+router.get("/email", dashboardRouter.email);
 
 //Create new product form
-router.get('/new', dashboardRouter.newProduct);
+router.get("/new", dashboardRouter.newProduct);
 router.post("/products/create",upload.single("img"), productValidations, dashboardRouter.store);
 
 //Display all prodcuts and Searchbar
-router.get('/products', dashboardRouter.allProducts);
-router.get('/products/:id', dashboardRouter.product);
-router.get('/searchProducts', dashboardRouter.allProducts);
+router.get("/products", dashboardRouter.allProducts);
+router.get("/products/:id", dashboardRouter.product);
+router.get("/searchProducts", dashboardRouter.allProducts);
 
 // Edit product form
-router.get('/products/edit/:id', dashboardRouter.editProduct);
-router.put('/products/edit/:id', upload.single("img"), productValidations, dashboardRouter.update); 
+router.get("/products/edit/:id", dashboardRouter.editProduct);
+router.put("/products/edit/:id", upload.single("img"), productValidations, dashboardRouter.update); 
 
 //Product delete
-router.get('/products/delete/:id', dashboardRouter.delete);
-router.delete('/products/delete/:id', dashboardRouter.destroy); 
+router.get("/products/delete/:id", dashboardRouter.delete);
+router.delete("/products/delete/:id", dashboardRouter.destroy); 
 
 // Product not found 
-router.get('/notFound', dashboardRouter.productNotFound);
+router.get("/notFound", dashboardRouter.productNotFound);
 
 //Display all users and seachbar
-router.get('/users', dashboardRouter.allUsers);
-router.get('/users/:id', dashboardRouter.user);
-router.get('/searchUsers', dashboardRouter.allUsers);
+router.get("/users", dashboardRouter.allUsers);
+router.get("/users/:id", dashboardRouter.user);
+router.get("/searchUsers", dashboardRouter.allUsers);
 
 //Display all sales
-router.get('/sales', dashboardRouter.allSales);
+router.get("/sales", dashboardRouter.allSales);
 
 //Display pending sales
-router.get('/pending', dashboardRouter.pendingSales);
+router.get("/pending", dashboardRouter.pendingSales);
 
-// Display all categories
-router.get('/categories', dashboardRouter.allCategories);
+// Display all categories & status
+router.get("/categories", dashboardRouter.allCategories);
+
+//New Category
+router.post("/newCategory", dashboardRouter.newCategory);
 
 //Edit category
-router.get('/category/:idCategory', dashboardRouter.allCategories);
+router.get("/category/:idCategory", dashboardRouter.allCategories);
 router.put("/editCategory/:idCategory", dashboardRouter.editCategory);
 
 //Edit Status
-router.get('/status/:idStatus', dashboardRouter.allCategories);
+router.get("/status/:idStatus", dashboardRouter.allCategories);
 router.put("/editStatus/:idStatus", dashboardRouter.editStatus);
 
 // Create  new catergory form
-router.get('/addCategory', dashboardRouter.newCategory);
+router.get("/addCategory", dashboardRouter.newCategory);
 
 module.exports = router
