@@ -19,47 +19,53 @@
 
             <% if (locals.status) { %>
                 <div class="form-box cat-stat">
-                    <form action="/dashboard/editStatus/<%= status.id  %>" method="post" class="form-content-box cat-stat">
+                    <form action="/dashboard/editStatus/<%= status.id  %>?_method=PUT" method="post" class="form-content-box cat-stat">
+
                         <div class="form-input-label-box">
                             <label class="form-label-product" id="editStatus">
                                 Editando estado: <%= status.status %>
                             </label>
-                            <input type="text" class="form-input-product" id="editStatus" name="newStatus" value="<%= status.status %>">
+                            <input type="text" class="form-input-product" id="editStatus" name="status" value="<%= status.status %>">
                         </div>
+
                         <div class="dashboard-products-buttons">
                             <button type="submit">
                                 Editar
                             </button>
                         </div>
-                        
+
                     </form>
                 </div>
             <% } else { %>
                 <div class="form-box cat-stat">
                     <form action="/dashboard/newStatus" method="post" class="form-content-box cat-stat">
+
                         <div class="form-input-label-box">
                             <label class="form-label-product" id="newStatus">
                                 Nuevo estado
                             </label>
                             <input type="text" class="form-input-product" id="newStatus" name="newStatus">
                         </div>
+
                         <div class="dashboard-products-buttons">
                             <button type="submit">
                                 Agregar
                             </button>
                         </div>
-                        
+
                     </form>
                 </div>
             <% } %>
 
             <div class="table-responsive table-cat-status">
                 <table class="table table-bordered" cellspacing="0">
+
                     <thead>
                         <tr>
                             <th colspan="2">Estados</th>
                         </tr>
                     </thead>
+
                     <tbody>
                         <% for (const status of statuses) { %>
                             <tr>
@@ -74,6 +80,7 @@
                             </tr>
                         <% } %>
                     </tbody>
+
                 </table>
             </div>
         </div>
@@ -82,46 +89,52 @@
 
             <% if (locals.category) { %>
                 <div class="form-box cat-stat">
-                    <form action="/dashboard/editCategory/<%= category.id  %>" method="post" class="form-content-box cat-stat">
+                    <form action="/dashboard/editCategory/<%= category.id  %>?_method=PUT" method="post" class="form-content-box cat-stat">
+
                         <div class="form-input-label-box">
-                            <label class="form-label-product" id="editStatus">
+                            <label class="form-label-product" id="editCategory">
                                 Editando Categoría: <%= category.category %>
                             </label>
-                            <input type="text" class="form-input-product" id="editStatus" name="newStatus" value="<%= category.category %>">
+                            <input type="text" class="form-input-product" id="editCategory" name="category" value="<%= category.category %>">
                         </div>
+
                         <div class="dashboard-products-buttons">
                             <button type="submit">
                                 Editar
                             </button>
                         </div>
-                        
+
                     </form>
                 </div>
             <% } else { %>
                 <div class="form-box cat-stat">
                     <form action="/dashboard/newCategory" method="post" class="form-content-box cat-stat">
+
                         <div class="form-input-label-box">
-                            <label class="form-label-product" for="newCat">
+                            <label class="form-label-product" for="newCategory">
                                 Nueva Categoría
                             </label>
-                            <input type="text" class="form-input-product" id="newCat" name="newCat">
+                            <input type="text" class="form-input-product" id="newCategory" name="newCategory">
                         </div>
+
                         <div class="dashboard-products-buttons">
                             <button type="submit">
                                 Agregar
                             </button>
                         </div>
-                        
+
                     </form>
                 </div>
             <% } %>
             <div class="table-responsive table-cat-status">
                 <table class="table table-bordered" cellspacing="0">
+
                     <thead>
                         <tr>
                             <th colspan="2">Categorías</th>
                         </tr>
                     </thead>
+
                     <tbody>
                         <% for (const category of categories) { %>
                             <tr>
@@ -136,6 +149,7 @@
                             </tr>
                         <% } %>
                     </tbody>
+
                 </table>
             </div>
 

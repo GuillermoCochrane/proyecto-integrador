@@ -195,6 +195,18 @@ let dasboardController = {
         })
     },
 
+    editCategory: function(req,res){
+        let data = functions.categoryByID(req.params.idCategory);
+        return res.render("dashboardMain",{
+            title: "Editando categoría " + data.category
+        })
+    },
+
+    editStatus: function(req,res){
+        functions.editStatus(req.params.idStatus,req.body);
+        return res.redirect("/dashboard/categories")
+    },
+
     productNotFound: function(req, res){
         let title = "Producto no encontrado";
         return res.render("dashboardMain",{

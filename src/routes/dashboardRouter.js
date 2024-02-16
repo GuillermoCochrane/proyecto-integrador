@@ -48,9 +48,11 @@ router.get('/categories', dashboardRouter.allCategories);
 
 //Edit category
 router.get('/category/:idCategory', dashboardRouter.allCategories);
+router.put("/editCategory/:idCategory", dashboardRouter.editCategory);
 
 //Edit Status
 router.get('/status/:idStatus', dashboardRouter.allCategories);
+router.put("/editStatus/:idStatus", dashboardRouter.editStatus);
 
 // Create  new catergory form
 router.get('/addCategory', dashboardRouter.newCategory);

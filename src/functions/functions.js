@@ -41,6 +41,22 @@ const functions ={
       return data.filter(category => category.id == id)[0]
     },
 
+    storeStatus: function(data){
+      fs.writeFileSync( this.pathStatusDB, JSON.stringify(data, null, ' ') );
+      return true
+    },
+
+    editStatus: function(id,data){
+      let allStatus = this.allStatus();
+      for (const status of allStatus) {
+        if(status.id == id){
+          status.status =  data.status
+        };
+      }
+      this.storeStatus(allStatus);
+      return true;
+    },
+
     productFormData: function(title, product){
       let data = {
         title: title + this.title,
