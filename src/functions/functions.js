@@ -46,6 +46,11 @@ const functions ={
       return true
     },
 
+    storeCategory: function(data){
+      fs.writeFileSync( this.pathCategoriesDB, JSON.stringify(data, null, ' ') );
+      return true
+    },
+
     editStatus: function(id,data){
       let allStatus = this.allStatus();
       for (const status of allStatus) {
@@ -54,6 +59,17 @@ const functions ={
         };
       }
       this.storeStatus(allStatus);
+      return true;
+    },
+
+    editCategory: function(id,data){
+      let allCategories = this.allCategories();
+      for (const category of allCategories) {
+        if(category.id == id){
+          category.category =  data.category
+        };
+      }
+      this.storeCategory(allCategories);
       return true;
     },
 

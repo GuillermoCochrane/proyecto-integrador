@@ -196,7 +196,8 @@ let dasboardController = {
     },
 
     editCategory: function(req,res){
-        let data = functions.categoryByID(req.params.idCategory);
+        functions.editCategory(req.params.idCategory,req.body);
+        return res.redirect("/dashboard/categories")
         return res.render("dashboardMain",{
             title: "Editando categoría " + data.category
         })
