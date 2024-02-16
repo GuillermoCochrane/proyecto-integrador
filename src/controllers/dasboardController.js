@@ -166,14 +166,26 @@ let dasboardController = {
     allCategories: function(req,res){
         let categories = functions.allCategories();
         let statuses = functions.allStatus();
-        let title = "Categorías";
+        let title = "Categorías / Estados";
+        let statusID = req.params.idStatus;
+        let categoryID = req.params.idCategory;
+        let tab = 1;
+        let status = null;
+        let category = null;
+        if(statusID){
+            status = functions.statusByID(statusID);
+            tab = 2;
+        };
+        if(categoryID){
+            category = functions.categoryByID(categoryID);
+        };
         return res.render("dashboardCategories",{
             categories,
             statuses,
-            title
-        })
-        return res.render("dashboardMain",{
-            title: "Todas las categorías"
+            title,
+            tab,
+            status,
+            category
         })
     },
 

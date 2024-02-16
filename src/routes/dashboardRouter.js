@@ -46,6 +46,12 @@ router.get('/pending', dashboardRouter.pendingSales);
 // Display all categories
 router.get('/categories', dashboardRouter.allCategories);
 
+//Edit category
+router.get('/category/:idCategory', dashboardRouter.allCategories);
+
+//Edit Status
+router.get('/status/:idStatus', dashboardRouter.allCategories);
+
 // Create  new catergory form
 router.get('/addCategory', dashboardRouter.newCategory);
 

@@ -8,4 +8,4 @@ function toggleElement(buttonNumber) {
         products.style.display = "none";
         table.style.display = "block"
     }
-    }
+}

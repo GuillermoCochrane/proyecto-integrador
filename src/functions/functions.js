@@ -31,6 +31,16 @@ const functions ={
 		return status
     },
 
+    statusByID: function(id){
+      let data = this.allStatus();
+        return data.filter(status => status.id == id)[0]
+    },
+
+    categoryByID: function(id){
+      let data = this.allCategories();
+      return data.filter(category => category.id == id)[0]
+    },
+
     productFormData: function(title, product){
       let data = {
         title: title + this.title,
