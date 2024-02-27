@@ -62,7 +62,7 @@ const functions ={
     newCategory: function(data){
       let newCategory = {
         id: 			this.newCategoryId(),
-        category: data.newCategory
+        category: data.category
       };
       let categories = this.allCategories();
       categories.push(newCategory);

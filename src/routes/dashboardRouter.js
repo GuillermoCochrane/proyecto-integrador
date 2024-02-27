@@ -6,6 +6,7 @@ const dashboardRouter = require("../controllers/dasboardController");
 const upload = require("../middlewares/productsMulterMDW");
 const productValidations = require("../middlewares/productValidationsMDW");
 const mailValidations = require("../middlewares/mailConfigValidations");
+const categoryValidations = require("../middlewares/categoryValidationsMDW");
 
 //Dashboard
 router.get('/', dashboardRouter.index);
@@ -49,7 +50,7 @@ router.get("/pending", dashboardRouter.pendingSales);
 router.get("/categories", dashboardRouter.allCategories);
 
 //New Category
-router.post("/newCategory", dashboardRouter.newCategory);
+router.post("/newCategory", categoryValidations, dashboardRouter.newCategory);
 
 //New Status
 router.post("/newStatus", dashboardRouter.newStatus);

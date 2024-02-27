@@ -44,7 +44,7 @@
                             <label class="form-label-product" id="newStatus">
                                 Nuevo estado
                             </label>
-                            <input type="text" class="form-input-product" id="newStatus" name="newStatus">
+                            <input type="text" class="form-input-product" id="newStatus" name="status">
                         </div>
 
                         <div class="dashboard-products-buttons">
@@ -114,7 +114,8 @@
                             <label class="form-label-product" for="newCategory">
                                 Nueva Categoría
                             </label>
-                            <input type="text" class="form-input-product" id="newCategory" name="newCategory">
+                            <input type="text" class="form-input-product" id="newCategory" name="category">
+                            <span class="login-item error"><%= (locals.errors && errors.category) ? errors.category.msg : null %></span>
                         </div>
 
                         <div class="dashboard-products-buttons">

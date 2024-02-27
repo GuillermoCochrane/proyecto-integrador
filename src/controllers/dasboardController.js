@@ -145,7 +145,6 @@ let dasboardController = {
 		return res.redirect("/dashboard/products");
     },
 
-
     allUsers: function(req,res){
         let users = userFunctions.allUsers();
         let title = "Todas los Usuarios";
@@ -201,6 +200,17 @@ let dasboardController = {
     },
 
     newCategory: function(req,res){
+        let errors = validationResult(req);
+        let data = functions.dashboardCategoryStatus();
+        if (errors.isEmpty()){
+            return res.send("guardado")
+            /* Guardar Cambios   
+            let id = productsFunctions.editProduct(data.id, data, req.file);
+            return res.redirect("/dashboard/products/" + id); */
+        } else {
+            data.errors = errors.mapped();
+            return res.render("dashboardCategories", data )
+        }
         functions.newCategory(req.body);
         return res.redirect("/dashboard/categories")
     },
