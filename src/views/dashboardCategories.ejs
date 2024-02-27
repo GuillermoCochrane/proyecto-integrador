@@ -96,6 +96,7 @@
                                 Editando Categoría: <%= category.category %>
                             </label>
                             <input type="text" class="form-input-product" id="editCategory" name="category" value="<%= category.category %>">
+                            <span class="login-item error"><%= (locals.errors && errors.category) ? errors.category.msg : null %></span>
                         </div>
 
                         <div class="dashboard-products-buttons">

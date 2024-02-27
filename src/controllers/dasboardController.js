@@ -217,8 +217,20 @@ let dasboardController = {
     },
 
     editCategory: function(req,res){
-        functions.editCategory(req.params.idCategory,req.body);
-        return res.redirect("/dashboard/categories")
+        let errors = validationResult(req);
+        let data = functions.dashboardCategoryStatus();
+        let info = req.body;
+        let categoryID = req.params.idCategory;
+        if (errors.isEmpty()){
+            functions.editCategory(categoryID,info);
+            return res.redirect("/dashboard/categories") 
+        } else {
+            let old = functions.categoryByID(categoryID);
+            old.category = info.category
+            data.category = old;
+            data.errors = errors.mapped();
+            return res.render("dashboardCategories", data )
+        }
     },
 
     editStatus: function(req,res){

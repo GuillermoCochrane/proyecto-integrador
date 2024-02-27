@@ -57,7 +57,7 @@ router.post("/newStatus", dashboardRouter.newStatus);
 
 //Edit category
 router.get("/category/:idCategory", dashboardRouter.allCategories);
-router.put("/editCategory/:idCategory", dashboardRouter.editCategory);
+router.put("/editCategory/:idCategory", categoryValidations, dashboardRouter.editCategory);
 
 //Edit Status
 router.get("/status/:idStatus", dashboardRouter.allCategories);
