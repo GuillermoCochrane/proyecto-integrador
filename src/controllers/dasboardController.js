@@ -32,9 +32,9 @@ let dasboardController = {
             errors: errors.mapped()
         }
         if (errors.isEmpty()){
-            return res.send("email modificado")
             //guardar nuevos datos
             //let id = productsFunctions.editProduct(data.id, data, req.file);
+            mailFunctions.editMailData(req.body);
             return res.redirect("/dashboard/email");
         } else {
             return res.render('dashboardEditEmail',old);

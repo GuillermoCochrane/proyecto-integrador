@@ -35,7 +35,7 @@ const mailFunction = {
     editMailData:   function(data){
         let mail = this.getMail();
         let mailNewData = [];
-        data.mail ? mail.mail = data.mail : mail.mail = mail.mail;
+        data.email ? mail.mail = data.email : mail.mail = mail.mail;
         data.pass ? mail.pass = data.pass : mail.pass = mail.pass;
         mailNewData.push(mail);
         this.store(mailNewData);
