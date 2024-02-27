@@ -32,8 +32,6 @@ let dasboardController = {
             errors: errors.mapped()
         }
         if (errors.isEmpty()){
-            //guardar nuevos datos
-            //let id = productsFunctions.editProduct(data.id, data, req.file);
             mailFunctions.editMailData(req.body);
             return res.redirect("/dashboard/email");
         } else {
@@ -189,29 +187,17 @@ let dasboardController = {
     },
 
     allCategories: function(req,res){
-        let categories = functions.allCategories();
-        let statuses = functions.allStatus();
-        let title = "Categorías / Estados";
+        let data = functions.dashboardCategoryStatus();
         let statusID = req.params.idStatus;
         let categoryID = req.params.idCategory;
-        let tab = 1;
-        let status = null;
-        let category = null;
         if(statusID){
-            status = functions.statusByID(statusID);
-            tab = 2;
+            data.status = functions.statusByID(statusID);
+            data.tab = 2;
         };
         if(categoryID){
-            category = functions.categoryByID(categoryID);
+            data.category = functions.categoryByID(categoryID);
         };
-        return res.render("dashboardCategories",{
-            categories,
-            statuses,
-            title,
-            tab,
-            status,
-            category
-        })
+        return res.render("dashboardCategories", data )
     },
 
     newCategory: function(req,res){

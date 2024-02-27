@@ -62,7 +62,7 @@ router.put("/editCategory/:idCategory", dashboardRouter.editCategory);
 router.get("/status/:idStatus", dashboardRouter.allCategories);
 router.put("/editStatus/:idStatus", dashboardRouter.editStatus);
 
-// Create  new catergory form
-router.get("/addCategory", dashboardRouter.newCategory);
+/* // Create new catergory form
+router.get("/addCategory", dashboardRouter.newCategory); */
 
 module.exports = router

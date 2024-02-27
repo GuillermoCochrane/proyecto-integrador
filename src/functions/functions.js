@@ -13,6 +13,18 @@ const functions ={
         return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     },
 
+    dashboardCategoryStatus: function(){
+      let data ={
+        categories: this.allCategories(),
+        statuses:   this.allStatus(),
+        title: "Categorías / Estados",
+        tab: 1,
+        status: null,
+        category: null,
+      };
+      return data
+    },
+
     allCategories: function()  {
     let category = [];
     let readCategory = fs.readFileSync(this.pathCategoriesDB, 'utf-8');
