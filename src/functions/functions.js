@@ -59,14 +59,14 @@ const functions ={
     },
 
     newStatus: function(data){
-    let newStatus = {
-      id: 			this.newStatusId(),
-      status:   data.newStatus
-    };
-    let status = this.allStatus();
-    status.push(newStatus);
-    this.storeStatus(status);
-    return true
+      let newStatus = {
+        id: 			this.newStatusId(),
+        status:   data.newStatus
+      };
+      let status = this.allStatus();
+      status.push(newStatus);
+      this.storeStatus(status);
+      return true
     },
 
     statusByID: function(id){

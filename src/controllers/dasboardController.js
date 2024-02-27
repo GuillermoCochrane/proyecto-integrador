@@ -11,7 +11,7 @@ let dasboardController = {
     },
 
     email: function(req,res){
-        return res.render("dashboardMain",{ 
+        return res.render("dashboardEditEmail",{ 
             title: "Modificar E-mail del sitio" 
         })
     },
