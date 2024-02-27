@@ -5,13 +5,14 @@ const dashboardRouter = require("../controllers/dasboardController");
 //Middlewares
 const upload = require("../middlewares/productsMulterMDW");
 const productValidations = require("../middlewares/productValidationsMDW");
+const mailValidations = require("../middlewares/mailConfigValidations");
 
 //Dashboard
 router.get('/', dashboardRouter.index);
 
 //Modify site email
 router.get("/email", dashboardRouter.email);
-router.post("/email", dashboardRouter.updateEmail);
+router.post("/email", mailValidations, dashboardRouter.updateEmail);
 
 //Create new product form
 router.get("/new", dashboardRouter.newProduct);
