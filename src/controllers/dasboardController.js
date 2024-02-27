@@ -1,6 +1,7 @@
 let productsFunctions = require("../functions/productsFunctions");
 let functions = require("../functions/functions");
 let userFunctions = require("../functions/usersFunctions");
+let mailFunctions = require("../functions/mailFunction")
 const { validationResult } = require('express-validator');
 
 let dasboardController = {
@@ -11,9 +12,33 @@ let dasboardController = {
     },
 
     email: function(req,res){
+        let data = {
+            email: mailFunctions.mail(),
+            pass: mailFunctions.pass()
+        };
         return res.render("dashboardEditEmail",{ 
-            title: "Modificar E-mail del sitio" 
+            title: "Configurar E-Mail del sitio",
+            data
         })
+    },
+
+    updateEmail: function(req,res){
+        let errors = validationResult(req);
+        let title = "Configurar E-Mail del sitio";
+        let data = req.body;
+        let old = { 
+            title,
+            data,
+            errors: errors.mapped()
+        }
+        if (errors.isEmpty()){
+            return res.send("email modificado")
+            //guardar nuevos datos
+            //let id = productsFunctions.editProduct(data.id, data, req.file);
+            return res.redirect("/dashboard/email");
+        } else {
+            return res.render('dashboardEditEmail',old);
+        }
     },
 
     newProduct: function(req,res){

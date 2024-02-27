@@ -6,11 +6,12 @@ const dashboardRouter = require("../controllers/dasboardController");
 const upload = require("../middlewares/productsMulterMDW");
 const productValidations = require("../middlewares/productValidationsMDW");
 
-//Admin
+//Dashboard
 router.get('/', dashboardRouter.index);
 
 //Modify site email
 router.get("/email", dashboardRouter.email);
+router.post("/email", dashboardRouter.updateEmail);
 
 //Create new product form
 router.get("/new", dashboardRouter.newProduct);
