@@ -203,16 +203,12 @@ let dasboardController = {
         let errors = validationResult(req);
         let data = functions.dashboardCategoryStatus();
         if (errors.isEmpty()){
-            return res.send("guardado")
-            /* Guardar Cambios   
-            let id = productsFunctions.editProduct(data.id, data, req.file);
-            return res.redirect("/dashboard/products/" + id); */
+            functions.newCategory(req.body);
+            return res.redirect("/dashboard/categories")
         } else {
             data.errors = errors.mapped();
             return res.render("dashboardCategories", data )
         }
-        functions.newCategory(req.body);
-        return res.redirect("/dashboard/categories")
     },
 
     newStatus: function(req,res){
