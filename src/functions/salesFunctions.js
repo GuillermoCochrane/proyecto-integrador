@@ -82,6 +82,7 @@ const salesFunctions = {
                 amount: amount,
                 quantity: quantity,
                 products: products,
+                undelivered: true,
                 day: date.getDate(),
                 month: (date.getMonth())+1,
                 year: date.getFullYear()

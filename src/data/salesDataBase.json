@@ -7,6 +7,7 @@
   "day": 12,
   "month": 10,
   "year": 2023,
+  "undelivered": true,
   "products": [
    {
     "name": "Home Theatre Sony Bdv-e4100",
@@ -46,6 +47,7 @@
   "day": 15,
   "month": 11,
   "year": 2023,
+  "undelivered": true,
   "products": [
    {
     "name": "Cafetera Moulinex Dolce Gusto Edited",
@@ -98,6 +100,7 @@
     "amount": 18479
    }
   ],
+  "undelivered": true,
   "day": 11,
   "month": 12,
   "year": 2023
@@ -116,6 +119,7 @@
     "amount": 485000
    }
   ],
+  "undelivered": true,
   "day": 18,
   "month": 1,
   "year": 2024
@@ -141,6 +145,7 @@
     "amount": 22320
    }
   ],
+  "undelivered": true,
   "day": 1,
   "month": 2,
   "year": 2024
@@ -159,6 +164,7 @@
     "amount": 13392
    }
   ],
+  "undelivered": false,
   "day": 1,
   "month": 2,
   "year": 2024

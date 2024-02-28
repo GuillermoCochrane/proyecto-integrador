@@ -1,10 +1,11 @@
-let productsFunctions = require("../functions/productsFunctions");
-let functions = require("../functions/functions");
-let userFunctions = require("../functions/usersFunctions");
-let mailFunctions = require("../functions/mailFunction")
+const productsFunctions = require("../functions/productsFunctions");
+const functions = require("../functions/functions");
+const userFunctions = require("../functions/usersFunctions");
+const mailFunctions = require("../functions/mailFunction");
+const salesFunctions = require("../functions/salesFunctions");
 const { validationResult } = require('express-validator');
 
-let dasboardController = {
+const dasboardController = {
     index: function(req,res){
         return res.render("dashboardMain",{
             title: "Panel de Control" 
@@ -174,8 +175,13 @@ let dasboardController = {
     },
 
     allSales: function(req,res){
-        return res.render("dashboardMain",{
-            title: "Todas las ventas"
+        let allSales = salesFunctions.allSales();
+        let title = "Todas las ventas";
+        let label = title;
+        return res.render("dashboardSales",{
+            title,
+            label,
+            allSales
         })
     },
 
