@@ -21,16 +21,16 @@
                 <table class="table table-bordered" cellspacing="0">
                     <thead>
                         <tr>
-                            <th colspan="6"><%= label %></th>
+                            <th colspan="7"><%= label %></th>
                         </tr>
                         <tr>
                             <%- include("./partials/dashboardSaleHeader.ejs") %>
-                            <th></th>
+                            <th>Procesar</th>
                         </tr>
                     </thead>
                     <tbody>
                             <% let counter = 0 %>
-                            <% for (const sale of allSales) { %>
+                            <% for (const sale of data) { %>
                                 <% if (sale.undelivered) { %>
                                     <tr>
                                         <% counter = counter + 1 %>
@@ -38,10 +38,25 @@
                                         <td>
                                             <%= sale.day %>/<%= sale.month %>/<%= sale.year %>
                                         </td>
-                                        <td><%= sale.userID %></td>
-                                        <td>$<%= sale.amount %></td>
+                                        <td>
+                                            <a href="/dashboard/users/<%= sale.userID %>">
+                                                <%= sale.username %>
+                                            </a>
+                                        </td>
+                                        <td>$ <%= toThousand(sale.amount) %></td>
                                         <td><%= sale.quantity %></td>
-                                        <td><button>Entregar</button></td>
+                                        <td>
+                                            <a href="#">
+                                                <button>
+                                                    Ver Detalle
+                                                </button>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <button>
+                                                Entregar
+                                            </button>
+                                        </td>
                                     </tr>
                                 <% } %>
                             <% } %>
@@ -57,7 +72,7 @@
                 <table class="table table-bordered" cellspacing="0">
                     <thead>
                         <tr>
-                            <th colspan="6"><%= label %></th>
+                            <th colspan="7"><%= label %></th>
                         </tr>
                         <tr>
                             <%- include("./partials/dashboardSaleHeader.ejs") %>
@@ -66,16 +81,29 @@
                     </thead>
                     <tbody>
                             <% counter = 0 %>
-                            <% for (const sale of allSales) { %>
+                            <% for (const sale of data) { %>
                                 <tr>
                                     <% counter = counter + 1 %>
                                     <td><%= counter %></td>
                                     <td>
                                         <%= sale.day %>/<%= sale.month %>/<%= sale.year %>
                                     </td>
-                                    <td><%= sale.userID %></td>
-                                    <td>$<%= sale.amount %></td>
-                                    <td><%= sale.quantity %></td>
+                                    <td>
+                                        <a href="/dashboard/users/<%= sale.userID %>">
+                                            <%= sale.username %>
+                                        </a>
+                                    </td>
+                                    <td>$ <%= toThousand(sale.amount) %></td>
+                                    <td>
+                                        <%= sale.quantity %>
+                                    </td>
+                                    <td>
+                                        <a href="#">
+                                            <button>
+                                                Ver Detalle
+                                            </button>
+                                        </a>
+                                    </td>
                                     <td><%= sale.undelivered ? "No" : "Sí" %></td>
                                 </tr>
                             <% } %>

@@ -176,12 +176,14 @@ const dasboardController = {
 
     allSales: function(req,res){
         let allSales = salesFunctions.allSales();
+        let data = salesFunctions.addUsername(allSales);
         let title = "Todas las ventas";
         let label = title;
         return res.render("dashboardSales",{
             title,
             label,
-            allSales
+            data,
+            toThousand: functions.toThousand
         })
     },
 
