@@ -217,16 +217,13 @@ let dasboardController = {
         if (errors.isEmpty()){
             functions.newStatus(req.body);
             data = functions.dashboardCategoryStatus();
-            data.tab = 2
+            data.tab = 2;
             return res.render("dashboardCategories", data )
-            //return res.redirect("/dashboard/categories")
         } else {
             data.errors = errors.mapped();
-            data.tab = 2
+            data.tab = 2;
             return res.render("dashboardCategories", data )
         }
-        functions.newStatus(req.body);
-        return res.redirect("/dashboard/categories")
     },
 
     editCategory: function(req,res){
@@ -239,7 +236,7 @@ let dasboardController = {
             return res.redirect("/dashboard/categories") 
         } else {
             let old = functions.categoryByID(categoryID);
-            old.category = info.category
+            old.category = info.category;
             data.category = old;
             data.errors = errors.mapped();
             return res.render("dashboardCategories", data )
@@ -247,8 +244,23 @@ let dasboardController = {
     },
 
     editStatus: function(req,res){
-        functions.editStatus(req.params.idStatus,req.body);
-        return res.redirect("/dashboard/categories")
+        let errors = validationResult(req);
+        let data = functions.dashboardCategoryStatus();
+        let info = req.body;
+        let statusID = req.params.idStatus;
+        if (errors.isEmpty()){
+            functions.editStatus(statusID,info);
+            data = functions.dashboardCategoryStatus();
+            data.tab = 2;
+            return res.render("dashboardCategories", data ) 
+        } else {
+            let old = functions.statusByID(statusID);
+            old.status = info.status;
+            data.status = old;
+            data.errors = errors.mapped();
+            data.tab = 2;
+            return res.render("dashboardCategories", data )
+        }
     },
 
     productNotFound: function(req, res){
