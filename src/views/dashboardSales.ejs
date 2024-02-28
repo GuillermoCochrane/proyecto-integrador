@@ -17,9 +17,37 @@
 
         <div class="dashboard-products hidden" id="dashboard-details">
 
-            <h2 class="products-title">
-                <%= label %>
-            </h2>
+            <div class="table-responsive">
+                <table class="table table-bordered" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th colspan="6"><%= label %></th>
+                        </tr>
+                        <tr>
+                            <%- include("./partials/dashboardSaleHeader.ejs") %>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <% let counter = 0 %>
+                            <% for (const sale of allSales) { %>
+                                <% if (sale.undelivered) { %>
+                                    <tr>
+                                        <% counter = counter + 1 %>
+                                        <td><%= counter %></td>
+                                        <td>
+                                            <%= sale.day %>/<%= sale.month %>/<%= sale.year %>
+                                        </td>
+                                        <td><%= sale.userID %></td>
+                                        <td>$<%= sale.amount %></td>
+                                        <td><%= sale.quantity %></td>
+                                        <td><button>Entregar</button></td>
+                                    </tr>
+                                <% } %>
+                            <% } %>
+                    </tbody>
+                </table>
+            </div>
 
         </div>
 
@@ -32,16 +60,12 @@
                             <th colspan="6"><%= label %></th>
                         </tr>
                         <tr>
-                            <th> </th>
-                            <th>Fecha de compra</th>
-                            <th>Usuario</th>
-                            <th>Monto</th>
-                            <th>Cantidad de prodcutos</th>
+                            <%- include("./partials/dashboardSaleHeader.ejs") %>
                             <th>¿Entregado?</th>
                         </tr>
                     </thead>
                     <tbody>
-                            <% let counter = 0 %>
+                            <% counter = 0 %>
                             <% for (const sale of allSales) { %>
                                 <tr>
                                     <% counter = counter + 1 %>

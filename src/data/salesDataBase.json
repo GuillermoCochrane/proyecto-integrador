@@ -7,7 +7,7 @@
   "day": 12,
   "month": 10,
   "year": 2023,
-  "undelivered": true,
+  "undelivered": false,
   "products": [
    {
     "name": "Home Theatre Sony Bdv-e4100",
@@ -100,7 +100,7 @@
     "amount": 18479
    }
   ],
-  "undelivered": true,
+  "undelivered": false,
   "day": 11,
   "month": 12,
   "year": 2023
