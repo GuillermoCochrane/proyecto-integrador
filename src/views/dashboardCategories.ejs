@@ -26,6 +26,7 @@
                                 Editando estado: <%= status.status %>
                             </label>
                             <input type="text" class="form-input-product" id="editStatus" name="status" value="<%= status.status %>">
+                            <span class="login-item error"><%= (locals.errors && errors.status) ? errors.status.msg : null %></span>
                         </div>
 
                         <div class="dashboard-products-buttons">
@@ -45,6 +46,7 @@
                                 Nuevo estado
                             </label>
                             <input type="text" class="form-input-product" id="newStatus" name="status">
+                            <span class="login-item error"><%= (locals.errors && errors.status) ? errors.status.msg : null %></span>
                         </div>
 
                         <div class="dashboard-products-buttons">

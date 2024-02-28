@@ -73,7 +73,7 @@ const functions ={
     newStatus: function(data){
       let newStatus = {
         id: 			this.newStatusId(),
-        status:   data.newStatus
+        status:   data.status
       };
       let status = this.allStatus();
       status.push(newStatus);

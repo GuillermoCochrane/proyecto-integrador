@@ -212,6 +212,19 @@ let dasboardController = {
     },
 
     newStatus: function(req,res){
+        let errors = validationResult(req);
+        let data = functions.dashboardCategoryStatus();
+        if (errors.isEmpty()){
+            functions.newStatus(req.body);
+            data = functions.dashboardCategoryStatus();
+            data.tab = 2
+            return res.render("dashboardCategories", data )
+            //return res.redirect("/dashboard/categories")
+        } else {
+            data.errors = errors.mapped();
+            data.tab = 2
+            return res.render("dashboardCategories", data )
+        }
         functions.newStatus(req.body);
         return res.redirect("/dashboard/categories")
     },

@@ -7,6 +7,7 @@ const upload = require("../middlewares/productsMulterMDW");
 const productValidations = require("../middlewares/productValidationsMDW");
 const mailValidations = require("../middlewares/mailConfigValidations");
 const categoryValidations = require("../middlewares/categoryValidationsMDW");
+const statusValidations = require("../middlewares/statusValidationsMDW");
 
 //Dashboard
 router.get('/', dashboardRouter.index);
@@ -53,7 +54,7 @@ router.get("/categories", dashboardRouter.allCategories);
 router.post("/newCategory", categoryValidations, dashboardRouter.newCategory);
 
 //New Status
-router.post("/newStatus", dashboardRouter.newStatus);
+router.post("/newStatus", statusValidations, dashboardRouter.newStatus);
 
 //Edit category
 router.get("/category/:idCategory", dashboardRouter.allCategories);
@@ -61,7 +62,7 @@ router.put("/editCategory/:idCategory", categoryValidations, dashboardRouter.edi
 
 //Edit Status
 router.get("/status/:idStatus", dashboardRouter.allCategories);
-router.put("/editStatus/:idStatus", dashboardRouter.editStatus);
+router.put("/editStatus/:idStatus", statusValidations, dashboardRouter.editStatus);
 
 /* // Create new catergory form
 router.get("/addCategory", dashboardRouter.newCategory); */
