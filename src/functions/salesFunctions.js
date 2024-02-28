@@ -94,7 +94,15 @@ const salesFunctions = {
         } else {
             return false
         }
-    }
+    },
+
+    addUsername: function(info){
+        for (const entry of info) {
+            let user = userFunctions.filterByID(entry.userID)[0];
+            entry.username = user.username;
+        };
+        return info
+    },
 };
 
 module.exports = salesFunctions;
