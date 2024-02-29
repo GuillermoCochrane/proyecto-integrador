@@ -188,7 +188,17 @@ const dasboardController = {
     },
 
     saleDetail: function(req,res){
-        return res.send("Venta N°: " + req.params.saleID)
+        let sale = salesFunctions.filterByKey(req.params.saleID,"id");
+        sale = salesFunctions.addUsername(sale)[0];
+        title = "Detalle de venta"
+        return res.render("dashboardSaleDetail",{
+            title,
+            sale,
+            counter: 0,
+            toThousand: functions.toThousand
+        }
+
+        )
     },
 
     allCategories: function(req,res){

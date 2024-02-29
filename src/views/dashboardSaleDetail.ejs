@@ -6,49 +6,15 @@
 
         <div class="dashboard-products">
 
-            <div class="table-responsive">
-                <table class="table table-bordered" cellspacing="0">
-                    
-                    <thead>
-                        <tr>
-                            <th colspan="5"><%= label %></th>
-                        </tr>
-                        <tr>
-                            <th></th>
-                            <th>Producto</th>
-                            <th>Precio</th>
-                            <th>Cantidad</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                            <% counter = 0 %>
-                            <% for (const product of sale.products) { %>
-                                <tr>
-                                    <% counter = counter + 1 %>
-                                    <td><%= counter %></td>
-                                    <td><%= product.name %></td>
-                                    <td>$ <%= toThousand(product.finalPrice) %></td>
-                                    <td>$ <%= toThousand(product.amount) %></td>
-                                    <td><%= product.quantity %></td>
-                                </tr>
-                            <% } %>
-                    </tbody>
-
-                    <tfoot>
-                        <tr>
-                            <th colspan="4">Total de la compra: </th>
-                        </tr>
-                        <tr>
-                            <th>$ <%= toThousand(sale.amount) %></th>
-                        </tr>
-                    </tfoot>
-
-                </table>
-            </div>
+            <%- include("./partials/saleDetail.ejs") %>
 
         </div>
+
+        <a href="/dashboard/sales/" class="dashboard-products-buttons">
+            <button>
+                Volver
+            </button>
+        </a>
 
     </section>
 </main>
