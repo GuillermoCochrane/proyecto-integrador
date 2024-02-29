@@ -44,6 +44,8 @@ router.get("/searchUsers", dashboardRouter.allUsers);
 //Display all sales
 router.get("/sales", dashboardRouter.allSales);
 
+router.put("/sales/:saleID", dashboardRouter.deliverSale);
+
 //Display sales detail
 router.get("/sales/:saleID", dashboardRouter.saleDetail);
 

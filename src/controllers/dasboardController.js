@@ -187,6 +187,10 @@ const dasboardController = {
         })
     },
 
+    deliverSale: function(req,res){
+        return res.send("Entregando Pedido N°: " + req.params.saleID)
+    },
+
     saleDetail: function(req,res){
         let sale = salesFunctions.filterByKey(req.params.saleID,"id");
         sale = salesFunctions.addUsername(sale)[0];
