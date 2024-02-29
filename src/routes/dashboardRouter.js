@@ -44,8 +44,8 @@ router.get("/searchUsers", dashboardRouter.allUsers);
 //Display all sales
 router.get("/sales", dashboardRouter.allSales);
 
-//Display pending sales
-router.get("/pending", dashboardRouter.pendingSales);
+//Display sales detail
+router.get("/sales/:saleID", dashboardRouter.saleDetail);
 
 // Display all categories & status
 router.get("/categories", dashboardRouter.allCategories);

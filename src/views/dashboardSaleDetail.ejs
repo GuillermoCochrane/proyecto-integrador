@@ -3,113 +3,48 @@
 <main>
 
     <section>
-        <nav class="dashboard-products-buttons" >
 
-            <button onclick="toggleElement(1)">
-                Sin entregar
-            </button>
-
-            <button onclick="toggleElement(2)"> 
-                Todas las ventas
-            </button>
-            
-        </nav>
-
-        <div class="dashboard-products hidden" id="dashboard-details">
+        <div class="dashboard-products">
 
             <div class="table-responsive">
                 <table class="table table-bordered" cellspacing="0">
+                    
                     <thead>
                         <tr>
-                            <th colspan="7"><%= label %></th>
+                            <th colspan="5"><%= label %></th>
                         </tr>
                         <tr>
-                            <%- include("./partials/dashboardSaleHeader.ejs") %>
-                            <th>Procesar</th>
+                            <th></th>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Total</th>
                         </tr>
                     </thead>
-                    <tbody>
-                            <% let counter = 0 %>
-                            <% for (const sale of data) { %>
-                                <% if (sale.undelivered) { %>
-                                    <tr>
-                                        <% counter = counter + 1 %>
-                                        <td><%= counter %></td>
-                                        <td>
-                                            <%= sale.day %>/<%= sale.month %>/<%= sale.year %>
-                                        </td>
-                                        <td>
-                                            <a href="/dashboard/users/<%= sale.userID %>">
-                                                <%= sale.username %>
-                                            </a>
-                                        </td>
-                                        <td>$ <%= toThousand(sale.amount) %></td>
-                                        <td><%= sale.quantity %></td>
-                                        <td>
-                                            <a href="/dashboard/saleDetail/<%= sale.id %>" class="dashboard-products-buttons">
-                                                <button>
-                                                    Ver Detalle
-                                                </button>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="dashboard-products-buttons">
-                                                <button>
-                                                    Entregar
-                                                </button>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                <% } %>
-                            <% } %>
-                    </tbody>
-                </table>
-            </div>
 
-        </div>
-
-        <div class="dashboard-products" id="dashboard-table" >
-
-            <div class="table-responsive">
-                <table class="table table-bordered" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th colspan="7"><%= label %></th>
-                        </tr>
-                        <tr>
-                            <%- include("./partials/dashboardSaleHeader.ejs") %>
-                            <th>¿Entregado?</th>
-                        </tr>
-                    </thead>
                     <tbody>
                             <% counter = 0 %>
-                            <% for (const sale of data) { %>
+                            <% for (const product of sale.products) { %>
                                 <tr>
                                     <% counter = counter + 1 %>
                                     <td><%= counter %></td>
-                                    <td>
-                                        <%= sale.day %>/<%= sale.month %>/<%= sale.year %>
-                                    </td>
-                                    <td>
-                                        <a href="/dashboard/users/<%= sale.userID %>">
-                                            <%= sale.username %>
-                                        </a>
-                                    </td>
-                                    <td>$ <%= toThousand(sale.amount) %></td>
-                                    <td>
-                                        <%= sale.quantity %>
-                                    </td>
-                                    <td>
-                                        <a href="/dashboard/saleDetail/<%= sale.id %>" class="dashboard-products-buttons">
-                                            <button>
-                                                Ver Detalle
-                                            </button>
-                                        </a>
-                                    </td>
-                                    <td><%= sale.undelivered ? "No" : "Sí" %></td>
+                                    <td><%= product.name %></td>
+                                    <td>$ <%= toThousand(product.finalPrice) %></td>
+                                    <td>$ <%= toThousand(product.amount) %></td>
+                                    <td><%= product.quantity %></td>
                                 </tr>
                             <% } %>
                     </tbody>
+
+                    <tfoot>
+                        <tr>
+                            <th colspan="4">Total de la compra: </th>
+                        </tr>
+                        <tr>
+                            <th>$ <%= toThousand(sale.amount) %></th>
+                        </tr>
+                    </tfoot>
+
                 </table>
             </div>
 

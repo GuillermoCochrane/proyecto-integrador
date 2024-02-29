@@ -187,10 +187,8 @@ const dasboardController = {
         })
     },
 
-    pendingSales: function(req,res){
-        return res.render("dashboardMain",{
-            title: "Ventas pendietes"
-        })
+    saleDetail: function(req,res){
+        return res.send("Venta N°: " + req.params.saleID)
     },
 
     allCategories: function(req,res){
