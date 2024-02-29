@@ -188,13 +188,14 @@ const dasboardController = {
     },
 
     deliverSale: function(req,res){
-        return res.send("Entregando Pedido N°: " + req.params.saleID)
+        salesFunctions.processDeliver(req.params.saleID);
+        return res.redirect("/dashboard/sales")
     },
 
     saleDetail: function(req,res){
         let sale = salesFunctions.filterByKey(req.params.saleID,"id");
         sale = salesFunctions.addUsername(sale)[0];
-        title = "Detalle de venta"
+        title = "Detalle de venta";
         return res.render("dashboardSaleDetail",{
             title,
             sale,

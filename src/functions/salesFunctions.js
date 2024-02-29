@@ -103,6 +103,16 @@ const salesFunctions = {
         };
         return info
     },
+
+    processDeliver: function(saleID){
+        let sales = this.allSales();
+        for (const sale of sales) {
+            if(sale.id == saleID){
+                sale.undelivered = false
+            }}
+            this.store(sales);
+            return true
+    },
 };
 
 module.exports = salesFunctions;
