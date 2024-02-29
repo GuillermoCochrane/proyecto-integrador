@@ -109,6 +109,11 @@
                                     </tr>
                                 <% } %>
                             <% } %>
+                            <% if (counter == 0) { %>
+                                <tr>
+                                    <td colspan="7">No hay pedidos pendientes de entrega</td>
+                                </tr>
+                            <% } %>
                     </tbody>
                 </table>
             </div>
