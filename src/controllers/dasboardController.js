@@ -189,6 +189,10 @@ const dasboardController = {
         })
     },
 
+    filterSales: function(req,res){
+        return res.redirect("/dashboard")
+    },
+
     deliverSale: function(req,res){
         salesFunctions.processDeliver(req.params.saleID);
         return res.redirect("/dashboard/sales")
