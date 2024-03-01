@@ -1,5 +1,5 @@
 <td><%= sale.day %>/<%= sale.month %>/<%= sale.year %></td>
-<td><%= sale.username %></td>
+<td><a href="/dashboard/users/<%= sale.userID %>"><%= sale.username %></a></td>
 <td>$ <%= toThousand(sale.amount) %></td>
 <td><%= sale.quantity %></td>
 <td>
