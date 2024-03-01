@@ -183,6 +183,8 @@ const dasboardController = {
             title,
             label,
             data,
+            label2: "Ventas pendientes de entrega",
+            counter: 0,
             toThousand: functions.toThousand
         })
     },
@@ -201,9 +203,7 @@ const dasboardController = {
             sale,
             counter: 0,
             toThousand: functions.toThousand
-        }
-
-        )
+        })
     },
 
     allCategories: function(req,res){

@@ -1,0 +1,11 @@
+<td><%= sale.day %>/<%= sale.month %>/<%= sale.year %></td>
+<td><%= sale.username %></td>
+<td>$ <%= toThousand(sale.amount) %></td>
+<td><%= sale.quantity %></td>
+<td>
+    <a href="/dashboard/sales/<%= sale.id %>" class="dashboard-products-buttons">
+        <button>
+            Ver Detalle
+        </button>
+    </a>
+</td>
