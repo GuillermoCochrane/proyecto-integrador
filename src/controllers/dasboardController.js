@@ -3,7 +3,7 @@ const functions = require("../functions/functions");
 const userFunctions = require("../functions/usersFunctions");
 const mailFunctions = require("../functions/mailFunction");
 const salesFunctions = require("../functions/salesFunctions");
-const { validationResult } = require('express-validator'); 
+const { validationResult } = require('express-validator');
 
 const dasboardController = {
     index: function(req,res){
