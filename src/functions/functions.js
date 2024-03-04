@@ -52,7 +52,7 @@ const functions ={
         months = JSON.parse(readMonths);
       };
       return months;
-      },
+    },
 
     newCategoryId: function(){
       let lastCategory = this.allCategories().pop();

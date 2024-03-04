@@ -113,6 +113,18 @@ const salesFunctions = {
             this.store(sales);
             return true
     },
+
+    allYears: function(){
+        let years = this.allSales();
+        years.sort((a,b)=> b.year - a.year)
+        let firstYear = years.pop();
+        let lastYear = years.shift();
+        let info = [];
+        for (let data = firstYear.year; data <= lastYear.year; data++) {
+            info.push(data);
+        }
+        return info
+    },
 };
 
 module.exports = salesFunctions;
