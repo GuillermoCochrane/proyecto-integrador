@@ -190,7 +190,17 @@ const dasboardController = {
     },
 
     filterSales: function(req,res){
-        return res.redirect("/dashboard")
+        let allSales = salesFunctions.allSales();
+        let data = salesFunctions.addUsername(allSales);
+        let title = "Filtrar ventas";
+        let label = title;
+        return res.render("dashboardFilterSales",{
+            title,
+            label,
+            data,
+            counter: 0,
+            toThousand: functions.toThousand
+        })
     },
 
     deliverSale: function(req,res){

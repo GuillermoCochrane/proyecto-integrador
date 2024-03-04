@@ -1,0 +1,55 @@
+<%- include("./partials/dashboard.ejs") %>
+
+<main>
+
+    <section>
+        <nav class="dashboard-products-buttons" >
+
+            <button onclick="toggleElement(1)">
+                Filtrar por Día
+            </button>
+
+            <button onclick="toggleElement(2)"> 
+                Filtrar por Mes /año
+            </button>
+            
+        </nav>
+
+        <div class="dashboard-products hidden" id="dashboard-details">
+            <div>Dia</div>
+        </div>
+
+        <div class="dashboard-products" id="dashboard-table">
+            <div>Mes/año</div>
+        </div>
+
+        <div class="dashboard-products">
+            <div class="table-responsive">
+                <table class="table table-bordered" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th colspan="7"><%= label %></th>
+                        </tr>
+                        <tr>
+                            <%- include("./partials/dashboardSaleHeader.ejs") %>
+                            <th>¿Entregado?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <% for (const sale of data) { %>
+                                <tr>
+                                    <% counter = counter + 1 %>
+                                    <td><%= counter %></td>
+                                    <%- include("./partials/dashboardSaleData.ejs", {sale}) %>
+                                    <td><%= sale.undelivered ? "No" : "Sí" %></td>
+                                </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </section>
+</main>
+</body>
+</html>

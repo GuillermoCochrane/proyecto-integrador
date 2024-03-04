@@ -119,11 +119,18 @@ const salesFunctions = {
         years.sort((a,b)=> b.year - a.year)
         let firstYear = years.pop();
         let lastYear = years.shift();
-        let info = [];
+        let allYears = [{
+            id: 0,
+            year: "Todos los años"
+        }];
         for (let data = firstYear.year; data <= lastYear.year; data++) {
-            info.push(data);
+            let idYear = allYears.length
+            allYears.push({
+                id: idYear,
+                year: data
+            });
         }
-        return info
+        return allYears
     },
 };
 
