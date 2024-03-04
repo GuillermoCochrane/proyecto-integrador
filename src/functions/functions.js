@@ -7,6 +7,8 @@ const functions ={
 
     pathCategoriesDB: path.join(__dirname,"../data/categoryDataBase.json"),
 
+    pathMonthDB: path.join(__dirname,"../data/monthDataBase.json"),
+
     title: " - MultiHogar",
 
     toThousand: function(n){
@@ -42,6 +44,15 @@ const functions ={
       }
 		return status
     },
+
+    allMonths: function()  {
+      let months = [];
+      let readMonths = fs.readFileSync(this.pathMonthDB, 'utf-8');
+      if (readMonths != ""){
+        months = JSON.parse(readMonths);
+      };
+      return months;
+      },
 
     newCategoryId: function(){
       let lastCategory = this.allCategories().pop();

@@ -1,0 +1,55 @@
+[
+    {
+        "id":   0,
+        "Month":  "Todos los meses"
+    },
+    {
+        "id":   1,
+        "Month":  "Enero"
+    },
+    {
+        "id":   2,
+        "Month":  "Febrero"
+    },
+    {
+        "id":   3,
+        "Month":  "Marzo"
+    },
+    {
+        "id":   4,
+        "Month":  "Abril"
+    },
+    {
+        "id":   5,
+        "Month":  "Mayo"
+    },
+    {
+        "id":   6,
+        "Month":  "Junio"
+    },
+    {
+        "id":   7,
+        "Month":  "Julio"
+    },
+    {
+        "id":   8,
+        "Month":  "Agosto"
+    },
+    {
+        "id":   9,
+        "Month":  "Septiembre"
+    },
+    {
+        "id":   10,
+        "Month":  "Octubre"
+    },
+    {
+        "id":   11,
+        "Month":  "Noviembre"
+    },
+    {
+        "id":   12,
+        "Month":  "Diciembre"
+    }
+    
+]
