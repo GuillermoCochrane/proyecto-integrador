@@ -636,6 +636,10 @@ td ul{
   border-radius: 8px;
 }
 
+.date{
+  max-width: 300px;
+}
+
 .form-content-box{
   display: flex;
   flex-wrap: wrap;

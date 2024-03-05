@@ -51,6 +51,7 @@ router.get("/sales/:saleID", dashboardRouter.saleDetail);
 
 //Filter Sales by date
 router.get("/filterSales", dashboardRouter.filterSales);
+router.post("/filterSales", dashboardRouter.filterSales);
 
 // Display all categories & status
 router.get("/categories", dashboardRouter.allCategories);

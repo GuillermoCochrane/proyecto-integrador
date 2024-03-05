@@ -191,13 +191,37 @@ const dasboardController = {
 
     filterSales: function(req,res){
         let allSales = salesFunctions.allSales();
+        if(req.body.year){
+            if(req.body.year !=0){
+                allSales = allSales.filter(sale => sale.year == req.body.year);
+            }
+        }
+
+        if(req.body.month){
+            if(req.body.month !=0){
+                allSales = allSales.filter(sale => sale.month == req.body.month);
+            }
+        }
+
+        if(req.body.day){
+            let date = (req.body.day).split("-");
+            allSales = allSales.filter(sale => sale.year == date[0]);
+            allSales = allSales.filter(sale => sale.month == date[1]);
+            allSales = allSales.filter(sale => sale.day == date[2]);
+        }
+
         let data = salesFunctions.addUsername(allSales);
         let title = "Filtrar ventas";
         let label = title;
+        let years = salesFunctions.allYears();
+        let months = functions.allMonths();
+
         return res.render("dashboardFilterSales",{
             title,
             label,
             data,
+            years,
+            months,
             counter: 0,
             toThousand: functions.toThousand
         })

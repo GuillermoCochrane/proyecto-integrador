@@ -16,11 +16,81 @@
         </nav>
 
         <div class="dashboard-products hidden" id="dashboard-details">
-            <div>Dia</div>
+            <section>
+	
+                <h2 class="title">
+                    Filtrar por Día
+                </h2>
+            
+                <div class="form-box date"> 
+                    <form action="/dashboard/filterSales"  method="POST">
+                        <div class="form-content-box">
+
+                            <div class="form-input-label-box big-box">
+                                <label class="form-label-product" for="day">
+                                    Día
+                                </label>
+                                <input name="day" id="day"  type="date" class="form-input-product">
+                                </input>
+                            </div>
+
+                            <div class="dashboard-products-buttons">
+                                <button type="submit">
+                                    Filtrar
+                                </button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            
+            </section>
         </div>
 
         <div class="dashboard-products" id="dashboard-table">
-            <div>Mes/año</div>
+            <section>
+	
+                <h2 class="title">
+                    Filtrar por Mes / Año
+                </h2>
+            
+                <div class="form-box"> 
+                    <form action="/dashboard/filterSales"  method="POST">
+                        <div class="form-content-box">
+
+                            <div class="form-input-label-box">
+                                <label class="form-label-product" id="year">
+                                    Año
+                                </label>
+                                <select name="year" id="year" class="form-input-product">
+                                    <% for (const year of years) { %>
+                                        <option value="<%= typeof year.year === "number" ? year.year : year.id %>"> <%= year.year  %></option>
+                                    <% } %>
+                                </select>
+                            </div>
+
+                            <div class="form-input-label-box">
+                                <label class="form-label-product" id="month">
+                                    Mes
+                                </label>
+                                <select name="month" id="month" class="form-input-product">
+                                    <% for (const month of months) { %>
+                                        <option value="<%= month.id %>"> <%= month.month  %></option>
+                                    <% } %>
+                                </select>
+                            </div>
+
+                            <div class="dashboard-products-buttons">
+                                <button type="submit">
+                                    Filtrar
+                                </button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            
+            </section>
         </div>
 
         <div class="dashboard-products">
@@ -42,6 +112,11 @@
                                     <td><%= counter %></td>
                                     <%- include("./partials/dashboardSaleData.ejs", {sale}) %>
                                     <td><%= sale.undelivered ? "No" : "Sí" %></td>
+                                </tr>
+                            <% } %>
+                            <% if (counter == 0) { %>
+                                <tr>
+                                    <th colspan="7">No se encontraron resultados</th>
                                 </tr>
                             <% } %>
                     </tbody>
