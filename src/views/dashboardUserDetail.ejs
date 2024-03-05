@@ -1,0 +1,72 @@
+<%- include("./partials/dashboard.ejs") %>
+    <main>
+        <div class="profile-container">
+            <section class="profile-avatar-box">
+                <div class="avatar-box">
+                    <img src="/images/users/<%= user.avatar %>" alt="<%= user.username %>">
+                </div>
+                <h3 class="username-box">
+                    <%= user.username %>
+                </h3>
+            </section>
+
+            <section class="profile-user-data" id="profile-user-data">
+                <div class="user-data-container">
+                    <article class="user-data">
+                        <ul>
+                            <li> 
+                                <div class="user-data-title">
+                                    <i class="fa-solid fa-address-card"></i>
+                                    <h4>Nombre:</h4>
+                                </div>
+                                <p> <%= user.name %> </p>
+                            </li>
+                            <li>
+                                <div class="user-data-title">
+                                    <i class="fa-solid fa-user"></i>
+                                    <h4>Nombre de usuario:</h4>
+                                </div>    
+                                <p><%= user.username %>  </p>
+                            </li>
+                            <li> 
+                                <div class="user-data-title">
+                                    <i class="fa-solid fa-at"></i>
+                                    <h4>Email: </h4>
+                                </div>
+                                <p><%= user.email %> </p>
+                            </li>
+                            <li> 
+                                <div class="user-data-title">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <h4>Dirección: </h4>
+                                </div >
+                                <p><%= user.address %></p>
+                            </li>
+                            <li>
+                                <div class="user-data-title">
+                                    <i class="fa-solid fa-square-phone"></i>
+                                    <h4>Teléfono: </h4>
+                                </div>    
+                                <p><%= user.phone %> </p>
+                            </li>
+                        </ul>    
+                    </article>
+                    <article class="user-interest">
+                        <ul>
+                            <h3>Intereses</h3>
+                            <% for (const interes of user.categories) { %>
+                                <li>
+                                    <% for (const category of categories) {%>
+                                        <%= category.id == interes ? category.category : null  %> 
+                                    <% } %>
+                                </li>
+                            <% } %>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+        </div>
+    </main>
+</body>
+</html>

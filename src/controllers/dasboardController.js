@@ -171,7 +171,12 @@ const dasboardController = {
     },
 
     user: function(req,res){
-        res.redirect("/users/" + req.params.id )
+        let user = userFunctions.filterByID(req.params.id)[0];
+        return res.render("dashboardUserDetail",{
+            title: "Detalle del usuario" + user.username,
+            categories: functions.allCategories(),
+            user
+        })
     },
 
     allSales: function(req,res){
