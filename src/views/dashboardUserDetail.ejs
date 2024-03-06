@@ -11,60 +11,58 @@
             </section>
 
             <section class="profile-user-data">
-                <!-- <div class="user-data-container"> -->
-                    <article class="user-data">
-                        <h3>Datos Personales</h3>
-                        <ul>
-                            <li> 
-                                <div class="user-data-title">
-                                    <i class="fa-solid fa-address-card"></i>
-                                    <h4>Nombre:</h4>
-                                </div>
-                                <p> <%= user.name %> </p>
-                            </li>
+                <article class="user-data">
+                    <h3>Datos Personales</h3>
+                    <ul>
+                        <li> 
+                            <div class="user-data-title">
+                                <i class="fa-solid fa-address-card"></i>
+                                <h4>Nombre:</h4>
+                            </div>
+                            <p> <%= user.name %> </p>
+                        </li>
+                        <li>
+                            <div class="user-data-title">
+                                <i class="fa-solid fa-user"></i>
+                                <h4>Nombre de usuario:</h4>
+                            </div>    
+                            <p><%= user.username %>  </p>
+                        </li>
+                        <li> 
+                            <div class="user-data-title">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <h4>Dirección: </h4>
+                            </div >
+                            <p><%= user.address %></p>
+                        </li>
+                        <li>
+                            <div class="user-data-title">
+                                <i class="fa-solid fa-square-phone"></i>
+                                <h4>Teléfono: </h4>
+                            </div>    
+                            <p><%= user.phone %> </p>
+                        </li>
+                        <li> 
+                            <div class="user-data-title">
+                                <i class="fa-solid fa-at"></i>
+                                <h4>Email: </h4>
+                            </div>
+                            <p><%= user.email %> </p>
+                        </li>
+                    </ul>    
+                </article>
+                <article class="user-interest">
+                    <h3>Intereses</h3>
+                    <ul>
+                        <% for (const interes of user.categories) { %>
                             <li>
-                                <div class="user-data-title">
-                                    <i class="fa-solid fa-user"></i>
-                                    <h4>Nombre de usuario:</h4>
-                                </div>    
-                                <p><%= user.username %>  </p>
+                                <% for (const category of categories) {%>
+                                    <%= category.id == interes ? category.category : null  %> 
+                                <% } %>
                             </li>
-                            <li> 
-                                <div class="user-data-title">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                    <h4>Dirección: </h4>
-                                </div >
-                                <p><%= user.address %></p>
-                            </li>
-                            <li>
-                                <div class="user-data-title">
-                                    <i class="fa-solid fa-square-phone"></i>
-                                    <h4>Teléfono: </h4>
-                                </div>    
-                                <p><%= user.phone %> </p>
-                            </li>
-                            <li> 
-                                <div class="user-data-title">
-                                    <i class="fa-solid fa-at"></i>
-                                    <h4>Email: </h4>
-                                </div>
-                                <p><%= user.email %> </p>
-                            </li>
-                        </ul>    
-                    </article>
-                    <article class="user-interest">
-                        <h3>Intereses</h3>
-                        <ul>
-                            <% for (const interes of user.categories) { %>
-                                <li>
-                                    <% for (const category of categories) {%>
-                                        <%= category.id == interes ? category.category : null  %> 
-                                    <% } %>
-                                </li>
-                            <% } %>
-                        </ul>
-                    </article>
-                <!-- </div> -->
+                        <% } %>
+                    </ul>
+                </article>
             </section>
 
         </div>
