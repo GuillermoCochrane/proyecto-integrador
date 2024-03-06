@@ -863,11 +863,13 @@ textarea.form-input-product {
   background-color: #666666;
 }
 
-li h3{
+.user-interest h3,
+.user-data h3{
   margin: 0px;
   margin-bottom: 9px;
   font-size: 24px;
   color: #03264C;
+  text-align: center;
 }
 
 .user-interest ul{
@@ -993,52 +995,65 @@ li h3{
 .profile-avatar-box{
   padding: 9px;
   justify-content: flex-start;
+  width: 33%;
 }
 
 .avatar-box{
   margin: 0;
 }
 
+.avatar-box img{
+  width: 185px;
+  height: 185px;
+}
+
 .profile-user-data{
-  /* margin: auto; */
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* align-items: center; */
-  font-size: 20px;
+  margin-left: 15px;
   align-self: stretch;
 }
 
 
 .user-data{
-  display: flex;
+  margin-inline: 5px;
 }
-  
+
+.user-data ul{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .user-data li{
-  margin: 12px 0px;
+  margin: 3px 0px;
+  max-width: 50%;
+  flex-grow: 0.5;
 }
 
 .user-data-title{
-  margin: 8px 0;
+  margin: 5px 0;
 }
 
 .user-data h4{
-  font-size: 18px;
+  font-size: 17px;
   font-weight: bold;
 }
 
 .user-data p{
-  font-size: 18px;
+  font-size: 17px;
   font-weight: bold;
 }
 
-li h3{
-  margin: 10px 0;
+.user-interest ul{
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
 }
 
 .user-interest li{
-  margin: 10px 0;
-  font-size: 18px;
-  font-weight: bold;
+  width: 50%;
+  margin-block: 5px;
+  font-size: 16px;
+  text-align: center;
 }
 
 }
