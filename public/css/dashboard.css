@@ -39,6 +39,7 @@ header {
   width: 100%;
   z-index: 100;
   position: fixed;
+  box-shadow: 0px 2px 7px 0px rgba(50,50,50,0.6);
 }
 
 .header-container {
@@ -808,17 +809,9 @@ textarea.form-input-product {
 }
 
 .profile-user-data{
-  margin: auto;
-}
-
-.user-data-container{
-  margin: 5px 0;
-  margin-left: 5px;
-  display: flex;
+  margin: 10px 0;
   width: 100%;
-  justify-content: space-between;
-  align-items: stretch;
-  padding: 5px;
+  padding: 13px;
   background-color: #666666;
   border-radius: 13px;
   font-size: 16px;
@@ -826,9 +819,9 @@ textarea.form-input-product {
 
 .user-data{
   margin: 0;
-  width: 50%;
   background-color: #666666;
   text-align: left;
+  margin-bottom: 10px;
 }
 
 .user-data ul{
@@ -838,18 +831,19 @@ textarea.form-input-product {
 
 .user-data li{
   margin: auto;
-  margin: 5px 0px;
+  margin: 8px 0px;
 }
 
 .user-data-title{
   display: flex;
-  margin: 2px;
+  margin: 5px 0;
   color: #d48502;
+  align-items: center;
 }
 
 .user-data i{
   margin: 0;
-  margin-right: 6px;
+  margin-right: 9px;
   color: #03264C;
 }
 
@@ -861,19 +855,20 @@ textarea.form-input-product {
 .user-data p{
   margin: auto;
   color: #03264C;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .user-interest{
   margin: 0;
-  width: 50%;
-  text-align: right;
+  /* width: 50%; */
+  /* text-align: right; */
   background-color: #666666;
+  /* text-align: center; */
 }
 
-.user-interest h3{
+li h3{
   margin: 0px;
-  margin-bottom: 5px;
+  margin-bottom: 9px;
   font-size: 24px;
   color: #03264C;
 }
@@ -887,7 +882,7 @@ textarea.form-input-product {
 }
 .user-interest li{
   margin: 3px 0;
-  font-size: 19px;
+  font-size: 18px;
   font-weight: bold;
 }
 
@@ -1008,13 +1003,10 @@ textarea.form-input-product {
 }
 
 .profile-user-data{
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.user-data-container{
+  /* margin: auto; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
   font-size: 20px;
   align-self: stretch;
 }
@@ -1042,7 +1034,7 @@ textarea.form-input-product {
   font-weight: bold;
 }
 
-.user-interest h3{
+li h3{
   margin: 10px 0;
 }
 
@@ -1158,6 +1150,8 @@ textarea.form-input-product {
 
   .user-data ul{
     margin-left: 30px;
+    flex-direction: column;
+    display: flex;
   }
   .user-interest{
     margin-right: 30px;

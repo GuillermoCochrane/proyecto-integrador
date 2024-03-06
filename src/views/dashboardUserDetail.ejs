@@ -11,9 +11,12 @@
             </section>
 
             <section class="profile-user-data">
-                <div class="user-data-container">
+                <!-- <div class="user-data-container"> -->
                     <article class="user-data">
                         <ul>
+                            <li>
+                                <h3>Datos Personales</h3>
+                            </li>
                             <li> 
                                 <div class="user-data-title">
                                     <i class="fa-solid fa-address-card"></i>
@@ -30,13 +33,6 @@
                             </li>
                             <li> 
                                 <div class="user-data-title">
-                                    <i class="fa-solid fa-at"></i>
-                                    <h4>Email: </h4>
-                                </div>
-                                <p><%= user.email %> </p>
-                            </li>
-                            <li> 
-                                <div class="user-data-title">
                                     <i class="fa-solid fa-location-dot"></i>
                                     <h4>Dirección: </h4>
                                 </div >
@@ -49,11 +45,20 @@
                                 </div>    
                                 <p><%= user.phone %> </p>
                             </li>
+                            <li> 
+                                <div class="user-data-title">
+                                    <i class="fa-solid fa-at"></i>
+                                    <h4>Email: </h4>
+                                </div>
+                                <p><%= user.email %> </p>
+                            </li>
                         </ul>    
                     </article>
                     <article class="user-interest">
                         <ul>
-                            <h3>Intereses</h3>
+                            <li>
+                                <h3>Intereses</h3>
+                            </li>
                             <% for (const interes of user.categories) { %>
                                 <li>
                                     <% for (const category of categories) {%>
@@ -63,7 +68,7 @@
                             <% } %>
                         </ul>
                     </article>
-                </div>
+                <!-- </div> -->
             </section>
 
         </div>
