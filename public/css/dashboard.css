@@ -11,6 +11,7 @@
     --greengrey: #629398;
     --green: #39b54a;
     --dark: #222229;
+    --darkgrey: #444444;
   }
   
 * {
@@ -28,7 +29,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  color: #d48502;
+  color: var(--orange);
   background-color: var(--dark);
 }
 
@@ -83,7 +84,7 @@ header {
   border-radius: 100%;
   margin: 5px;
   object-fit: contain;
-  border: 2px solid #03264C;
+  border: 2px solid var(--darkblue);
 }
 
 /* dropdown menu button styles */
@@ -219,7 +220,10 @@ h1{
   text-align: center;
 }
 
-
+a:hover{
+  color: var(--orange);
+  font-weight: bolder;
+}
 /* Search Bar */
 
 .dashboard-searchbar {
@@ -265,7 +269,6 @@ h1{
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  /* background-color: #666666; */
 }
 
 /* Products buttons */
@@ -278,7 +281,6 @@ h1{
 
 a.dashboard-products-buttons{
   margin: auto;
-  /* width: 121px; */
 }
 
 .save-button,
@@ -291,8 +293,8 @@ a.dashboard-products-buttons{
   color: var(--darkblue);
   background-color: var(--greengrey);
   font-weight: bold;
-  border-top: 2px solid #444444;
-  border-left: 2px solid #444444;
+  border-top: 2px solid var(--darkgrey);
+  border-left: 2px solid var(--darkgrey);
 }
 
 .save-button:hover,
@@ -328,7 +330,7 @@ a.dashboard-products-buttons{
 
 section article {
   margin: 20px 0px;
-  background-color: white;
+  background-color: var(--cream);
   transition: all 450ms;
   overflow: hidden;
   border-radius: 5px;
@@ -340,7 +342,7 @@ section article.main-article:hover {
 
 section article.main-article:hover .article {
   transform: rotate(360deg);
-  box-shadow: 0 0 5px #39b54a
+  box-shadow: 0 0 5px var(--green)
 }
 
 section article.main-article:hover .description {
@@ -358,7 +360,7 @@ section article.main-article:hover .description {
 }
 
 .info-article-box {
-  border: 1px solid #ebebeb;
+  border: 1px solid var(--ice);
   padding: 15px;
 }
 
@@ -374,9 +376,9 @@ main section article i.article  {
   padding: 5px;
   width: 30px;
   height: 30px;
-  border: solid 2px #39b54a;
-  color: #39b54a;
-  background-color: #FFF;
+  border: solid 2px var(--green);
+  color: var(--green);
+  background-color: var(--cream);
   border-radius: 50%;
   position: absolute;
   right: 20px;
@@ -395,7 +397,7 @@ main section article i.article  {
 .discount {
     margin-left: 15px;
     font-size: 14px;
-    color: #39b54a;
+    color: var(--green);
     width: 70%;
     min-width: fit-content;
 }
@@ -413,13 +415,13 @@ main section article i.article  {
 
 /* Products  table */
 .table-bordered {
-    border: 1px solid #e3e6f0
+    border: 1px solid var(--ice);
 }
 
 table {
   border-collapse: collapse;
   margin-bottom: 3px;
-  color: #03264C;
+  color: var(--darkblue);
   text-align: center;
   width: fit-content;
   margin: 20px;
@@ -428,7 +430,7 @@ table {
 .table td,
 .table th {
     padding: 5px;
-    border-top: 1px solid #e3e6f0
+    border-top: 1px solid var(--ice);
 }
 
 .table thead th {
@@ -437,8 +439,8 @@ table {
 
 .table-bordered td,
 .table-bordered th {
-    border: 2px solid #629398;
-    background: white;
+    border: 2px solid var(--greengrey);
+    background: var(--cream);
     width: auto;
 }
 
@@ -482,7 +484,7 @@ td ul{
 }
 
 .prooduct-detail-container {
-  background-color: #ffffff;
+  background-color: var(--cream);
   border-radius: 8px;
   overflow: hidden;
   display: flex;
@@ -497,7 +499,7 @@ td ul{
   padding-left: 15px;
   flex: 0 0 100%;
   max-width: 100%;
-  border-bottom: solid 1px #ebebeb;
+  border-bottom: solid 1px var(--ice);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -527,7 +529,7 @@ td ul{
 }
 
 .product-detail-info {
-  border-left: 1px solid #ebebeb;
+  border-left: 1px solid var(--ice);
   padding: 15px;
   height: 100%;
   position: relative;
@@ -548,7 +550,7 @@ td ul{
 
 .small {
   font-size: 18px;
-  color: #39b54a;
+  color: var(--green);
 }
 
 .small span {
@@ -567,14 +569,14 @@ td ul{
 }
 
 .info-list i {
-  color: #39b54a;
+  color: var(--green);
   font-size: 20px;
   margin-right: 15px;
   position: relative;
 }
 
 .info-list p {
-  color: #666666;
+  color: var(--grey);
   font-size: 15px;
   margin: 0;
 }
@@ -593,7 +595,7 @@ td ul{
   font-size: 15px;
   border-radius: 8px;
   border: none;
-  border: solid 1px #666666;
+  border: solid 1px var(--grey);
   padding: 10px 15px;
 }
 
@@ -607,7 +609,7 @@ td ul{
   border: none;
   border-radius: 8px;
   font-size: 11px;
-  color: #ffffff;
+  color: var(--cream);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -783,7 +785,7 @@ textarea.form-input-product {
   margin: 10px 0;
   display: flex;
   flex-direction: column;
-  background: #666666;
+  background: var(--grey);
   border-radius: 15px;
 }
 
@@ -798,7 +800,7 @@ textarea.form-input-product {
   margin-top: 10px;
   object-fit: contain;
   height: 270px;
-  border: 2px #03264C solid;
+  border: 2px var(--darkblue) solid;
 }
 
 .username-box{
@@ -812,14 +814,14 @@ textarea.form-input-product {
   margin: 10px 0;
   width: 100%;
   padding: 13px;
-  background-color: #666666;
+  background-color: var(--grey);
   border-radius: 13px;
   font-size: 16px;
 }
 
 .user-data{
   margin: 0;
-  background-color: #666666;
+  background-color: var(--grey);
   text-align: left;
   margin-bottom: 10px;
 }
@@ -837,14 +839,14 @@ textarea.form-input-product {
 .user-data-title{
   display: flex;
   margin: 5px 0;
-  color: #d48502;
+  color: var(--orange);
   align-items: center;
 }
 
 .user-data i{
   margin: 0;
   margin-right: 9px;
-  color: #03264C;
+  color: var(--darkblue);
 }
 
 .user-data h4{
@@ -854,13 +856,13 @@ textarea.form-input-product {
 
 .user-data p{
   margin: auto;
-  color: #03264C;
+  color: var(--darkblue);
   font-size: 16px;
 }
 
 .user-interest{
   margin: 0;
-  background-color: #666666;
+  background-color: var(--grey);
 }
 
 .user-interest h3,
@@ -868,7 +870,7 @@ textarea.form-input-product {
   margin: 0px;
   margin-bottom: 9px;
   font-size: 24px;
-  color: #03264C;
+  color: var(--darkblue);
   text-align: center;
 }
 
@@ -879,6 +881,7 @@ textarea.form-input-product {
   justify-content: space-evenly;
   list-style: none;
 }
+
 .user-interest li{
   margin: 3px 0;
   font-size: 18px;
@@ -959,7 +962,7 @@ textarea.form-input-product {
   }
 
   .info-list p {
-    color: #666666;
+    color: var(--grey);
     font-size: 17px;
     margin: 0;
   }
@@ -1011,7 +1014,6 @@ textarea.form-input-product {
   margin-left: 15px;
   align-self: stretch;
 }
-
 
 .user-data{
   margin-inline: 5px;
@@ -1173,8 +1175,8 @@ textarea.form-input-product {
   }
 
   .user-data li{
-    margin: 3px 0px;
-    width: 33%;
+    margin: 5px 7px;
+    width: 30%;
   }
 
   .user-interest{
