@@ -41,9 +41,13 @@ router.get("/users", dashboardRouter.allUsers);
 router.get("/users/:id", dashboardRouter.user);
 router.get("/searchUsers", dashboardRouter.allUsers);
 
+//Change user profile
+router.put("/profile/:id", dashboardRouter.profile);
+
 //Display all sales
 router.get("/sales", dashboardRouter.allSales);
 
+//Change Sale Status
 router.put("/sales/:saleID", dashboardRouter.deliverSale);
 
 //Display sales detail
