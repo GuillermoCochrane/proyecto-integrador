@@ -844,6 +844,7 @@ textarea.form-input-product {
 }
 
 .user-data i{
+  font-size: 16px;
   margin: 0;
   margin-right: 9px;
   color: var(--darkblue);
@@ -851,13 +852,13 @@ textarea.form-input-product {
 
 .user-data h4{
   margin: 0;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .user-data p{
   margin: auto;
   color: var(--darkblue);
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .user-interest{
@@ -1022,7 +1023,7 @@ textarea.form-input-product {
 .user-data ul{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .user-data li{
