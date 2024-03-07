@@ -201,7 +201,6 @@ summary::-webkit-details-marker {
 
 /* dashboard body */
 
-
 main{
   margin-top: 100px;
   width: 80%;
@@ -224,6 +223,7 @@ a:hover{
   color: var(--orange);
   font-weight: bolder;
 }
+
 /* Search Bar */
 
 .dashboard-searchbar {
@@ -274,7 +274,6 @@ a:hover{
 /* Products buttons */
 .form-big-box,
 .dashboard-products-buttons{
-  margin: 10px 5px;
   display: flex;
   justify-content: space-evenly;
 }
@@ -286,7 +285,6 @@ a.dashboard-products-buttons{
 .save-button,
 .save-button-delete,
 .dashboard-products-buttons button{
-  margin: 3px 6px;
   padding: 6px;
   border-radius: 10px;
   font-size: 15px;
@@ -304,9 +302,7 @@ a.dashboard-products-buttons{
   background-color: var(--darkblue);
 }
 
-
 /* Product Cards */
-
 
 .products-title {
   font-size: 24px;
@@ -414,6 +410,7 @@ main section article i.article  {
 }
 
 /* Products  table */
+
 .table-bordered {
     border: 1px solid var(--ice);
 }
@@ -731,6 +728,7 @@ textarea.form-input-product {
 }
 
 /* Confirm Delete */
+
 .edit-email,
 .delete-product{
   width: 85%;
@@ -779,6 +777,7 @@ textarea.form-input-product {
   justify-content: space-evenly;
   align-items: center;
 }
+
 /* User Detail */
 
 .profile-avatar-box{
@@ -932,10 +931,6 @@ textarea.form-input-product {
     max-width: 50%;
   }
 
-  .dashboard-products-buttons{
-    margin: 15px;
-  }
-
   a.dashboard-products-buttons{
     margin: 0;
   }
@@ -943,7 +938,6 @@ textarea.form-input-product {
 
   .save-button,
   .dashboard-products-buttons button{
-    margin: 0px 20px;
     padding: 5px;
     font-size: 15px;
   }
@@ -983,10 +977,6 @@ textarea.form-input-product {
   .form-delete-box{
     flex: 0 0 50%;
     max-width: 50%
-}
-
-.table-responsive {
-  justify-content: center;
 }
 
 .profile-container{
@@ -1096,7 +1086,6 @@ textarea.form-input-product {
   .save-button,
   .dashboard-products-buttons button{
     padding: 5px;
-    margin: 0px 60px;
   }
 
 
