@@ -179,6 +179,12 @@ const dasboardController = {
         })
     },
 
+    profile: function(req,res){
+        let id = req.params.id;
+        return res.send(id);
+        return res.redirect("/dashboard/users")
+    },
+
     allSales: function(req,res){
         let allSales = salesFunctions.allSales();
         let data = salesFunctions.addUsername(allSales);

@@ -94,7 +94,6 @@ const usersFunctions ={
     },
 
     newUser: function(data){
-//        let categories = this.processCategories(data);
         let newUser = {
 			id: 			this.newId(),
 			username: 		data.username,
@@ -135,6 +134,17 @@ const usersFunctions ={
         for (const user of users) {
 			if(user.id == id){
                 user.password =  bcrypt.hashSync(data.password, 10)
+            };
+        };
+        this.store(users);
+        return true
+    },
+
+    changeProfile: function(id){
+        let users = this.allUsers();
+        for (const user of users) {
+			if(user.id == id){
+                user.profile =  user.profile == 3 ?  1 :  3;
             };
         };
         this.store(users);
