@@ -421,7 +421,7 @@ table {
   color: var(--darkblue);
   text-align: center;
   width: fit-content;
-  margin: 20px;
+  margin: auto;
 }
 
 .table td,
