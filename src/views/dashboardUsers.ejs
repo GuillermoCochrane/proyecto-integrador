@@ -44,14 +44,14 @@
                             <th colspan="8"><%= label %></th>
                         </tr>
                         <tr>
-                            <th> </th>
+                            <th> # </th>
                             <th>Usuario</th>
                             <th>Nombre</th>
                             <th>E-Mail</th>
                             <th>Teléfono</th>
                             <th>Dirección</th>
-                            <th>¿Es Administrador?</th>
-                            <th>Intereses</th>
+                            <th>Perfil</th>
+                            <th>¿Cambiar Perfil?</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -73,20 +73,15 @@
                                     <td><%= user.email %></td>
                                     <td><%= user.phone %></td>
                                     <td><%= user.address %></td>
-                                    <td><%= user.profile == 3 ? "Sí" : "No"  %></td>
+                                    <td><%= user.profile == 3 ? "Administrador" : "Comprador"  %></td>
                                     <td>
-                                        <ul>
-                                            <% for (const interes of user.categories) { %>
-                                                <li>
-                                                    <% for (const category of categories) {%>
-                                                        <%= category.id == interes ? category.category : null  %> 
-                                                    <% } %>
-                                                </li>
-                                            <% } %>
-                                        </ul>
+                                        <form action="/dashboard/profile/<%= user.id %>?_method=PUT" class="dashboard-products-buttons" method="post">
+                                            <button>
+                                                Cambiar
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
-                                
                             <% } %>
                     </tbody>
                 </table>
