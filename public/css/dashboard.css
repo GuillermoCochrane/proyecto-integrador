@@ -33,7 +33,7 @@ body {
   background-color: var(--dark);
 }
 
-header {
+header.fixed {
   background-color: var(--grey);
   padding: 10px;
   top: 0;
@@ -209,7 +209,8 @@ main{
 
 .dashboard-title{
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   min-height: 80vh;
 }

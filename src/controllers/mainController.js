@@ -42,11 +42,11 @@ const mainController ={
     },
 
     help: function(req,res){
-        res.render("help",{
+        res.render("reference"/* ,{
             title: "Mapa del sitio" + tools.title,
             status: tools.allStatus(),
             categories: tools.allCategories()
-        })
+        } */)
     },
 
     status: function(req,res){

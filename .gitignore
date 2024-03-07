@@ -4,5 +4,5 @@
 /node_modules
 /cosas_referencia
 test.js
-/src/views/reference.ejs
-/public/assets
+#/src/views/reference.ejs
+#/public/assets
