@@ -180,8 +180,7 @@ const dasboardController = {
     },
 
     profile: function(req,res){
-        let id = req.params.id;
-        return res.send(id);
+        userFunctions.changeProfile(req.params.id);
         return res.redirect("/dashboard/users")
     },
 
