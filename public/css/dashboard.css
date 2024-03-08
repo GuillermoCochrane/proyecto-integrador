@@ -901,7 +901,6 @@ textarea.form-input-product {
 }
 
 .summary-card{
-  margin-block: 20px;
   width: 250px;
   display: flex;
   justify-content: space-evenly;
@@ -913,8 +912,8 @@ textarea.form-input-product {
 }
 
 .blue{
-  color: var(--darkblue);
-  border-color: var(--darkblue);
+  color: var(--lightblue);
+  border-color: var(--lightblue);
 }
 
 .green{
@@ -1105,8 +1104,14 @@ textarea.form-input-product {
   text-align: center;
 }
 
+.summary-card-container{
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
 .summary-card{
-  width: 50%;
+  width: 43%;
 }
 
 }
@@ -1238,5 +1243,9 @@ textarea.form-input-product {
   .user-interest li{
     font-size: 20px;
     width: 33%;
+  }
+
+  .summary-card{
+    width: 22%;
   }
 }
