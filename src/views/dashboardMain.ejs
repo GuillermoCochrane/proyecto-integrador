@@ -6,61 +6,9 @@
         </h1>
     </header>
     <section class="summary-card-container">
-        <article class="summary-card">
-            <header class="summary-card-info">
-                <h3 class="summary-card-title">
-                    Usuarios
-                </h3>
-                <strong class="summary-card-data">
-                    13
-                </strong>
-            </header>
-            <figure class="summary-card-icon">
-               <i class="fa-solid fa-circle-user fa-2x"></i>
-            </figure>
-        </article>
-
-        <article class="summary-card green">
-            <header class="summary-card-info">
-                <h3 class="summary-card-title">
-                    Productos
-                </h3>
-                <strong class="summary-card-data">
-                    16
-                </strong>
-            </header>
-            <figure class="summary-card-icon">
-                <i class="fa-solid fa-boxes-stacked fa-2x"></i>
-            </figure>
-        </article>
-
-        <article class="summary-card grey">
-            <header class="summary-card-info">
-                <h3 class="summary-card-title">
-                    Categorías
-                </h3>
-                <strong class="summary-card-data">
-                    5
-                </strong>
-            </header>
-            <figure class="summary-card-icon">
-               <i class="fa-solid fa-list fa-2x"></i>
-            </figure>
-        </article>
-
-        <article class="summary-card blue">
-            <header class="summary-card-info">
-                <h3 class="summary-card-title">
-                    Estados
-                </h3>
-                <strong class="summary-card-data">
-                    4
-                </strong>
-            </header>
-            <figure class="summary-card-icon">
-                <i class="fa-solid fa-chart-simple fa-2x"></i>
-            </figure>
-        </article>
+        <% for (const card of data) {%>
+            <%- include("./partials/summaryCard.ejs", {card}) %>
+        <% } %>
     </section>
 </main>
 

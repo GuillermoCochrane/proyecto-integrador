@@ -1,0 +1,15 @@
+<article class="summary-card <%= card.color %>">
+    <header class="summary-card-info">
+        <h3 class="summary-card-title">
+            <a href="/dashboard/<%= card.link %>">
+                <%= card.title %>
+            </a>
+        </h3>
+        <strong class="summary-card-data">
+            <%= card.quantity %>
+        </strong>
+    </header>
+    <figure class="summary-card-icon">
+        <i class="fa-solid <%= card.icon %> fa-2x"></i>
+    </figure>
+</article>
