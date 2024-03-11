@@ -9,6 +9,8 @@ const functions ={
 
     pathMonthDB: path.join(__dirname,"../data/monthDataBase.json"),
 
+    pathSummaryDB: path.join(__dirname,"../data/sumaryDataBase.json"),
+
     title: " - MultiHogar",
 
     toThousand: function(n){
@@ -52,6 +54,30 @@ const functions ={
         months = JSON.parse(readMonths);
       };
       return months;
+    },
+
+    summary: function()  {
+      let summary = [];
+      let readSummary = fs.readFileSync(this.pathSummaryDB, 'utf-8');
+      if (readSummary != ""){
+        summary = JSON.parse(readSummary);
+      };
+      return summary;
+    },
+
+    summaryData: function(users,products){
+      let summaryData = this.summary();
+      let itemQuantity ={
+        1: users.length,
+        2: products.length,
+        3: (this.allCategories()).length,
+        4: (this.allStatus()).length,
+      };
+      let none = 0;
+      for (const item of summaryData) {
+        item.quantity =  itemQuantity[item.id] || none;
+      }
+      return summaryData
     },
 
     newCategoryId: function(){

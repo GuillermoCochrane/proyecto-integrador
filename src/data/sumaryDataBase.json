@@ -1,0 +1,31 @@
+[
+    {
+        "id":   1,
+        "title":  "Usuarios",
+        "link":  "users",
+        "color":  "color1",
+        "icon":  "fa-circle-user"
+
+    },
+    {
+        "id":   2,
+        "title":  "Productos",
+        "link":  "products",
+        "color":  "color2",
+        "icon":  "fa-boxes-stacked"
+    },
+    {
+        "id":   3,
+        "title":  "Categorías",
+        "link":  "categories",
+        "color":  "color3",
+        "icon":  "fa-list"
+    },
+    {
+        "id":   4,
+        "title":  "Estados",
+        "link":  "categories",
+        "color":  "color4",
+        "icon":  "fa-chart-simple"
+    }
+]
