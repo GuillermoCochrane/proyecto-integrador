@@ -8,6 +8,7 @@
   "category": "3",
   "status": "2",
   "description": "Cafetera Dolce Gusto Lumio. La cafetera Dolce Gusto Lumio es de variedad automática que ha llegado con un diseño radical al que nos tenía acostumbrados Dolce Gusto.En este post te contamos todo lo que necesitas saber sobre ella, desde sus características técnicas hasta la calidad de las cápsulas o price.",
+  "sales": 1,
   "views": 39
  },
  {
@@ -19,6 +20,7 @@
   "description": "Macbook Pro 2019 Mpxq2ll/a Intel Core i5 2.3 Ghz 8gb RAM 128gb SSD Pantalla 13.3\" Retina Apple Nueva Original. Importada de USA. Se entrega con la factura de compra para contar con la garantía del fabricante",
   "image": "img-macbook-pro-2019.jpg",
   "category": "1",
+  "sales": 1,
   "views": 76
  },
  {
@@ -31,6 +33,7 @@
   "image": "img-samsung-galaxy-s10.jpg",
   "finalPrice": 54749,
   "category": "2",
+  "sales": 11,
   "views": 17
  },
  {
@@ -42,6 +45,7 @@
   "image": "img-heladera-whirpool.jpg",
   "status": "4",
   "category": "3",
+  "sales": 1,
   "views": 11
  },
  {
@@ -53,6 +57,7 @@
   "image": "img-camara-nikon.jpg",
   "status": "3",
   "category": "5",
+  "sales": 1,
   "views": 30
  },
  {
@@ -64,6 +69,7 @@
   "image": "img-aire-acondicionado.jpg",
   "status": "1",
   "category": "3",
+  "sales": 1,
   "views": 11
  },
  {
@@ -75,6 +81,7 @@
   "image": "img-laptop-lenovo.jpg",
   "status": "4",
   "category": "1",
+  "sales": 12,
   "views": 4
  },
  {
@@ -86,6 +93,7 @@
   "image": "img-iphone-11.jpg",
   "status": "1",
   "category": "2",
+  "sales": 1,
   "views": 6
  },
  {
@@ -98,6 +106,7 @@
   "status": "2",
   "finalPrice": 11399,
   "category": "1",
+  "sales": 1,
   "views": 4
  },
  {
@@ -109,6 +118,7 @@
   "image": "img-mouse-logitech.jpg",
   "status": "3",
   "category": "1",
+  "sales": 1,
   "views": 5
  },
  {
@@ -120,6 +130,7 @@
   "image": "img-parlante-bose.jpg",
   "status": "2",
   "category": "2",
+  "sales": 1,
   "views": 5
  },
  {
@@ -131,6 +142,7 @@
   "image": "img-home-theater-sony.jpg",
   "status": "4",
   "category": "4",
+  "sales": 1,
   "views": 6
  },
  {
@@ -154,6 +166,7 @@
   "image": "img-sony-blueray.jpg",
   "status": "3",
   "category": "4",
+  "sales": 1,
   "views": 1
  },
  {
@@ -165,6 +178,7 @@
   "image": "img-bicicleta-fierce.jpg",
   "status": "4",
   "category": "5",
+  "sales": 1,
   "views": 13
  },
  {

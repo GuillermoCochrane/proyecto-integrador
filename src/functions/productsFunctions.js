@@ -144,6 +144,11 @@ const productsFunctions ={
         return products.sort((a,b)=> b.views - a.views)
     },
 
+    sortBySales: function(){
+        let products = this.allProducts();
+        return products.sort((a,b)=> b.sales - a.sales);
+    },
+
     arrayReducer: function(array,n){
         let newArray = [];
         if(array.length < n){
