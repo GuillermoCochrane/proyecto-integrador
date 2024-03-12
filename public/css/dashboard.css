@@ -891,6 +891,8 @@ textarea.form-input-product {
   min-height: 80vh;
 }
 
+/* Summary Cards */
+
 .summary-card-container{
   margin: auto;
   display: flex;
@@ -949,6 +951,85 @@ textarea.form-input-product {
 .summary-card-icon{
   margin: auto;
 }
+
+/* Highlight product */
+.cards-box,
+.product-highlight-box{
+  margin-inline: auto;
+  margin-block: 15px;
+  width: 90%;
+  border-radius: 8px;
+  background-color: var(--cream);
+  padding: 10px;
+  box-shadow: 0px 0px 10px rgba(235, 235, 235, 0.6);
+}
+
+.cards-header,
+.product-highlight-header{
+  border-bottom: 1px solid var(--ice);
+  color: var(--dark);
+  margin: auto;
+}
+
+.product-highlight-container{
+  margin: auto;
+  padding: 5px;
+  color: var(--dark);
+}
+
+.product-highlight-img{
+  margin: auto;
+  width: 90%;
+  border-bottom: 1px solid var(--ice);
+  display: flex;
+}
+
+.product-highlight-img img{
+  margin: auto;
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
+
+.cards-title,
+.product-highlight-title{
+  text-align: center;
+  font-size: 16px;
+  padding-block: 5px;
+  margin: auto;
+}
+
+.product-highlight-description{
+  margin: auto;
+  padding-inline: 11px;
+  margin-bottom: 15px;
+}
+
+/* Cards */
+
+.cards-container{
+  margin: auto;
+  margin-inline: 13px;
+}
+
+article.card-data{
+  border-radius: 10px;
+  margin: 5px 5px;
+  padding: 10px 10px;
+  background-color: var(--darkblue);
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+.card-data:hover{
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
+  background-color: var(--greengrey);
+}
+.card-data:hover a{
+  color: var(--darkblue);
+}
+
+
 
 @media (min-width:768px) {
   .header-container {
@@ -1119,6 +1200,30 @@ textarea.form-input-product {
   width: 43%;
 }
 
+.data-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: stretch;
+}
+
+.product-highlight-box{
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+.categories-status-container{
+  width: 50%;
+}
+
+.cards-box{
+  /* width: 45%; */
+  font-size: 12px;
+}
+
 }
 
 @media (min-width:1200px) {
@@ -1252,5 +1357,30 @@ textarea.form-input-product {
 
   .summary-card{
     width: 22%;
+  }
+
+  .cards-title,
+  .product-highlight-title{
+    text-align: left;
+    padding-inline: 10px;
+  }
+
+  .product-highlight-img img{
+    width: 300px;
+    height: 300px;
+  }
+  
+  .cards-container{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  article.card-data{
+    width: 47%;
+    font-size: 15px;
+    font-weight: bolder;
+    padding-inline: 4px;
+    text-align: center;
+    padding-block: 18px;
+    margin-block: 10px;
   }
 }
