@@ -11,10 +11,14 @@ const dasboardController = {
         let products = productsFunctions.allProducts();
         let data = functions.summaryData(users,products);
         let product = (productsFunctions.sortBySales()).shift();
+        let categories = functions.addKeyName(functions.allCategories(),"category");
+        let status = functions.addKeyName(functions.allStatus(),"status");
         return res.render("dashboardMain",{
             title: "Panel de Control", 
             data,
-            product
+            product,
+            status,
+            categories,
         })
     },
 

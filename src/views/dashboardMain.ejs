@@ -23,31 +23,9 @@
                     <h3 class="cards-title">Categorías en la Base de Datos</h3>
                 </header>
                 <div class="cards-container">
-                    <article class="card-data">
-                        <a href="#">
-                            PC & Notebooks
-                        </a>
-                    </article>
-                    <article class="card-data">
-                        <a href="#">
-                            Celulares y accesorios
-                        </a>
-                    </article>
-                    <article class="card-data">
-                        <a href="#">
-                            Hogar
-                        </a>
-                    </article>
-                    <article class="card-data">
-                        <a href="#">
-                            Audio & Video
-                        </a>
-                    </article>
-                    <article class="card-data">
-                        <a href="#">
-                            Actividades al Aire Libre
-                        </a>
-                    </article>
+                    <% for (const item of categories) {%>
+                        <%- include("./partials/infoCards.ejs", {item}) %>
+                    <% } %>
                 </div>
             </section>
             <section class="cards-box">
@@ -55,30 +33,13 @@
                     <h3 class="cards-title">Estados en la Base de Datos</h3>
                 </header>
                 <div class="cards-container">
-                    <article class="card-data">
-                        <a href="#">
-                            En Oferta
-                        </a>
-                    </article>
-                    <article class="card-data">
-                        <a href="#">
-                            Novedades
-                        </a>
-                    </article>
-                    <article class="card-data">
-                        <a href="#">
-                            Más Vendidos
-                        </a>
-                    </article>
-                    <article class="card-data">
-                        <a href="#">
-                            Recomendados
-                        </a>
-                    </article>
+                    <% for (const item of status) {%>
+                        <%- include("./partials/infoCards.ejs", {item}) %>
+                    <% } %>
                 </div>
             </section>
         </div>
-        </div>
+    </div>
 </main>
 
 </body>
