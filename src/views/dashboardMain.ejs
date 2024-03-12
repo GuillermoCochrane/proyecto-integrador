@@ -17,11 +17,15 @@
             </header>
             <article class="product-highlight-container">
                 <figure class="product-highlight-img">
-                    <img src="images/products/img-parlante-sony.jpg" alt="Sony Srs-xb12 Parlante Bluetooth Portátil">
+                    <img src="images/products/<%= product.image %>" alt="<%= product.name %>">
                 </figure>
-                <h4 class="product-highlight-title">Sony Srs-xb12 Parlante Bluetooth Portátil</h4>
-                <p class="product-highlight-description">Deja que la música dance cobre vida con EXTRA BASS™ Anima el ambiente con EXTRA BASS™. Un radiador pasivo trabaja con el parlante monoaural para potenciar los tonos bajos y mejorar los graves, a pesar del tamaño compacto. </p>
-                <a class="dashboard-products-buttons"  href="/dashboard/product/16">
+                <h4 class="product-highlight-title">
+                    <%= product.name %>
+                </h4>
+                <p class="product-highlight-description">
+                    <%= product.description %>
+                </p>
+                <a class="dashboard-products-buttons"  href="/dashboard/products/<%= product.id %>">
                     <button>
                         Ver Detalle
                     </button>
