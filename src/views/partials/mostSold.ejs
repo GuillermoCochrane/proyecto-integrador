@@ -1,0 +1,16 @@
+<article class="product-highlight-container">
+    <figure class="product-highlight-img">
+        <img src="images/products/<%= product.image %>" alt="<%= product.name %>">
+    </figure>
+    <h4 class="product-highlight-title">
+        <%= product.name %>
+    </h4>
+    <p class="product-highlight-description">
+        <%= product.description %>
+    </p>
+    <a class="dashboard-products-buttons"  href="/dashboard/products/<%= product.id %>">
+        <button>
+            Ver Detalle
+        </button>
+    </a>
+</article>
