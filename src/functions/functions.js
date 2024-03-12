@@ -83,6 +83,7 @@ const functions ={
     addKeyName: function(data,key){
       for (const item of data) {
         item.name = item[key];
+        item.type = key
       }
       return data
     },
