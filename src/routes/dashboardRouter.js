@@ -75,8 +75,8 @@ router.get("/editStatus/:idStatus", dashboardRouter.allCategories);
 router.put("/editStatus/:idStatus", statusValidations, dashboardRouter.editStatus);
 
 //filter categories & status
-router.get("/category/:idCategory", dashboardRouter.allCategories);
-router.get("/status/:idStatus", dashboardRouter.allCategories);
+router.get("/category/:idCategory", dashboardRouter.allProducts);
+router.get("/status/:idStatus", dashboardRouter.allProducts);
 
 /* // Create new catergory form
 router.get("/addCategory", dashboardRouter.newCategory); */

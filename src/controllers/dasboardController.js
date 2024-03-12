@@ -77,6 +77,20 @@ const dasboardController = {
         let label = title;
         let dashboardlink = "/dashboard";
 
+        if(req.params.idCategory){
+            let data = productsFunctions.productsByCategory(req.params.idCategory);
+            title = "Productos: " + data.category;
+            products = data.products;
+            label = title;
+        }
+
+        if(req.params.idStatus){
+            let data = productsFunctions.productsByStatus(req.params.idStatus);
+            title = "Productos: " + data.status;
+            products = data.products;
+            label = title;
+        }
+
         if(req.query.search){
             let searchResults = productsFunctions.search(req.query.search);
             products = searchResults.results;
