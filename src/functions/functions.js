@@ -80,6 +80,13 @@ const functions ={
       return summaryData
     },
 
+    addKeyName: function(data,key){
+      for (const item of data) {
+        item.name = item[key];
+      }
+      return data
+    },
+
     newCategoryId: function(){
       let lastCategory = this.allCategories().pop();
       if (lastCategory){
