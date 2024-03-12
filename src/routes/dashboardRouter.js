@@ -67,12 +67,16 @@ router.post("/newCategory", categoryValidations, dashboardRouter.newCategory);
 router.post("/newStatus", statusValidations, dashboardRouter.newStatus);
 
 //Edit category
-router.get("/category/:idCategory", dashboardRouter.allCategories);
+router.get("/editCategory/:idCategory", dashboardRouter.allCategories);
 router.put("/editCategory/:idCategory", categoryValidations, dashboardRouter.editCategory);
 
 //Edit Status
-router.get("/status/:idStatus", dashboardRouter.allCategories);
+router.get("/editStatus/:idStatus", dashboardRouter.allCategories);
 router.put("/editStatus/:idStatus", statusValidations, dashboardRouter.editStatus);
+
+//filter categories & status
+router.get("/category/:idCategory", dashboardRouter.allCategories);
+router.get("/status/:idStatus", dashboardRouter.allCategories);
 
 /* // Create new catergory form
 router.get("/addCategory", dashboardRouter.newCategory); */
