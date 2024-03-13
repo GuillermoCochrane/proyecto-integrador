@@ -3,7 +3,7 @@ const path = require('path');
 const functions = require("./functions");
 const userFunctions = require("./usersFunctions");
 const productFunctions = require("./productsFunctions");
-const mailfunctions = require("./mailFunction");
+const mailFunctions = require("./mailFunction");
 const salesFunctions = require("../functions/salesFunctions");
 
 const dashboardFunctions ={
@@ -26,8 +26,8 @@ const dashboardFunctions ={
         let itemQuantity ={
             1: userFunctions.allUsers().length,
             2: productFunctions.allProducts().length,
-            3: (functions.allCategories()).length,
-            4: functions.allStatus().length, //(this.allStatus()).length,
+            3: functions.allCategories().length,
+            4: functions.allStatus().length, 
         };
         let none = 0;
         for (const item of summaryData) {
@@ -59,11 +59,22 @@ const dashboardFunctions ={
         return data
     },
 
+    dashboardMailData: function(){
+        let data = {
+            title: mailFunctions.configTitle,
+            data: {
+                email: mailFunctions.mail(),
+                pass: mailFunctions.pass()
+            }
+        }
+        return data
+    },
+
     userFunctions: userFunctions,
 
     productFunctions: productFunctions,
 
-    mailfunctions: mailfunctions,
+    mailfunctions: mailFunctions,
 
     functions: functions,
 

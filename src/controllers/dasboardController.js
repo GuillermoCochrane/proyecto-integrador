@@ -3,37 +3,27 @@ const functions = require("../functions/functions");
 const userFunctions = require("../functions/usersFunctions");
 const mailFunctions = require("../functions/mailFunction");
 const salesFunctions = require("../functions/salesFunctions");
+const dashboardFunctions = require("../functions/dashboardFunctions");
 const { validationResult } = require('express-validator');
 
 const dasboardController = {
     index: function(req,res){
-        let info = functions.dashboardHomeData(
-            userFunctions.allUsers(),
-            productsFunctions.allProducts(),
-            productsFunctions.sortBySales()
-        )
+        let info = dashboardFunctions.dashboardHomeData();
         return res.render("dashboardMain", info)
     },
 
     email: function(req,res){
-        let data = {
-            email: mailFunctions.mail(),
-            pass: mailFunctions.pass()
-        };
-        return res.render("dashboardEditEmail",{ 
-            title: mailFunctions.configTitle,
-            data
-        })
+        let data = dashboardFunctions.dashboardMailData();
+        return res.render("dashboardEditEmail", data)
     },
 
     updateEmail: function(req,res){
         let errors = validationResult(req);
-        let title = mailFunctions.configTitle
         let data = req.body;
         let old = { 
-            title,
-            data,
-            errors: errors.mapped()
+            title: dashboardFunctions.dashboardMailData().title,
+            errors: errors.mapped(),
+            data
         }
         if (errors.isEmpty()){
             mailFunctions.editMailData(data);
