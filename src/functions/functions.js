@@ -17,6 +17,8 @@ const functions ={
         return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     },
 
+    dashboardLink: "/dashboard",
+
     dashboardCategoryStatus: function(){
       let data = {
         categories: this.allCategories(),
@@ -38,34 +40,6 @@ const functions ={
         mostSold:     productSorted.shift(),
       };
       return data
-    },
-
-
-    allCategories: function()  {
-    let category = [];
-    let readCategory = fs.readFileSync(this.pathCategoriesDB, 'utf-8');
-    if (readCategory != ""){
-      category = JSON.parse(readCategory);
-    };
-    return category;
-    },
-
-    allStatus: function()  {
-      let status = [];
-      let readStatus = fs.readFileSync(this.pathStatusDB, 'utf-8');
-      if(readStatus != ""){
-        status = JSON.parse(readStatus);
-      }
-		return status
-    },
-
-    allMonths: function()  {
-      let months = [];
-      let readMonths = fs.readFileSync(this.pathMonthDB, 'utf-8');
-      if (readMonths != ""){
-        months = JSON.parse(readMonths);
-      };
-      return months;
     },
 
     summary: function()  {
@@ -92,12 +66,39 @@ const functions ={
       return summaryData
     },
 
+    allMonths: function()  {
+      let months = [];
+      let readMonths = fs.readFileSync(this.pathMonthDB, 'utf-8');
+      if (readMonths != ""){
+        months = JSON.parse(readMonths);
+      };
+      return months;
+    },
+
     addKeyName: function(data,key){
       for (const item of data) {
         item.name = item[key];
         item.type = key
       }
       return data
+    },
+
+    allCategories: function()  {
+    let category = [];
+    let readCategory = fs.readFileSync(this.pathCategoriesDB, 'utf-8');
+    if (readCategory != ""){
+      category = JSON.parse(readCategory);
+    };
+    return category;
+    },
+
+    allStatus: function()  {
+      let status = [];
+      let readStatus = fs.readFileSync(this.pathStatusDB, 'utf-8');
+      if(readStatus != ""){
+        status = JSON.parse(readStatus);
+      }
+		return status
     },
 
     newCategoryId: function(){

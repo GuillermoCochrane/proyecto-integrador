@@ -21,14 +21,14 @@ const dasboardController = {
             pass: mailFunctions.pass()
         };
         return res.render("dashboardEditEmail",{ 
-            title: "Configurar E-Mail del sitio",
+            title: mailFunctions.configTitle,
             data
         })
     },
 
     updateEmail: function(req,res){
         let errors = validationResult(req);
-        let title = "Configurar E-Mail del sitio";
+        let title = mailFunctions.configTitle
         let data = req.body;
         let old = { 
             title,
@@ -36,7 +36,7 @@ const dasboardController = {
             errors: errors.mapped()
         }
         if (errors.isEmpty()){
-            mailFunctions.editMailData(req.body);
+            mailFunctions.editMailData(data);
             return res.redirect("/dashboard/email");
         } else {
             return res.render('dashboardEditEmail',old);
@@ -45,21 +45,19 @@ const dasboardController = {
 
     newProduct: function(req,res){
         let data = functions.productFormData("Crear Producto", null);
-        let dashboardlink = "/dashboard";
-        data.dashboardlink = dashboardlink;
+        data.dashboardlink = functions.dashboardLink;
         return res.render("dashboardProductsForm", data)
     },
 
     store: function(req,res){
         let errors = validationResult(req);
-        let dashboardlink = "/dashboard";
         let old = functions.productFormData("Crear Producto",req.body);
         if (errors.isEmpty()){
             let id = productsFunctions.newProduct(req.body, req.file);
             return res.redirect("/dashboard/products/" + id);
         } else {
             old.errors = errors.mapped();
-            old.dashboardlink = dashboardlink;
+            old.dashboardlink = functions.dashboardLink;
             return res.render('dashboardProductsForm',old)
         }
     },
@@ -67,8 +65,7 @@ const dasboardController = {
     allProducts: function(req,res){
         let products = productsFunctions.allProducts();
         let title = "Todos los productos";
-        let label = title;
-        let dashboardlink = "/dashboard";
+        let dashboardlink = functions.dashboardLink;
 
         if(req.params.idCategory){
             let data = productsFunctions.productsByCategory(req.params.idCategory);
@@ -91,7 +88,7 @@ const dasboardController = {
             title = searchResults.label;
         }
 
-        let data = functions.productData(title, products, label );
+        let data = functions.productData(title, products, title);
         data.categories = functions.allCategories();
         data.searchRoute = "searchProducts";
         data.dashboardlink = dashboardlink;
@@ -99,7 +96,7 @@ const dasboardController = {
     },
 
     product: function(req,res){
-        let dashboardlink = "/dashboard";
+        let dashboardlink = functions.dashboardLink;
         let product = productsFunctions.filterByID(req.params.id)[0];
         if (!product){
             return res.redirect("/dashboard/notFound")
@@ -109,8 +106,8 @@ const dasboardController = {
             }
             return res.render("dashProductDetail",{
                 title: product.name,
-                product: product,
                 toThousand: functions.toThousand,
+                product,
                 dashboardlink
             })
         }
@@ -118,13 +115,12 @@ const dasboardController = {
 
     editProduct: function(req,res){
         let product = productsFunctions.filterByID(req.params.id)[0];
-        let dashboardlink = "/dashboard";
         if (!product){
             return res.redirect("/dashboard/notFound")
         }else{
             let data = functions.productFormData("Editando - " + product.name, product);
             data.edit = true;
-            data.dashboardlink = dashboardlink;
+            data.dashboardlink = functions.dashboardLink;
             return res.render("dashboardProductsForm", data)
         }
     },
@@ -132,7 +128,6 @@ const dasboardController = {
     update: function(req,res){
         let errors = validationResult(req);
         let title = "Editando - " + req.body.name;
-        let dashboardlink = "/dashboard";
         let data = req.body;
         data.id = req.params.id
         let old = functions.productFormData(title, data);
@@ -141,7 +136,7 @@ const dasboardController = {
             return res.redirect("/dashboard/products/" + id);
         } else {
             old.errors = errors.mapped();
-            old.dashboardlink = dashboardlink;
+            old.dashboardlink = functions.dashboardLink;
             return res.render('dashboardProductsForm',old);
         }
     },
@@ -164,6 +159,7 @@ const dasboardController = {
     },
 
     allUsers: function(req,res){
+        // seguir optimizando desde aquí
         let users = userFunctions.allUsers();
         let title = "Todas los Usuarios";
         let label = title;

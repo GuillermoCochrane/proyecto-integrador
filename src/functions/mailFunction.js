@@ -8,6 +8,8 @@ const mailFunction = {
 
     pathDB: path.join(__dirname, "../data/mailDataBase.json"),
 
+    configTitle: "Configurar E-Mail del sitio",
+
     getMail: function()  {
         let mailDB = [];
         let readMail = fs.readFileSync(this.pathDB, 'utf-8');
