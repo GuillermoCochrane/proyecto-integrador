@@ -1,7 +1,10 @@
+const fs = require('fs');
+const path = require('path');
 const functions = require("./functions");
 const userFunctions = require("./usersFunctions");
 const productFunctions = require("./productsFunctions");
 const mailfunctions = require("./mailFunction");
+const salesFunctions = require("../functions/salesFunctions");
 
 const dashboardFunctions ={
 
@@ -18,13 +21,13 @@ const dashboardFunctions ={
         return summary;
     },
 
-    summaryData: function(users,products){
+    summaryData: function(){
         let summaryData = this.summary();
         let itemQuantity ={
             1: userFunctions.allUsers().length,
             2: productFunctions.allProducts().length,
-            3: userFunctions.allCategories()-length, //(this.allCategories()).length,
-            4: userFunctions.allStatus(), //(this.allStatus()).length,
+            3: (functions.allCategories()).length,
+            4: functions.allStatus().length, //(this.allStatus()).length,
         };
         let none = 0;
         for (const item of summaryData) {
@@ -45,13 +48,13 @@ const dashboardFunctions ={
         return data
     },
 
-    dashboardHomeData: function(allUsers, allProducts, productSorted){
+    dashboardHomeData: function(){
         let data = {
-            title:        "Panel de Control" + this.title, 
-            data:         this.summaryData(allUsers,allProducts),
-            categories:   this.addKeyName(this.allCategories(),"category"),
-            status:       this.addKeyName(functions.allStatus(),"status"),
-            mostSold:     productSorted.shift(),
+            title:        "Panel de Control" + functions.title, 
+            data:         this.summaryData(),
+            categories:   functions.addKeyName(functions.allCategories(),"category"),
+            status:       functions.addKeyName(functions.allStatus(),"status"),
+            mostSold:     productFunctions.sortBySales().shift(),
         };
         return data
     },
@@ -63,6 +66,8 @@ const dashboardFunctions ={
     mailfunctions: mailfunctions,
 
     functions: functions,
+
+    salesFunctions: salesFunctions,
 }
 
 module.exports = dashboardFunctions
