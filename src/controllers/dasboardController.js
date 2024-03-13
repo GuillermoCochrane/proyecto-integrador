@@ -35,7 +35,7 @@ const dasboardController = {
 
     newProduct: function(req,res){
         let data = functions.productFormData("Crear Producto", null);
-        data.dashboardlink = functions.dashboardLink;
+        data.dashboardlink = dashboardFunctions.dashboardLink;
         return res.render("dashboardProductsForm", data)
     },
 
@@ -47,7 +47,7 @@ const dasboardController = {
             return res.redirect("/dashboard/products/" + id);
         } else {
             old.errors = errors.mapped();
-            old.dashboardlink = functions.dashboardLink;
+            old.dashboardlink = dashboardFunctions.dashboardLink;
             return res.render('dashboardProductsForm',old)
         }
     },
@@ -55,7 +55,7 @@ const dasboardController = {
     allProducts: function(req,res){
         let products = productsFunctions.allProducts();
         let title = "Todos los productos";
-        let dashboardlink = functions.dashboardLink;
+        let dashboardlink = dashboardFunctions.dashboardLink;
 
         if(req.params.idCategory){
             let data = productsFunctions.productsByCategory(req.params.idCategory);
@@ -86,20 +86,11 @@ const dasboardController = {
     },
 
     product: function(req,res){
-        let dashboardlink = functions.dashboardLink;
-        let product = productsFunctions.filterByID(req.params.id)[0];
-        if (!product){
-            return res.redirect("/dashboard/notFound")
+        let data = dashboardFunctions.productDetailData(req.params.id)
+        if (data){
+            return res.render("dashProductDetail", data)
         } else {
-            if(product){
-                product.finalPrice =  functions.finalPrice(product);
-            }
-            return res.render("dashProductDetail",{
-                title: product.name,
-                toThousand: functions.toThousand,
-                product,
-                dashboardlink
-            })
+            return res.redirect("/dashboard/notFound")
         }
     },
 
@@ -337,9 +328,9 @@ const dasboardController = {
 
     productNotFound: function(req, res){
         let title = "Producto no encontrado";
-        return res.render("dashboardMain",{
+        return res.send(title/* "dashboardMain",{
             title
-        })
+        } */)
     }
 
 };

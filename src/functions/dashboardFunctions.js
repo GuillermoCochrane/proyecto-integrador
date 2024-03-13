@@ -70,6 +70,22 @@ const dashboardFunctions ={
         return data
     },
 
+    productDetailData: function(id) {
+        let product = productFunctions.filterByID(id)[0];
+        if (!product){
+            return false
+        } else {
+            product.finalPrice =  functions.finalPrice(product);
+            let info = {
+                title: product.name,
+                toThousand: functions.toThousand,
+                dashboardlink: this.dashboardLink,
+                product
+            }
+            return info
+        }
+    },
+
     userFunctions: userFunctions,
 
     productFunctions: productFunctions,
