@@ -86,6 +86,18 @@ const dashboardFunctions ={
         }
     },
 
+    usersData: function(){
+        let data = {
+            title:  "Todas los Usuarios",
+            label:  "Todas los Usuarios",
+            users:  userFunctions.allUsers(),
+            categories: functions.allCategories(),
+            searchRoute: "searchUsers",
+            dashboardlink: this.dashboardLink
+        }
+        return data
+    },
+    
     userFunctions: userFunctions,
 
     productFunctions: productFunctions,

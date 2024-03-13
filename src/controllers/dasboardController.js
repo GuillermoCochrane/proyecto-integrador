@@ -140,28 +140,14 @@ const dasboardController = {
     },
 
     allUsers: function(req,res){
-        // seguir optimizando desde aquí
-        let users = userFunctions.allUsers();
-        let title = "Todas los Usuarios";
-        let label = title;
-        let categories = functions.allCategories();
-        let searchRoute = "searchUsers";
-        let dashboardlink = "/dashboard";
-
+        let data = dashboardFunctions.usersData();
         if(req.query.search){
             let searchResults = userFunctions.search(req.query.search);
-            users = searchResults.results;
-            label = searchResults.label;
-            title = searchResults.label;
+            data.users = searchResults.results;
+            data.label = searchResults.label;
+            data.title = searchResults.label;
         }
-        return res.render("dashboardUsers",{
-            title,
-            label,
-            users,
-            categories,
-            searchRoute,
-            dashboardlink
-        })
+        return res.render("dashboardUsers",data)
     },
 
     user: function(req,res){
@@ -178,7 +164,9 @@ const dasboardController = {
         return res.redirect("/dashboard/users")
     },
 
+
     allSales: function(req,res){
+        // seguir optimizando desde aquí
         let allSales = salesFunctions.allSales();
         let data = salesFunctions.addUsername(allSales);
         let title = "Todas las ventas";
