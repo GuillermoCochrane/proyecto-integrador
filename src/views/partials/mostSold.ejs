@@ -1,14 +1,14 @@
 <article class="product-highlight-container">
     <figure class="product-highlight-img">
-        <img src="images/products/<%= product.image %>" alt="<%= product.name %>">
+        <img src="images/products/<%= mostSold.image %>" alt="<%= mostSold.name %>">
     </figure>
     <h4 class="product-highlight-title">
-        <%= product.name %>
+        <%= mostSold.name %>
     </h4>
     <p class="product-highlight-description">
-        <%= product.description %>
+        <%= mostSold.description %>
     </p>
-    <a class="dashboard-products-buttons"  href="/dashboard/products/<%= product.id %>">
+    <a class="dashboard-products-buttons"  href="/dashboard/products/<%= mostSold.id %>">
         <button>
             Ver Detalle
         </button>

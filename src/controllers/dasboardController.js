@@ -7,19 +7,12 @@ const { validationResult } = require('express-validator');
 
 const dasboardController = {
     index: function(req,res){
-        let users = userFunctions.allUsers();
-        let products = productsFunctions.allProducts();
-        let data = functions.summaryData(users,products);
-        let product = (productsFunctions.sortBySales()).shift();
-        let categories = functions.addKeyName(functions.allCategories(),"category");
-        let status = functions.addKeyName(functions.allStatus(),"status");
-        return res.render("dashboardMain",{
-            title: "Panel de Control", 
-            data,
-            product,
-            status,
-            categories,
-        })
+        let info = functions.dashboardHomeData(
+            userFunctions.allUsers(),
+            productsFunctions.allProducts(),
+            productsFunctions.sortBySales()
+        )
+        return res.render("dashboardMain", info)
     },
 
     email: function(req,res){

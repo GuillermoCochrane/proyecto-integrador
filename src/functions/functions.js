@@ -18,7 +18,7 @@ const functions ={
     },
 
     dashboardCategoryStatus: function(){
-      let data ={
+      let data = {
         categories: this.allCategories(),
         statuses:   this.allStatus(),
         title: "Categorías / Estados",
@@ -28,6 +28,18 @@ const functions ={
       };
       return data
     },
+
+    dashboardHomeData: function(allUsers, allProducts, productSorted){
+      let data = {
+        title:        "Panel de Control" + this.title, 
+        data:         this.summaryData(allUsers,allProducts),
+        categories:   this.addKeyName(this.allCategories(),"category"),
+        status:       this.addKeyName(functions.allStatus(),"status"),
+        mostSold:     productSorted.shift(),
+      };
+      return data
+    },
+
 
     allCategories: function()  {
     let category = [];
