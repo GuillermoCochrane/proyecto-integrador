@@ -9,62 +9,7 @@ const functions ={
 
     pathMonthDB: path.join(__dirname,"../data/monthDataBase.json"),
 
-    pathSummaryDB: path.join(__dirname,"../data/sumaryDataBase.json"),
-
     title: " - MultiHogar",
-
-    toThousand: function(n){
-        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    },
-
-    dashboardLink: "/dashboard",
-
-    dashboardCategoryStatus: function(){
-      let data = {
-        categories: this.allCategories(),
-        statuses:   this.allStatus(),
-        title: "Categorías / Estados",
-        tab: 1,
-        status: null,
-        category: null,
-      };
-      return data
-    },
-
-    dashboardHomeData: function(allUsers, allProducts, productSorted){
-      let data = {
-        title:        "Panel de Control" + this.title, 
-        data:         this.summaryData(allUsers,allProducts),
-        categories:   this.addKeyName(this.allCategories(),"category"),
-        status:       this.addKeyName(functions.allStatus(),"status"),
-        mostSold:     productSorted.shift(),
-      };
-      return data
-    },
-
-    summary: function()  {
-      let summary = [];
-      let readSummary = fs.readFileSync(this.pathSummaryDB, 'utf-8');
-      if (readSummary != ""){
-        summary = JSON.parse(readSummary);
-      };
-      return summary;
-    },
-
-    summaryData: function(users,products){
-      let summaryData = this.summary();
-      let itemQuantity ={
-        1: users.length,
-        2: products.length,
-        3: (this.allCategories()).length,
-        4: (this.allStatus()).length,
-      };
-      let none = 0;
-      for (const item of summaryData) {
-        item.quantity =  itemQuantity[item.id] || none;
-      }
-      return summaryData
-    },
 
     allMonths: function()  {
       let months = [];
@@ -73,14 +18,6 @@ const functions ={
         months = JSON.parse(readMonths);
       };
       return months;
-    },
-
-    addKeyName: function(data,key){
-      for (const item of data) {
-        item.name = item[key];
-        item.type = key
-      }
-      return data
     },
 
     allCategories: function()  {
@@ -209,6 +146,18 @@ const functions ={
         user: user,
         old: user
       };
+      return data
+    },
+
+    toThousand: function(n){
+      return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    },
+
+    addKeyName: function(data,key){
+      for (const item of data) {
+        item.name = item[key];
+        item.type = key
+      }
       return data
     },
 
