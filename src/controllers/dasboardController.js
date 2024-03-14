@@ -166,23 +166,13 @@ const dasboardController = {
 
 
     allSales: function(req,res){
-        // seguir optimizando desde aquí
-        let allSales = salesFunctions.allSales();
-        let data = salesFunctions.addUsername(allSales);
-        let title = "Todas las ventas";
-        let label = title;
-        return res.render("dashboardSales",{
-            title,
-            label,
-            data,
-            label2: "Ventas pendientes de entrega",
-            counter: 0,
-            toThousand: functions.toThousand
-        })
+        let data = dashboardFunctions.salesData();
+        return res.render("dashboardSales", data)
     },
 
     filterSales: function(req,res){
         let allSales = salesFunctions.allSales();
+
         if(req.body.year){
             if(req.body.year !=0){
                 allSales = allSales.filter(sale => sale.year == req.body.year);

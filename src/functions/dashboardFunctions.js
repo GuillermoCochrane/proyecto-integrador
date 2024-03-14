@@ -40,10 +40,10 @@ const dashboardFunctions ={
         let data = {
             categories: functions.allCategories(),
             statuses:   functions.allStatus(),
-            title: "Categorías / Estados",
-            tab: 1,
-            status: null,
-            category: null,
+            title:      "Categorías / Estados",
+            tab:        1,
+            status:     null,
+            category:   null,
         };
         return data
     },
@@ -87,18 +87,33 @@ const dashboardFunctions ={
     },
 
     usersData: function(){
+        let title = "Todas los Usuarios"
         let data = {
-            title:  "Todas los Usuarios",
-            label:  "Todas los Usuarios",
-            users:  userFunctions.allUsers(),
-            categories: functions.allCategories(),
-            searchRoute: "searchUsers",
-            dashboardlink: this.dashboardLink
+            title,
+            label:          title,
+            searchRoute:    "searchUsers",
+            dashboardlink:  this.dashboardLink,
+            users:          userFunctions.allUsers(),
+            categories:     functions.allCategories(),
         }
         return data
     },
-    
-    userFunctions: userFunctions,
+
+    salesData: function(){
+        let title = "Todas las ventas";
+        let allSales = salesFunctions.allSales();
+        let data = {
+            title,
+            label:      title,
+            label2:     "Ventas pendientes de entrega",
+            counter:    0,
+            data:       salesFunctions.addUsername(allSales),
+            toThousand: functions.toThousand
+        }
+        return data
+    },
+
+/*     userFunctions: userFunctions,
 
     productFunctions: productFunctions,
 
@@ -106,7 +121,7 @@ const dashboardFunctions ={
 
     functions: functions,
 
-    salesFunctions: salesFunctions,
+    salesFunctions: salesFunctions, */
 }
 
 module.exports = dashboardFunctions
