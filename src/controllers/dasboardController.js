@@ -203,32 +203,29 @@ const dasboardController = {
     },
 
     saleDetail: function(req,res){
-        let sale = salesFunctions.filterByKey(req.params.saleID,"id");
-        sale = salesFunctions.addUsername(sale)[0];
-        title = "Detalle de venta";
-        return res.render("dashboardSaleDetail",{
-            title,
-            sale,
-            counter: 0,
-            toThousand: functions.toThousand
-        })
+        let data = dashboardFunctions.saleDetailData(req.params.saleID);
+        return res.render("dashboardSaleDetail", data)
     },
 
     allCategories: function(req,res){
         let data = functions.dashboardCategoryStatus();
         let statusID = req.params.idStatus;
         let categoryID = req.params.idCategory;
+
         if(statusID){
             data.status = functions.statusByID(statusID);
             data.tab = 2;
         };
+
         if(categoryID){
             data.category = functions.categoryByID(categoryID);
         };
+
         return res.render("dashboardCategories", data )
     },
 
     newCategory: function(req,res){
+        //Continuar desde aca
         let errors = validationResult(req);
         let data = functions.dashboardCategoryStatus();
         if (errors.isEmpty()){

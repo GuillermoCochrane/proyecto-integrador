@@ -125,7 +125,20 @@ const dashboardFunctions ={
             toThousand: functions.toThousand
         }
         return data
-    }
+    },
+
+    saleDetailData: function(id){
+        let sale = salesFunctions.filterByKey(id,"id");
+        sale = salesFunctions.addUsername(sale)[0];
+        title = "Detalle de venta";
+        let data = {
+            title,
+            sale,
+            counter: 0,
+            toThousand: functions.toThousand
+        }
+        return data
+    },
 
 /*     userFunctions: userFunctions,
 
