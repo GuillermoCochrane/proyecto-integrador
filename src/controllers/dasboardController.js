@@ -192,21 +192,9 @@ const dasboardController = {
             allSales = allSales.filter(sale => sale.day == date[2]);
         }
 
-        let data = salesFunctions.addUsername(allSales);
-        let title = "Filtrar ventas";
-        let label = title;
-        let years = salesFunctions.allYears();
-        let months = functions.allMonths();
+        let data = dashboardFunctions.filterSalesData(allSales);
 
-        return res.render("dashboardFilterSales",{
-            title,
-            label,
-            data,
-            years,
-            months,
-            counter: 0,
-            toThousand: functions.toThousand
-        })
+        return res.render("dashboardFilterSales",data)
     },
 
     deliverSale: function(req,res){

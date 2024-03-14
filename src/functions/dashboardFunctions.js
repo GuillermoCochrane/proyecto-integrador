@@ -113,6 +113,20 @@ const dashboardFunctions ={
         return data
     },
 
+    filterSalesData: function(allSales){
+        let title = "Filtrar ventas";
+        let data = {
+            title,
+            label:      title,
+            counter:    0,
+            data:       salesFunctions.addUsername(allSales),
+            years:      salesFunctions.allYears(),
+            months:     functions.allMonths(),
+            toThousand: functions.toThousand
+        }
+        return data
+    }
+
 /*     userFunctions: userFunctions,
 
     productFunctions: productFunctions,
