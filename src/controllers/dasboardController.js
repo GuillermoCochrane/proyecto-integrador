@@ -208,7 +208,7 @@ const dasboardController = {
     },
 
     allCategories: function(req,res){
-        let data = functions.dashboardCategoryStatus();
+        let data = dashboardFunctions.dashboardCategoryStatus();
         let statusID = req.params.idStatus;
         let categoryID = req.params.idCategory;
 
@@ -225,9 +225,9 @@ const dasboardController = {
     },
 
     newCategory: function(req,res){
-        //Continuar desde aca
         let errors = validationResult(req);
-        let data = functions.dashboardCategoryStatus();
+        let data = dashboardFunctions.dashboardCategoryStatus();
+
         if (errors.isEmpty()){
             functions.newCategory(req.body);
             return res.redirect("/dashboard/categories")
@@ -239,7 +239,8 @@ const dasboardController = {
 
     newStatus: function(req,res){
         let errors = validationResult(req);
-        let data = functions.dashboardCategoryStatus();
+        let data = dashboardFunctions.dashboardCategoryStatus();
+
         if (errors.isEmpty()){
             functions.newStatus(req.body);
             data = functions.dashboardCategoryStatus();
@@ -254,9 +255,10 @@ const dasboardController = {
 
     editCategory: function(req,res){
         let errors = validationResult(req);
-        let data = functions.dashboardCategoryStatus();
+        let data = dashboardFunctions.dashboardCategoryStatus();
         let info = req.body;
         let categoryID = req.params.idCategory;
+
         if (errors.isEmpty()){
             functions.editCategory(categoryID,info);
             return res.redirect("/dashboard/categories") 
@@ -271,9 +273,10 @@ const dasboardController = {
 
     editStatus: function(req,res){
         let errors = validationResult(req);
-        let data = functions.dashboardCategoryStatus();
+        let data = dashboardFunctions.dashboardCategoryStatus();
         let info = req.body;
         let statusID = req.params.idStatus;
+
         if (errors.isEmpty()){
             functions.editStatus(statusID,info);
             data = functions.dashboardCategoryStatus();
