@@ -12,6 +12,11 @@ const dashboardFunctions ={
 
     dashboardLink: "/dashboard",
 
+    basicData: {
+        counter: 0,
+        toThousand: functions.toThousand,
+    },
+
     summary: function()  {
         let summary = [];
         let readSummary = fs.readFileSync(this.pathSummaryDB, 'utf-8');
@@ -76,18 +81,19 @@ const dashboardFunctions ={
             return false
         } else {
             product.finalPrice =  functions.finalPrice(product);
-            let info = {
-                title: product.name,
-                toThousand: functions.toThousand,
-                dashboardlink: this.dashboardLink,
-                product
-            }
-            return info
+            let data =              this.basicData;
+
+            data.title =            product.name;
+            data.dashboardlink =    this.dashboardLink;
+            data.product =          product;
+            delete data.counter;
+
+            return data
         }
     },
 
     usersData: function(){
-        let title = "Todas los Usuarios"
+        let title = "Todas los Usuarios";
         let data = {
             title,
             label:          title,
@@ -100,43 +106,37 @@ const dashboardFunctions ={
     },
 
     salesData: function(){
-        let title = "Todas las ventas";
         let allSales = salesFunctions.allSales();
-        let data = {
-            title,
-            label:      title,
-            label2:     "Ventas pendientes de entrega",
-            counter:    0,
-            data:       salesFunctions.addUsername(allSales),
-            toThousand: functions.toThousand
-        }
+        let data = this.basicData;
+
+        data.title =    "Todas las ventas";
+        data.label =    data.title;
+        data.label2 =   "Ventas pendientes de entrega";
+        data.data =     salesFunctions.addUsername(allSales);
+
         return data
     },
 
     filterSalesData: function(allSales){
         let title = "Filtrar ventas";
-        let data = {
-            title,
-            label:      title,
-            counter:    0,
-            data:       salesFunctions.addUsername(allSales),
-            years:      salesFunctions.allYears(),
-            months:     functions.allMonths(),
-            toThousand: functions.toThousand
-        }
+        let data = this.basicData;
+
+        data.title =    title;
+        data.label =    data.title;
+        data.data =     salesFunctions.addUsername(allSales);
+        data.years =    salesFunctions.allYears();
+        data.months =   functions.allMonths();
+
         return data
     },
 
     saleDetailData: function(id){
         let sale = salesFunctions.filterByKey(id,"id");
-        sale = salesFunctions.addUsername(sale)[0];
-        title = "Detalle de venta";
-        let data = {
-            title,
-            sale,
-            counter: 0,
-            toThousand: functions.toThousand
-        }
+        let data = this.basicData;
+
+        data.title = "Detalle de venta";
+        data.sale = salesFunctions.addUsername(sale)[0];
+
         return data
     },
 
