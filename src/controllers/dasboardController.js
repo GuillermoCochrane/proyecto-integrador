@@ -90,7 +90,7 @@ const dasboardController = {
         if (data){
             return res.render("dashProductDetail", data)
         } else {
-            return res.redirect("/dashboard/notFound")
+            return res.redirect("/dashboard/productNotFound")
         }
     },
 
@@ -152,11 +152,15 @@ const dasboardController = {
 
     user: function(req,res){
         let user = userFunctions.filterByID(req.params.id)[0];
-        return res.render("dashboardUserDetail",{
-            title: "Detalle del usuario" + user.username,
-            categories: functions.allCategories(),
-            user
-        })
+        if (user){
+            return res.render("dashboardUserDetail",{
+                title: "Detalle del usuario" + user.username,
+                categories: functions.allCategories(),
+                user
+            })
+        } else {
+            return res.redirect("/dashboard/userNotFound")
+        }
     },
 
     profile: function(req,res){
@@ -297,8 +301,14 @@ const dasboardController = {
         return res.send(title/* "dashboardMain",{
             title
         } */)
-    }
+    },
 
+    userNotFound: function(req, res){
+        let title = "Usuario no encontrado";
+        return res.send(title/* "dashboardMain",{
+            title
+        } */)
+    },
 };
 
 module.exports = dasboardController;

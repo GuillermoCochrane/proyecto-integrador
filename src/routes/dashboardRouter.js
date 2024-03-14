@@ -34,7 +34,7 @@ router.get("/products/delete/:id", dashboardRouter.delete);
 router.delete("/products/delete/:id", dashboardRouter.destroy); 
 
 // Product not found 
-router.get("/notFound", dashboardRouter.productNotFound);
+router.get("/productNotFound", dashboardRouter.productNotFound);
 
 //Display all users and seachbar
 router.get("/users", dashboardRouter.allUsers);
@@ -43,6 +43,9 @@ router.get("/searchUsers", dashboardRouter.allUsers);
 
 //Change user profile
 router.put("/profile/:id", dashboardRouter.profile);
+
+// User not found 
+router.get("/userNotFound", dashboardRouter.userNotFound);
 
 //Display all sales
 router.get("/sales", dashboardRouter.allSales);
