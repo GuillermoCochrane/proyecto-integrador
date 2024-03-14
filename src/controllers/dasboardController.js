@@ -298,16 +298,16 @@ const dasboardController = {
 
     productNotFound: function(req, res){
         let title = "Producto no encontrado";
-        return res.send(title/* "dashboardMain",{
+        return res.render( "dashboardNotFound",{
             title
-        } */)
+        })
     },
 
     userNotFound: function(req, res){
         let title = "Usuario no encontrado";
-        return res.send(title/* "dashboardMain",{
+        return res.render( "dashboardNotFound",{
             title
-        } */)
+        })
     },
 };
 
