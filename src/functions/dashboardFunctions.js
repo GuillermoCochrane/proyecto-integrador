@@ -140,15 +140,20 @@ const dashboardFunctions ={
         return data
     },
 
-/*     userFunctions: userFunctions,
-
-    productFunctions: productFunctions,
-
-    mailfunctions: mailFunctions,
-
-    functions: functions,
-
-    salesFunctions: salesFunctions, */
+    notFoundTitle: function(id){
+        let title = "No encontrado";
+        let data = {
+            product:    "Producto",
+            user:       "Usuario",
+            sale:       "Venta",
+            status:     "Estado",
+            category:   "Categoría",
+        };
+        if(data[id]){
+            title = `${data[id]} no encontrado`
+        }
+        return title
+    },
 }
 
 module.exports = dashboardFunctions

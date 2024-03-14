@@ -90,14 +90,14 @@ const dasboardController = {
         if (data){
             return res.render("dashProductDetail", data)
         } else {
-            return res.redirect("/dashboard/productNotFound")
+            return res.redirect("/dashboard/notFound/product")
         }
     },
 
     editProduct: function(req,res){
         let product = productsFunctions.filterByID(req.params.id)[0];
         if (!product){
-            return res.redirect("/dashboard/notFound")
+            return res.redirect("/dashboard/notFound/product")
         }else{
             let data = functions.productFormData("Editando - " + product.name, product);
             data.edit = true;
@@ -126,9 +126,9 @@ const dasboardController = {
         let product = productsFunctions.filterByID(req.params.id)[0];
         let title = "Eliminando - " + product.name;
         let info = functions.productData(title, product, "Producto");
-        info.path = "dashboard/products"
+        info.path = "dashboard/products";
         if (!product){
-            return res.redirect("/products/notFound")
+            return res.redirect("/dashboard/notFound/product")
         }else{
             return res.render("dashboardConfirmDelete", info);
         }
@@ -159,7 +159,7 @@ const dasboardController = {
                 user
             })
         } else {
-            return res.redirect("/dashboard/userNotFound")
+            return res.redirect("/dashboard/notFound/user")
         }
     },
 
@@ -208,7 +208,12 @@ const dasboardController = {
 
     saleDetail: function(req,res){
         let data = dashboardFunctions.saleDetailData(req.params.saleID);
-        return res.render("dashboardSaleDetail", data)
+        if(!data.sale){
+            return res.redirect("/dashboard/notFound/sale")
+        } else {
+            return res.render("dashboardSaleDetail", data)
+        }
+        
     },
 
     allCategories: function(req,res){
@@ -217,12 +222,20 @@ const dasboardController = {
         let categoryID = req.params.idCategory;
 
         if(statusID){
-            data.status = functions.statusByID(statusID);
+            let status = functions.statusByID(statusID);
+            if (status == undefined){
+                return res.redirect("/dashboard/notFound/status")
+            }
+            data.status = status;
             data.tab = 2;
         };
 
         if(categoryID){
-            data.category = functions.categoryByID(categoryID);
+            let category = functions.categoryByID(categoryID);
+            if(category == undefined){
+                return res.redirect("/dashboard/notFound/category")
+            }
+            data.category = category;
         };
 
         return res.render("dashboardCategories", data )
@@ -296,15 +309,8 @@ const dasboardController = {
         }
     },
 
-    productNotFound: function(req, res){
-        let title = "Producto no encontrado";
-        return res.render( "dashboardNotFound",{
-            title
-        })
-    },
-
-    userNotFound: function(req, res){
-        let title = "Usuario no encontrado";
+    notFound: function(req, res){
+        let title = dashboardFunctions.notFoundTitle(req.params.id)
         return res.render( "dashboardNotFound",{
             title
         })

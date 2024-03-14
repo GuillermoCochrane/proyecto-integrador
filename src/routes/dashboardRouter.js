@@ -33,9 +33,6 @@ router.put("/products/edit/:id", upload.single("img"), productValidations, dashb
 router.get("/products/delete/:id", dashboardRouter.delete);
 router.delete("/products/delete/:id", dashboardRouter.destroy); 
 
-// Product not found 
-router.get("/productNotFound", dashboardRouter.productNotFound);
-
 //Display all users and seachbar
 router.get("/users", dashboardRouter.allUsers);
 router.get("/users/:id", dashboardRouter.user);
@@ -43,9 +40,6 @@ router.get("/searchUsers", dashboardRouter.allUsers);
 
 //Change user profile
 router.put("/profile/:id", dashboardRouter.profile);
-
-// User not found 
-router.get("/userNotFound", dashboardRouter.userNotFound);
 
 //Display all sales
 router.get("/sales", dashboardRouter.allSales);
@@ -81,7 +75,9 @@ router.put("/editStatus/:idStatus", statusValidations, dashboardRouter.editStatu
 router.get("/category/:idCategory", dashboardRouter.allProducts);
 router.get("/status/:idStatus", dashboardRouter.allProducts);
 
-/* // Create new catergory form
-router.get("/addCategory", dashboardRouter.newCategory); */
+
+//Not found 
+router.get("/notFound/:id", dashboardRouter.notFound);
+router.get("/notFound/", dashboardRouter.notFound);
 
 module.exports = router
