@@ -59,11 +59,9 @@ const userController = {
     },
 
     userNotFound: function(req,res){
-        return res.render("allProducts",{
-            products: [],
-            title:  "Usuario no encontrado" + functions.title,
-            label: "Usuario no encontrado", 
-        })
+        let data = usersFunctions.data("Usuario no encontrado");
+        data.products = [];
+        return res.render("allProducts",data)
     },
 
     detail: function(req,res){
