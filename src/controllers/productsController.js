@@ -23,18 +23,11 @@ const productsController ={
     },
 
     detail: function(req,res){
-        let product = productsFunctions.filterByID(req.params.id)[0];
+        let product = productsFunctions.detailData(req.params.id);
         if (!product){
             return res.redirect("/products/notFound")
         } else {
-            if(product){
-                product.finalPrice =  functions.finalPrice(product);
-            }
-            return res.render("productDetail",{
-                title: product.name,
-                product: product,
-                toThousand: functions.toThousand
-            })
+            return res.render("productDetail",product)
         }
     },
 

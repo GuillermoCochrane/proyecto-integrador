@@ -185,7 +185,22 @@ const productsFunctions ={
             userPreferences: reducedPreferences,
             title: title
         }
-    }
+    },
+
+    detailData: function(id) {
+        let product = this.filterByID(id)[0];
+        if (!product){
+            return false
+        } else {
+            product.finalPrice =  functions.finalPrice(product);
+            let data = {
+                title: product.name,
+                product: product,
+                toThousand: functions.toThousand
+            };
+            return data
+        }
+    },
 }
 
 module.exports = productsFunctions
