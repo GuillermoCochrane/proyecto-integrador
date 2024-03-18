@@ -3,32 +3,17 @@ const productsFunctions =require("../functions/productsFunctions")
 
 const mainController ={
     index: function(req,res){
-        let mostViewed = productsFunctions.sortByViews();
-        let topData = productsFunctions.arrayReducer(mostViewed,8)
-        let bottomData = productsFunctions.filterByKey(2,"status")
-        let topTitle = "Más Buscados"
-        let bottomTitle = "Novedades"
+        let data = productsFunctions.homeData();
         if(req.session.userlogged){
             let userPreferences = productsFunctions.recomended(req.session.userlogged);
-            if (userPreferences.userPreferences.length !=0 ){
-                topData = userPreferences.userPreferences;
+            if (userPreferences.userPreferences.length != 0 ){
+                data.sectionTop.data = userPreferences.userPreferences;
             } else{
                 topData = productsFunctions.filterByKey(4,"status")
             }
-            topTitle = userPreferences.title;
+            data.sectionTop.title = userPreferences.title;
         }
-        res.render("home",{
-            sectionTop: {
-                data: topData,
-                title: topTitle
-            },
-            sectionBottom: {
-                data: bottomData,
-                title: bottomTitle
-            },
-            title: "Bienvenido" + tools.title,
-            toThousand: tools.toThousand,
-        })
+        res.render("home",data)
     },
 
     search: function(req,res){
@@ -42,11 +27,11 @@ const mainController ={
     },
 
     help: function(req,res){
-        res.render("reference"/* ,{
+        res.render("help",{
             title: "Mapa del sitio" + tools.title,
             status: tools.allStatus(),
             categories: tools.allCategories()
-        } */)
+        })
     },
 
     status: function(req,res){

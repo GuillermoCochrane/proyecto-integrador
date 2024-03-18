@@ -6,6 +6,23 @@ const productsFunctions ={
 
     pathDB: path.join(__dirname, '../data/productsDataBase.json'),
 
+    homeData: function(){
+        let mostViewed = this.sortByViews();
+        let data = {
+            sectionTop: {
+                data: this.arrayReducer(mostViewed,8),
+                title: "Más Buscados"
+            },
+            sectionBottom: {
+                data: productsFunctions.filterByKey(2,"status"),
+                title: "Novedades"
+            },
+            title: "Bienvenido" + functions.title,
+            toThousand: functions.toThousand,
+        }
+        return data
+    },
+
     allProducts: function()  {
         let products = [];
         let readProducts = fs.readFileSync(this.pathDB, 'utf-8');
