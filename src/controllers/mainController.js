@@ -4,30 +4,27 @@ const productsFunctions =require("../functions/productsFunctions")
 const mainController ={
     index: function(req,res){
         let data = productsFunctions.homeData();
+
         if(req.session.userlogged){
             let userPreferences = productsFunctions.recomended(req.session.userlogged);
             if (userPreferences.userPreferences.length != 0 ){
                 data.sectionTop.data = userPreferences.userPreferences;
             } else{
-                topData = productsFunctions.filterByKey(4,"status")
+                data.sectionTop.data = productsFunctions.filterByKey(4,"status");
             }
             data.sectionTop.title = userPreferences.title;
         }
-        res.render("home",data)
+
+        return res.render("home",data)
     },
 
     search: function(req,res){
-        let searchResults = productsFunctions.search(req.query.search)
-        res.render("allProducts",{
-            title: searchResults.label + tools.title,
-            label: searchResults.label,
-            products: searchResults.results,
-            toThousand: tools.toThousand,
-        })
+        let data = productsFunctions.searchData(req.query.search);
+        return res.render("allProducts", data)
     },
 
     help: function(req,res){
-        res.render("help",{
+        return res.render("help",{
             title: "Mapa del sitio" + tools.title,
             status: tools.allStatus(),
             categories: tools.allCategories()
@@ -35,15 +32,15 @@ const mainController ={
     },
 
     status: function(req,res){
-        res.redirect("/products/status/"+req.body.status)
+        return res.redirect("/products/status/"+req.body.status)
     },
 
     category:   function(req,res){
-        res.redirect("/products/category/"+req.body.category)
+        return res.redirect("/products/category/"+req.body.category)
     },
 
     redirect: function(req,res){
-        res.redirect('/');
+        return res.redirect('/');
     },
 
 }

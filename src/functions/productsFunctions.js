@@ -23,6 +23,18 @@ const productsFunctions ={
         return data
     },
 
+    searchData: function(search){
+        let searchResults = this.search(search);
+        let data = {
+            title: searchResults.label + functions.title,
+            label: searchResults.label,
+            products: searchResults.results,
+            toThousand: functions.toThousand,
+        }
+
+        return data
+    },
+
     allProducts: function()  {
         let products = [];
         let readProducts = fs.readFileSync(this.pathDB, 'utf-8');
