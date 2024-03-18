@@ -34,13 +34,6 @@ const userController = {
         }
     },
 
-    profile: function(req,res){
-        let user = req.session.userlogged;
-        let purchases = salesFunctions.purchasesCounter(user.id);
-        let data = usersFunctions.userProfileData(user, purchases)
-        return res.render("userProfile", data)
-    },
-
     logout: function(req,res){
         res.clearCookie("userID")
         req.session.destroy();
@@ -118,15 +111,19 @@ const userController = {
         }
     },
 
+    profile: function(req,res){
+        let data = usersFunctions.userProfileData(req.session.userlogged)
+        return res.render("userProfile", data)
+    },
+
+
     changeAvatar:  function(req,res){
         let errors = validationResult(req);
         let file = req.file;
-        let user = req.session.userlogged;
-        let purchases = salesFunctions.purchasesCounter(user.id);
-        let data = usersFunctions.userProfileData(user, purchases);
+        let data = usersFunctions.userProfileData(req.session.userlogged);
 
         if (errors.isEmpty()){
-            usersFunctions.changeAvatar(user.id, file);
+            usersFunctions.changeAvatar(data.user.id, file);
             return res.redirect("/users/profile")
         } else {
             data.errors = errors.mapped();
@@ -137,12 +134,10 @@ const userController = {
     changePassword: function(req,res){
         let errors = validationResult(req);
         let info = req.body;
-        let user = req.session.userlogged;
-        let purchases = salesFunctions.purchasesCounter(user.id);
-        let data = usersFunctions.userProfileData(user, purchases);
+        let data = usersFunctions.userProfileData(req.session.userlogged);
 
         if (errors.isEmpty()){
-            usersFunctions.changePassword(user.id, info);
+            usersFunctions.changePassword(data.user.id, info);
             return res.redirect("/users/profile")
         } else { 
             data.errors = errors.mapped();
@@ -153,12 +148,10 @@ const userController = {
     updateData: function(req,res){
         let errors = validationResult(req);
         let info = req.body;
-        let user = req.session.userlogged;
-        let purchases = salesFunctions.purchasesCounter(user.id);
-        let data = usersFunctions.userProfileData(user, purchases);
+        let data = usersFunctions.userProfileData(req.session.userlogged);
 
         if (errors.isEmpty()){
-            usersFunctions.editUserData(user.id, info);
+            usersFunctions.editUserData(data.user.id, info);
             return res.redirect("/users/profile")
         } else { 
             data.errors = errors.mapped();

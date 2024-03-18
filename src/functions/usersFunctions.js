@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const functions = require('./functions');
+const salesFunctions = require("./salesFunctions")
 let bcrypt = require("bcryptjs");
 
 const usersFunctions ={
@@ -92,13 +93,13 @@ const usersFunctions ={
         return categories
     },
 
-    userProfileData: function(user, purchases){
+    userProfileData: function(user){
         let data = {
             title: user.name,
             user: user,
             old: user,
             categories: functions.allCategories(),
-            purchases: purchases
+            purchases: salesFunctions.purchasesCounter(user.id)
         }
         return data
     },
