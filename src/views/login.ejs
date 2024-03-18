@@ -4,6 +4,9 @@
     <%- include("./partials/headerStatic.ejs") %>
     <div class="main-border-form">
         <main>
+            <h2 class="title">
+                <%= label %>
+            </h2>
             <form action="/users/login" method="post" class="login-form">
                 <div class="login-item">
                     <label for="username">Nombre de usuari@</label>

@@ -7,17 +7,13 @@ const { validationResult } = require('express-validator');
 const userController = {
 
     index: function(req,res){
-        res.render("allUsers",{
-            title: "Todos los usuarios" + functions.title,
-            users: usersFunctions.allUsers(),
-            label: "Todos los usuarios",
-        })
+        let data = usersFunctions.data("Todos los usuarios");
+        data.users = usersFunctions.allUsers();
+        return res.render("allUsers",data)
     },
 
     login: function(req,res){
-        res.render("login",{
-            title: "Login" + functions.title,
-        })
+        return res.render("login",usersFunctions.data("Login"))
     },
 
     processLogin: function(req,res){
@@ -31,12 +27,10 @@ const userController = {
             }
             return res.redirect("/")
         } else {
-            let error = errors.mapped();
-            return res.render('login',{
-                title: "Login" + functions.title,
-                error: error,
-                old: req.body.username
-            })
+            let data = usersFunctions.data("Login");
+            data.error = errors.mapped();
+            data.old = req.body.username
+            return res.render('login', data)
         }
     },
 
