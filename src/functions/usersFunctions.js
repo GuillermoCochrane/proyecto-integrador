@@ -205,6 +205,21 @@ const usersFunctions ={
         let newUsers = users.filter((user)=> user.id != id);
 		this.store(newUsers);
         return true
+    },
+
+    detailData: function(id){
+        let user = usersFunctions.filterByID(id)[0];
+        if (!user){
+            return false
+        } else {
+            let data = {
+                title: user.name,
+                user: user,
+                profiles: this.profiles(),
+                categories: functions.allCategories()
+            };
+            return data
+        }
     }
 }
 

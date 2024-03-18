@@ -65,16 +65,11 @@ const userController = {
     },
 
     detail: function(req,res){
-        let user = usersFunctions.filterByID(req.params.id)[0];
+        let user = usersFunctions.detailData(req.params.id);
         if (!user){
             return res.redirect("/users/notFound")
         } else {
-            return res.render("userDetail",{
-                title: user.name,
-                user: user,
-                profiles: usersFunctions.profiles(),
-                categories: functions.allCategories()
-            })
+            return res.render("userDetail",user)
         }
     },
 
@@ -90,6 +85,7 @@ const userController = {
         let profiles = usersFunctions.profiles();
         profiles.pop();
         let old = functions.userFormData("Registrate", req.body, profiles);
+
         if (errors.isEmpty()){
             let id = usersFunctions.newUser(req.body);
             return res.redirect("/users/" + id)
@@ -104,6 +100,7 @@ const userController = {
         let profiles = usersFunctions.profiles();
         profiles.pop();
         let data = functions.userFormData(("Editando usuario: " + user.username), user , profiles)
+
         if (!user){
             return res.redirect("/users/notFound")
         }else{
@@ -118,6 +115,7 @@ const userController = {
         profiles.pop();
         let data = req.body;
         data.id = req.params.id;
+
         let old = functions.userFormData("Registrate", data, profiles);
         if (errors.isEmpty()){
             let id = usersFunctions.editUser(data.id, data, file);
@@ -134,6 +132,7 @@ const userController = {
         let user = req.session.userlogged;
         let purchases = salesFunctions.purchasesCounter(user.id);
         let data = usersFunctions.userProfileData(user, purchases);
+
         if (errors.isEmpty()){
             usersFunctions.changeAvatar(user.id, file);
             return res.redirect("/users/profile")
@@ -149,6 +148,7 @@ const userController = {
         let user = req.session.userlogged;
         let purchases = salesFunctions.purchasesCounter(user.id);
         let data = usersFunctions.userProfileData(user, purchases);
+
         if (errors.isEmpty()){
             usersFunctions.changePassword(user.id, info);
             return res.redirect("/users/profile")
@@ -164,6 +164,7 @@ const userController = {
         let user = req.session.userlogged;
         let purchases = salesFunctions.purchasesCounter(user.id);
         let data = usersFunctions.userProfileData(user, purchases);
+
         if (errors.isEmpty()){
             usersFunctions.editUserData(user.id, info);
             return res.redirect("/users/profile")
@@ -186,6 +187,7 @@ const userController = {
         let url =   req.protocol + '://' + req.get('host') + req.originalUrl;
         let errors = validationResult(req);
         let { email } = req.body;
+
         if (!errors.isEmpty()){
             return res.render('recovery',{
                 title: "Recuperar Contraseña - " + functions.title,
@@ -203,6 +205,7 @@ const userController = {
             });
         } else {
             let user = usersFunctions.filterByKey(email, "email")[0];
+
             if(user.token == req.body.token){
                 req.session.recovery = email;
                 return res.render("newPassword",{
@@ -226,6 +229,7 @@ const userController = {
     recoverLink: function(req,res){
         let {token} = req.params;
         let user = usersFunctions.filterByKeyExact(token,"token")[0];
+
         if(user){
             req.session.recovery = user.email;
             return res.render("newPassword",{
@@ -248,6 +252,7 @@ const userController = {
         let errors = validationResult(req);
         let email = req.session.recovery;
         let user = usersFunctions.filterByKey(email, "email")[0];
+
         if (errors.isEmpty()){
             usersFunctions.changePassword(user.id, req.body);
             req.session.destroy();
@@ -263,6 +268,7 @@ const userController = {
 
     delete: function(req,res){
         let user = usersFunctions.filterByID(req.params.id)[0];
+
         if(!user){
             return res.redirect("/users/notFound");
         }else{
