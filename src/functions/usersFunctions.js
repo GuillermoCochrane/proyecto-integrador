@@ -221,7 +221,26 @@ const usersFunctions ={
             };
             return data
         }
-    }
+    },
+
+    deleteData: function(id){
+        let user = usersFunctions.filterByID(id)[0];
+        if(!user){
+            return false
+        }else{
+            let product = {
+                id: user.id,
+                name: user.username,
+            };
+            let data = {
+                products: product,
+                title: "Eliminando - " + product.name,
+                label: "Usuario",
+                path: "users"
+            }
+            return data
+        };
+    },
 }
 
 module.exports = usersFunctions

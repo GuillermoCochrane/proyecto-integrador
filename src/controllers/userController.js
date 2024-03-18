@@ -252,21 +252,12 @@ const userController = {
     }, 
 
     delete: function(req,res){
-        let user = usersFunctions.filterByID(req.params.id)[0];
+        let data = usersFunctions.deleteData(req.params.id)
 
-        if(!user){
+        if(!data){
             return res.redirect("/users/notFound");
         }else{
-            let product = {
-                id: user.id,
-                name: user.username,
-            };
-            return res.render("confirmDelete",{
-                products: product,
-                title: "Eliminando - " + product.name,
-                label: "Usuario",
-                path: "users"
-            });
+            return res.render("confirmDelete",data);
         };
     },
 
