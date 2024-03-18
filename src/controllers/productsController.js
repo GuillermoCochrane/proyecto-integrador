@@ -59,11 +59,11 @@ const productsController ={
     },
 
     update: function(req,res){
-        let errors = validationResult(req);
-        let title = "Editando - " + req.body.name;
+        let errors = validationResult(req); 
         let data = req.body;
-        data.id = req.params.id
-        let old = functions.productFormData(title, data);
+        data.id = req.params.id;
+        let old = functions.productFormData(`Editando - ${req.body.name}`, data);
+
         if (errors.isEmpty()){
             let id = productsFunctions.editProduct(data.id, data, req.file);
             return res.redirect("/products/" + id);
@@ -75,9 +75,9 @@ const productsController ={
 
     delete: function(req,res){
         let product = productsFunctions.filterByID(req.params.id)[0];
-        let title = "Eliminando - " + product.name;
-        let info = functions.productData(title, product, "Producto");
+        let info = functions.productData(`Eliminando - ${product.name}`, product, "Producto");
         info.path = "products"
+
         if (!product){
             return res.redirect("/products/notFound")
         }else{
