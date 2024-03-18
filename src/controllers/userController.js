@@ -93,9 +93,7 @@ const userController = {
 
     edit: function(req,res){
         let user = usersFunctions.filterByID(req.params.id)[0];
-        let profiles = usersFunctions.profiles();
-        profiles.pop();
-        let data = functions.userFormData(("Editando usuario: " + user.username), user , profiles)
+        let data = functions.userFormData(("Editando usuario: " + user.username), user)
 
         if (!user){
             return res.redirect("/users/notFound")
@@ -107,12 +105,10 @@ const userController = {
     update: function(req, res){
         let errors = validationResult(req);
         let file = req.file;
-        let profiles = usersFunctions.profiles();
-        profiles.pop();
         let data = req.body;
         data.id = req.params.id;
 
-        let old = functions.userFormData("Registrate", data, profiles);
+        let old = functions.userFormData("Registrate", data);
         if (errors.isEmpty()){
             let id = usersFunctions.editUser(data.id, data, file);
             return res.redirect("/users/"+id)
