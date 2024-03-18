@@ -9,6 +9,16 @@ const usersFunctions ={
 
     pathProfile: path.join(__dirname,"../data/profileDataBase.json"),
 
+    title: " - MultiHogar",
+
+    data: function(title){
+        let data ={
+            title: title + this.title,
+            label: title
+        };
+        return data
+    },
+
     allUsers: function()  {
         let users = [];
         let readUsers = fs.readFileSync(this.pathDB, 'utf-8');
