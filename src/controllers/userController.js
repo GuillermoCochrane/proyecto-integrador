@@ -74,17 +74,13 @@ const userController = {
     },
 
     register: function(req, res){
-        let profiles = usersFunctions.profiles();
-        profiles.pop();
-        let data = functions.userFormData("Registrate", [] , profiles)
+        let data = functions.userFormData("Registrate", [] )
         res.render("userRegister", data)
     },
 
     store:  function(req, res){
         let errors = validationResult(req);
-        let profiles = usersFunctions.profiles();
-        profiles.pop();
-        let old = functions.userFormData("Registrate", req.body, profiles);
+        let old = functions.userFormData("Registrate", req.body);
 
         if (errors.isEmpty()){
             let id = usersFunctions.newUser(req.body);
