@@ -42,8 +42,28 @@
             <div class="profile-data">
                 
                 <section class="profile-user-data" id="profile-user-data">
-                    <div class="user-data-container">
-                        <article class="user-data">
+
+                    <article class="user-data-buttons profile-buttons">
+
+                            <button onclick="toggleElement(1)">
+                                Información del usuario
+                            </button>
+
+                            <button onclick="toggleElement(4)">
+                                Editar Información
+                            </button>
+                        
+                            <button onclick="toggleElement(2)">
+                                Cambiar contraseña
+                            </button>
+                        
+                            <button onclick="toggleElement(3)">
+                                Cambiar Avatar
+                            </button>
+                    </article>
+
+                    <article class="user-data-container" id="user-info" <%= (locals.errors ) ? "hidden" : null %>>
+                        <section class="user-data">
                             <ul>
                                 <li> 
                                     <div class="user-data-title">
@@ -81,8 +101,8 @@
                                     <p><%= user.phone %> </p>
                                 </li>
                             </ul>    
-                        </article>
-                        <article class="user-interest">
+                        </section>
+                        <section class="user-interest">
                             <ul>
                                 <h3>Intereses</h3>
                                 <% for (const interes of user.categories) { %>
@@ -93,27 +113,10 @@
                                     </li>
                                 <% } %>
                             </ul>
-                        </article>
-                    </div>
-                    <div class="user-data-buttons">
-                        <a href="#">
-                            <button id="edit-user-data">
-                                Editar Informacion
-                            </button>
-                        </a>
-                        <a href="#">
-                            <button id="change-user-password">
-                                Cambiar contraseña
-                            </button>
-                        </a>
-                        <a href="#" id="change-user-avatar">
-                            <button>
-                                Cambiar Avatar
-                            </button>
-                        </a>
-                    </div>
+                        </section>
+                    </article>
 
-                    <div class="user-data-container <%= (locals.errors && errors.password) ? null : "hidden" %>" id="password-change-form">
+                    <article class="user-data-container <%= (locals.errors && errors.password) ? null : "hidden" %>" id="password-change-form">
                         <form action="/users/password?_method=PUT" method="post" class="form-frame">
                             <%- include("./partials/userFormPassword.ejs") %>
                             <div class="profile-button-box">
@@ -126,9 +129,9 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
+                    </article>
 
-                    <div class="user-data-container <%= (locals.errors && errors.avatar) ? null : "hidden" %>" id="avatar-change-form">
+                    <article class="user-data-container <%= (locals.errors && errors.avatar) ? null : "hidden" %>" id="avatar-change-form">
                         <form action="/users/avatar?_method=PUT" method="post" class="form-frame"  enctype="multipart/form-data">
                             <%- include("./partials/userFormAvatar.ejs") %>
                             <div class="profile-button-box">
@@ -141,13 +144,13 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
+                    </article>
 
-                    <div class="user-data-container <%= (locals.errors && errors.form) ? null : "hidden" %>" id="profile-edit-form">
+                    <article class="user-data-container <%= (locals.errors && errors.form) ? null : "hidden" %>" id="profile-edit-form">
                         <form action="/users/editdata?_method=PUT" method="post" class="form-frame">
                             <%- include("./partials/userForm.ejs") %>
                         </form>
-                    </div>
+                    </article>
 
                 </section>
         
@@ -192,5 +195,6 @@
     </main>
     <%- include("./partials/footer.ejs") %>
 
+    <script src="/js/profile.js"></script>
 </body>
 </html>
