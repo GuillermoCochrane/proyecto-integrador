@@ -112,6 +112,7 @@ const productsFunctions ={
 			category: 		parseInt(data.category),
 			description: 	data.description,
 			image: 			file.filename,
+            sales:          0,
             views:          0
 		};
         let products = this.allProducts();

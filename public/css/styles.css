@@ -676,6 +676,7 @@ footer section p {
     align-items: center;
 }
 
+.form-label,
 .form-label-product {
     display: inline-block;
     font-size: 16px;
@@ -689,6 +690,7 @@ footer section p {
     font-weight: bold;
 }
 
+.form-input,
 .form-input-product {
     display: block;
     width: 100%;
