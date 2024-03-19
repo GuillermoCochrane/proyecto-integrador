@@ -112,8 +112,8 @@ const productsFunctions ={
 			category: 		parseInt(data.category),
 			description: 	data.description,
 			image: 			file.filename,
+            views:          0,
             sales:          0,
-            views:          0
 		};
         let products = this.allProducts();
         products.push(newProduct);
