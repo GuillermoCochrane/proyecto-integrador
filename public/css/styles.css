@@ -342,15 +342,14 @@ footer section p {
 .login-form,
 .form-frame {
     margin: auto;
-    margin-top: 20px;
-    padding: 10px 16px;
+    /* margin-top: 20px; */
+    padding: 0px 16px;
     width: 80%;
     background-color: #666666;
     font-size: 15px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    align-items: top;
 }
 
 .login-form {
@@ -911,7 +910,7 @@ textarea.form-input-product{
 }
 
 .username-box{
-    margin: 0;
+    margin: 5px 0px;
     font-size: 22px;
     padding: 10px;
     text-align: center;
@@ -1053,6 +1052,10 @@ textarea.form-input-product{
     font-weight: bold;
     border-top: 2px solid #444444;
     border-left: 2px solid #444444;
+}
+
+.profile-buttons{ 
+    background-color: #ebebeb;
 }
 
 /* profile table */
@@ -1342,7 +1345,7 @@ table {
     }
     
     .user-data-buttons{
-        margin: 10px;
+        /* margin: 10px; */
     }
     
     .user-data-buttons button{
