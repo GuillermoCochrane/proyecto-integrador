@@ -25,8 +25,14 @@ header {
     z-index: 100;
 }
 
+header.main-header{
+    box-shadow: 0px 2px 7px 0px rgba(50,50,50,0.6);
+}
+
+
 header.fixed{
     position: fixed;
+    box-shadow: 0px 2px 7px 0px rgba(50,50,50,0.6);
 }
 
 .logo-search {
@@ -367,7 +373,7 @@ footer section p {
 .login-item label,
 .form-item label {
     display: block;
-    margin: 3px 1px;
+    margin-bottom: 3px;
     font-weight: bold;
 }
 
@@ -376,7 +382,7 @@ footer section p {
     width: 100%;
     border: none;
     padding: 3px 5px;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
     border-radius: 5px;
 }
 
@@ -386,42 +392,15 @@ footer section p {
 
 .form-radio {
     display: flex;
+    min-width: 45%;
+    margin: 0px 4px;
 }
 
 .form-radio input {
     margin: 5px;
 }
 
-.form-buttons{
-    width: 90%;
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 5px;
-}
 
-.login-form button,
-.form-buttons button {
-    margin: 0 5px;
-    font-size: 15px;
-    padding: 3px;
-    font-weight: bolder;
-    background-color: #629398;
-    color: #03264C;
-    border-radius: 5px;
-}
-
-.login-form button {
-    width: 50%;
-    margin: 15px 0;
-    padding: 8px;
-    font-size: 20px;
-    transition: 450ms all;
-}
-
-.login-form button:hover {
-    background-color: #03264C;
-    color: #d48502;
-}
 
 .login-options-container{
     width: 100%;
@@ -961,8 +940,8 @@ textarea.form-input-product{
 }
 
 .user-data-container{
-    /* margin: 5px 0; */
-    /* margin-left: 5px; */
+    margin: 5px 0;
+    margin-left: 3px;
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -1050,7 +1029,7 @@ textarea.form-input-product{
 }
 
 .user-data-buttons{
-    margin: 10px 0;
+    margin: 5px 0;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -1068,6 +1047,36 @@ textarea.form-input-product{
     border-top: 2px solid #444444;
     border-left: 2px solid #444444;
     width: 146px;
+}
+
+.form-buttons{
+    width: 98%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+}
+
+.login-form button,
+.form-buttons button {
+    margin: 0 5px;
+    font-size: 15px;
+    padding: 8px 0;
+    font-weight: bolder;
+    background-color: #629398;
+    color: #03264C;
+}
+
+.login-form button {
+    width: 50%;
+    margin: 15px 0;
+    padding: 8px;
+    font-size: 20px;
+    transition: 450ms all;
+}
+
+.login-form button:hover {
+    background-color: #03264C;
+    color: #d48502;
 }
 
 /* profile table */
@@ -1198,9 +1207,19 @@ table {
     }
 
     .form-item{
+        margin: 0px;
         max-width: 45%;
         flex: 0 0 45%;
     }
+
+    .form-radio-container{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: flex-start;
+        margin-top: 8px;
+    }
+
     .product-detail-description,
     .detail-description {
         font-size: 18px;
@@ -1236,7 +1255,7 @@ table {
         position: relative;
         width: 100%;
         flex: 0 0 100%;
-        max-width: 94%
+        max-width: 100%;
     }
 
     .form-big-box{
@@ -1291,17 +1310,25 @@ table {
     .profile-container{
         display: flex;
         padding: 5px;
-        align-items: stretch;
-        justify-content: space-evenly;
     }
     
     .profile-avatar-box{
         padding: 9px;
         justify-content: flex-start;
+        min-height: 402px;
     }
 
     .avatar-box{
         margin: 0;
+    }
+
+    .avatar-box img{
+        height: 200px;
+        width: 200px;
+    }
+
+    .profile-info{
+        width: 109%;
     }
 
     .profile-button-box{
@@ -1309,7 +1336,7 @@ table {
     }
     .profile-data{
         margin: 10px 3px;
-        width: 100%;
+        width: 75%;
     }
 
     .profile-user-data{
@@ -1317,11 +1344,13 @@ table {
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 100%;
     }
 
     .user-data-container{
         font-size: 20px;
-        align-self: stretch;
+        width: 80%;
+        margin: auto;
     }
 
     .user-data{
@@ -1358,9 +1387,13 @@ table {
     
     
     .user-data-buttons button{
-        margin: 0px 20px;
+        margin: 6px 20px;
         padding: 5px 0;
         font-size: 15px;
+    }
+
+    .form-buttons button{
+        margin: auto;
     }
 
     .hidden1 {

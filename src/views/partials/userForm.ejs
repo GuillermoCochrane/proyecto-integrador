@@ -20,21 +20,24 @@
 
     <div class="form-item">
         <label >Categorías de interés</label>
-        <% for (const category of categories) { %>
-            <div class="form-radio">
-                <input  type="checkbox" 
-                        name="categories" 
-                        value="<%= category.id %>" 
-                        id="<%= category.category %>" 
-                        <% if (locals.old && old.categories) { %>
-                            <% for (const interest of old.categories) { %>
-                                <%= (interest == category.id) ? 'checked' : null %>
+        <div class="form-radio-container">
+            <% for (const category of categories) { %>
+                <div class="form-radio">
+                    <input  type="checkbox" 
+                            name="categories" 
+                            value="<%= category.id %>" 
+                            id="<%= category.category %>" 
+                            <% if (locals.old && old.categories) { %>
+                                <% for (const interest of old.categories) { %>
+                                    <%= (interest == category.id) ? 'checked' : null %>
+                                <% } %>
                             <% } %>
-                        <% } %>
-                >
-                <label for="<%= category.category %>"><%= category.category %></label>
-            </div>
-        <% } %>
+                    >
+                    <label for="<%= category.category %>"><%= category.category %></label>
+                </div>
+            <% } %>
+        </div>
+        
     </div>
     <% if (!isLogged) { %>
         
