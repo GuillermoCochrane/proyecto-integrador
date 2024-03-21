@@ -917,12 +917,13 @@ textarea.form-input-product{
 }
 
 .profile-button-box{
-    margin: 0;
+    margin: auto;
     display: flex;
-    padding: 5px;
-    justify-content: space-around;
+    padding: 10px;
+    justify-content: space-evenly;
     align-items: center;
     width: 100%;
+    font-size: 15px;
 }
 
 .button-container{
@@ -936,6 +937,7 @@ textarea.form-input-product{
     width: 100%;
 }
 
+.profile-button-box button,
 .button-container button{
     padding: 5px 15px;
     border-radius: 8px;
@@ -944,7 +946,7 @@ textarea.form-input-product{
     font-weight: bold;
     border-top: 2px solid #444444;
     border-left: 2px solid #444444;
-    margin: 0px 19px;
+    margin: 0;
 }
 
 .profile-data{
