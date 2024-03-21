@@ -37,7 +37,7 @@
         <div class="profile-data">
             <section class="profile-user-data" id="profile-user-data">
 
-                <nav class="user-data-buttons profile-buttons">
+                <nav class="user-data-buttons">
 
                         <button onclick="toggleElement(1)">
                             Datos del usuario
@@ -60,6 +60,11 @@
                 <section class="profile-info">
                     <article class="user-data-container" id="user-info" <%= (locals.errors ) ? "hidden" : null %>>
                         <ul class="user-data">
+                            <li>
+                                <h3>
+                                    Datos personales
+                                </h3>
+                            </li>
                             <li> 
                                 <header class="user-data-title">
                                     <i class="fa-solid fa-address-card"></i>
@@ -95,10 +100,14 @@
                                 </header>    
                                 <p><%= user.phone %> </p>
                             </li>
+                            <li>
+                                <hr class="profile-divider">
+                            </li>
                         </ul>    
-                        
                         <ul class="user-interest">
-                            <h3>Intereses</h3>
+                            <li>
+                                <h3>Intereses</h3>
+                            </li>
                             <% for (const interes of user.categories) { %>
                                 <li>
                                     <% for (const category of categories) {%>

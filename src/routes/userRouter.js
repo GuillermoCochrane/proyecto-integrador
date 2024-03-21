@@ -25,6 +25,7 @@ router.post('/login', loginValidations, userController.processLogin)
 
 //User Profile
 router.get("/profile", loggedMDW, userController.profile)
+router.get("/profile1", loggedMDW, userController.profile1)
 
 //User Logout
 router.get("/logout", loggedMDW, userController.logout)

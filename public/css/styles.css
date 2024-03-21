@@ -961,23 +961,23 @@ textarea.form-input-product{
 }
 
 .user-data-container{
-    margin: 5px 0;
-    margin-left: 5px;
+    /* margin: 5px 0; */
+    /* margin-left: 5px; */
     display: flex;
     width: 100%;
     justify-content: space-between;
-    align-items: stretch;
+    align-items: center;
     padding: 5px;
     background-color: #666666;
     border-radius: 13px;
-    font-size: 16px;
+    font-size: 17px;
+    flex-direction: column;
 }
 
 .user-data{
     margin: 0;
-    width: 50%;
-    background-color: #666666;
-    text-align: left;
+    list-style: none;
+    width: 90%;
 }
 
 .user-data ul{
@@ -987,44 +987,53 @@ textarea.form-input-product{
 
 .user-data li{
     margin: auto;
-    margin: 5px 0px;
+    margin: 7px 0px;
+}
+
+.user-data li hr{
+    margin: 18px;
+    border: #d48502 1px solid;
 }
 
 .user-data-title{
     display: flex;
-    margin: 2px;
+    margin: auto;
     color: #d48502;
+    padding: 2px 0;
+    align-items: baseline;
 }
 
 .user-data i{
     margin: 0;
-    margin-right: 6px;
+    margin-right: 8px;
     color: #03264C;
 }
 
 .user-data h4{
     margin: 0;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .user-data p{
     margin: auto;
     color: #03264C;
-    font-size: 15px;
+    font-weight: bold;
 }
 
 .user-interest{
     margin: 0;
-    width: 50%;
-    text-align: right;
+    text-align: center;
     background-color: #666666;
+    list-style: none;
 }
 
+.user-data h3,
 .user-interest h3{
     margin: 0px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     font-size: 24px;
     color: #03264C;
+    text-align: center;
 }
 
 .user-interest ul{
@@ -1035,7 +1044,7 @@ textarea.form-input-product{
     list-style: none;
 }
 .user-interest li{
-    margin: 3px 0;
+    margin: 10px 0;
     font-size: 19px;
     font-weight: bold;
 }
@@ -1046,7 +1055,6 @@ textarea.form-input-product{
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    background-color: #ebebeb;
 }
 
 .user-data-buttons button{
@@ -1060,9 +1068,6 @@ textarea.form-input-product{
     border-top: 2px solid #444444;
     border-left: 2px solid #444444;
     width: 146px;
-}
-
-.profile-buttons{
 }
 
 /* profile table */
@@ -1351,9 +1356,6 @@ table {
         font-weight: bold;
     }
     
-    .user-data-buttons{
-        /* margin: 10px; */
-    }
     
     .user-data-buttons button{
         margin: 0px 20px;
