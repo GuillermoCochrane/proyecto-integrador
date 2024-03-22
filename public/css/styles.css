@@ -1054,6 +1054,13 @@ textarea.form-input-product{
     width: 146px;
 }
 
+.user-data-buttons button:hover,
+.profile-button-box button:hover,
+.login-form button:hover {
+    background-color: #03264C;
+    color: #d48502;
+}
+
 .form-buttons{
     width: 98%;
     display: flex;
@@ -1079,10 +1086,7 @@ textarea.form-input-product{
     transition: 450ms all;
 }
 
-.login-form button:hover {
-    background-color: #03264C;
-    color: #d48502;
-}
+
 
 /* profile table */
 .purchase-history{
