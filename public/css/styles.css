@@ -348,14 +348,14 @@ footer section p {
 .login-form,
 .form-frame {
     margin: auto;
-    /* margin-top: 20px; */
-    padding: 0px 16px;
-    width: 80%;
+    padding: 8px 16px;
+    width: 100%;
     background-color: #666666;
     font-size: 15px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    border-radius: 10px;
 }
 
 .login-form {
@@ -947,7 +947,7 @@ textarea.form-input-product{
     justify-content: space-between;
     align-items: center;
     padding: 5px;
-    background-color: #666666;
+    background-color: #ebebeb;
     border-radius: 13px;
     font-size: 17px;
     flex-direction: column;
@@ -955,8 +955,11 @@ textarea.form-input-product{
 
 .user-data{
     margin: 0;
+    padding-inline: 10px;
     list-style: none;
-    width: 90%;
+    width: 100%;
+    background-color: #666666;
+    border-radius: 10px 10px 0 0;
 }
 
 .user-data ul{
@@ -1004,6 +1007,8 @@ textarea.form-input-product{
     text-align: center;
     background-color: #666666;
     list-style: none;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
 }
 
 .user-data h3,
@@ -1334,6 +1339,11 @@ table {
     .profile-button-box{
         flex-direction: column;
     }
+
+    .profile-button-box button{
+        margin: 5px 0;
+    }
+
     .profile-data{
         margin: 10px 3px;
         width: 75%;
@@ -1349,7 +1359,11 @@ table {
 
     .user-data-container{
         font-size: 20px;
-        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 366px;
+        width: 85%;
         margin: auto;
     }
 
