@@ -959,7 +959,6 @@ textarea.form-input-product{
     list-style: none;
     width: 100%;
     background-color: #666666;
-    border-radius: 10px 10px 0 0;
 }
 
 .user-data ul{
@@ -972,9 +971,11 @@ textarea.form-input-product{
     margin: 7px 0px;
 }
 
-.user-data li hr{
+.user-data-container hr{
     margin: 18px;
     border: #d48502 1px solid;
+    background-color: #666;
+    color: #666;
 }
 
 .user-data-title{
@@ -1011,12 +1012,17 @@ textarea.form-input-product{
     border-radius: 0 0 10px 10px;
 }
 
-.user-data h3,
-.user-interest h3{
+.user-data-container h3{
     margin: 0px;
     font-size: 24px;
     color: #03264C;
     text-align: center;
+    background-color: #666;
+    width: 100%;
+}
+
+.user-data-container h3:first-child{
+    border-radius: 10px 10px 0 0;
 }
 
 .user-interest ul{
@@ -1323,7 +1329,7 @@ table {
     .profile-avatar-box{
         padding: 9px;
         justify-content: flex-start;
-        min-height: 442px;
+        min-height: 407px;
     }
 
     .avatar-box{
@@ -1365,7 +1371,7 @@ table {
         display: flex;
         justify-content: center;
         align-items: center;
-        min-height: 373px;
+        min-height: 335px;
         width: 85%;
         margin: auto;
         background-color: #444;
@@ -1380,6 +1386,7 @@ table {
 
     .user-data{
         padding-top: 5px;
+        /* justify-content: space-evenly; */
     }
 
     .user-interest{
@@ -1389,15 +1396,15 @@ table {
     
     .user-interest li,
     .user-data li{
-        margin: 3px 10px;
+        margin: 3px 0px;
+        margin-right: auto;
         display: block;
         min-width: 45%;
     }
 
-    .user-data li hr{
+    .user-data-container hr{
         min-width: 400px;
-        margin-top: 12px;
-        margin-bottom: 0px;
+        margin: 5px;
         margin-inline: auto;
     }
 
@@ -1419,10 +1426,10 @@ table {
         font-weight: bold;
     }
 
-    .user-data h3,
-    .user-interest h3{
+    .user-data-container h3{
         margin-inline: auto;
         min-width: 400px;
+        width: 100%;
     }
     
     .user-interest li{

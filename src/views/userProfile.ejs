@@ -59,12 +59,10 @@
                 
                 <section class="profile-info">
                     <article class="user-data-container" id="user-info" <%= (locals.errors ) ? "hidden" : null %>>
+                        <h3>
+                            Datos personales
+                        </h3>
                         <ul class="user-data">
-                            <li>
-                                <h3>
-                                    Datos personales
-                                </h3>
-                            </li>
                             <li> 
                                 <header class="user-data-title">
                                     <i class="fa-solid fa-address-card"></i>
@@ -100,14 +98,11 @@
                                 </header>    
                                 <p><%= user.phone %> </p>
                             </li>
-                            <li>
-                                <hr class="profile-divider">
-                            </li>
-                        </ul>    
+                        </ul>
+
+                        <h3>Intereses</h3>
+
                         <ul class="user-interest">
-                            <li>
-                                <h3>Intereses</h3>
-                            </li>
                             <% for (const interes of user.categories) { %>
                                 <li>
                                     <% for (const category of categories) {%>
