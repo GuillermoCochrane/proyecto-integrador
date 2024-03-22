@@ -1014,7 +1014,6 @@ textarea.form-input-product{
 .user-data h3,
 .user-interest h3{
     margin: 0px;
-    margin-bottom: 10px;
     font-size: 24px;
     color: #03264C;
     text-align: center;
@@ -1324,7 +1323,7 @@ table {
     .profile-avatar-box{
         padding: 9px;
         justify-content: flex-start;
-        min-height: 402px;
+        min-height: 442px;
     }
 
     .avatar-box{
@@ -1366,21 +1365,48 @@ table {
         display: flex;
         justify-content: center;
         align-items: center;
-        min-height: 366px;
+        min-height: 373px;
         width: 85%;
         margin: auto;
+        background-color: #444;
+    }
+
+    .user-interest,
+    .user-data{
+        display: flex;
+        flex-wrap: wrap;
+        margin-inline: auto;
     }
 
     .user-data{
-        display: flex;
+        padding-top: 5px;
     }
-        
-    .user-data li{
-        margin: 12px 0px;
+
+    .user-interest{
+        justify-content: center;
+        padding-bottom: 7px;
     }
     
+    .user-interest li,
+    .user-data li{
+        margin: 3px 10px;
+        display: block;
+        min-width: 45%;
+    }
+
+    .user-data li hr{
+        min-width: 400px;
+        margin-top: 12px;
+        margin-bottom: 0px;
+        margin-inline: auto;
+    }
+
+    .user-interest li{
+        margin: 0;
+    }
+
     .user-data-title{
-        margin: 8px 0;
+        margin: 2px 0;
     }
     
     .user-data h4{
@@ -1392,13 +1418,15 @@ table {
         font-size: 18px;
         font-weight: bold;
     }
-    
+
+    .user-data h3,
     .user-interest h3{
-        margin: 10px 0;
+        margin-inline: auto;
+        min-width: 400px;
     }
     
     .user-interest li{
-        margin: 10px 0;
+        margin: 5px 0;
         font-size: 18px;
         font-weight: bold;
     }
