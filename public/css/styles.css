@@ -1039,11 +1039,14 @@ textarea.form-input-product{
 }
 
 .user-data-buttons{
-    margin: 5px 0;
+    margin-bottom: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    /* background-color: #444; */
+    border-radius: 14px;
+    margin-inline: auto;
 }
 
 .user-data-buttons button{
