@@ -1401,9 +1401,10 @@ table {
     
     
     .user-data-buttons button{
-        margin: 6px 20px;
+        margin: 5px 10px;
         padding: 5px 0;
         font-size: 15px;
+        width: 100px;
     }
 
     .form-buttons button{
