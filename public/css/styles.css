@@ -1582,7 +1582,7 @@ table {
     }
 
     .user-interest{
-        margin-right: 30px;
+        padding-inline: 30px;
     }
 
     .user-data-buttons button{
@@ -1593,6 +1593,10 @@ table {
     .user-data li{
         min-width: 30%;
         margin-right: revert;
+    }
+
+    .user-interest li{
+        min-width: 30%;
     }
 
     .table-responsive {
