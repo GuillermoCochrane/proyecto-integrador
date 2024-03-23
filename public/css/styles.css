@@ -1590,6 +1590,11 @@ table {
         margin-inline: 35px;
     }
 
+    .user-data li{
+        min-width: 30%;
+        margin-right: revert;
+    }
+
     .table-responsive {
         display: block;
         overflow-x: auto;
