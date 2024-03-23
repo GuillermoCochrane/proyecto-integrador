@@ -1004,6 +1004,7 @@ textarea.form-input-product{
 }
 
 .user-data-container h3:first-child{
+    padding-top: 5px;
     border-radius: 10px 10px 0 0;
 }
 
@@ -1327,6 +1328,7 @@ table {
 
     .profile-info{
         width: 109%;
+        margin-block: auto;
     }
 
     .profile-button-box{
@@ -1355,7 +1357,7 @@ table {
         display: flex;
         justify-content: center;
         align-items: center;
-        min-height: 335px;
+        min-height: 340px;
         width: 85%;
         margin: auto;
         background-color: #444;
@@ -1575,6 +1577,19 @@ table {
     .profile-container{
         width: 80%;
         margin: auto;
+    }
+
+    .user-data-container{
+        min-height: 320px;
+    }
+
+    .profile-avatar-box{
+        min-height: 390px;
+    }
+
+    .profile-user-data{
+        justify-content: space-between;
+        /* min-height: 355px; */
     }
 
     .user-data ul{
