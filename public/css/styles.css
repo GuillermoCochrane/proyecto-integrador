@@ -412,8 +412,6 @@ footer section p {
 }
 
 .login-options{
-    /* display: flex; */
-    /* justify-content: space-between; */
     font-size: 14px;
     color: #03264C;
     margin: 10px 0;
@@ -437,8 +435,6 @@ footer section p {
     overflow: hidden;
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-between; */
-    /* align-items: center; */
 }
 .prooduct-detail-box,
 .detail-img-description-box {
@@ -905,21 +901,7 @@ textarea.form-input-product{
     font-size: 15px;
 }
 
-.button-container{
-    margin: auto;
-    padding: 5px;
-    font-size: 15px;
-    /* eliminar */
-}
-
-.button-container a{
-    margin: auto;
-    width: 100%;
-    /* eliminar */
-}
-
-.profile-button-box button,
-.button-container button{ /* eliminar */
+.profile-button-box button { 
     padding: 5px 8px;
     border-radius: 8px;
     color: #03264C;
@@ -1044,7 +1026,6 @@ textarea.form-input-product{
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    /* background-color: #444; */
     border-radius: 14px;
     margin-inline: auto;
 }
@@ -1389,7 +1370,6 @@ table {
 
     .user-data{
         padding-top: 5px;
-        /* justify-content: space-evenly; */
     }
 
     .user-interest{
@@ -1607,7 +1587,7 @@ table {
 
     .user-data-buttons button{
         padding: 5px;
-        margin: 0px 60px;
+        margin-inline: 35px;
     }
 
     .table-responsive {
