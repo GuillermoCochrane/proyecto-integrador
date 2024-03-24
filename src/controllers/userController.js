@@ -116,11 +116,6 @@ const userController = {
         return res.render("userProfile", data)
     },
 
-    profile1: function(req,res){
-        let data = usersFunctions.userProfileData(req.session.userlogged)
-        return res.render("userProfile1", data)
-    },
-
     changeAvatar:  function(req,res){
         let errors = validationResult(req);
         let file = req.file;

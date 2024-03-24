@@ -17,21 +17,20 @@ const mailUsernameValidations = require("../middlewares/userMailUsernameValidati
 router.get('/',userController.index);
 
 //User not found
-router.get('/notFound',userController.userNotFound)
+router.get('/notFound',userController.userNotFound);
 
 //User Login
 router.get('/login', guestMDW, userController.login);
-router.post('/login', loginValidations, userController.processLogin)
+router.post('/login', loginValidations, userController.processLogin);
 
 //User Profile
-router.get("/profile", loggedMDW, userController.profile)
-router.get("/profile1", loggedMDW, userController.profile1)
+router.get("/profile", loggedMDW, userController.profile);
 
 //User Logout
-router.get("/logout", loggedMDW, userController.logout)
+router.get("/logout", loggedMDW, userController.logout);
 
 //User test sessions
-router.get("/test", userController.test)
+router.get("/test", userController.test);
 
 //User Register
 router.get('/register', guestMDW, userController.register);
@@ -40,8 +39,6 @@ router.post("/register",upload.single("avatar"), mailUsernameValidations, passwo
 //Edit User
 router.get('/edit/:id', loggedMDW, userController.edit); 
 router.put('/edit/:id',upload.single("avatar"), userValidations, mailUsernameValidations, avatarValidations, passwordValidations, userController.update); 
-
-//edit profile:
 
 //change password
 router.put('/password', passwordValidations, userController.changePassword);
@@ -58,9 +55,9 @@ router.get('/recovery/:token',  userController.recoverLink);
 
 //Delete User
 router.get('/delete/:id', loggedMDW, userController.delete);
-router.delete('/delete/:id', userController.destroy)
+router.delete('/delete/:id', userController.destroy);
 
 //User detailed info
-router.get("/:id", loggedMDW, userController.detail)
+router.get("/:id", loggedMDW, userController.detail);
 
 module.exports = router

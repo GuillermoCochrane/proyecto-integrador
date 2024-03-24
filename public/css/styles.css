@@ -1522,6 +1522,11 @@ table {
         flex: 0 0 45%;
     }
 
+    .big-box{
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+
     .form-big-box{
         margin-left: 70px;
     }
@@ -1589,7 +1594,6 @@ table {
 
     .profile-user-data{
         justify-content: space-between;
-        /* min-height: 355px; */
     }
 
     .user-data ul{
