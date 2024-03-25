@@ -19,7 +19,8 @@ const mainController ={
 
     edit: function(req,res){
         let id = req.params.id;
-        let data = cartFunctions.editCartData(id)
+        let username = req.session.userlogged;
+        let data = cartFunctions.editCartData(id,username);
         res.render("cartEdit", data)
     },
 

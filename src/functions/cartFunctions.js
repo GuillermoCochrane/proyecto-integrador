@@ -123,13 +123,12 @@ const cartFunctions = {
         return cartData
     },
 
-    editCartData: function(id){
+    editCartData: function(id,name){
         let entry = this.filterByID(id)[0];
-        let user = userFunctions.filterByID(entry.userID)[0]
         let product = productFunctions.filterByID(entry.productID)[0]
         let data = {
             id:         id,
-            username:   user.username,
+            username:   name,
             product:    product.name,
             image:      product.image,
             quantity:   entry.quantity,
