@@ -99,6 +99,7 @@ const usersFunctions ={
             user: user,
             old: user,
             categories: functions.allCategories(),
+            toThousand: functions.toThousand,
             purchases: salesFunctions.purchasesCounter(user.id)
         }
         return data

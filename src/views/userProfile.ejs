@@ -164,7 +164,7 @@
                                 <tr>
                                     <td><%= purchase.counter %></td>
                                     <td><%= purchase.day %>/<%= purchase.month %>/<%= purchase.year %></td>
-                                    <td>$<%= purchase.amount %></td>
+                                    <td>$<%= toThousand(purchase.amount) %></td>
                                     <td><%= purchase.quantity %></td>
                                     <td>
                                         <a href="/users/saleDetail/<%= purchase.id %>" >Ver Detalle</a>
