@@ -5,7 +5,12 @@
     <main class="main-border">
         
             <h2 class="title">
-                Carrito  de  <%= username %>
+                <% if (locals.cartButtons) { %>
+                    Carrito  de  <%= username %>
+                <% } else { %>
+                    Detalle de la compra del día: <%= day %>/<%= month %>/<%= year %>
+                <% } %>
+                
             </h2>
 
             <% for (product of products) {%>
@@ -17,9 +22,15 @@
             </h2>
 
             <div class="cart-buy-button">
+                <% if (locals.cartButtons) { %>
                 <form action="/cart/payment" method="post">
                     <button type="submit" class="buy-button-cart">Comprar</button>
-                </form>               
+                </form>
+                <% } else { %>
+                    <a href="/users/profile/">
+                        <button type="submit" class="buy-button-cart">Volver</button>
+                    </a>
+                <% } %>
             </div>
             
             
