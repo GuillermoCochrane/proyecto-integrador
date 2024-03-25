@@ -19,12 +19,15 @@
                     <h3 class="cart-product-final-price">Total: $<%= toThousand(product.amount) %></h3>
                 </div>
             </div>
-            <div class="cart-button-box">
-                <a href="/cart/edit/<%= product.cartID %>" class="description-button edit">EDITAR COMPRA</a>
-                <form action="/cart/delete/<%= product.cartID %>" method="get" style="display: inline-flex">
-                    <button type="submit" class="description-button delete">ELIMINAR</button>
-                </form>
-            </div>
+            <% if ( cartButtons ) { %>
+                <div class="cart-button-box">
+                    <a href="/cart/edit/<%= product.cartID %>" class="description-button edit">EDITAR COMPRA</a>
+                    <form action="/cart/delete/<%= product.cartID %>" method="get" style="display: inline-flex">
+                        <button type="submit" class="description-button delete">ELIMINAR</button>
+                    </form>
+                </div>
+            <% } %>
+            
         </div>
     </div>
 

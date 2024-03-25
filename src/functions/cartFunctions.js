@@ -115,6 +115,7 @@ const cartFunctions = {
         let {allproducts, cartAmount} = this.cartProducts(userID);
         let cartData = {
             toThousand: functions.toThousand,
+            cartButtons: true,
             cartAmount: cartAmount,
             username: name,
             title: "Carrito de " + name,
