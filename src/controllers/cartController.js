@@ -1,11 +1,11 @@
 const cartFunctions = require("../functions/cartFunctions");
 let salesFunctions = require("../functions/salesFunctions");
-let mailFunction = require("../functions/mailFunction")
+let mailFunction = require("../functions/mailFunction");
 
 const mainController ={
     index: function(req,res){
-        let userID = req.session.userlogged.id;
-        let cartData = cartFunctions.processCartData(userID)
+        let {username, id} = req.session.userlogged;
+        let cartData = cartFunctions.processCartData(id,username);
         return res.render("cart", cartData)
     },
 
