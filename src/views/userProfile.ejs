@@ -15,12 +15,12 @@
             
             <nav class="profile-button-box">
 
-                        <button class="button-container hidden" id="profile-data-button">
+                        <button class="hidden" id="profile-data-button">
                             Perfil
                         </button>
 
 
-                        <button class="button-container" id="profile-history-button">
+                        <button id="profile-history-button">
                             Compras
                         </button>
 
@@ -148,13 +148,14 @@
                 <table class="table table-bordered" cellspacing="0">
                     <thead>
                         <tr>
-                            <th colspan="4">Historial de compras</th>
+                            <th colspan="5">Historial de compras</th>
                         </tr>
                         <tr>
-                            <th> </th>
+                            <th>#</th>
                             <th>Fecha</th>
                             <th>Monto</th>
                             <th>Cantidad</th>
+                            <th>Detalle</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -162,9 +163,12 @@
                             <% for (const purchase of purchases) { %>
                                 <tr>
                                     <td><%= purchase.counter %></td>
-                                    <td><%= purchase.day %> / <%= purchase.month %> / <%= purchase.year %></td>
+                                    <td><%= purchase.day %>/<%= purchase.month %>/<%= purchase.year %></td>
                                     <td>$<%= purchase.amount %></td>
                                     <td><%= purchase.quantity %></td>
+                                    <td>
+                                        <a href="/users/saleDetail/:<%= purchase.id %>" >Ver Detalle</a>
+                                    </td>
                                 </tr>
                             <% } %>
                             <% } else { %>
