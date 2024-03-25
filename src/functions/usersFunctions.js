@@ -108,7 +108,7 @@ const usersFunctions ={
     saleDetail: function(id){
         let saleData = salesFunctions.filterByID(id)[0];
         saleData.cartAmount = saleData.amount;
-        saleData.title = `Detalle de compra del ${saleData.day}/${saleData.month}/${saleData.year}`;
+        saleData.title = `Detalle de compra: ${saleData.day}/${saleData.month}/${saleData.year}`;
         saleData.toThousand = functions.toThousand;
         return saleData
     },
