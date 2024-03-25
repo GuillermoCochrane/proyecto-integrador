@@ -105,6 +105,14 @@ const usersFunctions ={
         return data
     },
 
+    saleDetail: function(id){
+        let saleData = salesFunctions.filterByID(id)[0];
+        saleData.cartAmount = saleData.amount;
+        saleData.title = `Detalle de compra del ${saleData.day}/${saleData.month}/${saleData.year}`;
+        saleData.toThousand = functions.toThousand;
+        return saleData
+    },
+
     newUser: function(data){
         let newUser = {
 			id: 			this.newId(),

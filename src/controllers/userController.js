@@ -251,11 +251,8 @@ const userController = {
     },
     
     saleDetail: function(req,res){
-        let saleData = salesFunctions.filterByID(req.params.id)[0];
-        saleData.cartAmount = saleData.amount;
-        saleData.title = "Detalle de venta"
-        saleData.toThousand = functions.toThousand
-        return res.render("cart", saleData)
+        let data = usersFunctions.saleDetail(req.params.id);
+        return res.render("cart", data)
     },
 
     delete: function(req,res){
