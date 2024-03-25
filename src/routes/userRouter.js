@@ -26,6 +26,9 @@ router.post('/login', loginValidations, userController.processLogin);
 //User Profile
 router.get("/profile", loggedMDW, userController.profile);
 
+//Sale Detail
+router.get("/saleDetail/:id", loggedMDW, userController.saleDetail);
+
 //User Logout
 router.get("/logout", loggedMDW, userController.logout);
 

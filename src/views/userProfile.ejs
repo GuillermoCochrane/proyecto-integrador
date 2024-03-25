@@ -167,13 +167,13 @@
                                     <td>$<%= purchase.amount %></td>
                                     <td><%= purchase.quantity %></td>
                                     <td>
-                                        <a href="/users/saleDetail/:<%= purchase.id %>" >Ver Detalle</a>
+                                        <a href="/users/saleDetail/<%= purchase.id %>" >Ver Detalle</a>
                                     </td>
                                 </tr>
                             <% } %>
                             <% } else { %>
                                 <tr>
-                                    <th colspan="4">Aún no ha realizado compras</th>
+                                    <th colspan="5">Aún no ha realizado compras</th>
                                 </tr>
                         <% } %>
                     </tbody>

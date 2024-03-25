@@ -248,7 +248,12 @@ const userController = {
                 errors: errors.mapped(),
             })
         }
-    }, 
+    },
+    
+    saleDetail: function(req,res){
+        let saleData = salesFunctions.filterByID(req.params.id);
+        res.send(saleData);
+    },
 
     delete: function(req,res){
         let data = usersFunctions.deleteData(req.params.id)
