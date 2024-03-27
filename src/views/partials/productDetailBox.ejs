@@ -70,7 +70,7 @@
                 <% if (userlogged.profile == 3  && locals.dashboardlink ) { %>
 
                     <div class="button-box">
-                        <a href="<%=locals.dashboardlink ? dashboardlink : null %>/products/edit/<%= product.id %>" class="description-button edit">EDITAR PRODUCTO</a>
+                        <a href="<%=locals.dashboardlink ? dashboardlink : null %>/products/edit/<%= product.id %>" class="description-button edit">EDITAR</a>
                         <form action="<%=locals.dashboardlink ? dashboardlink : null %>/products/delete/<%= product.id %>" method="get" style="display: inline-flex">
                             <button type="submit" class="description-button delete">ELIMINAR</button>
                         </form>
