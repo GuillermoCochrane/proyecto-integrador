@@ -600,14 +600,20 @@ footer section p {
 }
 
 .description-button.edit {
-    background-color: chocolate;
+    background-color: var(--greengrey);
+    color: var(--darkblue);
 }
 
 .description-button.delete {
-    background-color: #d48502;
-    color:#03264C
+    background-color: var(--orange);
+    color: var(--darkblue);
 }
 
+.description-button.edit:hover,
+.description-button.delete:hover {
+    background-color: var(--darkblue);
+    color: var(--orange);
+}
 /* Create / Edit Form */
 .delete-product{
     width: 85%;
