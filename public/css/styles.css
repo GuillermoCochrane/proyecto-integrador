@@ -134,13 +134,24 @@ header.fixed{
 
 .close-menu1,
 .burger-menu1 {
-    background-color: #03264C;
-    color: #ebebeb;
+    display: inline-block;
+    border-radius: 7px;
     width: 36px;
     padding: 8px;
+    box-sizing: border-box;
+    /* Style */
+    border: none;
+    background-color: #03264C;
+    color: #ebebeb;
     font-size: 20px;
     text-align: center;
-    border-radius: 7px;
+    cursor: pointer;
+}
+
+
+.close-menu1:active,
+.burger-menu1:active {
+    filter: brightness(75%);
 }
 
 .main-navbar {
