@@ -134,10 +134,11 @@ header.fixed{
 
 .close-menu1,
 .burger-menu1 {
-    display: inline-block;
+    display: flex;
     border-radius: 7px;
     width: 36px;
-    padding: 8px;
+    height: 36px;
+    padding: 6px 8px;
     box-sizing: border-box;
     /* Style */
     border: none;
@@ -146,6 +147,8 @@ header.fixed{
     font-size: 20px;
     text-align: center;
     cursor: pointer;
+    align-items: center;
+    justify-content: center;
 }
 
 
