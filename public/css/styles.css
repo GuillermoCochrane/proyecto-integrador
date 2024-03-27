@@ -564,8 +564,10 @@ footer section p {
     justify-content: center;
     padding: 15px;
     border-radius: 8px;
-    border: none;
+    border-top: 2px solid #444444;
+    border-left: 2px solid #444444;
     margin: 5px 0;
+    font-weight: bolder;
     transition: 300ms ease-in-out;
 }
 
@@ -601,19 +603,19 @@ footer section p {
 }
 
 .description-button.edit {
-    background-color: var(--greengrey);
-    color: var(--darkblue);
+    background-color: #629398;
+    color: #03264C;
 }
 
 .description-button.delete {
-    background-color: var(--orange);
-    color: var(--darkblue);
+    background-color: #d48502;
+    color: #03264C;
 }
 
 .description-button.edit:hover,
 .description-button.delete:hover {
-    background-color: var(--darkblue);
-    color: var(--orange);
+    background-color: #03264C;
+    color: #d48502;
 }
 /* Create / Edit Form */
 .delete-product{
@@ -1222,6 +1224,10 @@ table {
         width: 100%;
         justify-content: space-between;
     }
+
+form.login {
+    width: 60%;
+}
 
     .form-item{
         margin: 0px;
