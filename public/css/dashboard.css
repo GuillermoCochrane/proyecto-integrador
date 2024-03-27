@@ -606,6 +606,7 @@ td ul{
   margin: 13px 0;
   font-weight: bold;
   border: 2px solid #444444;
+  transition: 300ms ease-in-out;
 }
 
 .description-button.edit {
