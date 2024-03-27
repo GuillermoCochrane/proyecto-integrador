@@ -1,8 +1,16 @@
 {
-  "name": "mercado-liebre",
+  "name": "multihogar",
   "version": "1.0.0",
-  "description": "Proyecto integrador del Módulo anatomía de un sitio web: Mercado Liebre",
+  "description": "Proyecto Integrador: E-Commerce - Multihogar ",
   "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuillermoCochrane/proyecto-integrador.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GuillermoCochrane/proyecto-integrador/issues"
+  },
+  "homepage": "https://multihogar.onrender.com",
   "scripts": {
     "start": "node ./src/app.js",
     "dev": "nodemon ./src/app.js"
