@@ -26,3 +26,24 @@ function toggleElement(buttonNumber) {
         edit.style.display = "flex";
     }
 }
+
+// profile 
+
+let profileButton = this.document.querySelector("#profile-data-button");
+let historyButton = this.document.querySelector("#profile-history-button");
+let profileData = this.document.querySelector("#profile-user-data");
+let purchaseHistory = this.document.querySelector("#purchase-history");
+
+profileButton.addEventListener("click",function(){
+    profileButton.classList.toggle("hidden");
+    historyButton.classList.toggle("hidden");
+    profileData.classList.toggle("hidden");
+    purchaseHistory.classList.toggle("hidden");
+});
+
+historyButton.addEventListener("click",function(){
+    profileButton.classList.toggle("hidden");
+    historyButton.classList.toggle("hidden");
+    profileData.classList.toggle("hidden");
+    purchaseHistory.classList.toggle("hidden");
+});
