@@ -1225,9 +1225,11 @@ table {
         justify-content: space-between;
     }
 
-form.login {
-    width: 60%;
-}
+    .register {
+        width: 60%;
+        max-width: 500px;
+        margin-top: 20px;
+    }
 
     .form-item{
         margin: 0px;
