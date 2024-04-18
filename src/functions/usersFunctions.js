@@ -53,6 +53,14 @@ const usersFunctions ={
         return profiles;
     },
 
+    addUsername: function(info){
+        for (const entry of info) {
+            let user = this.filterByID(entry.userID)[0];
+            entry.username = user.username;
+        };
+        return info
+    },
+
     filterByID : function(id){        
         let data = this.allUsers();
         return data.filter(user => user.id == id)

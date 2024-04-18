@@ -112,8 +112,7 @@ const dashboardFunctions ={
         data.title =    "Todas las ventas";
         data.label =    data.title;
         data.label2 =   "Ventas pendientes de entrega";
-        data.data =     salesFunctions.addUsername(allSales);
-
+        data.data =     userFunctions.addUsername(allSales) 
         return data
     },
 
@@ -123,7 +122,7 @@ const dashboardFunctions ={
 
         data.title =    title;
         data.label =    data.title;
-        data.data =     salesFunctions.addUsername(allSales);
+        data.data =     userFunctions.addUsername(allSales);
         data.years =    salesFunctions.allYears();
         data.months =   functions.allMonths();
 
@@ -135,7 +134,7 @@ const dashboardFunctions ={
         let data = this.basicData;
 
         data.title = "Detalle de venta";
-        data.sale = salesFunctions.addUsername(sale)[0];
+        data.sale = userFunctions.addUsername(sale)[0];
 
         return data
     },

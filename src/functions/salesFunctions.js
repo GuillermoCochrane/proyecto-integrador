@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const productFunctions = require("./productsFunctions");
-const userFunctions = require("./usersFunctions");
 const functions = require("./functions");
 const cartFunctions = require("./cartFunctions");
 
@@ -94,14 +93,6 @@ const salesFunctions = {
         } else {
             return false
         }
-    },
-
-    addUsername: function(info){
-        for (const entry of info) {
-            let user = userFunctions.filterByID(entry.userID)[0];
-            entry.username = user.username;
-        };
-        return info
     },
 
     processDeliver: function(saleID){
