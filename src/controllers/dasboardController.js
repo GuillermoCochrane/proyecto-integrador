@@ -200,7 +200,7 @@ const dasboardController = {
         }
 
         let data = dashboardFunctions.filterSalesData(allSales);
-        data.scripts = ["dashboard"];
+        data.scripts = ["dashboard", "filtersales"];
 
         return res.render("dashboardFilterSales",data)
     },
