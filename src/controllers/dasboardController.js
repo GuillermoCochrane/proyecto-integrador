@@ -82,7 +82,8 @@ const dasboardController = {
         data.categories = functions.allCategories();
         data.searchRoute = "searchProducts";
         data.dashboardlink = dashboardlink;
-        return res.render("dashboardProducts", data)
+        data.scripts = ["dashboard"];
+        return res.render("dashboardProducts", data )
     },
 
     product: function(req,res){
@@ -147,6 +148,7 @@ const dasboardController = {
             data.label = searchResults.label;
             data.title = searchResults.label;
         }
+        data.scripts = ["dashboard"];
         return res.render("dashboardUsers",data)
     },
 
@@ -171,6 +173,7 @@ const dasboardController = {
 
     allSales: function(req,res){
         let data = dashboardFunctions.salesData();
+        data.scripts = ["dashboard"];
         return res.render("dashboardSales", data)
     },
 
@@ -197,6 +200,7 @@ const dasboardController = {
         }
 
         let data = dashboardFunctions.filterSalesData(allSales);
+        data.scripts = ["dashboard"];
 
         return res.render("dashboardFilterSales",data)
     },
@@ -238,6 +242,8 @@ const dasboardController = {
             data.category = category;
         };
 
+        data.scripts = ["dashboard"];
+        
         return res.render("dashboardCategories", data )
     },
 
