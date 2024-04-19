@@ -192,6 +192,12 @@ const dasboardController = {
             }
         }
 
+        if(req.body.dayNumber){
+            if(req.body.dayNumber !=0){
+                allSales = allSales.filter(sale => sale.day == req.body.dayNumber);
+            }
+        }
+
         if(req.body.day){
             let date = (req.body.day).split("-");
             allSales = allSales.filter(sale => sale.year == date[0]);

@@ -263,11 +263,13 @@ a:hover{
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .dashboard-products section{
   width: 100%;
   max-width: 650px;
+  margin: auto;
 }
 
 /* Products buttons */
