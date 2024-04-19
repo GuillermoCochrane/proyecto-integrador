@@ -1,5 +1,6 @@
 window.addEventListener("load", ()=>{
     let $month = document.querySelector("#month");
+    let $day = document.querySelector("#dayNumber")
     $month.addEventListener("change", ()=>{
         let monthID = $month.value;
         console.log(monthID);
@@ -14,5 +15,11 @@ window.addEventListener("load", ()=>{
             days = 31
         }
         console.log(days);
+        $day.innerHTML = null;
+        for (let i = 0; i <= days; i++) {
+            let message = i;
+            message == 0 ? message = "Todos los días" : null;
+            $day.innerHTML += `<option value="${i}"> ${message} </option>`
+        }
     })
 })

@@ -265,6 +265,11 @@ a:hover{
   align-items: center;
 }
 
+.dashboard-products section{
+  width: 100%;
+  max-width: 650px;
+}
+
 /* Products buttons */
 .form-big-box,
 .dashboard-products-buttons{
@@ -1124,6 +1129,11 @@ article.card-data{
     max-width: 45%
   }
 
+  .filterSales{
+    flex: 0 0 31%;
+    max-width: 31%;
+  }
+
   .big-box{
     position: relative;
     width: 100%;
@@ -1277,6 +1287,10 @@ article.card-data{
   .save-button,
   .dashboard-products-buttons button{
     padding: 5px;
+  }
+
+  .filter{
+    width: 100%;
   }
 
 

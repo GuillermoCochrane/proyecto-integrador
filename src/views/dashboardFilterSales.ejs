@@ -54,11 +54,11 @@
                     Filtrar por Mes / Año
                 </h2>
             
-                <div class="form-box date"> 
+                <div class="form-box"> 
                     <form action="/dashboard/filterSales"  method="POST">
                         <div class="form-content-box">
 
-                            <div class="form-input-label-box">
+                            <div class="form-input-label-box filterSales">
                                 <label class="form-label-product" for="year">
                                     Año
                                 </label>
@@ -69,7 +69,7 @@
                                 </select>
                             </div>
 
-                            <div class="form-input-label-box">
+                            <div class="form-input-label-box filterSales">
                                 <label class="form-label-product" for="month">
                                     Mes
                                 </label>
@@ -80,7 +80,19 @@
                                 </select>
                             </div>
 
-                            <div class="dashboard-products-buttons">
+                            <div class="form-input-label-box filterSales">
+                                <label class="form-label-product" for="dayNumber">
+                                    Día
+                                </label>
+                                <select name="dayNumber" id="dayNumber" class="form-input-product">
+                                    <option value="0">Todos los días</option>
+                                    <% for( let i = 0; i < 32; i++ ) { %>
+                                        <option value="<%= i %>"> <%= i  %></option>
+                                    <% } %>
+                                </select>
+                            </div>
+
+                            <div class="dashboard-products-buttons filter">
                                 <button type="submit">
                                     Filtrar
                                 </button>
