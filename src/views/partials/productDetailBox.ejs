@@ -51,15 +51,19 @@
 
                     <form action="/cart/add/<%= product.id %>" method="post">
                     
-                        <label for="quantity" class="form-label">Seleccione Cantidad</label>
-                        
-                        <select name="quantity" id="quantity" class="form-input">
+                        <label for="counter" class="form-label">Seleccione Cantidad</label>
+                        <section class="cart-quantity">
+                            <button id="decrease">-</button>
+                            <input type="number" readonly value="1" id="counter" name="quantity">
+                            <button id="increase">+</button>
+                        </section>
+                        <!-- <select name="quantity" id="quantity" class="form-input">
                             <option value="1" selected> 1 </option>
                             <option value="2"> 2 </option>
                             <option value="3"> 3 </option>
                             <option value="4"> 4 </option>
                             <option value="5"> 5 </option>
-                        </select>
+                        </select> -->
     
                         <button type="submit" class="buy-button"><i class="fa-solid fa-cart-plus"></i>Agregar al Carrito</button>
     

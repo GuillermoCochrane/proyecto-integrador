@@ -27,6 +27,7 @@ const productsController ={
         if (!product){
             return res.redirect("/products/notFound")
         } else {
+            product.pageScript = "productDetailCounter"
             return res.render("productDetail",product)
         }
     },
