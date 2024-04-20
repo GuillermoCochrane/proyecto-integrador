@@ -25,10 +25,11 @@ const productsFunctions ={
 
     searchData: function(search){
         let searchResults = this.search(search);
+        let label = "Resultados de la Búsqueda: " + searchResults.length;
         let data = {
-            title: searchResults.label + functions.title,
-            label: searchResults.label,
-            products: searchResults.results,
+            title: label + functions.title,
+            label: label,
+            products: searchResults,
             toThousand: functions.toThousand,
         }
 
@@ -82,11 +83,8 @@ const productsFunctions ={
             product.name.toUpperCase().includes(searchkey.toUpperCase()) || 
             product.description.toUpperCase().includes(searchkey.toUpperCase())
             ));
-        let label = "Resultados de la Búsqueda: " + results.length;
-            return {
-                results:    results,
-                label:      label
-            };
+        
+            return results;
     },
 
     newId: function(){
