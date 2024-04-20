@@ -3,7 +3,7 @@
     <aside>
         <button id="decrease"><i class="fa-solid fa-minus"></i></button>
         <p id="display"></p>
-        <input type="hidden" value="1" id="counter" name="quantity">
+        <input type="hidden" value="<%= locals.quantity ? quantity : 1 %>" id="counter" name="quantity">
         <button id="increase"><i class="fa-solid fa-plus"></i></button>
     </aside>
 </section>

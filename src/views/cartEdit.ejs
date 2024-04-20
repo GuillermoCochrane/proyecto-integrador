@@ -18,8 +18,7 @@
                         <div class="cart-product-detail">
                             <h2 class="cart-product-name"><%= product %></h2>
                             <div class="cart-edit-quantity">
-                                <label for="quantity" class="cart-label" >Cantidad:</label>
-                                <input type="number" id="quantity" name="quantity" value="<%= quantity %>" class="cart-input">
+                                <%- include("./partials/productCounter.ejs")  %>
                             </div>
                         </div>
                         <div class="cart-button-box">

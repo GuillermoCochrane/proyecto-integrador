@@ -21,6 +21,7 @@ const mainController ={
         let id = req.params.id;
         let username = req.session.userlogged;
         let data = cartFunctions.editCartData(id,username);
+        data.pageScript = "productDetailCounter"
         res.render("cartEdit", data)
     },
 
