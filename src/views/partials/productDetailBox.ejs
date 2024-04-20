@@ -50,12 +50,14 @@
                 <% if (!locals.dashboardlink) { %>
 
                     <form action="/cart/add/<%= product.id %>" method="post">
-                    
-                        <label for="counter" class="form-label">Seleccione Cantidad</label>
                         <section class="cart-quantity">
-                            <button id="decrease">-</button>
-                            <input type="number" readonly value="1" id="counter" name="quantity">
-                            <button id="increase">+</button>
+                            <label for="counter" class="form-label">Cantidad</label>
+                            <aside>
+                                <button id="decrease"><i class="fa-solid fa-minus"></i></button>
+                                <p id="display"></p>
+                                <input type="hidden" value="1" id="counter" name="quantity">
+                                <button id="increase"><i class="fa-solid fa-plus"></i></button>
+                            </aside>
                         </section>
                         <!-- <select name="quantity" id="quantity" class="form-input">
                             <option value="1" selected> 1 </option>

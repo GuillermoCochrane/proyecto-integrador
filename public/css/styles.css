@@ -568,6 +568,45 @@ footer section p {
     margin: 0;
 }
 
+.cart-quantity{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.cart-quantity label{
+    font-size: 25px;
+    color:#03264C;
+    
+}
+
+.cart-quantity aside{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cart-quantity button{
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: bolder;
+    padding: 5px 5px;
+    background-color: #03264C;
+    color: #d48502;
+}
+
+.cart-quantity p{
+    width: 30px;
+    height: 30px;
+    border: none;
+    text-align: center;
+    font-size: 25px;
+    margin-inline: 5px;
+    color: #03264C;
+}
+
 .buy-button-cart,
 .buy-button {
     background-color: #03264C;
@@ -1174,7 +1213,7 @@ table {
 @media (min-width:768px) {
     
     main {
-        width: 95%;
+        width: 80%;
     }
 
     .main-header-top {
