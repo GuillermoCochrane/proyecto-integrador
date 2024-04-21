@@ -11,8 +11,9 @@ window.addEventListener("load", function(){
         closemenu.classList.toggle("hidden");
         nav.classList.toggle("hidden");
         if (window.innerWidth < 768) {
-            userLogged.classList.toggle("flex-hidden");
             searchbar.classList.toggle("flex-hidden");
+            userLogged ? userLogged.classList.toggle("flex-hidden") : null;
+            
         }
         
     });
@@ -21,8 +22,8 @@ window.addEventListener("load", function(){
         closemenu.classList.toggle("hidden");
         nav.classList.toggle("hidden");
         if (window.innerWidth < 768) {
-            userLogged.classList.toggle("flex-hidden");
             searchbar.classList.toggle("flex-hidden");
+            userLogged ? userLogged.classList.toggle("flex-hidden") : null ;
         }
     });
 })
