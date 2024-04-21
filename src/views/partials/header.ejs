@@ -3,47 +3,40 @@
         <a href="/" class="logo">
             <img src="/images/logo-multihogar.png" alt="logo" class="logo-img" >
         </a>
-        <form action="/search" method="get" class="search-bar hidden1">
-            <input type="search" class="search-field" name="search">
-            <button type="submit" class="search-icon">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-        </form>
-        <a href="#" class="burger-menu hidden2">
-            <i class="fa-solid fa-bars"></i>
-        </a>
-        <a href="#" class="close-menu hidden">
-            <i class="fa-solid fa-xmark"></i>
-        </a>
+        <section id="search-bar" class="section-search-bar">
+            <form action="/search" method="get" class="search-bar ">
+                <input type="search" class="search-field" name="search">
+                <button type="submit" class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+        </section>
+        <section class="burger">
+            <a href="#" class="burger-menu">
+                <i class="fa-solid fa-bars"></i>
+            </a>
+            <a href="#" class="close-menu hidden">
+                <i class="fa-solid fa-xmark"></i>
+            </a>
+        </section>
     </div>
-    <form action="/search" method="get" class="search-bar1 hidden">
-        <input type="search" class="search-field" name="search">
-        <button type="submit" class="search-icon">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-    </form>
-    <div class="userLogged-detail-box hidden1">
-        <% if (isLogged) { %>
+    <% if (isLogged) { %>
+        <div class="userLogged-detail-box">
+        
             <div class="userLogged-detail">
                 <img  src="/images/users/<%= userlogged.avatar  %>" alt="<%= userlogged.username %>" class="info-header-img" >
                 <h2 class="info-header">Hola <%= userlogged.username %>! </h2>
             </div>
-        <% } %>
-        <a href="#" class="burger-menu1 hidden1 ">
-            <i class="fa-solid fa-bars"></i>
-        </a>
-        <a href="#" class="close-menu1 hidden">
-            <i class="fa-solid fa-xmark"></i>
-        </a>
-    </div>
-    
+        
+        </div>
+    <% } %>
 </div>
 
 <nav class="main-navbar hidden" id="main-navbar">
     <ul class="navbar-right">
         <li><a href="/products">Todos los productos</a></li>
         <li><a href="/products/status/1">Ofertas</a></li>
-        <li><a href="/help">Ayuda</a></li>
+<!--         <li><a href="/help">Ayuda</a></li> -->
         <% if (isLogged && userlogged.profile != 1 ) { %>
             <li><a href="/Dashboard">Panel de Control</a></li>
         <% } %>

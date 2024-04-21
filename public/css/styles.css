@@ -35,14 +35,23 @@ header.fixed{
     box-shadow: 0px 2px 7px 0px rgba(50,50,50,0.6);
 }
 
+.main-header-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
 .logo-search {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .logo {
     width: 50%;
     margin: auto;
+    order: 1;
 }
 
 .logo-img{
@@ -50,17 +59,17 @@ header.fixed{
     margin: auto;
 }
 
-.search-bar {
-    display: flex;
-    width: 90%;
-    padding: 5px 0;
-    margin: -1px 29px;
+.section-search-bar {
+    width: 100%;
+    order: 3;
+    display: none;
 }
 
-.search-bar1{
+form.search-bar{
     display: flex;
-    width: 90%;
+    padding: 5px 0;
     margin: auto;
+    width: 90%;
 }
 
 .search-icon,
@@ -80,60 +89,22 @@ header.fixed{
     border-right: none;
     flex-grow: 1;
     padding-left: 5px;
-    font-size: 15px;
+    margin: 0;
 }
 
 .search-icon {
     border-radius: 0 5px 5px 0;
 }
 
-.userLogged-detail{
+.burger{
+    order: 2;
     display: flex;
     justify-content: center;
-    flex-direction: row;
     align-items: center;
-}
-
-.userLogged-detail-box{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: center;
-}
-
-.info-header {
-    font-weight: 400;
-    text-align: center;
-    padding: 4px;
-    margin-right: 6px;
-}
-
-.info-header-img {
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    margin: 5px;
-    object-fit: contain;
-    border: 2px solid #03264C;
 }
 
 .close-menu,
 .burger-menu {
-    background-color: #03264C;
-    color: #ebebeb;
-    display: block;
-    width: 35px;
-    padding: 4px;
-    font-size: 20px;
-    margin: auto;
-    margin-right: 0;
-    text-align: center;
-    border-radius: 7px;
-    padding-top: 5px;
-}
-
-.close-menu1,
-.burger-menu1 {
     display: flex;
     border-radius: 7px;
     width: 36px;
@@ -151,10 +122,36 @@ header.fixed{
     justify-content: center;
 }
 
+.userLogged-detail{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
 
-.close-menu1:active,
-.burger-menu1:active {
-    filter: brightness(75%);
+.userLogged-detail-box{
+    display: none;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
+    margin: auto;
+}
+
+.info-header {
+    font-weight: 400;
+    text-align: center;
+    padding: 4px;
+    margin-right: 6px;
+}
+
+.info-header-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin: 5px;
+    object-fit: contain;
+    border: 2px solid #03264C;
 }
 
 .main-navbar {
@@ -1202,27 +1199,17 @@ table {
     display: none;
 }
 
-.hidden1 {
-    display: none;
-}
-
 .flex-hidden{
     display: flex;
 }
 
 @media (min-width:768px) {
-    
     main {
         width: 80%;
     }
 
-    .main-header-top {
-        display: flex;
-        justify-content: space-between;
-    }
-
     .logo-search {
-        width: 100%;
+        width: 80%;
         margin: auto;
     }
 
@@ -1230,9 +1217,34 @@ table {
         width: auto;
     }
 
-    .search-bar {
-        width: 70%;
+    .section-search-bar {
+        width: 65%;
+        order: 2;
+        display: flex;
+        margin: auto;
+        align-items: center;
         justify-content: center;
+    }
+
+    form.search-bar{
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        width: 95%;
+    }
+
+    .search-icon,
+    .search-field {
+        font-size: 18px;
+    }
+
+    .burger{
+        order: 3
+    }
+
+    .userLogged-detail-box{
+        display: flex;
+        width: 10%;
     }
 
     .info-header {
@@ -1514,12 +1526,6 @@ table {
         margin: auto;
     }
 
-    .hidden1 {
-        display: flex;
-    }
-    .hidden2 {
-        display: none;
-    }
     .hidden {
         display: none;
     }
@@ -1549,11 +1555,19 @@ table {
         align-items: center;
     }
 
+    .section-search-bar{
+        padding: 0px 8px;
+        flex-grow: 1;
+    }
+
     .search-icon,
     .search-field {
-        margin: 15px 0;
-        padding: 0px 8px;
+        margin: 12px 0;
         font-size: 20px;
+    }
+
+    .search-icon{
+        padding-inline:  8px;
     }
 
     .info-header {
