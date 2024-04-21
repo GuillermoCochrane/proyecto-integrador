@@ -89,7 +89,7 @@ form.search-bar{
     border-right: none;
     flex-grow: 1;
     padding-left: 5px;
-    margin: 0;
+    margin: auto;
 }
 
 .search-icon {
@@ -1224,6 +1224,7 @@ table {
         margin: auto;
         align-items: center;
         justify-content: center;
+        flex-grow: 1;
     }
 
     form.search-bar{
