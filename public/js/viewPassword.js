@@ -1,17 +1,21 @@
 window.addEventListener("load", ()=>{
-    const icon = document.querySelector("#icon");
+    const iconpass = document.querySelector("#iconP");
     const pass = document.querySelector("#password");
 
-    icon.addEventListener("click", (e)=>{
-        console.log("hizo click");
-        if (pass.type == "password"){
-            pass.type = "text"
+    let togglePassword = (input, icon) => {
+        if (input.type == "password"){
+            input.type = "text"
             icon.classList.remove("fa-eye");
             icon.classList.add("fa-eye-slash");
         } else {
-            pass.type = "password"
+            input.type = "password"
             icon.classList.remove("fa-eye-slash");
             icon.classList.add("fa-eye");
         }
-    })
+    }
+
+    iconpass.addEventListener("click", () => {
+        togglePassword(pass, iconpass);
+    });
+
 })
