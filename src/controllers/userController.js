@@ -13,7 +13,9 @@ const userController = {
     },
 
     login: function(req,res){
-        return res.render("login",usersFunctions.data("Login"))
+        let data = usersFunctions.data("Login");
+        data.pageScript = "viewPassword";
+        return res.render("login",data)
     },
 
     processLogin: function(req,res){

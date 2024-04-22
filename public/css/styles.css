@@ -437,6 +437,19 @@ footer section p {
     padding: 7px;
 }
 
+.password-container{
+    display: flex;
+    align-items: center;
+}
+
+.password-container i{
+    width: 0;
+    transform: translateX(-30px);
+    color: #03264C;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
 .form-radio {
     display: flex;
     min-width: 45%;

@@ -16,7 +16,10 @@
 
                 <div class="login-item">
                     <label for="password">Contraseña</label>
-                    <input type="password" id="password" name="password">
+                    <div class="password-container">
+                        <input type="password" id="password" name="password">
+                        <i id="icon" class="fa-regular fa-eye"></i>
+                    </div>
                 </div>
                 <span class="login-item error"><%= locals.error && error.password ? error.password.msg : null %></span>
 
