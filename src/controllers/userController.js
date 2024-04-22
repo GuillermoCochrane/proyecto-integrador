@@ -69,7 +69,8 @@ const userController = {
     },
 
     register: function(req, res){
-        let data = functions.userFormData("Registrate", [] )
+        let data = functions.userFormData("Registrate", [] );
+        data.pageScript = "viewPassword";
         res.render("userRegister", data)
     },
 

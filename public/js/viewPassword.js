@@ -1,6 +1,8 @@
 window.addEventListener("load", ()=>{
     const iconpass = document.querySelector("#iconP");
     const pass = document.querySelector("#password");
+    const confirm = document.querySelector("#confirm")
+    const iconConfirm = document.querySelector("#iconC")
 
     let togglePassword = (input, icon) => {
         if (input.type == "password"){
@@ -17,5 +19,11 @@ window.addEventListener("load", ()=>{
     iconpass.addEventListener("click", () => {
         togglePassword(pass, iconpass);
     });
+
+    confirm && iconConfirm ?
+        iconConfirm.addEventListener("click", () => {
+            togglePassword(confirm, iconConfirm);
+        }) : 
+        null;
 
 })
