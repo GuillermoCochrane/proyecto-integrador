@@ -34,7 +34,8 @@ window.addEventListener("load", function(){
         $list.innerHTML = null;
         if ($searchInput.value.lenght != 0) {
             $list.classList.remove("hidden");
-            fetch(`http://localhost:3003/api/search?search=${$searchInput.value}`)
+            fetch(`https://multihogar.onrender.com/api/search?search=${$searchInput.value}`)
+            //http://localhost:3003 local
             .then(res => res.json())
             .then(info =>{
                 if(info.data.lenght != 0){
