@@ -1,15 +1,19 @@
 <div class="main-header-top">
-    <div class="logo-search">
+    <section class="logo-search">
         <a href="/" class="logo">
             <img src="/images/logo-multihogar.png" alt="logo" class="logo-img" >
         </a>
         <section id="search-bar" class="section-search-bar">
             <form action="/search" method="get" class="search-bar ">
-                <input type="search" class="search-field" name="search">
+                <input type="search" class="search-field" name="search" id="search-input">
                 <button type="submit" class="search-icon">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
             </form>
+            <aside class="result-list-container">
+                <ul id="result-list" class="result-list hidden">
+                </ul>
+            </aside>
         </section>
         <section class="burger">
             <a href="#" class="burger-menu">
@@ -19,16 +23,16 @@
                 <i class="fa-solid fa-xmark"></i>
             </a>
         </section>
-    </div>
+    </section>
     <% if (isLogged) { %>
-        <div class="userLogged-detail-box">
-        
-            <div class="userLogged-detail">
-                <img  src="/images/users/<%= userlogged.avatar  %>" alt="<%= userlogged.username %>" class="info-header-img" >
-                <h2 class="info-header">Hola <%= userlogged.username %>! </h2>
-            </div>
-        
+    <section class="userLogged-detail-box">
+    
+        <div class="userLogged-detail">
+            <img  src="/images/users/<%= userlogged.avatar  %>" alt="<%= userlogged.username %>" class="info-header-img" >
+            <h2 class="info-header">Hola <%= userlogged.username %>! </h2>
         </div>
+    
+    </section>
     <% } %>
 </div>
 
@@ -36,7 +40,6 @@
     <ul class="navbar-right">
         <li><a href="/products">Todos los productos</a></li>
         <li><a href="/products/status/1">Ofertas</a></li>
-<!--         <li><a href="/help">Ayuda</a></li> -->
         <% if (isLogged && userlogged.profile != 1 ) { %>
             <li><a href="/Dashboard">Panel de Control</a></li>
         <% } %>
