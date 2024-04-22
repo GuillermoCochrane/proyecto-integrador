@@ -14,7 +14,7 @@ const userController = {
 
     login: function(req,res){
         let data = usersFunctions.data("Login");
-        data.pageScript = "viewPassword";
+        data.pageScript = ["viewPassword"];
         return res.render("login",data)
     },
 
@@ -70,7 +70,7 @@ const userController = {
 
     register: function(req, res){
         let data = functions.userFormData("Registrate", [] );
-        data.pageScript = "viewPassword";
+        data.pageScript = ["viewPassword"];
         res.render("userRegister", data)
     },
 
@@ -115,7 +115,8 @@ const userController = {
     },
 
     profile: function(req,res){
-        let data = usersFunctions.userProfileData(req.session.userlogged)
+        let data = usersFunctions.userProfileData(req.session.userlogged);
+        data.pageScript = ["profile","viewPassword"];
         return res.render("userProfile", data)
     },
 

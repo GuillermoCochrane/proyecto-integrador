@@ -10,7 +10,9 @@
     <script src="https://kit.fontawesome.com/8aa20abfbf.js" crossorigin="anonymous"></script>
     <script src="/js/script.js"></script>
     <% if (locals.pageScript) { %>
-        <script src="/js/<%= pageScript %>.js"></script>
+        <%  for (const eachScript of pageScript) { %>
+            <script src="/js/<%= eachScript %>.js"></script>
+        <% } %>
     <% } %>
     <title><%= title %></title>
 </head>
