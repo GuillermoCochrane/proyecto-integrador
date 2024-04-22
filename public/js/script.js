@@ -48,9 +48,15 @@ window.addEventListener("load", function(){
         } else {
             $list.innerHTML = null;
         }
-    })
+    });
 
-   /*  $searchInput.addEventListener("blur",()=>{
+    searchbar.addEventListener("mouseleave", () => {
         $list.classList.add("hidden");
-    }) */
+    });
+
+    searchbar.addEventListener("touchstart", (e) => {
+        if(!searchbar.contains(e.target)){
+            $list.classList.add("hidden");
+        }
+    })
 })
