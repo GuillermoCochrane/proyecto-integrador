@@ -5,7 +5,9 @@
 
     <div class="main-border-form">
         <main>
-
+            <h2 class="title">
+                Registro de usuario
+            </h2>
             <form action="/users/register" method="post" class="form-frame register" enctype="multipart/form-data">
 
                 <%- include("./partials/userFormMailUsername.ejs") %>
@@ -15,7 +17,9 @@
                 <%- include("./partials/userFormButtons.ejs") %>
 
             </form>
-
+            <div class="login-options">
+                <div><a href="/users/login">¿Ya tienes cuenta? Loguea </a></div>
+            </div>
         </main>
     </div>
 
