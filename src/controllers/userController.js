@@ -70,7 +70,7 @@ const userController = {
 
     register: function(req, res){
         let data = functions.userFormData("Registrate", [] );
-        data.pageScript = ["viewPassword"];
+        data.pageScript = ["validator.min", "registerValidations" ,"viewPassword"];
         res.render("userRegister", data)
     },
 

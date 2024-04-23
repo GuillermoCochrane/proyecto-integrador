@@ -433,6 +433,7 @@ section.login-form{
     display: block;
     margin-bottom: 3px;
     font-weight: bold;
+    font-size: 16px;
 }
 
 .login-item input,
@@ -983,10 +984,9 @@ textarea.form-input-product{
 }
 
 .error{
-    color: tomato;
-    font-size: 16px;
+    color: darkred;
+    font-size: 14px;
     font-weight: bold;
-    margin-bottom: 11px;
     text-align: center;
 }
 
