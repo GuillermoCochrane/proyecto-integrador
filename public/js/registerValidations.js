@@ -2,6 +2,7 @@ window.addEventListener("load", ()=>{
     const $username = document.querySelector("#username");
     const $email = document.querySelector("#email");
     const $pass = document.querySelector("#password")
+    const $confirm = document.querySelector("#confirm")
     const $btn = document.querySelector("#register-btn")
 
     let errors = { };
@@ -74,12 +75,30 @@ window.addEventListener("load", ()=>{
         }
     }
 
+    let confirmValidation = () => {
+        let error = document.querySelector(`#error-${$confirm.id}`);
+        return () => {
+            requiredValidation($confirm);
+            lengthValidation($confirm,8,16);
+            if($confirm.value !== $pass.value){
+                let errormsg = 'Las contraseñas no coinciden';
+                error.innerText = errormsg;
+                errors.confirm = errormsg;
+            }else{
+                error.innerText = '';
+                delete errors.confirm;
+            }
+        }
+    }
+
     $username.addEventListener('input', usernameValidation());
     $username.addEventListener('blur', usernameValidation());
     $email.addEventListener("input", emailValidation());
     $email.addEventListener("blur",emailValidation());
     $pass.addEventListener('input', passwordValidation());
     $pass.addEventListener('blur', passwordValidation());
+    $confirm.addEventListener('input', confirmValidation());
+    $confirm.addEventListener('blur', confirmValidation());
 
     $btn.addEventListener("click", (e)=>{
         e.preventDefault();
