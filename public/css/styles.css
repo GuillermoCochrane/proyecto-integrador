@@ -405,9 +405,20 @@ footer section p {
     border-radius: 10px;
 }
 
-.login-form {
-    background-color: #ebebeb;
+form.login-form {
+    background: #ebebeb;
     font-size: 20px;
+}
+
+section.login-form{
+    background-color: #666;
+    flex-grow: 1;
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+    width: 100%;
+}
+
+.form-frame{
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
 }
 
 .login-item,
@@ -459,8 +470,6 @@ footer section p {
 .form-radio input {
     margin: 5px;
 }
-
-
 
 .login-options-container{
     width: 100%;
@@ -1681,8 +1690,8 @@ table {
         margin-left: 70px;
     }
 
-    .login-form {
-        margin: 60px auto;
+    form.login-form {
+        margin:  auto;
         max-width: 50%;
     }
 

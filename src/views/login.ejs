@@ -8,31 +8,33 @@
                 <%= label %>
             </h2>
             <form action="/users/login" method="post" class="login-form">
-                <div class="login-item">
-                    <label for="username">Nombre de usuari@</label>
-                    <input type="text" id="username" name="username" value="<%= locals.old ? old : null %>">
-                </div>
-                <span class="login-item error"><%= locals.error && error.username ? error.username.msg : null %></span>
+                <section class="login-form">
+                    <div class="login-item">
+                        <label for="username">Nombre de usuari@</label>
+                        <input type="text" id="username" name="username" value="<%= locals.old ? old : null %>">
+                    </div>
+                    <span class="login-item error"><%= locals.error && error.username ? error.username.msg : null %></span>
 
-                <div class="login-item">
-                    <label for="password">Contraseña</label>
-                    <div class="password-container">
-                        <input type="password" id="password" name="password">
-                        <i id="iconP" class="fa-regular fa-eye"></i>
+                    <div class="login-item">
+                        <label for="password">Contraseña</label>
+                        <div class="password-container">
+                            <input type="password" id="password" name="password">
+                            <i id="iconP" class="fa-regular fa-eye"></i>
+                        </div>
                     </div>
-                </div>
-                <span class="login-item error"><%= locals.error && error.password ? error.password.msg : null %></span>
+                    <span class="login-item error"><%= locals.error && error.password ? error.password.msg : null %></span>
 
-                <div class="login-options-container">
-                    <div class="login-checkbox">
-                        <input type="checkbox" name="rememberMe" id="rememberMe">
-                        <label for="rememberMe">Recordarme</label>
+                    <div class="login-options-container">
+                        <div class="login-checkbox">
+                            <input type="checkbox" name="rememberMe" id="rememberMe">
+                            <label for="rememberMe">Recordarme</label>
+                        </div>
+                        <div class="login-options">
+                            <div><a href="/users/register">¿No tienes cuenta? Registrate </a></div>
+                            <div><a href="/users/recovery">¿Olvidó su contraseña?</a></div>
+                        </div>
                     </div>
-                    <div class="login-options">
-                        <div><a href="/users/register">¿No tienes cuenta? Registrate </a></div>
-                        <div><a href="/users/recovery">¿Olvidó su contraseña?</a></div>
-                    </div>
-                </div>
+                </section>
 
                 <button type="submit">Enviar</button>
             </form>
