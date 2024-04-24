@@ -443,6 +443,7 @@ section.login-form{
     padding: 3px 5px;
     margin-bottom: 3px;
     border-radius: 5px;
+    border: 3px solid transparent;
 }
 
 .login-item input {
