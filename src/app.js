@@ -9,7 +9,8 @@ const loggedMDW = require("./middlewares/loggedMDW");
 const adminMDW = require("./middlewares/adminMDW");
 
 //Routers dependencies
-const mainApiRoutes = require("./routes/API/mainApiRouter");
+const mainAPIRoutes = require("./routes/API/mainApiRouter");
+const userAPIRoutes = require("./routes/API/usersApiRouter")
 const mainRoutes = require("./routes/mainRouter");
 const userRoutes = require("./routes/userRouter");
 const productsRoutes = require("./routes/productsRouter");
@@ -39,7 +40,8 @@ app.use("/users", userRoutes);
 app.use("/products", productsRoutes);
 app.use("/cart", loggedMDW, cartRoutes);
 app.use("/dashboard", /* adminMDW, */  dashboardRoutes);
-app.use('/api', mainApiRoutes);
+app.use('/api', mainAPIRoutes);
+app.use('/api/users', userAPIRoutes);
 
 //error 404
 app.use((req,res,next) =>{

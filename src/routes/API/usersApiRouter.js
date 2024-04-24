@@ -1,0 +1,7 @@
+const express = require('express');
+const router = express.Router();
+const usersAPIController = require("../../controllers/API/usersAPIController");
+
+router.get("/email/:email", usersAPIController.emailCheck)
+
+module.exports = router
