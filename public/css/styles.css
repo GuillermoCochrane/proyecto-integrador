@@ -492,6 +492,14 @@ section.login-form{
     margin: 5px 0;
 }
 
+.input-error{
+    border: 3px solid darkred;
+    color: darkred;
+}
+
+.input-ok{
+    border: 3px solid #39b54a;
+}
 /* Detail */
 
 .detail {

@@ -6,6 +6,15 @@ window.addEventListener("load", ()=>{
     const $btn = document.querySelector("#register-btn")
 
     let errors = { };
+    const inputError = (input)=>{
+        input.classList.remove("input-ok");
+        input.classList.add("input-error");
+    };
+
+    const inputOK = (input)=>{
+        input.classList.remove("input-error");
+        input.classList.add("input-ok");
+    };
 
     const requiredValidation = (input) => {
         let error = document.querySelector(`#error-${input.id}`);
@@ -14,9 +23,11 @@ window.addEventListener("load", ()=>{
             let errormsg = `${input.id} es obligatorio`;
             error.innerText =  errormsg;
             errors[label] = errormsg;
+            inputError(input);
         }else{
             error.innerText = '';
             delete errors[label];
+            inputOK(input);
         }
     };
 
@@ -27,8 +38,10 @@ window.addEventListener("load", ()=>{
             let errormsg = `El ${input.id} debe tener entre ${min} y ${max} caracteres`;
             error.innerText = errormsg;
             errors[label] = errormsg;
+            inputError(input);
         }else{
             error.innerText = '';
+            inputOK(input);
             delete errors.input;
         }
     };
@@ -51,9 +64,11 @@ window.addEventListener("load", ()=>{
                 let errormsg = "El email no es válido";;
                 error.innerText = errormsg;
                 errors.email = errormsg;
+                inputError($email);
             }else{
                 error.innerText = '';
                 delete errors.email;
+                inputOK($email);
             }
 
         }
@@ -68,9 +83,11 @@ window.addEventListener("load", ()=>{
                 let errormsg = 'La contraseña debe tener al menos 8 caracteres, 1 mayúscula, 1 minúscula, 1 número y 1 símbolo';
                 error.innerText = errormsg;
                 errors.password = errormsg;
+                inputError($pass);
             }else{
                 error.innerText = '';
                 delete errors.password;
+                inputOK($pass);
             }
         }
     }
