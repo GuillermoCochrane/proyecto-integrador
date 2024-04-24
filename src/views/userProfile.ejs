@@ -113,10 +113,10 @@
                     </article>
 
                     <article class="user-data-container <%= (locals.errors && errors.password) ? null : "hidden" %>" id="password-change-form">
-                        <form action="/users/password?_method=PUT" method="post" class="form-frame">
+                        <form action="/users/password?_method=PUT" method="post" class="form-frame" id="edit-password-form">
                             <%- include("./partials/userFormPassword.ejs") %>
                             <div class="profile-button-box">
-                                <button type="submit" class="button-container">
+                                <button type="submit" class="button-container" id="edit-password-btn">
                                     Aceptar
                                 </button>
                             </div>
