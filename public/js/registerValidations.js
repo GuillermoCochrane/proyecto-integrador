@@ -49,7 +49,7 @@ window.addEventListener("load", ()=>{
     const usernameValidation = () => {
         return () => {
             requiredValidation($username);
-            lengthValidation($username, 3,10);
+            errors.username ? null : lengthValidation($username, 3,10);
         }
     };
 
@@ -58,19 +58,19 @@ window.addEventListener("load", ()=>{
         return () => {
 
             requiredValidation($email);
-            lengthValidation($email,8,40);
-
-            if(!validator.isEmail($email.value)){
-                let errormsg = "El email no es válido";;
-                error.innerText = errormsg;
-                errors.email = errormsg;
-                inputError($email);
-            }else{
-                error.innerText = '';
-                delete errors.email;
-                inputOK($email);
+            errors.email ? null : lengthValidation($email,8,40);
+            if (!errors.email){
+                if(!validator.isEmail($email.value)){
+                    let errormsg = "El email no es válido";;
+                    error.innerText = errormsg;
+                    errors.email = errormsg;
+                    inputError($email);
+                }else{
+                    error.innerText = '';
+                    delete errors.email;
+                    inputOK($email);
+                }
             }
-
         }
     }
 
@@ -78,16 +78,18 @@ window.addEventListener("load", ()=>{
         let error = document.querySelector(`#error-${$pass.id}`);
         return () => {
             requiredValidation(password);
-            lengthValidation($pass,8,16);
-            if(!validator.isStrongPassword($pass.value)){
-                let errormsg = 'La contraseña debe tener al menos 8 caracteres, 1 mayúscula, 1 minúscula, 1 número y 1 símbolo';
-                error.innerText = errormsg;
-                errors.password = errormsg;
-                inputError($pass);
-            }else{
-                error.innerText = '';
-                delete errors.password;
-                inputOK($pass);
+            errors.password ? null : lengthValidation($pass,8,16);
+            if(!errors.password){
+                if(!validator.isStrongPassword($pass.value)){
+                    let errormsg = 'La contraseña debe tener al menos 8 caracteres, 1 mayúscula, 1 minúscula, 1 número y 1 símbolo';
+                    error.innerText = errormsg;
+                    errors.password = errormsg;
+                    inputError($pass);
+                }else{
+                    error.innerText = '';
+                    delete errors.password;
+                    inputOK($pass);
+                }
             }
         }
     }
@@ -101,9 +103,11 @@ window.addEventListener("load", ()=>{
                 let errormsg = 'Las contraseñas no coinciden';
                 error.innerText = errormsg;
                 errors.confirm = errormsg;
+                inputError($pass);
             }else{
                 error.innerText = '';
                 delete errors.confirm;
+                inputOK($pass);
             }
         }
     }
@@ -119,7 +123,26 @@ window.addEventListener("load", ()=>{
 
     $btn.addEventListener("click", (e)=>{
         e.preventDefault();
-        console.log(errors);
-    })
+        
+        confirmValidation()();
+        usernameValidation()();
+        emailValidation()();
+        passwordValidation()();
 
+        if(!errors.username){
+            fetch(`http://localhost:3003/api/users/username/${$username.value}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                if(data.inUse == true){
+                    let error = document.querySelector(`#error-${$username.id}`)
+                    let errormsg = `El usuario ${username.value} ya se encuentra registrado`;
+                    errors.username = errormsg;
+                    error.innerText = errormsg;
+                    inputError($pass);
+                }
+            })
+        }
+    })
+    
 })
