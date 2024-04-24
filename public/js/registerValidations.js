@@ -1,11 +1,13 @@
 window.addEventListener("load", ()=>{
     const $username = document.querySelector("#username");
     const $email = document.querySelector("#email");
-    const $pass = document.querySelector("#password")
-    const $confirm = document.querySelector("#confirm")
-    const $btn = document.querySelector("#register-btn")
+    const $pass = document.querySelector("#password");
+    const $confirm = document.querySelector("#confirm");
+    const $btn = document.querySelector("#register-btn");
+    const $form = document.querySelector("#register-form");
 
     let errors = { };
+
     const inputError = (input)=>{
         input.classList.remove("input-ok");
         input.classList.add("input-error");
@@ -98,19 +100,21 @@ window.addEventListener("load", ()=>{
         let error = document.querySelector(`#error-${$confirm.id}`);
         return () => {
             requiredValidation($confirm);
-            lengthValidation($confirm,8,16);
-            if($confirm.value !== $pass.value){
-                let errormsg = 'Las contraseñas no coinciden';
-                error.innerText = errormsg;
-                errors.confirm = errormsg;
-                inputError($pass);
-            }else{
-                error.innerText = '';
-                delete errors.confirm;
-                inputOK($pass);
+            errors.confirm ? null : lengthValidation($confirm,8,16);
+            if(!errors.confirm){
+                if($confirm.value !== $pass.value){
+                    let errormsg = 'Las contraseñas no coinciden';
+                    error.innerText = errormsg;
+                    errors.confirm = errormsg;
+                    inputError($pass);
+                }else{
+                    error.innerText = '';
+                    delete errors.confirm;
+                    inputOK($pass);
+                }
             }
         }
-    }
+    };
 
     $username.addEventListener('input', usernameValidation());
     $username.addEventListener('blur', usernameValidation());
@@ -157,6 +161,10 @@ window.addEventListener("load", ()=>{
                     inputError($email);
                 }
             })
+        }
+
+        if (Object.keys(errors).length == 0) {
+            $form.submit();
         }
     });
     
