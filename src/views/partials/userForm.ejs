@@ -1,7 +1,7 @@
     <div class="form-item big-box">
         <label for="name">Nombre y apellido</label>
         <input class="form-field" type="text" id="name" name="name" value="<%= locals.old ? old.name : null %>"  placeholder="Tony Stark" >
-        <span class="login-item error"><%= (locals.errors && errors.name) ? errors.name.msg : null %></span>
+        <span class="login-item error" id="error-name"><%= (locals.errors && errors.name) ? errors.name.msg : null %></span>
     </div>
 
     <%- include("./userFormMailUsername.ejs") %>
@@ -9,13 +9,13 @@
     <div class="form-item">
         <label for="phone">Teléfono</label>
         <input class="form-field" type="tel" id="phone" name="phone"  placeholder="6594520439" value="<%= locals.old ? old.phone : null %>" >
-        <span class="login-item error"><%= (locals.errors && errors.phone) ? errors.phone.msg : null %></span>
+        <span class="login-item error" id="error-phone"><%= (locals.errors && errors.phone) ? errors.phone.msg : null %></span>
     </div>
 
     <div class="form-item">
         <label for="address">Domicilio</label>
         <input class="form-field" type="text" id="address" name="address" placeholder="Calle Falsa 123" value="<%= locals.old ? old.address : null %>">
-        <span class="login-item error"><%= (locals.errors && errors.address) ? errors.address.msg : null %></span>
+        <span class="login-item error" id="error-address"><%= (locals.errors && errors.address) ? errors.address.msg : null %></span>
     </div>
 
     <div class="form-item big-box">
@@ -48,5 +48,3 @@
     <% } %>
 
     <%- include("./userFormButtons.ejs") %>
-
-    <span class="form-item big-box"></span>
