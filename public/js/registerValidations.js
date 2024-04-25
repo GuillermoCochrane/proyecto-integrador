@@ -134,7 +134,7 @@ window.addEventListener("load", ()=>{
         passwordValidation()();
 
         if(!errors.username){
-            fetch(`http://localhost:3003/api/users/username/${$username.value}`)
+            fetch(`https://multihogar.onrender.com/api/users/username/${$username.value}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
@@ -149,7 +149,7 @@ window.addEventListener("load", ()=>{
         };
 
         if(!errors.email){
-            fetch(`http://localhost:3003/api/users/email/${$email.value}`)
+            fetch(`https://multihogar.onrender.com/api/users/email/${$email.value}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
