@@ -116,7 +116,7 @@ const userController = {
 
     profile: function(req,res){
         let data = usersFunctions.userProfileData(req.session.userlogged);
-        data.pageScript = ["profile","viewPassword", "validator.min", "passwordValidations"];
+        data.pageScript = ["profile","viewPassword", "validator.min", "passwordValidations","editUserValidations"];
         return res.render("userProfile", data)
     },
 
