@@ -8,7 +8,7 @@
 
     <div class="form-item">
         <label for="phone">Teléfono</label>
-        <input class="form-field" type="tel" id="phone" name="phone"  placeholder="6594520439" value="<%= locals.old ? old.phone : null %>" >
+        <input class="form-field" type="number" id="phone" name="phone"  placeholder="6594520439" value="<%= locals.old ? old.phone : null %>" >
         <span class="login-item error" id="error-phone"><%= (locals.errors && errors.phone) ? errors.phone.msg : null %></span>
     </div>
 
