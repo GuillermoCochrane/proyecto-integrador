@@ -134,8 +134,8 @@ window.addEventListener("load", ()=>{
                     errors.username = errormsg;
                     error.innerText = errormsg;
                     inputError($username);
-                }
-            })
+                };
+            });
         };
 
         if(!errors.email){
@@ -145,13 +145,28 @@ window.addEventListener("load", ()=>{
                 console.log(data);
                 if(data.inUse == true){
                     let error = document.querySelector(`#error-${$email.id}`);
-                    let errormsg = `El usuario ${$email.value} ya se encuentra registrado`;
+                    let errormsg = `El e-mail ${$email.value} ya se encuentra registrado`;
                     errors.username = errormsg;
                     error.innerText = errormsg;
                     inputError($email);
-                }
-            })
-        }
+                };
+            });
+        };
+
+        if(!errors.phone){
+            fetch(`http://localhost:3003/api/users/phone/${$phone.value}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                if(data.inUse == true){
+                    let error = document.querySelector(`#error-${$phone.id}`);
+                    let errormsg = `El teléfono ${$phone.value} ya se encuentra registrado`;
+                    errors.username = errormsg;
+                    error.innerText = errormsg;
+                    inputError($phone);
+                };
+            });
+        };
 
         if (Object.keys(errors).length == 0) {
             $form.submit();
