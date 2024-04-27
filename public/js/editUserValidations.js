@@ -77,7 +77,7 @@ window.addEventListener("load", ()=>{
 
     let namevalidation = () => {
         requiredValidation($name);
-        errors.name ? null : lengthValidation($name, 3,30)
+        errors.name ? null : lengthValidation($name, 3,30);
     };
 
     let phoenValidation = () => {
@@ -96,6 +96,11 @@ window.addEventListener("load", ()=>{
                 inputOK($phone);
             }
         }
+    };
+
+    let addressValidation = () => {
+        requiredValidation($address);
+        errors.address ? null : lengthValidation($address, 3, 30);
     }
 
     $username.addEventListener('input',() => { usernameValidation()});
@@ -106,6 +111,8 @@ window.addEventListener("load", ()=>{
     $name.addEventListener("blur",() => { namevalidation()});
     $phone.addEventListener("input",() => { phoenValidation()});
     $phone.addEventListener("blur",() => { phoenValidation()});
+    $address.addEventListener("input",() => { addressValidation()});
+    $address.addEventListener("blur",() => { addressValidation()});
 
     $btn.addEventListener("click", (e)=>{
         e.preventDefault();
@@ -113,6 +120,8 @@ window.addEventListener("load", ()=>{
         usernameValidation();
         emailValidation();
         namevalidation();
+        phoenValidation();
+        addressValidation();
 
         if(!errors.username){
             fetch(`http://localhost:3003/api/users/username/${$username.value}`)
