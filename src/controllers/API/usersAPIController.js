@@ -28,6 +28,20 @@ const usersAPIController = {
         }
         return res.json(info)
     },
+
+    phoneCheck: function(req,res){
+        let data = usersFunctions.filterByKey(req.params.phone, "phone")[0];
+        let response = true;
+        data ? response = true : response = false;
+        let info = {
+            meta: {
+                status : 200,
+                url: 'api/users/phone/:phone'
+            },
+            inUse: response,
+        }
+        return res.json(info)
+    },
 }
 
 module.exports = usersAPIController
