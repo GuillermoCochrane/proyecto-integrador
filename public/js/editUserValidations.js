@@ -150,7 +150,7 @@ window.addEventListener("load", ()=>{
         if(!errors.phone){
             let data = await fetch(`http://localhost:3003/api/users/phone/${$phone.value}`).then(response => response.json());
             let userlogged = await fetch("http://localhost:3003/api/users/userlogged").then(response => response.json());
-            if(data.inUse == true){
+            if(data.inUse == true && $phone.value != userlogged.data.phone){
                 let error = document.querySelector(`#error-${$phone.id}`);
                 let errormsg = `El teléfono ${$phone.value} ya se encuentra registrado`;
                 errors.username = errormsg;
@@ -159,9 +159,9 @@ window.addEventListener("load", ()=>{
             };
         };
 
-/*         if (Object.keys(errors).length == 0) {
+        if (Object.keys(errors).length == 0) {
             $form.submit();
-        } */
+        }
     });
     
 })
