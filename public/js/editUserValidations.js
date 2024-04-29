@@ -125,7 +125,8 @@ window.addEventListener("load", ()=>{
 
         if(!errors.username){
             let data = await fetch(`http://localhost:3003/api/users/username/${$username.value}`).then(response => response.json());
-            if(data.inUse == true){
+            let userlogged = await fetch("http://localhost:3003/api/users/userlogged").then(response => response.json());
+            if(data.inUse == true && $username.value.toUpperCase() != userlogged.data.username.toUpperCase()){
                 let error = document.querySelector(`#error-${$username.id}`);
                 let errormsg = `El usuario ${$username.value} ya se encuentra registrado`;
                 errors.username = errormsg;
