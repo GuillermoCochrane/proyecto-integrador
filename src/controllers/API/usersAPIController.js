@@ -42,6 +42,24 @@ const usersAPIController = {
         }
         return res.json(info)
     },
+
+    userlogged: function(req, res){
+        let info = {
+            meta: {
+                status : 200,
+                url: 'api/users/userlogged',
+                logged: true
+            },
+        }
+        if (req.session.userlogged){
+            info.data = req.session.userlogged;
+            return res.json(info);
+        } else {
+            info.meta.logged = false;
+            info.data = "El usuario no se encuentra logeado"
+            return res.json(info);
+        }
+    },
 }
 
 module.exports = usersAPIController
