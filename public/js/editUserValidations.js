@@ -137,7 +137,8 @@ window.addEventListener("load", ()=>{
 
         if(!errors.email){
             let data = await fetch(`http://localhost:3003/api/users/email/${$email.value}`).then(response => response.json());
-            if(data.inUse == true){
+            let userlogged = await fetch("http://localhost:3003/api/users/userlogged").then(response => response.json());
+            if(data.inUse == true && $email.value.toUpperCase() != userlogged.data.email.toUpperCase()){
                 let error = document.querySelector(`#error-${$email.id}`);
                 let errormsg = `El e-mail ${$email.value} ya se encuentra registrado`;
                 errors.username = errormsg;
@@ -148,6 +149,7 @@ window.addEventListener("load", ()=>{
 
         if(!errors.phone){
             let data = await fetch(`http://localhost:3003/api/users/phone/${$phone.value}`).then(response => response.json());
+            let userlogged = await fetch("http://localhost:3003/api/users/userlogged").then(response => response.json());
             if(data.inUse == true){
                 let error = document.querySelector(`#error-${$phone.id}`);
                 let errormsg = `El teléfono ${$phone.value} ya se encuentra registrado`;
