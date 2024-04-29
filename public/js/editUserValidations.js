@@ -163,5 +163,4 @@ window.addEventListener("load", ()=>{
             $form.submit();
         }
     });
-    
 })
