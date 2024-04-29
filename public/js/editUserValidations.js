@@ -114,9 +114,9 @@ window.addEventListener("load", ()=>{
     $address.addEventListener("input",() => { addressValidation()});
     $address.addEventListener("blur",() => { addressValidation()});
 
-    $btn.addEventListener("click", (e)=>{
+    $btn.addEventListener("click", async (e)=>{
         e.preventDefault();
-        
+
         usernameValidation();
         emailValidation();
         namevalidation();
@@ -124,53 +124,41 @@ window.addEventListener("load", ()=>{
         addressValidation();
 
         if(!errors.username){
-            fetch(`http://localhost:3003/api/users/username/${$username.value}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                if(data.inUse == true){
-                    let error = document.querySelector(`#error-${$username.id}`);
-                    let errormsg = `El usuario ${$username.value} ya se encuentra registrado`;
-                    errors.username = errormsg;
-                    error.innerText = errormsg;
-                    inputError($username);
-                };
-            });
+            let data = await fetch(`http://localhost:3003/api/users/username/${$username.value}`).then(response => response.json());
+            if(data.inUse == true){
+                let error = document.querySelector(`#error-${$username.id}`);
+                let errormsg = `El usuario ${$username.value} ya se encuentra registrado`;
+                errors.username = errormsg;
+                error.innerText = errormsg;
+                inputError($username);
+            };
         };
 
         if(!errors.email){
-            fetch(`http://localhost:3003/api/users/email/${$email.value}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                if(data.inUse == true){
-                    let error = document.querySelector(`#error-${$email.id}`);
-                    let errormsg = `El e-mail ${$email.value} ya se encuentra registrado`;
-                    errors.username = errormsg;
-                    error.innerText = errormsg;
-                    inputError($email);
-                };
-            });
+            let data = await fetch(`http://localhost:3003/api/users/email/${$email.value}`).then(response => response.json());
+            if(data.inUse == true){
+                let error = document.querySelector(`#error-${$email.id}`);
+                let errormsg = `El e-mail ${$email.value} ya se encuentra registrado`;
+                errors.username = errormsg;
+                error.innerText = errormsg;
+                inputError($email);
+            };
         };
 
         if(!errors.phone){
-            fetch(`http://localhost:3003/api/users/phone/${$phone.value}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                if(data.inUse == true){
-                    let error = document.querySelector(`#error-${$phone.id}`);
-                    let errormsg = `El teléfono ${$phone.value} ya se encuentra registrado`;
-                    errors.username = errormsg;
-                    error.innerText = errormsg;
-                    inputError($phone);
-                };
-            });
+            let data = await fetch(`http://localhost:3003/api/users/phone/${$phone.value}`).then(response => response.json());
+            if(data.inUse == true){
+                let error = document.querySelector(`#error-${$phone.id}`);
+                let errormsg = `El teléfono ${$phone.value} ya se encuentra registrado`;
+                errors.username = errormsg;
+                error.innerText = errormsg;
+                inputError($phone);
+            };
         };
 
-        if (Object.keys(errors).length == 0) {
+/*         if (Object.keys(errors).length == 0) {
             $form.submit();
-        }
+        } */
     });
     
 })
