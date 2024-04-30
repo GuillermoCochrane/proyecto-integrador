@@ -116,6 +116,7 @@ const userController = {
 
     profile: function(req,res){
         let data = usersFunctions.userProfileData(req.session.userlogged);
+        data.userData = true;
         data.pageScript = ["profile","viewPassword", "validator.min", "passwordValidations","editUserValidations","avatarValidations"];
         return res.render("userProfile", data)
     },
@@ -124,7 +125,7 @@ const userController = {
         let errors = validationResult(req);
         let file = req.file;
         let data = usersFunctions.userProfileData(req.session.userlogged);
-
+        data.pageScript = ["profile","viewPassword", "validator.min", "passwordValidations","editUserValidations","avatarValidations"];
         if (errors.isEmpty()){
             usersFunctions.changeAvatar(data.user.id, file);
             return res.redirect("/users/profile")
@@ -138,7 +139,7 @@ const userController = {
         let errors = validationResult(req);
         let info = req.body;
         let data = usersFunctions.userProfileData(req.session.userlogged);
-
+        data.pageScript = ["profile","viewPassword", "validator.min", "passwordValidations","editUserValidations","avatarValidations"];
         if (errors.isEmpty()){
             usersFunctions.changePassword(data.user.id, info);
             return res.redirect("/users/profile")
@@ -152,7 +153,7 @@ const userController = {
         let errors = validationResult(req);
         let info = req.body;
         let data = usersFunctions.userProfileData(req.session.userlogged);
-
+        data.pageScript = ["profile","viewPassword", "validator.min", "passwordValidations","editUserValidations","avatarValidations"];
         if (errors.isEmpty()){
             usersFunctions.editUserData(data.user.id, info);
             return res.redirect("/users/profile")
