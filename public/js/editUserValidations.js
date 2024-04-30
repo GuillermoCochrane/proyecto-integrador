@@ -122,10 +122,10 @@ window.addEventListener("load", ()=>{
         namevalidation();
         phoenValidation();
         addressValidation();
-
+        
         if(!errors.username){
-            let data = await fetch(`http://localhost:3003/api/users/username/${$username.value}`).then(response => response.json());
-            let userlogged = await fetch("http://localhost:3003/api/users/userlogged").then(response => response.json());
+            let data = await fetch(`https://multihogar.onrender.com/api/users/username/${$username.value}`).then(response => response.json());
+            let userlogged = await fetch("https://multihogar.onrender.com/api/users/userlogged").then(response => response.json());
             if(data.inUse == true && $username.value.toUpperCase() != userlogged.data.username.toUpperCase()){
                 let error = document.querySelector(`#error-${$username.id}`);
                 let errormsg = `El usuario ${$username.value} ya se encuentra registrado`;
@@ -136,8 +136,8 @@ window.addEventListener("load", ()=>{
         };
 
         if(!errors.email){
-            let data = await fetch(`http://localhost:3003/api/users/email/${$email.value}`).then(response => response.json());
-            let userlogged = await fetch("http://localhost:3003/api/users/userlogged").then(response => response.json());
+            let data = await fetch(`https://multihogar.onrender.com/api/users/email/${$email.value}`).then(response => response.json());
+            let userlogged = await fetch("https://multihogar.onrender.com/api/users/userlogged").then(response => response.json());
             if(data.inUse == true && $email.value.toUpperCase() != userlogged.data.email.toUpperCase()){
                 let error = document.querySelector(`#error-${$email.id}`);
                 let errormsg = `El e-mail ${$email.value} ya se encuentra registrado`;
@@ -148,8 +148,8 @@ window.addEventListener("load", ()=>{
         };
 
         if(!errors.phone){
-            let data = await fetch(`http://localhost:3003/api/users/phone/${$phone.value}`).then(response => response.json());
-            let userlogged = await fetch("http://localhost:3003/api/users/userlogged").then(response => response.json());
+            let data = await fetch(`https://multihogar.onrender.com/api/users/phone/${$phone.value}`).then(response => response.json());
+            let userlogged = await fetch("https://multihogar.onrender.com/api/users/userlogged").then(response => response.json());
             if(data.inUse == true && $phone.value != userlogged.data.phone){
                 let error = document.querySelector(`#error-${$phone.id}`);
                 let errormsg = `El teléfono ${$phone.value} ya se encuentra registrado`;

@@ -34,7 +34,7 @@ window.addEventListener("load", ()=>{
     let usernameValidation = async () => {
         requiredValidation($username);
         if(!errors.username){
-            let data = await fetch(`http://localhost:3003/api/users/username/${$username.value}`).then(response => response.json())
+            let data = await fetch(`https://multihogar.onrender.com/api/users/username/${$username.value}`).then(response => response.json())
             if(data.inUse == false){
                 let error = document.querySelector(`#error-${$username.id}`);
                 let errormsg = `El usuario ${$username.value} no se encontró`;
