@@ -6,7 +6,3 @@
 test.js
 #/src/views/reference.ejs
 #/public/assets
-public/js/editUserValidations.js
-public/js/loginValidations.js
-public/js/registerValidations.js
-public/js/script.js
