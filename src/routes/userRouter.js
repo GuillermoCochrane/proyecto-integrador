@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
 //Middlewares
-const loggedMDW = require("../middlewares/loggedMDW")
-const guestMDW = require("../middlewares/guestMDW")
+const loggedMDW = require("../middlewares/loggedMDW");
+const guestMDW = require("../middlewares/guestMDW");
+const disableMDW = require("../middlewares/downMDW")
 const upload = require("../middlewares/usersMulterMDW");
 const userValidations = require("../middlewares/userValidationsMDW");
 const passwordValidations = require("../middlewares/userPasswordValidationsMDW");
@@ -14,7 +15,7 @@ const mailUsernameValidations = require("../middlewares/userMailUsernameValidati
 //Users Routes
 
 //All Users
-router.get('/',userController.index);
+router.get('/', disableMDW, userController.index);
 
 //User not found
 router.get('/notFound',userController.userNotFound);
@@ -33,14 +34,14 @@ router.get("/saleDetail/:id", loggedMDW, userController.saleDetail);
 router.get("/logout", loggedMDW, userController.logout);
 
 //User test sessions
-router.get("/test", userController.test);
+router.get("/test", disableMDW, userController.test);
 
 //User Register
 router.get('/register', guestMDW, userController.register);
 router.post("/register",upload.single("avatar"), mailUsernameValidations, passwordValidations, userController.store);
 
 //Edit User
-router.get('/edit/:id', loggedMDW, userController.edit); 
+router.get('/edit/:id', disableMDW, loggedMDW, userController.edit); 
 router.put('/edit/:id',upload.single("avatar"), userValidations, mailUsernameValidations, avatarValidations, passwordValidations, userController.update); 
 
 //change password
@@ -57,10 +58,10 @@ router.put('/newPassword', passwordValidations, userController.replacePassword);
 router.get('/recovery/:token',  userController.recoverLink);
 
 //Delete User
-router.get('/delete/:id', loggedMDW, userController.delete);
+router.get('/delete/:id', disableMDW, loggedMDW, userController.delete);
 router.delete('/delete/:id', userController.destroy);
 
 //User detailed info
-router.get("/:id", loggedMDW, userController.detail);
+router.get("/:id", disableMDW, loggedMDW, userController.detail);
 
 module.exports = router
