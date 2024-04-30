@@ -7,13 +7,13 @@
             <h2 class="title">
                 <%= label %>
             </h2>
-            <form action="/users/login" method="post" class="login-form">
+            <form action="/users/login" method="post" class="login-form" id="login-form">
                 <section class="login-form">
                     <div class="login-item">
                         <label for="username">Nombre de usuari@</label>
                         <input type="text" id="username" name="username" value="<%= locals.old ? old : null %>">
                     </div>
-                    <span class="login-item error"><%= locals.error && error.username ? error.username.msg : null %></span>
+                    <span class="login-item error" id="error-username"><%= locals.error && error.username ? error.username.msg : null %></span>
 
                     <div class="login-item">
                         <label for="password">Contraseña</label>
@@ -22,7 +22,7 @@
                             <i id="iconP" class="fa-regular fa-eye"></i>
                         </div>
                     </div>
-                    <span class="login-item error"><%= locals.error && error.password ? error.password.msg : null %></span>
+                    <span class="login-item error" id="password"><%= locals.error && error.password ? error.password.msg : null %></span>
 
                     <div class="login-options-container">
                         <div class="login-checkbox">
@@ -36,7 +36,7 @@
                     </div>
                 </section>
 
-                <button type="submit">Enviar</button>
+                <button type="submit" id="login-btn">Enviar</button>
             </form>
         </main>
     </div>
