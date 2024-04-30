@@ -492,12 +492,12 @@ section.login-form{
 .login-options div{
     margin: 5px 0;
 }
-
+.login-item input.input-error,
 .input-error{
     border: 3px solid darkred;
     color: darkred;
 }
-
+.login-item input.input-ok,
 .input-ok{
     border: 3px solid #39b54a;
 }
