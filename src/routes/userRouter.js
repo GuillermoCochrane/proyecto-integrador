@@ -52,7 +52,7 @@ router.put('/avatar', upload.single("avatar"), avatarValidations, userController
 router.put('/editdata', userValidations, userController.updateData); 
 
 //Recover Password
-router.get('/recovery',  userController.recover);
+router.get('/recovery', guestMDW, userController.recover);
 router.post('/recovery', recoveryMailValidation, userController.processRecovery);
 router.put('/newPassword', passwordValidations, userController.replacePassword);
 router.get('/recovery/:token',  userController.recoverLink);
