@@ -36,7 +36,6 @@ window.addEventListener("load", ()=>{
         let fileExtention = $avatar.value.split('.').pop();
         if(!errors.avatar){
             if(fileExtention != "jpg" && fileExtention != "png"  && fileExtention != "gif"  && fileExtention != "bmp" ){
-                console.log("adentro");
                 let errormsg = 'El formato del archivo es incompatible';
                 error.innerText = errormsg;
                 errors.confirm = errormsg;

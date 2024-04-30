@@ -92,7 +92,6 @@ window.addEventListener("load", ()=>{
 
         passwordValidation();
         confirmValidation();
-        console.log(errors);
 
         if (Object.keys(errors).length == 0) {
             $form.submit();

@@ -18,7 +18,6 @@ window.addEventListener("load", ()=>{
 
     const requiredValidation = (input) => {
         let error = document.querySelector(`#error-${input.id}`);
-        console.log(error);
         let label = input.id;
         if(validator.isEmpty(input.value)){
             let errormsg = "Debe ingresar el " + input.id;

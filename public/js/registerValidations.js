@@ -137,7 +137,6 @@ window.addEventListener("load", ()=>{
             fetch(`https://multihogar.onrender.com/api/users/username/${$username.value}`)
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 if(data.inUse == true){
                     let error = document.querySelector(`#error-${$username.id}`);
                     let errormsg = `El usuario ${$username.value} ya se encuentra registrado`;
@@ -152,7 +151,6 @@ window.addEventListener("load", ()=>{
             fetch(`https://multihogar.onrender.com/api/users/email/${$email.value}`)
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 if(data.inUse == true){
                     let error = document.querySelector(`#error-${$email.id}`);
                     let errormsg = `El usuario ${$email.value} ya se encuentra registrado`;
