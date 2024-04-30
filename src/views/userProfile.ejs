@@ -57,7 +57,7 @@
                 </nav>
                 
                 <section class="profile-info">
-                    <article class="user-data-container" id="user-info" <%= (locals.errors ) ? "hidden" : null %>>
+                    <article class="user-data-container <%= locals.errors ? "hidden" : null %>" id="user-info" >
                         <h3>
                             Datos personales
                         </h3>
