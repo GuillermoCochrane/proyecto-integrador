@@ -166,10 +166,12 @@ const userController = {
     },
 
     recover: function(req,res){
-        return res.render("recovery",{
-            title: "Recuperar Contraseña - " + functions.title,
-            tokenInput: false
-        })
+        let data = {
+            title: "Recuperar Contraseña " + functions.title,
+            tokenInput: false,
+        };
+        data.pageScript = ["validator.min", "recoverValidations"];
+        return res.render("recovery",data);
     },
 
     processRecovery:  function(req,res){
