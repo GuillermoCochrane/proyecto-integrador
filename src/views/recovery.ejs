@@ -4,22 +4,22 @@
     <%- include("./partials/headerStatic.ejs") %>
     <div class="main-border-form">
         <main>
-            <form action="/users/recovery" method="post" class="login-form">
+            <form action="/users/recovery" method="post" class="login-form" id="recovery-form">
                 <div class="login-item">
                     <label for="email">Ingrese su E-Mail</label>
                     <input type="email" id="email" name="email" value="<%= locals.old ? old : null %>">
                 </div>
-                <span class="login-item error"><%= locals.error && error.email ? error.email.msg : null %></span>
+                <span class="login-item error" id="error-email"><%= locals.error && error.email ? error.email.msg : null %></span>
 
                 <% if (tokenInput) { %>
                     <div class="login-item">
                         <label for="token">Ingrese el código</label>
                         <input type="token" id="token" name="token">
                     </div>
-                    <span class="login-item error"><%= locals.error && error.token ? error.token.msg : null %></span>
+                    <span class="login-item error" id="error-token"><%= locals.error && error.token ? error.token.msg : null %></span>
                 <% } %>
 
-                <button type="submit">Enviar</button>
+                <button type="submit" id="recovery-btn">Enviar</button>
             </form>
         </main>
     </div>
