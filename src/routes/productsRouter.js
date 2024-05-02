@@ -7,6 +7,7 @@ const upload = require("../middlewares/productsMulterMDW");
 const viewsCounter = require("../middlewares/productViewsCounterMDW");
 const productValidations = require("../middlewares/productValidationsMDW");
 const adminMDW = require("../middlewares/adminMDW");
+const disableMDW = require("../middlewares/downMDW");
 
 //Products Routes
 
@@ -25,15 +26,15 @@ router.get("/category/:idCat",productsController.category)
 router.get("/status/:idStatus",productsController.status)
 
 //Create Products
-router.get("/create", adminMDW, productsController.create)
+router.get("/create", disableMDW, adminMDW, productsController.create)
 router.post("/create",upload.single("img"), productValidations, productsController.store)
 
 //Edit Products
-router.get('/edit/:id', adminMDW, productsController.edit); 
+router.get('/edit/:id', disableMDW, adminMDW, productsController.edit); 
 router.put('/edit/:id', upload.single("img"), productValidations, productsController.update); 
 
 //Product delete
-router.get('/delete/:id', adminMDW, productsController.delete);
+router.get('/delete/:id', disableMDW, adminMDW, productsController.delete);
 router.delete('/delete/:id', productsController.destroy); 
 
 //Product detail
