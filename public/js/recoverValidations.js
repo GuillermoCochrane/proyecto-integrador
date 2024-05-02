@@ -1,5 +1,6 @@
 window.addEventListener("load", ()=>{
     const $email = document.querySelector("#email");
+    const $token = document.querySelector("#token");
     const $btn = document.querySelector("#recovery-btn");
     const $form = document.querySelector("#recovery-form");
     
@@ -34,7 +35,10 @@ window.addEventListener("load", ()=>{
         let error = document.querySelector( `#error-${input.id}`);
         let label = input.id;
         if(!validator.isLength(input.value, {min,max})){
-            let errormsg = `El ${input.id} debe tener entre ${min} y ${max} caracteres`;
+            let errormsg = ""
+            min == max ? 
+            errormsg = `El ${input.id} debe tener ${min} caracteres` : 
+            errormsg = `El ${input.id} debe tener entre ${min} y ${max} caracteres`;
             error.innerText = errormsg;
             errors[label] = errormsg;
             inputError(input);
@@ -62,7 +66,7 @@ window.addEventListener("load", ()=>{
                 }
             };
             if(!errors.email){
-                let data = await fetch(`https://multihogar.onrender.com/api/users/email/${$email.value}`).then(response => response.json());
+                let data = await fetch(`https://multihogar.onrender.com/api/users/email/${$email.value}`).then(response => response.json()); // http://localhost:3003
                 if(data.inUse == false){
                     let error = document.querySelector(`#error-${$email.id}`);
                     let errormsg = `No se encontró el email: ${$email.value} `;
@@ -73,18 +77,23 @@ window.addEventListener("load", ()=>{
             }
     };
 
+    let tokenValidation = () => {
+        requiredValidation($token);
+        errors.token ? null : lengthValidation($token,10,10);
+    };
+
     $email.addEventListener("input", () => emailValidation());
     $email.addEventListener("blur", () => emailValidation());
-
-    console.log(errors);
+    $token ? $token.addEventListener("input", () => tokenValidation()) : null;
+    $token ? $token.addEventListener("input", () => tokenValidation()) : null;
 
     $btn.addEventListener("click", (e)=>{
         e.preventDefault();
 
         emailValidation();
+        $token ? tokenValidation() : null;
 
         if (Object.keys(errors).length == 0) {
-            console.log("entro");
             $form.submit();
         }
     });
