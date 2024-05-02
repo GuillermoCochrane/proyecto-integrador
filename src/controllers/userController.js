@@ -167,10 +167,11 @@ const userController = {
 
     recover: function(req,res){
         let data = {
-            title: "Recuperar Contraseña " + functions.title,
+            title:      "Recuperar Contraseña " + functions.title,
             tokenInput: false,
+            pageScript: ["validator.min", "recoverValidations"],
         };
-        data.pageScript = ["validator.min", "recoverValidations"];
+        // data.pageScript = ["validator.min", "recoverValidations"];
         return res.render("recovery",data);
     },
 
@@ -178,32 +179,43 @@ const userController = {
         let url =   req.protocol + '://' + req.get('host') + req.originalUrl;
         let errors = validationResult(req);
         let { email } = req.body;
+        let data = {
+            title:      "Recuperar Contraseña - " + functions.title,
+            tokenInput: false,
+            pageScript: ["validator.min", "recoverValidations"],
+        };
 
         if (!errors.isEmpty()){
-            return res.render('recovery',{
-                title: "Recuperar Contraseña - " + functions.title,
-                tokenInput: false,
-                error: errors.mapped(),
-            });
+            data.error = errors.mapped();
+
+            return res.render('recovery',data);
         }
         if (!req.body.token){
             let userToken = mailFunction.mailRecovery(email,url);
             usersFunctions.changeToken(email,userToken);
-            return res.render('recovery',{
-                title: "Recuperar Contraseña - " + functions.title,
-                tokenInput: true,
-                old: email,
-            });
+            data.tokenInput = true;
+            data.old = email
+
+            return res.render('recovery',data);
         } else {
             let user = usersFunctions.filterByKey(email, "email")[0];
 
             if(user.token == req.body.token){
                 req.session.recovery = email;
+
                 return res.render("newPassword",{
                     title: "Nueva Contraseña - " + functions.title,
                 })
             } else {
-                return res.render('recovery',{
+                data.tokenInput = true;
+                data.old = email;
+                data.error = {
+                    token:{
+                        msg: "Token Inválido"
+                    }
+                };
+
+                return res.render('recovery', data /* {
                     title: "Recuperar Contraseña - " + functions.title,
                     tokenInput: true,
                     old: email,
@@ -212,7 +224,7 @@ const userController = {
                             msg: "Token Inválido"
                         }
                     }
-                })
+                } */)
             }
         }
     },
