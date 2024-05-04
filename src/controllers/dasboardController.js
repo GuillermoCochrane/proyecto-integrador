@@ -83,7 +83,7 @@ const dasboardController = {
         data.searchRoute = "searchProducts";
         data.dashboardlink = dashboardlink;
         data.scripts = ["dashboard"];
-        return res.render("dashboardProducts", data )
+        return res.render("dashboard/dashboardProducts", data )
     },
 
     product: function(req,res){
