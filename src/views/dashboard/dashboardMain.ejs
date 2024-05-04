@@ -1,4 +1,4 @@
-<%- include("./partials/dashboard.ejs") %>
+<%- include("../partials/dashboard/dashboard.ejs") %> 
 <main class="dashboard-home">
     <header >
         <h1>
@@ -7,7 +7,7 @@
     </header>
     <section class="summary-card-container">
         <% for (const card of data) {%>
-            <%- include("./partials/summaryCard.ejs", {card}) %>
+            <%- include("../partials/dashboard/summaryCard.ejs", {card}) %>
         <% } %>
     </section>
     <div class="data-container">
@@ -15,7 +15,7 @@
             <header class="product-highlight-header">
                 <h3 class="product-highlight-title">Producto Más vendido</h3>
             </header>
-            <%- include("./partials/mostSold.ejs") %>
+            <%- include("../partials/dashboard/mostSold.ejs") %>
         </section>
         <div class="categories-status-container">
             <section class="cards-box">
@@ -24,7 +24,7 @@
                 </header>
                 <div class="cards-container">
                     <% for (const item of categories) {%>
-                        <%- include("./partials/infoCards.ejs", {item}) %>
+                        <%- include("../partials/dashboard/infoCards", {item}) %>
                     <% } %>
                 </div>
             </section>
@@ -34,7 +34,7 @@
                 </header>
                 <div class="cards-container">
                     <% for (const item of status) {%>
-                        <%- include("./partials/infoCards.ejs", {item}) %>
+                        <%- include("../partials/dashboard/infoCards.ejs", {item}) %>
                     <% } %>
                 </div>
             </section>
