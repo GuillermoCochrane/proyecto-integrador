@@ -48,7 +48,7 @@ const dasboardController = {
         } else {
             old.errors = errors.mapped();
             old.dashboardlink = dashboardFunctions.dashboardLink;
-            return res.render('dashboardProductsForm',old)
+            return res.render('dashboard/dashboardProductsForm',old)
         }
     },
 
