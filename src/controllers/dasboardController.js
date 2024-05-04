@@ -36,7 +36,7 @@ const dasboardController = {
     newProduct: function(req,res){
         let data = functions.productFormData("Crear Producto", null);
         data.dashboardlink = dashboardFunctions.dashboardLink;
-        return res.render("dashboardProductsForm", data)
+        return res.render("dashboard/dashboardProductsForm", data)
     },
 
     store: function(req,res){
