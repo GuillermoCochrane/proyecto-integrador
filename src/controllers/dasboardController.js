@@ -14,7 +14,7 @@ const dasboardController = {
 
     email: function(req,res){
         let data = dashboardFunctions.dashboardMailData();
-        return res.render("dashboardEditEmail", data)
+        return res.render("dashboard/dashboardEditEmail", data)
     },
 
     updateEmail: function(req,res){
@@ -29,7 +29,7 @@ const dasboardController = {
             mailFunctions.editMailData(data);
             return res.redirect("/dashboard/email");
         } else {
-            return res.render('dashboardEditEmail',old);
+            return res.render('dashboard/dashboardEditEmail',old);
         }
     },
 
