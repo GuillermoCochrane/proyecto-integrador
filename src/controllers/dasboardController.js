@@ -9,7 +9,7 @@ const { validationResult } = require('express-validator');
 const dasboardController = {
     index: function(req,res){
         let info = dashboardFunctions.dashboardHomeData();
-        return res.render("dashboardMain", info)
+        return res.render("dashboard/dashboardMain", info)
     },
 
     email: function(req,res){
