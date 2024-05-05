@@ -154,12 +154,13 @@ const dasboardController = {
 
     user: function(req,res){
         let user = userFunctions.filterByID(req.params.id)[0];
+        let data ={
+            title: "Detalle del usuario" + user.username,
+            categories: functions.allCategories(),
+            user
+        };
         if (user){
-            return res.render("dashboardUserDetail",{
-                title: "Detalle del usuario" + user.username,
-                categories: functions.allCategories(),
-                user
-            })
+            return res.render("dashboard/dashboardUserDetail",data)
         } else {
             return res.redirect("/dashboard/notFound/user")
         }
