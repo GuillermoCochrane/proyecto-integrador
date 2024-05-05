@@ -103,7 +103,7 @@ const dasboardController = {
             let data = functions.productFormData("Editando - " + product.name, product);
             data.edit = true;
             data.dashboardlink = functions.dashboardLink;
-            return res.render("dashboardProductsForm", data)
+            return res.render("dashboard/dashboardProductsForm", data)
         }
     },
 
@@ -119,7 +119,7 @@ const dasboardController = {
         } else {
             old.errors = errors.mapped();
             old.dashboardlink = functions.dashboardLink;
-            return res.render('dashboardProductsForm',old);
+            return res.render('dashboard/dashboardProductsForm',old);
         }
     },
 
