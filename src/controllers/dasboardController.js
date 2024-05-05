@@ -209,7 +209,7 @@ const dasboardController = {
         let data = dashboardFunctions.filterSalesData(allSales);
         data.scripts = ["dashboard", "filtersales"];
 
-        return res.render("dashboardFilterSales",data)
+        return res.render("dashboard/dashboardFilterSales",data)
     },
 
     deliverSale: function(req,res){
