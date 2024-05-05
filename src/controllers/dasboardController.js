@@ -175,7 +175,7 @@ const dasboardController = {
     allSales: function(req,res){
         let data = dashboardFunctions.salesData();
         data.scripts = ["dashboard"];
-        return res.render("dashboardSales", data)
+        return res.render("dashboard/dashboardSales", data)
     },
 
     filterSales: function(req,res){
