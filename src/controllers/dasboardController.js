@@ -89,7 +89,7 @@ const dasboardController = {
     product: function(req,res){
         let data = dashboardFunctions.productDetailData(req.params.id)
         if (data){
-            return res.render("dashProductDetail", data)
+            return res.render("dashboard/dashProductDetail", data)
         } else {
             return res.redirect("/dashboard/notFound/product")
         }
