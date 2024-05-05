@@ -222,9 +222,8 @@ const dasboardController = {
         if(!data.sale){
             return res.redirect("/dashboard/notFound/sale")
         } else {
-            return res.render("dashboardSaleDetail", data)
+            return res.render("dashboard/dashboardSaleDetail", data)
         }
-        
     },
 
     allCategories: function(req,res){
