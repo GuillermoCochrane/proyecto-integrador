@@ -1,4 +1,4 @@
-<%- include("./partials/dashboard.ejs") %>
+<%- include("../partials/dashboard/dashboard.ejs") %>
 
 <main>
 
@@ -24,7 +24,7 @@
                             <th colspan="7"><%= label %></th>
                         </tr>
                         <tr>
-                            <%- include("./partials/dashboardSaleHeader.ejs") %>
+                            <%- include("../partials/dashboard/dashboardSaleHeader.ejs") %>
                             <th>¿Entregado?</th>
                         </tr>
                     </thead>
@@ -33,7 +33,7 @@
                                 <tr>
                                     <% counter = counter + 1 %>
                                     <td><%= counter %></td>
-                                    <%- include("./partials/dashboardSaleData.ejs", {sale}) %>
+                                    <%- include("../partials/dashboard/dashboardSaleData.ejs", {sale}) %>
                                     <td><%= sale.undelivered ? "No" : "Sí" %></td>
                                 </tr>
                             <% } %>
@@ -52,7 +52,7 @@
                             <th colspan="7"><%= label2 %></th>
                         </tr>
                         <tr>
-                            <%- include("./partials/dashboardSaleHeader.ejs") %>
+                            <%- include("../partials/dashboard/dashboardSaleHeader.ejs") %>
                             <th>Procesar</th>
                         </tr>
                     </thead>
@@ -63,7 +63,7 @@
                                     <tr>
                                         <% counter = counter + 1 %>
                                         <td><%= counter %></td>
-                                        <%- include("./partials/dashboardSaleData.ejs", {sale}) %>
+                                        <%- include("../partials/dashboard/dashboardSaleData.ejs", {sale}) %>
                                         <td>
                                             <form action="/dashboard/sales/<%= sale.id %>?_method=PUT"  class="dashboard-products-buttons" method="post">
                                                 <button>
