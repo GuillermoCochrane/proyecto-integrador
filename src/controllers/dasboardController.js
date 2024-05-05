@@ -149,7 +149,7 @@ const dasboardController = {
             data.title = searchResults.label;
         }
         data.scripts = ["dashboard"];
-        return res.render("dashboardUsers",data)
+        return res.render("dashboard/dashboardUsers",data)
     },
 
     user: function(req,res){
