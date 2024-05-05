@@ -131,7 +131,7 @@ const dasboardController = {
         if (!product){
             return res.redirect("/dashboard/notFound/product")
         }else{
-            return res.render("dashboardConfirmDelete", info);
+            return res.render("dashboard/dashboardConfirmDelete", info);
         }
     },
 
