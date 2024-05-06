@@ -12,7 +12,7 @@
   },
   "homepage": "https://multihogar.onrender.com",
   "scripts": {
-    "start": "node ./app.js",
+    "start": "node index.js",
     "dev": "nodemon ./src/app.js"
   },
   "author": "Guillermo Cochrane",
