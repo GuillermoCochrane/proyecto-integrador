@@ -1,15 +1,31 @@
 {
     "version": 2,
     "builds": [
-        {
-            "src": "./index.js",
-            "use": "@vercel/node"
-        }
+      {
+        "src": "./index.js",
+        "use": "@vercel/node"
+      }
     ],
     "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/"
-        }
+      { "handle": "filesystem" },
+      {
+        "src": "/(.*)",
+        "dest": "/"
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/css/(.*)",
+        "destination": "/css/$1"
+      },
+      {
+        "source": "/js/(.*)",
+        "destination": "/js/$1"
+      },
+      {
+        "source": "/images/(.*)",
+        "destination": "/images/$1"
+      }
     ]
-}
+  }
+  
