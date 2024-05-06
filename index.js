@@ -20,8 +20,8 @@ const dashboardRoutes = require("./src/routes/dashboardRouter");
 //Settings
 const app = express();
 const port = process.env.PORT || 3003;
-app.use(exp.static(path.join(__dirname, '/public')));
-//app.use(express.static('public'));// Set Static Resources folder
+//app.use(exp.static(path.join(__dirname, '/public')));
+app.use(express.static('public'));// Set Static Resources folder
 app.use(express.urlencoded({ extended: false })); // Required for processing POST method information
 app.use(express.json()); // Required for processing POST method information
 app.use(methodOverride('_method')); // For overriding method="POST" in forms, with PUT and DELETE
