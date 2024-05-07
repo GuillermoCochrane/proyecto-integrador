@@ -215,16 +215,7 @@ const userController = {
                     }
                 };
 
-                return res.render('recovery', data /* {
-                    title: "Recuperar Contraseña - " + functions.title,
-                    tokenInput: true,
-                    old: email,
-                    error: {
-                        token:{
-                            msg: "Token Inválido"
-                        }
-                    }
-                } */)
+                return res.render('recovery', data)
             }
         }
     },

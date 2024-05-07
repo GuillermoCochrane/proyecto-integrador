@@ -248,7 +248,7 @@ const dasboardController = {
             data.category = category;
         };
 
-        data.scripts = ["dashboard"];
+        data.scripts = ["dashboard", "validator.min", "dashboard/categoriesStatusValidations"];
         
         return res.render("dashboard/dashboardCategories", data )
     },
@@ -280,7 +280,7 @@ const dasboardController = {
         } else {
             data.errors = errors.mapped();
             data.tab = 2;
-            data.scripts = ["dashboard"];
+            data.scripts = ["dashboard", "validator.min", "dashboard/categoriesStatusValidations"];
             return res.render("dashboard/dashboardCategories", data )
         }
     },
