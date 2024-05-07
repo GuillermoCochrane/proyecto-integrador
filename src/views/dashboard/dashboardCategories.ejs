@@ -39,18 +39,18 @@
                 </div>
             <% } else { %>
                 <div class="form-box cat-stat">
-                    <form action="/dashboard/newStatus" method="post" class="form-content-box cat-stat">
+                    <form action="/dashboard/newStatus" method="post" class="form-content-box cat-stat" id="newStatusForm">
 
                         <div class="form-input-label-box">
-                            <label class="form-label-product" id="newStatus">
+                            <label class="form-label-product" for="newStatus">
                                 Nuevo estado
                             </label>
                             <input type="text" class="form-input-product" id="newStatus" name="status">
-                            <span class="login-item error"><%= (locals.errors && errors.status) ? errors.status.msg : null %></span>
+                            <span class="login-item error" id="error-newStatus"><%= (locals.errors && errors.status) ? errors.status.msg : null %></span>
                         </div>
 
                         <div class="dashboard-products-buttons">
-                            <button type="submit">
+                            <button type="submit" id="newStatusBtn">
                                 Agregar
                             </button>
                         </div>
