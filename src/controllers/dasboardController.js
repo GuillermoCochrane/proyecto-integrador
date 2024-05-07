@@ -82,7 +82,7 @@ const dasboardController = {
         data.categories = functions.allCategories();
         data.searchRoute = "searchProducts";
         data.dashboardlink = dashboardlink;
-        data.scripts = ["dashboard"];
+        data.scripts = ["dashboard/dashboard"];
         return res.render("dashboard/dashboardProducts", data )
     },
 
@@ -148,7 +148,7 @@ const dasboardController = {
             data.label = searchResults.label;
             data.title = searchResults.label;
         }
-        data.scripts = ["dashboard"];
+        data.scripts = ["dashboard/dashboard"];
         return res.render("dashboard/dashboardUsers",data)
     },
 
@@ -174,7 +174,7 @@ const dasboardController = {
 
     allSales: function(req,res){
         let data = dashboardFunctions.salesData();
-        data.scripts = ["dashboard"];
+        data.scripts = ["dashboard/dashboard"];
         return res.render("dashboard/dashboardSales", data)
     },
 
@@ -207,7 +207,7 @@ const dasboardController = {
         }
 
         let data = dashboardFunctions.filterSalesData(allSales);
-        data.scripts = ["dashboard", "filtersales"];
+        data.scripts = ["dashboard/dashboard", "filtersales"];
 
         return res.render("dashboard/dashboardFilterSales",data)
     },
@@ -248,7 +248,7 @@ const dasboardController = {
             data.category = category;
         };
 
-        data.scripts = ["dashboard", "validator.min", "dashboard/categoriesStatusValidations"];
+        data.scripts = ["dashboard/dashboard", "validator.min", "dashboard/categoriesStatusValidations"];
         
         return res.render("dashboard/dashboardCategories", data )
     },
@@ -262,7 +262,7 @@ const dasboardController = {
             return res.redirect("/dashboard/categories")
         } else {
             data.errors = errors.mapped();
-            data.scripts = ["dashboard"];
+            data.scripts = ["dashboard/dashboard"];
             return res.render("dashboard/dashboardCategories", data )
         }
     },
@@ -275,12 +275,12 @@ const dasboardController = {
             functions.newStatus(req.body);
             data = functions.dashboardCategoryStatus();
             data.tab = 2;
-            data.scripts = ["dashboard"];
+            data.scripts = ["dashboard/dashboard"];
             return res.render("dashboard/dashboardCategories", data )
         } else {
             data.errors = errors.mapped();
             data.tab = 2;
-            data.scripts = ["dashboard", "validator.min", "dashboard/categoriesStatusValidations"];
+            data.scripts = ["dashboard/dashboard", "validator.min", "dashboard/categoriesStatusValidations"];
             return res.render("dashboard/dashboardCategories", data )
         }
     },
@@ -299,7 +299,7 @@ const dasboardController = {
             old.category = info.category;
             data.category = old;
             data.errors = errors.mapped();
-            data.scripts = ["dashboard"];
+            data.scripts = ["dashboard/dashboard"];
             return res.render("dashboard/dashboardCategories", data )
         }
     },
@@ -307,7 +307,7 @@ const dasboardController = {
     editStatus: function(req,res){
         let errors = validationResult(req);
         let data = dashboardFunctions.dashboardCategoryStatus();
-        data.scripts = ["dashboard"];
+        data.scripts = ["dashboard/dashboard"];
         let info = req.body;
         let statusID = req.params.idStatus;
 
