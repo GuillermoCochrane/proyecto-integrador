@@ -12,6 +12,7 @@
     --green: #39b54a;
     --dark: #222229;
     --darkgrey: #444444;
+    --error: darkred;
   }
   
 * {
@@ -702,10 +703,20 @@ form.cat-stat{
 
 .form-input-product {
   width: 100%;
-  border: none;
+  border: 3px solid transparent;
   padding: 3px 5px;
   margin-bottom: 5px;
   border-radius: 5px;
+}
+
+
+.input-error{
+    border: 3px solid var(--error);
+    color: var(--error);
+}
+
+.input-ok{
+    border: 3px solid var(--green);
 }
 
 .login-item {
@@ -715,7 +726,7 @@ form.cat-stat{
 }
 
 .error{
-  color: tomato;
+  color: var(--error);
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 11px;
