@@ -262,7 +262,8 @@ const dasboardController = {
             return res.redirect("/dashboard/categories")
         } else {
             data.errors = errors.mapped();
-            return res.render("dashboardCategories", data )
+            data.scripts = ["dashboard"];
+            return res.render("dashboard/dashboardCategories", data )
         }
     },
 
@@ -274,11 +275,13 @@ const dasboardController = {
             functions.newStatus(req.body);
             data = functions.dashboardCategoryStatus();
             data.tab = 2;
-            return res.render("dashboardCategories", data )
+            data.scripts = ["dashboard"];
+            return res.render("dashboard/dashboardCategories", data )
         } else {
             data.errors = errors.mapped();
             data.tab = 2;
-            return res.render("dashboardCategories", data )
+            data.scripts = ["dashboard"];
+            return res.render("dashboard/dashboardCategories", data )
         }
     },
 
