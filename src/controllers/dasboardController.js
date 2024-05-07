@@ -256,13 +256,13 @@ const dasboardController = {
     newCategory: function(req,res){
         let errors = validationResult(req);
         let data = dashboardFunctions.dashboardCategoryStatus();
+        data.scripts = ["dashboard/dashboard", "validator.min", "dashboard/categoriesStatusValidations"];
 
         if (errors.isEmpty()){
             functions.newCategory(req.body);
             return res.redirect("/dashboard/categories")
         } else {
             data.errors = errors.mapped();
-            data.scripts = ["dashboard/dashboard"];
             return res.render("dashboard/dashboardCategories", data )
         }
     },
@@ -270,17 +270,17 @@ const dasboardController = {
     newStatus: function(req,res){
         let errors = validationResult(req);
         let data = dashboardFunctions.dashboardCategoryStatus();
+        data.scripts = ["dashboard/dashboard", "validator.min", "dashboard/categoriesStatusValidations"];
+        data.tab = 2;
 
         if (errors.isEmpty()){
             functions.newStatus(req.body);
             data = functions.dashboardCategoryStatus();
+            data.scripts = ["dashboard/dashboard", "validator.min", "dashboard/categoriesStatusValidations"];
             data.tab = 2;
-            data.scripts = ["dashboard/dashboard"];
             return res.render("dashboard/dashboardCategories", data )
         } else {
             data.errors = errors.mapped();
-            data.tab = 2;
-            data.scripts = ["dashboard/dashboard", "validator.min", "dashboard/categoriesStatusValidations"];
             return res.render("dashboard/dashboardCategories", data )
         }
     },
