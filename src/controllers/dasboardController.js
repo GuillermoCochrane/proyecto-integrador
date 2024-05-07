@@ -250,7 +250,7 @@ const dasboardController = {
 
         data.scripts = ["dashboard"];
         
-        return res.render("dashboardCategories", data )
+        return res.render("dashboard/dashboardCategories", data )
     },
 
     newCategory: function(req,res){
