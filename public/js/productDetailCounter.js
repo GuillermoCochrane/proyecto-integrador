@@ -3,7 +3,7 @@ window.addEventListener("load", ()=>{
     let $decrease = document.querySelector("#decrease");
     let $counter = document.querySelector("#counter");
     let $display = document.querySelector("#display")
-    let counterValue = parseInt($counter.value);
+    let counterValue = $counter? parseInt($counter.value) : 1;
     $display.innerHTML = counterValue
 
     $increase.addEventListener("click", (e)=>{
