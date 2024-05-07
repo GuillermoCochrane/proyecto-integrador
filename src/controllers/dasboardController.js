@@ -299,13 +299,15 @@ const dasboardController = {
             old.category = info.category;
             data.category = old;
             data.errors = errors.mapped();
-            return res.render("dashboardCategories", data )
+            data.scripts = ["dashboard"];
+            return res.render("dashboard/dashboardCategories", data )
         }
     },
 
     editStatus: function(req,res){
         let errors = validationResult(req);
         let data = dashboardFunctions.dashboardCategoryStatus();
+        data.scripts = ["dashboard"];
         let info = req.body;
         let statusID = req.params.idStatus;
 
@@ -313,14 +315,14 @@ const dasboardController = {
             functions.editStatus(statusID,info);
             data = functions.dashboardCategoryStatus();
             data.tab = 2;
-            return res.render("dashboardCategories", data ) 
+            return res.render("dashboard/dashboardCategories", data ) 
         } else {
             let old = functions.statusByID(statusID);
             old.status = info.status;
             data.status = old;
             data.errors = errors.mapped();
             data.tab = 2;
-            return res.render("dashboardCategories", data )
+            return res.render("dashboard/dashboardCategories", data )
         }
     },
 
