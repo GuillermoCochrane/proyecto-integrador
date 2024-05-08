@@ -16,7 +16,7 @@
 				<form action="<%= locals.edit ?
                 (locals.dashboardlink ? dashboardlink : null) + "/products/edit/" + product.id + "?_method=PUT" :
                 (locals.dashboardlink ? dashboardlink : null) +"/products/create"
-                %>" method="post" enctype="multipart/form-data">
+                %>" method="post" enctype="multipart/form-data" id="createProductForm">
 
 					<div class="form-content-box">
 

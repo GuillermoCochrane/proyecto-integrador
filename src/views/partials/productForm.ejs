@@ -1,13 +1,13 @@
 <div class="form-input-label-box">
     <label for="name" class="form-label-product">Nombre del producto:</label>
     <input type="text" id="name" name="name" placeholder="Ej: Zapatillas Reebok" class="form-input-product"  value="<%= locals.product ? product.name : null %>" >
-    <span class="login-item error"><%= (locals.errors && errors.name) ? errors.name.msg : null %></span>
+    <span class="login-item error" id="error-name"><%= (locals.errors && errors.name) ? errors.name.msg : null %></span>
 </div>
 
 <div class="form-input-label-box">
     <label for="img" class="form-label-product">Imagen del producto:</label>
     <input type="file" id="img" name="img" class="form-input-product" value="" type=".jpg,.png,.bmp,.gif">
-    <span class="login-item error"><%= (locals.errors && errors.img) ? errors.img.msg : null %></span>
+    <span class="login-item error" id="error-img"><%= (locals.errors && errors.img) ? errors.img.msg : null %></span>
 </div>
 
 <div class="form-input-label-box">
@@ -18,7 +18,7 @@
             <option value="<%= category.id %>" <%= locals.product && product.category == category.id ? "selected" : null %>> <%= category.category  %></option>
         <% } %>
     </select>
-    <span class="login-item error"><%= (locals.errors && errors.category) ? errors.category.msg : null %></span>
+    <span class="login-item error"id="error-category"><%= (locals.errors && errors.category) ? errors.category.msg : null %></span>
 </div>
 
 <div class="form-input-label-box">
@@ -29,27 +29,27 @@
             <option value="<%= item.id %>" <%= locals.product && product.status == item.id ? "selected" : null %>> <%= item.status  %></option>
         <% } %>
     </select>
-    <span class="login-item error"><%= (locals.errors && errors.status) ? errors.status.msg : null %></span>
+    <span class="login-item error" id="error-status"><%= (locals.errors && errors.status) ? errors.status.msg : null %></span>
 </div>
 
 <div class="form-input-label-box">
     <label for="price" class="form-label-product">Precio del producto:</label>
     <input type="number" id="price" name="price" placeholder="Ej: 5678" class="form-input-product" value="<%= locals.product ? product.price : null %>" >
-    <span class="login-item error"><%= (locals.errors && errors.price) ? errors.price.msg : null %></span>
+    <span class="login-item error" id="error-price"><%= (locals.errors && errors.price) ? errors.price.msg : null %></span>
 </div>
 
 <div class="form-input-label-box">
     <label for="discount" class="form-label-product">Descuento:</label>
     <input type="number" id="discount" name="discount" placeholder="Ej: 15" class="form-input-product" value="<%= locals.product ? product.discount : null %>">
-    <span class="login-item error"><%= (locals.errors && errors.discount) ? errors.discount.msg : null %></span>
+    <span class="login-item error" id="error-discount"><%= (locals.errors && errors.discount) ? errors.discount.msg : null %></span>
 </div>
 
 <div class="form-input-label-box big-box"> <!-- form-big-box -->
     <label for="description" class="form-label-product">Descipción:</label>
     <textarea name="description" id="description" class="form-input-product"><%= locals.product ? product.description : null %></textarea>
-    <span class="login-item error"><%= (locals.errors && errors.description) ? errors.description.msg : null %></span>
+    <span class="login-item error" id="error-description"><%= (locals.errors && errors.description) ? errors.description.msg : null %></span>
 </div>
 
 <div class="form-big-box">
-    <button type="submit" class="save-button">Guardar producto</button>
+    <button type="submit" class="save-button" id="createProductBtn">Guardar producto</button>
 </div>
