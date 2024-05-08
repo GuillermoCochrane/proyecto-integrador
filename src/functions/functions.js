@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const functions ={
+const functions = {
 
     pathStatusDB: path.join(__dirname, '../data/statusDataBase.json'),
 

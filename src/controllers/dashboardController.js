@@ -104,7 +104,8 @@ const dashboardController = {
         }else{
             let data = functions.productFormData("Editando - " + product.name, product);
             data.edit = true;
-            data.dashboardlink = functions.dashboardLink;
+            data.dashboardlink = dashboardFunctions.dashboardLink;
+            data.scripts = ["validator.min", /* "dashboard/productsValidations" */];
             return res.render("dashboard/dashboardProductsForm", data)
         }
     },
@@ -120,7 +121,8 @@ const dashboardController = {
             return res.redirect("/dashboard/products/" + id);
         } else {
             old.errors = errors.mapped();
-            old.dashboardlink = functions.dashboardLink;
+            old.dashboardlink = dashboardFunctions.dashboardLink;
+            old.scripts = ["validator.min", "dashboard/productsValidations"];
             return res.render('dashboard/dashboardProductsForm',old);
         }
     },
