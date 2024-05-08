@@ -299,7 +299,7 @@ const dasboardController = {
             old.category = info.category;
             data.category = old;
             data.errors = errors.mapped();
-            data.scripts = ["dashboard/dashboard"];
+            data.scripts = ["dashboard/dashboard", "validator.min", "dashboard/categoriesStatusValidations"];
             return res.render("dashboard/dashboardCategories", data )
         }
     },
