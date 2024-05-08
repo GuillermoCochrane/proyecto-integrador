@@ -307,7 +307,7 @@ const dasboardController = {
     editStatus: function(req,res){
         let errors = validationResult(req);
         let data = dashboardFunctions.dashboardCategoryStatus();
-        data.scripts = ["dashboard/dashboard"];
+        data.scripts = ["dashboard/dashboard", "validator.min", "dashboard/categoriesStatusValidations"];
         let info = req.body;
         let statusID = req.params.idStatus;
 
@@ -315,6 +315,7 @@ const dasboardController = {
             functions.editStatus(statusID,info);
             data = functions.dashboardCategoryStatus();
             data.tab = 2;
+            data.scripts = ["dashboard/dashboard", "validator.min", "dashboard/categoriesStatusValidations"];
             return res.render("dashboard/dashboardCategories", data ) 
         } else {
             let old = functions.statusByID(statusID);
