@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const dashboardRouter = require("../controllers/dasboardController");
+const dashboardRouter = require("../controllers/dashboardController");
 
 //Middlewares
 const upload = require("../middlewares/productsMulterMDW");
@@ -20,7 +20,7 @@ router.post("/email", mailValidations, dashboardRouter.updateEmail);
 router.get("/new", dashboardRouter.newProduct);
 router.post("/products/create",upload.single("img"), productValidations, dashboardRouter.store);
 
-//Display all prodcuts and Searchbar
+//Display all products and Searchbar
 router.get("/products", dashboardRouter.allProducts);
 router.get("/products/:id", dashboardRouter.product);
 router.get("/searchProducts", dashboardRouter.allProducts);
@@ -33,7 +33,7 @@ router.put("/products/edit/:id", upload.single("img"), productValidations, dashb
 router.get("/products/delete/:id", dashboardRouter.delete);
 router.delete("/products/delete/:id", dashboardRouter.destroy); 
 
-//Display all users and seachbar
+//Display all users and searchbar
 router.get("/users", dashboardRouter.allUsers);
 router.get("/users/:id", dashboardRouter.user);
 router.get("/searchUsers", dashboardRouter.allUsers);

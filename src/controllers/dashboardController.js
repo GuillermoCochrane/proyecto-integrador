@@ -6,7 +6,7 @@ const salesFunctions = require("../functions/salesFunctions");
 const dashboardFunctions = require("../functions/dashboardFunctions");
 const { validationResult } = require('express-validator');
 
-const dasboardController = {
+const dashboardController = {
     index: function(req,res){
         let info = dashboardFunctions.dashboardHomeData();
         return res.render("dashboard/dashboardMain", info)
@@ -36,6 +36,7 @@ const dasboardController = {
     newProduct: function(req,res){
         let data = functions.productFormData("Crear Producto", null);
         data.dashboardlink = dashboardFunctions.dashboardLink;
+        data.scripts = ["validator.min", "dashboard/productsValidations"];
         return res.render("dashboard/dashboardProductsForm", data)
     },
 
@@ -48,6 +49,7 @@ const dasboardController = {
         } else {
             old.errors = errors.mapped();
             old.dashboardlink = dashboardFunctions.dashboardLink;
+            old.scripts = ["validator.min", "dashboard/productsValidations"];
             return res.render('dashboard/dashboardProductsForm',old)
         }
     },
@@ -335,4 +337,4 @@ const dasboardController = {
     },
 };
 
-module.exports = dasboardController;
+module.exports = dashboardController;
