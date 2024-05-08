@@ -5,7 +5,9 @@ window.addEventListener("load", ()=>{
     const $newCategoryBtn = document.querySelector("#newCategoryBtn");
     const $newCategory = document.querySelector("#newCategory");
     const $newCategoryForm = document.querySelector("#newCategoryForm");
-    console.log($newStatus);
+    const $editCategory = document.querySelector("#editCategory");
+    const $editCategoryForm = document.querySelector("#editCategoryForm");
+    const $editCategoryBtn = document.querySelector("#editCategoryBtn");
 
     let errors = { };
 
@@ -61,12 +63,19 @@ window.addEventListener("load", ()=>{
             errors.newCategory ? null : lengthValidation($newCategory, 3,30);
     };
 
-    $newStatus.addEventListener('input',() => {newStatusValidation()});
-    $newStatus.addEventListener('blur',() => {newStatusValidation()});
-    $newCategory.addEventListener('input',() => {newCategoryValidation()});
-    $newCategory.addEventListener('blur',() => {newCategoryValidation()});
+    const editCategoryValidation = () => {
+            requiredValidation($editCategory);
+            errors.editCategory ? null : lengthValidation($editCategory, 3,30);
+    };
 
-    $newStatusBtn.addEventListener("click", (e)=>{
+    $newStatus ? $newStatus.addEventListener('input',() => {newStatusValidation()}) : null; 
+    $newStatus ? $newStatus.addEventListener('blur',() => {newStatusValidation()}) : null;
+    $newCategory ? $newCategory.addEventListener('input',() => {newCategoryValidation()}) : null;
+    $newCategory ? $newCategory.addEventListener('blur',() => {newCategoryValidation()}) : null;
+    $editCategory ? $editCategory.addEventListener('input',() => {editCategoryValidation()}) : null;
+    $editCategory ? $editCategory.addEventListener('blur',() => {editCategoryValidation()}) : null;
+
+    $newStatusBtn ? $newStatusBtn.addEventListener("click", (e)=>{
         e.preventDefault();
         
         newStatusValidation();
@@ -74,9 +83,9 @@ window.addEventListener("load", ()=>{
         if (Object.keys(errors).length == 0) {
             $newStatusForm.submit();
         }
-    });
+    }) : null;
 
-    $newCategoryBtn.addEventListener("click", (e)=>{
+    $newCategoryBtn ? $newCategoryBtn.addEventListener("click", (e)=>{
         e.preventDefault();
         
         newCategoryValidation();
@@ -84,8 +93,17 @@ window.addEventListener("load", ()=>{
         if (Object.keys(errors).length == 0) {
             $newCategoryForm.submit();
         }
-    }); 
-    
+    }) : null;
+
+    $editCategoryBtn ? $editCategoryBtn.addEventListener("click", (e)=>{
+        e.preventDefault();
+        
+        editCategoryValidation();
+
+        if (Object.keys(errors).length == 0) {
+            $editCategoryForm.submit();
+        }
+    }) : null;
 })
 
 //git update-index --assume-unchanged public/js/registerValidations.js
