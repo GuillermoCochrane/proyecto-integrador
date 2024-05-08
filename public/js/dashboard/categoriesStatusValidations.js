@@ -2,6 +2,9 @@ window.addEventListener("load", ()=>{
     const $newStatus = document.querySelector("#newStatus");
     const $newStatusBtn = document.querySelector("#newStatusBtn");
     const $newStatusForm = document.querySelector("#newStatusForm");
+    const $newCategoryBtn = document.querySelector("#newCategoryBtn");
+    const $newCategory = document.querySelector("#newCategory");
+    const $newCategoryForm = document.querySelector("#newCategoryForm");
     console.log($newStatus);
 
     let errors = { };
@@ -53,8 +56,15 @@ window.addEventListener("load", ()=>{
             errors.newStatus ? null : lengthValidation($newStatus, 3,30);
     };
 
-    $newStatus.addEventListener('input',() => {newStatusValidation()} );
+    const newCategoryValidation = () => {
+            requiredValidation($newCategory);
+            errors.newCategory ? null : lengthValidation($newCategory, 3,30);
+    };
+
+    $newStatus.addEventListener('input',() => {newStatusValidation()});
     $newStatus.addEventListener('blur',() => {newStatusValidation()});
+    $newCategory.addEventListener('input',() => {newCategoryValidation()});
+    $newCategory.addEventListener('blur',() => {newCategoryValidation()});
 
     $newStatusBtn.addEventListener("click", (e)=>{
         e.preventDefault();
@@ -65,6 +75,16 @@ window.addEventListener("load", ()=>{
             $newStatusForm.submit();
         }
     });
+
+    $newCategoryBtn.addEventListener("click", (e)=>{
+        e.preventDefault();
+        
+        newCategoryValidation();
+
+        if (Object.keys(errors).length == 0) {
+            $newCategoryForm.submit();
+        }
+    }); 
     
 })
 
