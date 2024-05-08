@@ -19,18 +19,18 @@
 
             <% if (locals.status) { %>
                 <div class="form-box cat-stat">
-                    <form action="/dashboard/editStatus/<%= status.id  %>?_method=PUT" method="post" class="form-content-box cat-stat">
+                    <form action="/dashboard/editStatus/<%= status.id  %>?_method=PUT" method="post" class="form-content-box cat-stat" id="editStatusForm">
 
                         <div class="form-input-label-box">
-                            <label class="form-label-product" id="editStatus">
+                            <label class="form-label-product" for="editStatus">
                                 Editando estado <%= status.id %>: <%= status.status %>
                             </label>
                             <input type="text" class="form-input-product" id="editStatus" name="status" value="<%= status.status %>">
-                            <span class="login-item error"><%= (locals.errors && errors.status) ? errors.status.msg : null %></span>
+                            <span class="login-item error" id="error-editStatus"><%= (locals.errors && errors.status) ? errors.status.msg : null %></span>
                         </div>
 
                         <div class="dashboard-products-buttons">
-                            <button type="submit">
+                            <button type="submit" id="editStatusBtn">
                                 Editar
                             </button>
                         </div>
