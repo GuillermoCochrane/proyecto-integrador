@@ -91,18 +91,18 @@
 
             <% if (locals.category) { %>
                 <div class="form-box cat-stat">
-                    <form action="/dashboard/editCategory/<%= category.id  %>?_method=PUT" method="post" class="form-content-box cat-stat">
+                    <form action="/dashboard/editCategory/<%= category.id  %>?_method=PUT" method="post" class="form-content-box cat-stat" id="editCategoryForm">
 
                         <div class="form-input-label-box">
-                            <label class="form-label-product" id="editCategory">
+                            <label class="form-label-product" for="editCategory">
                                 Editando Categoría <%= category.id %>: <%= category.category %>
                             </label>
                             <input type="text" class="form-input-product" id="editCategory" name="category" value="<%= category.category %>">
-                            <span class="login-item error"><%= (locals.errors && errors.category) ? errors.category.msg : null %></span>
+                            <span class="login-item error" id="error-editCategory"><%= (locals.errors && errors.category) ? errors.category.msg : null %></span>
                         </div>
 
                         <div class="dashboard-products-buttons">
-                            <button type="submit">
+                            <button type="submit" id="editCategoryBtn">
                                 Editar
                             </button>
                         </div>
