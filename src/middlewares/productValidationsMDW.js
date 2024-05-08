@@ -16,7 +16,6 @@ const productValidations = [
         .isNumeric().withMessage('El dato ingresado debe ser un número'),
     body('description')
         .notEmpty().withMessage('Debes completar la descripción del producto').bail()
-        .notEmpty().withMessage('Debes completar el nombre del producto').bail()
         .isLength({min:3, max:250}).withMessage("El nombre del producto debe tener entre 3 y 250 caracteres"),
     body('img').custom((value, {req})=> {
         let file = req.file;
