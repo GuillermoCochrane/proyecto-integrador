@@ -8,6 +8,9 @@ window.addEventListener("load", ()=>{
     const $editCategory = document.querySelector("#editCategory");
     const $editCategoryForm = document.querySelector("#editCategoryForm");
     const $editCategoryBtn = document.querySelector("#editCategoryBtn");
+    const $editStatus = document.querySelector("#editStatus");
+    const $editStatusForm = document.querySelector("#editStatusForm");
+    const $editStatusBtn = document.querySelector("#editStatusBtn");
 
     let errors = { };
 
@@ -68,12 +71,19 @@ window.addEventListener("load", ()=>{
             errors.editCategory ? null : lengthValidation($editCategory, 3,30);
     };
 
+    const editStatusValidation = () => {
+            requiredValidation($editStatus);
+            errors.editStatus ? null : lengthValidation($editStatus, 3,30);
+    };
+
     $newStatus ? $newStatus.addEventListener('input',() => {newStatusValidation()}) : null; 
     $newStatus ? $newStatus.addEventListener('blur',() => {newStatusValidation()}) : null;
     $newCategory ? $newCategory.addEventListener('input',() => {newCategoryValidation()}) : null;
     $newCategory ? $newCategory.addEventListener('blur',() => {newCategoryValidation()}) : null;
     $editCategory ? $editCategory.addEventListener('input',() => {editCategoryValidation()}) : null;
     $editCategory ? $editCategory.addEventListener('blur',() => {editCategoryValidation()}) : null;
+    $editStatus ? $editStatus.addEventListener('input',() => {editStatusValidation()}) : null;
+    $editStatus ? $editStatus.addEventListener('blur',() => {editStatusValidation()}) : null;
 
     $newStatusBtn ? $newStatusBtn.addEventListener("click", (e)=>{
         e.preventDefault();
@@ -102,6 +112,16 @@ window.addEventListener("load", ()=>{
 
         if (Object.keys(errors).length == 0) {
             $editCategoryForm.submit();
+        }
+    }) : null;
+    
+    $editStatusBtn ? $editStatusBtn.addEventListener("click", (e)=>{
+        e.preventDefault();
+        
+        editStatusValidation();
+
+        if (Object.keys(errors).length == 0) {
+            $editStatusForm.submit();
         }
     }) : null;
 })
