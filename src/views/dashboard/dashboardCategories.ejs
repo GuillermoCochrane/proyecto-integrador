@@ -111,18 +111,18 @@
                 </div>
             <% } else { %>
                 <div class="form-box cat-stat">
-                    <form action="/dashboard/newCategory" method="post" class="form-content-box cat-stat">
+                    <form action="/dashboard/newCategory" method="post" class="form-content-box cat-stat" id="newCategoryForm">
 
                         <div class="form-input-label-box">
                             <label class="form-label-product" for="newCategory">
                                 Nueva Categoría
                             </label>
                             <input type="text" class="form-input-product" id="newCategory" name="category">
-                            <span class="login-item error"><%= (locals.errors && errors.category) ? errors.category.msg : null %></span>
+                            <span class="login-item error" id="error-newCategory"><%= (locals.errors && errors.category) ? errors.category.msg : null %></span>
                         </div>
 
                         <div class="dashboard-products-buttons">
-                            <button type="submit">
+                            <button type="submit" id="newCategoryBtn">
                                 Agregar
                             </button>
                         </div>
