@@ -5,8 +5,6 @@ const userdataMDW = require("../middlewares/userDataMDW")
 
 //Middlewares
 
-//Products Routes
-
 //Cart
 router.get('/', cartController.index)
 
