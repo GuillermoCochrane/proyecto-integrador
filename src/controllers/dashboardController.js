@@ -14,6 +14,7 @@ const dashboardController = {
 
     email: function(req,res){
         let data = dashboardFunctions.dashboardMailData();
+        data.scripts = ["validator.min", "dashboard/emailValidations"];
         return res.render("dashboard/dashboardEditEmail", data)
     },
 
@@ -26,9 +27,11 @@ const dashboardController = {
             data
         }
         if (errors.isEmpty()){
+            data.scripts = ["validator.min", "dashboard/emailValidations"];
             mailFunctions.editMailData(data);
             return res.redirect("/dashboard/email");
         } else {
+            old.scripts = ["validator.min", "dashboard/emailValidations"];
             return res.render('dashboard/dashboardEditEmail',old);
         }
     },
