@@ -54,7 +54,7 @@ router.get("/sales/:saleID", dashboardRouter.saleDetail);
 router.get("/filterSales", dashboardRouter.filterSales);
 router.post("/filterSales", dashboardRouter.filterSales);
 
-// Display all categories & status
+//Display all categories & status
 router.get("/categories", dashboardRouter.allCategories);
 
 //New Category
@@ -74,7 +74,6 @@ router.put("/editStatus/:idStatus", statusValidations, dashboardRouter.editStatu
 //filter categories & status
 router.get("/category/:idCategory", dashboardRouter.allProducts);
 router.get("/status/:idStatus", dashboardRouter.allProducts);
-
 
 //Not found 
 router.get("/notFound/:id", dashboardRouter.notFound);

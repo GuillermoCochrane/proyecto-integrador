@@ -178,7 +178,6 @@ const dashboardController = {
         return res.redirect("/dashboard/users")
     },
 
-
     allSales: function(req,res){
         let data = dashboardFunctions.salesData();
         data.scripts = ["dashboard/dashboard"];
