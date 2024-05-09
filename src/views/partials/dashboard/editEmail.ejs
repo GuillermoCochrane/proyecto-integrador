@@ -5,27 +5,27 @@
 	</h2>
 
 	<div class="form-box"> 
-		<form action="/dashboard/email"  method="POST">
+		<form action="/dashboard/email"  method="POST" id="editEmailForm">
 			<div class="form-content-box">
 
 				<div class="form-input-label-box big-box">
-					<label class="form-label-product" id="email">
+					<label class="form-label-product" for="email">
 						E-Mail
 					</label>
 					<input type="text" class="form-input-product" id="email" name="email" value="<%= locals.data ? data.email : null %>">
-					<span class="login-item error"><%= (locals.errors && errors.email) ? errors.email.msg : null %></span>
+					<span class="login-item error" id="error-email"><%= (locals.errors && errors.email) ? errors.email.msg : null %></span>
 				</div>
 
 				<div class="form-input-label-box big-box">
-					<label class="form-label-product" id="pass">
+					<label class="form-label-product" for="pass">
 						Código
 					</label>
 					<input type="text" class="form-input-product" id="pass" name="pass" value="<%= locals.data ? data.pass : null %>">
-					<span class="login-item error"><%= (locals.errors && errors.pass) ? errors.pass.msg : null %></span>
+					<span class="login-item error" id="error-pass"><%= (locals.errors && errors.pass) ? errors.pass.msg : null %></span>
 				</div>
 
 				<div class="dashboard-products-buttons">
-					<button type="submit">
+					<button type="submit" id="editEmailBtn">
 						Guardar
 					</button>
 				</div>
