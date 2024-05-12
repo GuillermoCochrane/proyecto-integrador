@@ -14,7 +14,7 @@ const mainController ={
             }
             data.sectionTop.title = userPreferences.title;
         }
-
+        data.cdn = true;
         return res.render("home",data)
     },
 
