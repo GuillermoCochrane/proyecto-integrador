@@ -1,4 +1,4 @@
-<div class="article-box">
+<div class="article-box <%= carrusel ? "swiper-slide" : null %>" >
     <article class="main-article">
         <a href="<%= locals.dashboardlink ? dashboardlink : null %>/products/<%= product.id %>">
             <figure class="img-article">
