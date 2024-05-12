@@ -2,7 +2,7 @@
 
 <body>
     <%- include("./partials/headerFixed.ejs") %>
-    <div class="main-border">
+    < class="main-border">
         <main>
             <section>
                 <h2 class="title">
@@ -17,7 +17,6 @@
                     </div>
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
-                    </div>
                 </div>
             </section>
 
@@ -26,10 +25,14 @@
                     <%= sectionBottom.title %>
                 </h2>
 
-                <div class="articles-box">
-                    <% for (product of sectionBottom.data) {%>
-                        <%- include("./partials/article.ejs", { carrusel: true }) %>
-                    <% } %>
+                <div class="articles-box swiper mySwiper" id="carrousel-bottom">
+                    <div class="swiper-wrapper">
+                        <% for (product of sectionBottom.data) {%>
+                            <%- include("./partials/article.ejs", { carrusel: true }) %>
+                        <% } %>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                 </div>
             </section>
 
