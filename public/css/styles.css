@@ -309,6 +309,7 @@ section article.main-article:hover .description {
     flex-wrap: wrap;
 }
 
+i.article,
 main section article i.article  {
     display: block;
     font-size: 15px;
@@ -352,6 +353,13 @@ main section article i.article  {
     text-overflow: ellipsis;
 }
 
+.swiper-button-prev{
+    left: -3px;
+}
+
+.swiper-button-next{
+    right: -3px;
+}
 /* FOOTER */
 
 footer {
