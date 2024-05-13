@@ -14,7 +14,7 @@ const userController = {
 
     login: function(req,res){
         let data = usersFunctions.data("Login");
-        data.pageScript = ["viewPassword", "validator.min", "users/loginValidations"];
+        data.pageScript = ["users/viewPassword", "users/validator.min", "users/loginValidations"];
         return res.render("users/login",data)
     },
 
@@ -25,14 +25,14 @@ const userController = {
             delete user.password;
             req.session.userlogged = user;
             if(req.body.rememberMe){
-                res.cookie("userID", user.id, {maxAge: (1000*60)*30} ) //1000*60 = 1000ms * 60s == 1 min
+                res.cookie("userID", user.id, {maxAge: (1000*60)*60} ) //(1000*60 = 1000ms * 60s = 1 min) * 60min = 1h
             }
             return res.redirect("/")
         } else {
             let data = usersFunctions.data("Login");
             data.error = errors.mapped();
             data.old = req.body.username;
-            data.pageScript = ["viewPassword", "validator.min", "users/loginValidations"];
+            data.pageScript = ["users/viewPassword", "users/validator.min", "users/loginValidations"];
             return res.render('users/login', data)
         }
     },
@@ -71,7 +71,7 @@ const userController = {
 
     register: function(req, res){
         let data = functions.userFormData("Registrate", [] );
-        data.pageScript = ["validator.min", "users/registerValidations" ,"viewPassword"];
+        data.pageScript = ["users/validator.min", "users/registerValidations" ,"users/viewPassword"];
         res.render("users/userRegister", data)
     },
 
@@ -84,7 +84,7 @@ const userController = {
             return res.redirect("/users/" + id)
         } else {
             old.errors = errors.mapped();
-            old.pageScript = ["validator.min", "users/registerValidations" ,"viewPassword"];
+            old.pageScript = ["users/validator.min", "users/registerValidations" ,"users/viewPassword"];
             return res.render('users/userRegister',old)
         }
     },
@@ -119,15 +119,15 @@ const userController = {
     profile: function(req,res){
         let data = usersFunctions.userProfileData(req.session.userlogged);
         data.userData = true;
-        data.pageScript = ["profile","viewPassword", "validator.min", "passwordValidations","editUserValidations","avatarValidations"];
-        return res.render("userProfile", data)
+        data.pageScript = ["profile","users/viewPassword", "users/validator.min", "users/passwordValidations","users/editUserValidations","users/avatarValidations"];
+        return res.render("users/userProfile", data)
     },
 
     changeAvatar:  function(req,res){
         let errors = validationResult(req);
         let file = req.file;
         let data = usersFunctions.userProfileData(req.session.userlogged);
-        data.pageScript = ["profile","viewPassword", "validator.min", "passwordValidations","editUserValidations","avatarValidations"];
+        data.pageScript = ["profile","users/viewPassword", "users/validator.min", "users/passwordValidations","users/editUserValidations","users/avatarValidations"];
         if (errors.isEmpty()){
             usersFunctions.changeAvatar(data.user.id, file);
             return res.redirect("/users/profile")
@@ -141,7 +141,7 @@ const userController = {
         let errors = validationResult(req);
         let info = req.body;
         let data = usersFunctions.userProfileData(req.session.userlogged);
-        data.pageScript = ["profile","viewPassword", "validator.min", "passwordValidations","editUserValidations","avatarValidations"];
+        data.pageScript = ["profile","users/viewPassword", "users/validator.min", "users/passwordValidations","users/editUserValidations","users/avatarValidations"];
         if (errors.isEmpty()){
             usersFunctions.changePassword(data.user.id, info);
             return res.redirect("/users/profile")
@@ -155,7 +155,7 @@ const userController = {
         let errors = validationResult(req);
         let info = req.body;
         let data = usersFunctions.userProfileData(req.session.userlogged);
-        data.pageScript = ["profile","viewPassword", "validator.min", "passwordValidations","editUserValidations","avatarValidations"];
+        data.pageScript = ["profile","users/viewPassword", "users/validator.min", "users/passwordValidations","users/editUserValidations","users/avatarValidations"];
         if (errors.isEmpty()){
             usersFunctions.editUserData(data.user.id, info);
             return res.redirect("/users/profile")
@@ -171,9 +171,9 @@ const userController = {
         let data = {
             title:      "Recuperar Contraseña " + functions.title,
             tokenInput: false,
-            pageScript: ["validator.min", "recoverValidations"],
+            pageScript: ["users/validator.min", "recoverValidations"],
         };
-        // data.pageScript = ["validator.min", "recoverValidations"];
+        // data.pageScript = ["users/validator.min", "recoverValidations"];
         return res.render("recovery",data);
     },
 
