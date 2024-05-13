@@ -22,7 +22,7 @@ const mainController ={
         let username = req.session.userlogged;
         let data = cartFunctions.editCartData(id,username);
         data.pageScript = ["productDetailCounter"];
-        res.render("cartEdit", data)
+        res.render("cart/cartEdit", data)
     },
 
     update: function(req,res){
