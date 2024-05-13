@@ -9,7 +9,7 @@ const userController = {
     index: function(req,res){
         let data = usersFunctions.data("Todos los usuarios");
         data.users = usersFunctions.allUsers();
-        return res.render("allUsers",data)
+        return res.render("users/allUsers",data)
     },
 
     login: function(req,res){
