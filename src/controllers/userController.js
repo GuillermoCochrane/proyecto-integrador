@@ -57,7 +57,7 @@ const userController = {
     userNotFound: function(req,res){
         let data = usersFunctions.data("Usuario no encontrado");
         data.products = [];
-        return res.render("allProducts",data)
+        return res.render("products/allProducts",data)
     },
 
     detail: function(req,res){
