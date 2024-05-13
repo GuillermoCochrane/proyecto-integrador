@@ -65,7 +65,7 @@ const userController = {
         if (!user){
             return res.redirect("/users/notFound")
         } else {
-            return res.render("userDetail",user)
+            return res.render("users/userDetail",user)
         }
     },
 
