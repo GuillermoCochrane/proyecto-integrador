@@ -14,8 +14,8 @@ const userController = {
 
     login: function(req,res){
         let data = usersFunctions.data("Login");
-        data.pageScript = ["viewPassword", "validator.min", "loginValidations"];
-        return res.render("login",data)
+        data.pageScript = ["viewPassword", "validator.min", "users/loginValidations"];
+        return res.render("users/login",data)
     },
 
     processLogin: function(req,res){
