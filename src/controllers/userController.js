@@ -147,7 +147,7 @@ const userController = {
             return res.redirect("/users/profile")
         } else { 
             data.errors = errors.mapped();
-            return res.render("userProfile", data)
+            return res.render("users/userProfile", data)
         }
     },
 
