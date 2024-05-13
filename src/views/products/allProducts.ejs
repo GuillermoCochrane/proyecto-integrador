@@ -1,7 +1,7 @@
-<%- include("./partials/head.ejs") %>
+<%- include("../partials/head.ejs") %>
 
 <body>
-    <%- include("./partials/headerFixed.ejs") %>
+    <%- include("../partials/headerFixed.ejs") %>
     <div class="main-border">
         <main>
             <section>
@@ -11,14 +11,14 @@
 
                 <div class="articles-box">
                     <% for (product of products) {%>
-                        <%- include("./partials/article.ejs", { carrusel: false }) %>
+                        <%- include("../partials/article.ejs", { carrusel: false }) %>
                     <% } %>
                 </div>
             </section>
 
         </main>
     </div>
-    <%- include("./partials/footer.ejs") %>
+    <%- include("../partials/footer.ejs") %>
 
 </body>
 </html>
