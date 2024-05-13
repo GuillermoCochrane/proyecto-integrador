@@ -31,8 +31,9 @@ const userController = {
         } else {
             let data = usersFunctions.data("Login");
             data.error = errors.mapped();
-            data.old = req.body.username
-            return res.render('login', data)
+            data.old = req.body.username;
+            data.pageScript = ["viewPassword", "validator.min", "users/loginValidations"];
+            return res.render('users/login', data)
         }
     },
 
