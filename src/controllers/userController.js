@@ -119,7 +119,7 @@ const userController = {
     profile: function(req,res){
         let data = usersFunctions.userProfileData(req.session.userlogged);
         data.userData = true;
-        data.pageScript = ["users/profile"/* ,"users/viewPassword", "users/validator.min", "users/passwordValidations","users/editUserValidations","users/avatarValidations" */];
+        data.pageScript = ["users/profile","users/viewPassword", "users/validator.min", "users/passwordValidations","users/editUserValidations","users/avatarValidations"];
         return res.render("users/userProfile", data)
     },
 
@@ -163,7 +163,7 @@ const userController = {
             data.errors = errors.mapped();
             data.errors.form = true;
             data.old = info;
-            return res.render("userProfile", data)
+            return res.render("users/userProfile", data)
         }
     },
 
