@@ -1,7 +1,7 @@
-<%- include("./partials/head.ejs") %>
+<%- include("../partials/head.ejs") %>
 <body class="register-form">
     
-    <%- include("./partials/headerStatic.ejs") %>
+    <%- include("../partials/headerStatic.ejs") %>
 
     <div class="main-border-form">
         <main>
@@ -10,11 +10,11 @@
             </h2>
             <form action="/users/register" method="post" class="form-frame register" enctype="multipart/form-data" id="register-form">
 
-                <%- include("./partials/userFormMailUsername.ejs") %>
+                <%- include("../partials/users/userFormMailUsername.ejs") %>
 
-                <%- include("./partials/userFormPassword.ejs") %>
+                <%- include("../partials/users/userFormPassword.ejs") %>
 
-                <%- include("./partials/userFormButtons.ejs") %>
+                <%- include("../partials/users/userFormButtons.ejs") %>
 
             </form>
             <div class="login-options">
@@ -23,7 +23,7 @@
         </main>
     </div>
 
-    <%- include("./partials/footer.ejs") %>
+    <%- include("../partials/footer.ejs") %>
 
 </body>
 </html>
