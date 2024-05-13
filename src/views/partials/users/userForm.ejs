@@ -18,6 +18,14 @@
         <span class="login-item error" id="error-address"><%= (locals.errors && errors.address) ? errors.address.msg : null %></span>
     </div>
 
+    <% if (!isLogged) { %>
+
+        <%- include("./userFormPassword.ejs") %>
+
+        <%- include("./userFormAvatar.ejs") %>
+        
+    <% } %>
+
     <div class="form-item big-box">
         <label >Categorías de interés</label>
         <div class="form-radio-container">
@@ -39,12 +47,5 @@
         </div>
         
     </div>
-    <% if (!isLogged) { %>
-        
-        <%- include("./userFormAvatar.ejs") %>
-
-        <%- include("./userFormPassword.ejs") %>
-        
-    <% } %>
 
     <%- include("./userFormButtons.ejs") %>
