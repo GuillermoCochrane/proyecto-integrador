@@ -84,7 +84,8 @@ const userController = {
             return res.redirect("/users/" + id)
         } else {
             old.errors = errors.mapped();
-            return res.render('userRegister',old)
+            old.pageScript = ["validator.min", "users/registerValidations" ,"viewPassword"];
+            return res.render('users/userRegister',old)
         }
     },
 
