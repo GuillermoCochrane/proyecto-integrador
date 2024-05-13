@@ -112,7 +112,7 @@ const userController = {
             return res.redirect("/users/"+id)
         } else {
             old.errors = errors.mapped();
-            return res.render('userEdit',old)
+            return res.render('users/userEdit',old)
         }
     },
 
