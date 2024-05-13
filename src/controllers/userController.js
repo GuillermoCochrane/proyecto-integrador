@@ -96,7 +96,7 @@ const userController = {
         if (!user){
             return res.redirect("/users/notFound")
         }else{
-            return res.render("userEdit", data)
+            return res.render("users/userEdit", data)
         }
     },
 
