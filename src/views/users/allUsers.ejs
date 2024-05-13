@@ -1,7 +1,7 @@
-<%- include("./partials/head.ejs") %>
+<%- include("../partials/head.ejs") %>
 
 <body>
-    <%- include("./partials/headerFixed.ejs") %>
+    <%- include("../partials/headerFixed.ejs") %>
     <div class="main-border">
 
         <main>
@@ -12,14 +12,14 @@
 
                 <div class="articles-box">
                     <% for (user of users) {%>
-                        <%- include("./partials/user.ejs") %>
+                        <%- include("../partials/users/user.ejs") %>
                     <% } %>
                 </div>
             </section>
 
         </main>
     </div>
-    <%- include("./partials/footer.ejs") %>
+    <%- include("../partials/footer.ejs") %>
 
 </body>
 </html>
