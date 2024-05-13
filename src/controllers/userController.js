@@ -71,8 +71,8 @@ const userController = {
 
     register: function(req, res){
         let data = functions.userFormData("Registrate", [] );
-        data.pageScript = ["validator.min", "registerValidations" ,"viewPassword"];
-        res.render("userRegister", data)
+        data.pageScript = ["validator.min", "users/registerValidations" ,"viewPassword"];
+        res.render("users/userRegister", data)
     },
 
     store:  function(req, res){
