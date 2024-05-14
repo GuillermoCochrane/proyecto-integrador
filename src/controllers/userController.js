@@ -253,7 +253,7 @@ const userController = {
             usersFunctions.changeToken(email, true );
             return res.redirect("/users/login")
         } else {
-            return res.render("newPassword",{
+            return res.render("users/newPassword",{
                 title: "Nueva Contraseña - " + functions.title,
                 errors: errors.mapped(),
             })
