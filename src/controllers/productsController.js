@@ -55,7 +55,7 @@ const productsController ={
             return res.redirect("/products/notFound")
         }else{
             let data = functions.productFormData("Editando - " + product.name, product);
-            return res.render("productEditForm", data)
+            return res.render("products/productEditForm", data)
         }
     },
 
@@ -70,7 +70,7 @@ const productsController ={
             return res.redirect("/products/" + id);
         } else {
             old.errors = errors.mapped();
-            return res.render('productEditForm',old);
+            return res.render('products/productEditForm',old);
         }
     },
 
