@@ -93,7 +93,7 @@ const productsController ={
 
     productNotFound: function(req, res){
         let title = "Producto no encontrado";
-        return res.render("allProducts",functions.productData(title, [], title))
+        return res.render("products/allProducts",functions.productData(title, [], title))
     }
 }
 module.exports = productsController
