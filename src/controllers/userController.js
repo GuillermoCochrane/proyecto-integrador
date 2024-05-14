@@ -262,7 +262,7 @@ const userController = {
     
     saleDetail: function(req,res){
         let data = usersFunctions.saleDetail(req.params.id);
-        return res.render("cart", data)
+        return res.render("cart/cart", data)
     },
 
     delete: function(req,res){
