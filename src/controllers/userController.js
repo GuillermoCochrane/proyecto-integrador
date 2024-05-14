@@ -226,11 +226,11 @@ const userController = {
 
         if(user){
             req.session.recovery = user.email;
-            return res.render("newPassword",{
+            return res.render("users/newPassword",{
                 title: "Nueva Contraseña - " + functions.title,
             })
         } else {
-            return res.render('recovery',{
+            return res.render('users/recovery',{
                 title: "Recuperar Contraseña - " + functions.title,
                 tokenInput: true,
                 error: {
