@@ -171,10 +171,9 @@ const userController = {
         let data = {
             title:      "Recuperar Contraseña " + functions.title,
             tokenInput: false,
-            pageScript: ["users/validator.min", "recoverValidations"],
+            pageScript: ["users/validator.min", "users/recoverValidations"],
         };
-        // data.pageScript = ["users/validator.min", "recoverValidations"];
-        return res.render("recovery",data);
+        return res.render("users/recovery",data);
     },
 
     processRecovery:  function(req,res){
