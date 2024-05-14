@@ -171,7 +171,7 @@ const userController = {
         let data = {
             title:      "Recuperar Contraseña " + functions.title,
             tokenInput: false,
-            pageScript: ["users/validator.min", "users/recoverValidations"],
+            //pageScript: ["users/validator.min", "users/recoverValidations"],
         };
         return res.render("users/recovery",data);
     },
@@ -183,28 +183,27 @@ const userController = {
         let data = {
             title:      "Recuperar Contraseña - " + functions.title,
             tokenInput: false,
-            pageScript: ["validator.min", "recoverValidations"],
+            pageScript: ["users/validator.min", "users/recoverValidations"],
         };
 
         if (!errors.isEmpty()){
             data.error = errors.mapped();
 
-            return res.render('recovery',data);
+            return res.render('users/recovery',data);
         }
         if (!req.body.token){
             let userToken = mailFunction.mailRecovery(email,url);
             usersFunctions.changeToken(email,userToken);
             data.tokenInput = true;
             data.old = email
-
-            return res.render('recovery',data);
+            return res.render('users/recovery',data);
         } else {
             let user = usersFunctions.filterByKey(email, "email")[0];
 
             if(user.token == req.body.token){
                 req.session.recovery = email;
 
-                return res.render("newPassword",{
+                return res.render("users/newPassword",{
                     title: "Nueva Contraseña - " + functions.title,
                 })
             } else {
@@ -216,7 +215,7 @@ const userController = {
                     }
                 };
 
-                return res.render('recovery', data)
+                return res.render('users/recovery', data)
             }
         }
     },
