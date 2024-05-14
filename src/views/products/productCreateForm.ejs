@@ -1,9 +1,7 @@
-<!-- Include Head -->
-<%- include('partials/head') %>
+<%- include('../partials/head.ejs') %>
 <body>
-	<!-- Header -->
-	<%- include('partials/headerStatic.ejs') %>
-	<!-- /Header -->
+
+	<%- include('../partials/headerStatic.ejs') %>
 
 	<main>
 		<section>
@@ -16,17 +14,15 @@
 				<form action="/products/create" method="post" enctype="multipart/form-data">
 					<div class="form-content-box">
 						
-						<%- include("partials/productForm.ejs") %>
+						<%- include("../partials/products/productForm.ejs") %>
 
 					</div>
 				</form>
 			</div>
 		</section>
 	</main>
-	<!-- /todos los productos -->
 
-	<!-- footer -->
-	<%- include('partials/footer') %>
-	<!-- /footer -->
+	<%- include('../partials/footer.ejs') %>
+
 </body>	
 </html>
