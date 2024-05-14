@@ -13,7 +13,7 @@ const productsController ={
     category: function(req,res){
         let data = productsFunctions.productsByCategory(req.params.idCat);
         let title = "Productos: " + data.category
-        res.render("allProducts", functions.productData(title, data.products, title));
+        res.render("products/allProducts", functions.productData(title, data.products, title));
     },
 
     status: function(req,res){
