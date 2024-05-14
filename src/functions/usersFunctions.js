@@ -182,19 +182,19 @@ const usersFunctions ={
     changeToken: function(email, token){
         let users = this.allUsers();
         for (const user of users) {
-			if(user.email == email){
+			if(user.email.toUpperCase() == email.toUpperCase()){
                 user.token = token
             };
         };
         this.store(users);
-        return true
+        return users
     },
 
     changeAvatar: function( id, file ){
         let users = this.allUsers();
         for (const user of users) {
 			if(user.id == id){
-                user.avatar = file.filename;
+                    user.avatar = file.filename;
                 };
         };
         this.store(users);
