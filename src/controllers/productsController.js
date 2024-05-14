@@ -19,7 +19,7 @@ const productsController ={
     status: function(req,res){
         let data = productsFunctions.productsByStatus(req.params.idStatus);
         let title = "Productos: " + data.status;
-        res.render("allProducts",functions.productData(title, data.products, title));
+        res.render("products/allProducts",functions.productData(title, data.products, title));
     },
 
     detail: function(req,res){
