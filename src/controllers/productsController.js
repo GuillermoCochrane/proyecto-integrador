@@ -45,7 +45,7 @@ const productsController ={
             return res.redirect("/products/" + id);
         } else {
             old.errors = errors.mapped();
-            return res.render('productCreateForm',old);
+            return res.render('products/productCreateForm',old);
         }
     },
 
