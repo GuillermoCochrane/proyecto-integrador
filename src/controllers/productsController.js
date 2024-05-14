@@ -34,7 +34,7 @@ const productsController ={
 
     create: function(req,res){
         let data = functions.productFormData("Crear Producto", null)
-        res.render("productCreateForm", data)
+        res.render("products/productCreateForm", data)
     },
 
     store: function(req,res){
