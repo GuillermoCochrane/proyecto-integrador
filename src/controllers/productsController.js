@@ -7,7 +7,7 @@ const productsController ={
     index: function(req,res){
         let title = "Todos los productos";
         let products = productsFunctions.allProducts();
-        res.render("allProducts", functions.productData(title, products, title));
+        res.render("products/allProducts", functions.productData(title, products, title));
     },
     
     category: function(req,res){

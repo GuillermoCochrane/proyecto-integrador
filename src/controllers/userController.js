@@ -1,6 +1,5 @@
 const functions = require("../functions/functions");
-const usersFunctions = require("../functions/usersFunctions")
-const salesFunctions = require("../functions/salesFunctions")
+const usersFunctions = require("../functions/usersFunctions");
 const mailFunction = require("../functions/mailFunction");
 const { validationResult } = require('express-validator');
 
