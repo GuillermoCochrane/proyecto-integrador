@@ -20,7 +20,7 @@ const mainController ={
 
     search: function(req,res){
         let data = productsFunctions.searchData(req.query.search);
-        return res.render("allProducts", data)
+        return res.render("products/allProducts", data)
     },
 
     help: function(req,res){
