@@ -49,90 +49,9 @@ window.addEventListener("load", ()=>{
     };
 
     const usernameValidation = () => {
-        return () => {
-            requiredValidation($username);
-            errors.username ? null : lengthValidation($username, 3,10);
-        }
-    };
-
-    let emailValidation = () => {
-        let error = document.querySelector(`#error-${$email.id}`);
-        return () => {
-
-            requiredValidation($email);
-            errors.email ? null : lengthValidation($email,8,40);
-            if (!errors.email){
-                if(!validator.isEmail($email.value)){
-                    let errormsg = "El email no es válido";;
-                    error.innerText = errormsg;
-                    errors.email = errormsg;
-                    inputError($email);
-                }else{
-                    error.innerText = '';
-                    delete errors.email;
-                    inputOK($email);
-                }
-            }
-        }
-    }
-
-    let passwordValidation = () => {
-        let error = document.querySelector(`#error-${$pass.id}`);
-        return () => {
-            requiredValidation(password);
-            errors.password ? null : lengthValidation($pass,8,16);
-            if(!errors.password){
-                if(!validator.isStrongPassword($pass.value)){
-                    let errormsg = 'La contraseña debe tener al menos 8 caracteres, 1 mayúscula, 1 minúscula, 1 número y 1 símbolo';
-                    error.innerText = errormsg;
-                    errors.password = errormsg;
-                    inputError($pass);
-                }else{
-                    error.innerText = '';
-                    delete errors.password;
-                    inputOK($pass);
-                }
-            }
-        }
-    }
-
-    let confirmValidation = () => {
-        let error = document.querySelector(`#error-${$confirm.id}`);
-        return () => {
-            requiredValidation($confirm);
-            errors.confirm ? null : lengthValidation($confirm,8,16);
-            if(!errors.confirm){
-                if($confirm.value !== $pass.value){
-                    let errormsg = 'Las contraseñas no coinciden';
-                    error.innerText = errormsg;
-                    errors.confirm = errormsg;
-                    inputError($pass);
-                }else{
-                    error.innerText = '';
-                    delete errors.confirm;
-                    inputOK($pass);
-                }
-            }
-        }
-    };
-
-    $username.addEventListener('input', usernameValidation());
-    $username.addEventListener('blur', usernameValidation());
-    $email.addEventListener("input", emailValidation());
-    $email.addEventListener("blur",emailValidation());
-    $pass.addEventListener('input', passwordValidation());
-    $pass.addEventListener('blur', passwordValidation());
-    $confirm.addEventListener('input', confirmValidation());
-    $confirm.addEventListener('blur', confirmValidation());
-
-    $btn.addEventListener("click", (e)=>{
-        e.preventDefault();
         
-        confirmValidation()();
-        usernameValidation()();
-        emailValidation()();
-        passwordValidation()();
-
+        requiredValidation($username);
+        errors.username ? null : lengthValidation($username, 3,10);
         if(!errors.username){
             fetch(`https://multihogar.onrender.com/api/users/username/${$username.value}`)
             .then(response => response.json())
@@ -146,6 +65,26 @@ window.addEventListener("load", ()=>{
                 }
             })
         };
+        
+    };
+
+    let emailValidation = () => {
+        let error = document.querySelector(`#error-${$email.id}`);
+        requiredValidation($email);
+        errors.email ? null : lengthValidation($email,8,40);
+
+        if (!errors.email){
+            if(!validator.isEmail($email.value)){
+                let errormsg = "El email no es válido";;
+                error.innerText = errormsg;
+                errors.email = errormsg;
+                inputError($email);
+            }else{
+                error.innerText = '';
+                delete errors.email;
+                inputOK($email);
+            }
+        }
 
         if(!errors.email){
             fetch(`https://multihogar.onrender.com/api/users/email/${$email.value}`)
@@ -160,6 +99,61 @@ window.addEventListener("load", ()=>{
                 }
             })
         }
+
+    }
+
+    let passwordValidation = () => {
+        let error = document.querySelector(`#error-${$pass.id}`);
+        requiredValidation(password);
+        errors.password ? null : lengthValidation($pass,8,16);
+        if(!errors.password){
+            if(!validator.isStrongPassword($pass.value)){
+                let errormsg = 'La contraseña debe tener al menos 8 caracteres, 1 mayúscula, 1 minúscula, 1 número y 1 símbolo';
+                error.innerText = errormsg;
+                errors.password = errormsg;
+                inputError($pass);
+            }else{
+                error.innerText = '';
+                delete errors.password;
+                inputOK($pass);
+            }
+        }
+    }
+
+    let confirmValidation = () => {
+        let error = document.querySelector(`#error-${$confirm.id}`);
+        requiredValidation($confirm);
+        errors.confirm ? null : lengthValidation($confirm,8,16);
+        if(!errors.confirm){
+            if($confirm.value !== $pass.value){
+                let errormsg = 'Las contraseñas no coinciden';
+                error.innerText = errormsg;
+                errors.confirm = errormsg;
+                inputError($pass);
+            }else{
+                error.innerText = '';
+                delete errors.confirm;
+                inputOK($pass);
+            }
+        }
+    };
+
+    $username.addEventListener('input', () => { usernameValidation() } );
+    $username.addEventListener('blur', () => { usernameValidation() } );
+    $email.addEventListener("input", () => { emailValidation() } );
+    $email.addEventListener("blur", () => { emailValidation() } );
+    $pass.addEventListener('input', () => { passwordValidation() } );
+    $pass.addEventListener('blur', () => { passwordValidation() } );
+    $confirm.addEventListener('input', () => { confirmValidation() } );
+    $confirm.addEventListener('blur', () => { confirmValidation() } );
+
+    $btn.addEventListener("click", (e)=>{
+        e.preventDefault();
+        
+        confirmValidation();
+        usernameValidation();
+        emailValidation();
+        passwordValidation();
 
         if (Object.keys(errors).length == 0) {
             $form.submit();
