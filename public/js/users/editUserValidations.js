@@ -52,15 +52,27 @@ window.addEventListener("load", ()=>{
         }
     };
 
-    const usernameValidation = () => {
+    const usernameValidation = async () => {
         requiredValidation($username);
         errors.username ? null : lengthValidation($username, 3,10);
+        if(!errors.username){
+            let data = await fetch(`https://multihogar.onrender.com/api/users/username/${$username.value}`).then(response => response.json());
+            let userlogged = await fetch("https://multihogar.onrender.com/api/users/userlogged").then(response => response.json());
+            if(data.inUse == true && $username.value.toUpperCase() != userlogged.data.username.toUpperCase()){
+                let error = document.querySelector(`#error-${$username.id}`);
+                let errormsg = `El usuario ${$username.value} ya se encuentra registrado`;
+                errors.username = errormsg;
+                error.innerText = errormsg;
+                inputError($username);
+            };
+        };
     };
 
-    let emailValidation = () => {
+    let emailValidation = async () => {
         let error = document.querySelector(`#error-${$email.id}`);
         requiredValidation($email);
         errors.email ? null : lengthValidation($email,8,40);
+
         if (!errors.email){
             if(!validator.isEmail($email.value)){
                 let errormsg = "El email no es válido";
@@ -72,7 +84,19 @@ window.addEventListener("load", ()=>{
                 delete errors.email;
                 inputOK($email);
             }
-        }
+        };
+
+        if(!errors.email){
+            let data = await fetch(`https://multihogar.onrender.com/api/users/email/${$email.value}`).then(response => response.json());
+            let userlogged = await fetch("https://multihogar.onrender.com/api/users/userlogged").then(response => response.json());
+            if(data.inUse == true && $email.value.toUpperCase() != userlogged.data.email.toUpperCase()){
+                let error = document.querySelector(`#error-${$email.id}`);
+                let errormsg = `El e-mail ${$email.value} ya se encuentra registrado`;
+                errors.username = errormsg;
+                error.innerText = errormsg;
+                inputError($email);
+            };
+        };
     };
 
     let namevalidation = () => {
@@ -80,10 +104,11 @@ window.addEventListener("load", ()=>{
         errors.name ? null : lengthValidation($name, 3,30);
     };
 
-    let phoenValidation = () => {
+    let phoenValidation = async () => {
         let error = document.querySelector(`#error-${$phone.id}`);
         requiredValidation($phone);
         errors.phone ? null : lengthValidation($phone,10,10);
+
         if (!errors.phone){
             if(!validator.isNumeric($phone.value)){
                 let errormsg = "El dato ingresado debe ser un número";
@@ -96,6 +121,18 @@ window.addEventListener("load", ()=>{
                 inputOK($phone);
             }
         }
+
+        if(!errors.phone){
+            let data = await fetch(`https://multihogar.onrender.com/api/users/phone/${$phone.value}`).then(response => response.json());
+            let userlogged = await fetch("https://multihogar.onrender.com/api/users/userlogged").then(response => response.json());
+            if(data.inUse == true && $phone.value != userlogged.data.phone){
+                let error = document.querySelector(`#error-${$phone.id}`);
+                let errormsg = `El teléfono ${$phone.value} ya se encuentra registrado`;
+                errors.username = errormsg;
+                error.innerText = errormsg;
+                inputError($phone);
+            };
+        };
     };
 
     let addressValidation = () => {
@@ -114,7 +151,7 @@ window.addEventListener("load", ()=>{
     $address.addEventListener("input",() => { addressValidation()});
     $address.addEventListener("blur",() => { addressValidation()});
 
-    $btn.addEventListener("click", async (e)=>{
+    $btn.addEventListener("click", (e)=>{
         e.preventDefault();
 
         usernameValidation();
@@ -122,42 +159,6 @@ window.addEventListener("load", ()=>{
         namevalidation();
         phoenValidation();
         addressValidation();
-        
-        if(!errors.username){
-            let data = await fetch(`https://multihogar.onrender.com/api/users/username/${$username.value}`).then(response => response.json());
-            let userlogged = await fetch("https://multihogar.onrender.com/api/users/userlogged").then(response => response.json());
-            if(data.inUse == true && $username.value.toUpperCase() != userlogged.data.username.toUpperCase()){
-                let error = document.querySelector(`#error-${$username.id}`);
-                let errormsg = `El usuario ${$username.value} ya se encuentra registrado`;
-                errors.username = errormsg;
-                error.innerText = errormsg;
-                inputError($username);
-            };
-        };
-
-        if(!errors.email){
-            let data = await fetch(`https://multihogar.onrender.com/api/users/email/${$email.value}`).then(response => response.json());
-            let userlogged = await fetch("https://multihogar.onrender.com/api/users/userlogged").then(response => response.json());
-            if(data.inUse == true && $email.value.toUpperCase() != userlogged.data.email.toUpperCase()){
-                let error = document.querySelector(`#error-${$email.id}`);
-                let errormsg = `El e-mail ${$email.value} ya se encuentra registrado`;
-                errors.username = errormsg;
-                error.innerText = errormsg;
-                inputError($email);
-            };
-        };
-
-        if(!errors.phone){
-            let data = await fetch(`https://multihogar.onrender.com/api/users/phone/${$phone.value}`).then(response => response.json());
-            let userlogged = await fetch("https://multihogar.onrender.com/api/users/userlogged").then(response => response.json());
-            if(data.inUse == true && $phone.value != userlogged.data.phone){
-                let error = document.querySelector(`#error-${$phone.id}`);
-                let errormsg = `El teléfono ${$phone.value} ya se encuentra registrado`;
-                errors.username = errormsg;
-                error.innerText = errormsg;
-                inputError($phone);
-            };
-        };
 
         if (Object.keys(errors).length == 0) {
             $form.submit();
