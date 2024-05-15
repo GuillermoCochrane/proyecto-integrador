@@ -67,6 +67,7 @@ window.addEventListener("load", ()=>{
             };
             if(!errors.email){
                 let data = await fetch(`https://multihogar.onrender.com/api/users/email/${$email.value}`).then(response => response.json()); // http://localhost:3003
+                //http://localhost:3003 dev https://multihogar.onrender.com production
                 if(data.inUse == false){
                     let error = document.querySelector(`#error-${$email.id}`);
                     let errormsg = `No se encontró el email: ${$email.value} `;
@@ -99,5 +100,3 @@ window.addEventListener("load", ()=>{
     });
     
 })
-
-//git update-index --assume-unchanged public/js/registerValidations.js
