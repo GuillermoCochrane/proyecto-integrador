@@ -6,12 +6,12 @@ const loggedMDW = require("../middlewares/loggedMDW");
 const guestMDW = require("../middlewares/guestMDW");
 const disableMDW = require("../middlewares/downMDW")
 const upload = require("../middlewares/multer/usersMulterMDW");
-const userValidations = require("../middlewares/userValidationsMDW");
-const passwordValidations = require("../middlewares/userPasswordValidationsMDW");
-const avatarValidations = require("../middlewares/userAvatarValidationsMDW");
-const loginValidations = require("../middlewares/loginValidationsMDW");
-const recoveryMailValidation = require("../middlewares/mailPasswordValidationsMDW")
-const mailUsernameValidations = require("../middlewares/userMailUsernameValidationsMDW")
+const userValidations = require("../middlewares/validations/users/userValidationsMDW");
+const passwordValidations = require("../middlewares/validations/users/userPasswordValidationsMDW");
+const avatarValidations = require("../middlewares/validations/users/userAvatarValidationsMDW");
+const loginValidations = require("../middlewares/validations/users/loginValidationsMDW");
+const recoveryMailValidation = require("../middlewares/validations/users/mailPasswordValidationsMDW")
+const mailUsernameValidations = require("../middlewares/validations/users/userMailUsernameValidationsMDW")
 //Users Routes
 
 //All Users
