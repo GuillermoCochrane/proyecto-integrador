@@ -1,8 +1,12 @@
-<div class="dashboard-searchbar">
+<div class="dashboard-searchbar" id="search-bar">
     <form action="/dashboard/<%= searchRoute %>" method="get" class="searchbar">
-        <input type="search" class="search-input" name="search"/>
+        <input type="search" class="search-input" id="search-input" name="search" placeholder="Buscar productos">
         <button type="submit" class="search-icon">
             <i class="fa-solid fa-magnifying-glass"></i>
         </button>
     </form>
+    <aside class="result-list-container">
+        <ul id="result-list" class="result-list hidden">
+        </ul>
+    </aside>
 </div>
