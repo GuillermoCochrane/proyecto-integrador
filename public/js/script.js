@@ -1,31 +1,26 @@
 window.addEventListener("load", function(){
-    let burgermenu = this.document.querySelector(".burger-menu");
-    let closemenu = this.document.querySelector(".close-menu");
     let nav = this.document.querySelector("#main-navbar");
     let userLogged = this.document.querySelector(".userLogged-detail-box");
     let searchbar = this.document.querySelector("#search-bar");
     let $searchInput = this.document.querySelector("#search-input");
     let $list = this.document.querySelector("#result-list");
+    let $icon = this.document.querySelector("#icon");
+    let burgermenu = this.document.querySelector(".burger-menu");
 
     // hidden navbar
     burgermenu.addEventListener("click",function(){
-        burgermenu.classList.toggle("hidden");
-        closemenu.classList.toggle("hidden");
+        if ($icon.classList.contains("fa-bars")) {
+            $icon.classList.remove("fa-bars");
+            $icon.classList.add("fa-xmark");
+        } else if ($icon.classList.contains("fa-xmark")) {
+            $icon.classList.remove("fa-xmark");
+            $icon.classList.add("fa-bars");
+        }
         nav.classList.toggle("hidden");
         if (window.innerWidth < 768) {
             searchbar.classList.toggle("flex-hidden");
             userLogged ? userLogged.classList.toggle("flex-hidden") : null;
             
-        }
-        
-    });
-    closemenu.addEventListener("click",function(){
-        burgermenu.classList.toggle("hidden");
-        closemenu.classList.toggle("hidden");
-        nav.classList.toggle("hidden");
-        if (window.innerWidth < 768) {
-            searchbar.classList.toggle("flex-hidden");
-            userLogged ? userLogged.classList.toggle("flex-hidden") : null ;
         }
     });
 
@@ -66,3 +61,5 @@ window.addEventListener("load", function(){
 //git update-index --assume-unchanged public/js/script.js
 //not ignore changes on this file for new
 //git update-index --no-assume-unchanged public/js/script.js
+//list o ignored files for new commits
+//git ls-files -v | grep "^[[:lower:]]"
