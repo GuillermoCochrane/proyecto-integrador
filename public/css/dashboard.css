@@ -223,7 +223,7 @@ a:hover{
 
 .dashboard-searchbar {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
 }
 
 .searchbar{
@@ -256,6 +256,40 @@ a:hover{
     border-radius: 0 5px 5px 0;
 }
 
+.result-list-container{
+    margin: auto;
+    position: relative;
+    width: 90%;
+}
+
+.result-list{
+    display: block;
+    position: absolute; 
+    background: #03264C;
+    z-index: 999;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(65, 65, 65);
+}
+
+.result-list > li {
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 0.2em;
+    list-style: none;
+    margin: 10px 15px;
+    font-weight: bold;
+}
+
+.result-list > li:hover {
+    background: #629398;
+    color: #03264C;
+}
+
+.result-list > li > a:hover {
+    background: #629398;
+    color: #03264C;
+}
 /* Table / card container */
 
 .dashboard-products {
@@ -1097,7 +1131,6 @@ article.card-data{
   }
 
   .searchbar {
-    width: 70%;
     justify-content: center;
   }
 
@@ -1290,11 +1323,19 @@ article.card-data{
     font-weight: bold;
   }
 
+  .searchbar {
+    width: 65%;
+  }
+
   .search-icon,
   .search-input {
       margin: 15px 0;
       padding: 5px 8px;
       font-size: 20px;
+  }
+
+  .result-list-container{
+    width: 65%;
   }
 
   .save-button,
