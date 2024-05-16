@@ -8,7 +8,7 @@ window.addEventListener("load", function(){
         $list.innerHTML = null;
         if ($searchInput.value.lenght != 0) {
             $list.classList.remove("hidden");
-            fetch(`http://localhost:3003/api/search?search=${$searchInput.value}`)
+            fetch(`https://multihogar.onrender.com/api/search?search=${$searchInput.value}`)
             //http://localhost:3003 dev https://multihogar.onrender.com production
             .then(res => res.json())
             .then(info =>{
@@ -37,8 +37,8 @@ window.addEventListener("load", function(){
 })
 
 //Ignore changes on this file for new commits
-//git update-index --assume-unchanged public/js/script.js
+//git update-index --assume-unchanged public/js/dashboard/searchProducts.js
 //not ignore changes on this file for new
-//git update-index --no-assume-unchanged public/js/script.js
+//git update-index --no-assume-unchanged public/js/dashboard/searchProducts.js
 //list o ignored files for new commits
 //git ls-files -v | grep "^[[:lower:]]"
