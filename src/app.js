@@ -45,10 +45,10 @@ app.use('/api/users', userAPIRoutes);
 
 //error 404
 app.use((req,res,next) =>{
-    res.status(404).render('allProducts',{
-        title: "Pagina no encontrada",
+    res.status(404).render("products/allProducts",{
+        title: "Página no encontrada",
         products: [],
-        label: "Error 404 - Pagina no encontrada",
+        label: "Error 404 - Página no encontrada",
     })
 })
 
