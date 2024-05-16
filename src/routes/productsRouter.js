@@ -5,7 +5,7 @@ const productsController = require("../controllers/productsController");
 //Middlewares
 const upload = require("../middlewares/multer/productsMulterMDW")
 const viewsCounter = require("../middlewares/productViewsCounterMDW");
-const productValidations = require("../middlewares/productValidationsMDW");
+const productValidations = require("../middlewares/validations/dashboard/productValidationsMDW");
 const adminMDW = require("../middlewares/adminMDW");
 const disableMDW = require("../middlewares/downMDW");
 

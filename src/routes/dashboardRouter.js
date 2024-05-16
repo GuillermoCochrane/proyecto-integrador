@@ -4,10 +4,10 @@ const dashboardRouter = require("../controllers/dashboardController");
 
 //Middlewares
 const upload = require("../middlewares/multer/productsMulterMDW");
-const productValidations = require("../middlewares/productValidationsMDW");
-const mailValidations = require("../middlewares/mailConfigValidations");
-const categoryValidations = require("../middlewares/categoryValidationsMDW");
-const statusValidations = require("../middlewares/statusValidationsMDW");
+const productValidations = require("../middlewares/validations/dashboard/productValidationsMDW");
+const mailValidations = require("../middlewares/validations/dashboard/mailConfigValidations");
+const categoryValidations = require("../middlewares/validations/dashboard/categoryValidationsMDW");
+const statusValidations = require("../middlewares/validations/dashboard/statusValidationsMDW");
 
 //Dashboard
 router.get('/', dashboardRouter.index);
