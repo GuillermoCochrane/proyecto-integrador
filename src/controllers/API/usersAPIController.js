@@ -60,6 +60,19 @@ const usersAPIController = {
             return res.json(info);
         }
     },
+
+    search: function(req,res){
+        let data = usersFunctions.search(req.query.search);
+        let info = {
+            meta: {
+                status : 200,
+                total: data.length,
+                url: 'api/search'
+            },
+            data: data.results
+        }
+        return res.json(info)
+    },
 }
 
 module.exports = usersAPIController
