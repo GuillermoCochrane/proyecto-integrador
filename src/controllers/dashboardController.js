@@ -88,6 +88,7 @@ const dashboardController = {
         data.searchRoute = "searchProducts";
         data.dashboardlink = dashboardlink;
         data.scripts = ["dashboard/dashboard", "dashboard/searchProducts"];
+        data.placeholder = "productos";
         return res.render("dashboard/dashboardProducts", data )
     },
 
@@ -155,7 +156,8 @@ const dashboardController = {
             data.label = searchResults.label;
             data.title = searchResults.label;
         }
-        data.scripts = ["dashboard/dashboard"];
+        data.scripts = ["dashboard/dashboard", "dashboard/searchUsers"];
+        data.placeholder = "usuarios";
         return res.render("dashboard/dashboardUsers",data)
     },
 
