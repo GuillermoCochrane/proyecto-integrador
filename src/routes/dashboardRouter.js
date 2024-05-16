@@ -3,7 +3,7 @@ const router = express.Router();
 const dashboardRouter = require("../controllers/dashboardController");
 
 //Middlewares
-const upload = require("../middlewares/productsMulterMDW");
+const upload = require("../middlewares/multer/productsMulterMDW");
 const productValidations = require("../middlewares/productValidationsMDW");
 const mailValidations = require("../middlewares/mailConfigValidations");
 const categoryValidations = require("../middlewares/categoryValidationsMDW");

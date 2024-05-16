@@ -3,7 +3,7 @@ const router = express.Router();
 const productsController = require("../controllers/productsController");
 
 //Middlewares
-const upload = require("../middlewares/productsMulterMDW");
+const upload = require("../middlewares/multer/productsMulterMDW")
 const viewsCounter = require("../middlewares/productViewsCounterMDW");
 const productValidations = require("../middlewares/productValidationsMDW");
 const adminMDW = require("../middlewares/adminMDW");
