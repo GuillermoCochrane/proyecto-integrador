@@ -1,4 +1,4 @@
-//Middleware de ruta que redireciona la ruta a home, cuando se setea la barriable en true
+//Middleware de ruta que redireciona la ruta a home, cuando se setea la variable en true
 function downMDW (req,res, next) {
     let downRoute = true;
     if(downRoute){
