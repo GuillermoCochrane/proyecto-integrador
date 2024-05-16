@@ -87,7 +87,7 @@ const dashboardController = {
         data.categories = functions.allCategories();
         data.searchRoute = "searchProducts";
         data.dashboardlink = dashboardlink;
-        data.scripts = ["dashboard/dashboard"];
+        data.scripts = ["dashboard/dashboard", "dashboard/searchProducts"];
         return res.render("dashboard/dashboardProducts", data )
     },
 
