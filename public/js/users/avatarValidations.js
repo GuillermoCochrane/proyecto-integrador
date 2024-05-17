@@ -1,7 +1,7 @@
 window.addEventListener("load", ()=>{
     const $avatar = document.querySelector("#avatar");
     const $btn = document.querySelector("#avatar-change-btn");
-    const $form = document.querySelector("#avatar-change-form");
+    const $form = document.querySelector("#avatar-form");
 
     let errors = { };
 
@@ -56,6 +56,7 @@ window.addEventListener("load", ()=>{
 
         avatarValidation();
 
+        console.log($form);
         if (Object.keys(errors).length == 0) {
             $form.submit();
         }
