@@ -55,7 +55,7 @@
   "price": "53000",
   "discount": "20",
   "image": "img-camara-nikon.jpg",
-  "status": "3",
+  "status": "4",
   "category": "5",
   "sales": 1,
   "views": 30
@@ -91,7 +91,7 @@
   "price": "14800",
   "discount": "2",
   "image": "img-iphone-11.jpg",
-  "status": "1",
+  "status": "4",
   "category": "2",
   "sales": 1,
   "views": 6

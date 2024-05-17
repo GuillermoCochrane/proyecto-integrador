@@ -179,5 +179,23 @@
   "name": "Jon Snow",
   "phone": "3584220202",
   "address": "Night Watch 456"
+ },
+ {
+  "id": 12,
+  "username": "admin",
+  "email": "admin@multihogar.com",
+  "avatar": "default.png",
+  "categories": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "profile": 3,
+  "password": "$2a$10$oKp5UUmX1v75gIfbuDHpBebT5KX/YEOC./cl9.CIsnzfO2n00Thjq",
+  "name": "Admin",
+  "phone": "3514120101",
+  "address": "Calle Falsa 123"
  }
 ]
