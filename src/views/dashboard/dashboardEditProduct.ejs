@@ -1,0 +1,54 @@
+<%- include("../partials/dashboard/dashboard.ejs") %>
+
+<main>
+
+    <section>
+        <h2 class="title">
+            Estás editando: <i> <%= product.name %></i> 
+        </h2>
+        <nav class="dashboard-products-buttons" >
+
+            <button id="button1">
+                Cambiar imagen<!-- Todas las ventas -->
+            </button>
+
+            <button id="button2"> 
+                Editar Datos
+            </button>
+            
+        </nav>
+
+        <div class="dashboard-products hidden" id="dashboard-details">
+
+            <div class="table-responsive">
+                <div class="form-box"> 
+                    <form action="<%= (locals.dashboardlink ? dashboardlink : null) + "/products/edit/" + product.id + "?_method=PUT" %>" method="post" enctype="multipart/form-data" id="createProductForm">
+    
+                        <div class="form-content-box">
+                            <%- include("../partials/products/productImage.ejs") %>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="dashboard-products" id="dashboard-table" >
+
+            <div class="table-responsive">
+                <div class="form-box"> 
+                    <form action="<%= (locals.dashboardlink ? dashboardlink : null) + "/products/edit/" + product.id + "?_method=PUT" %>" method="post" enctype="multipart/form-data" id="createProductForm">
+    
+                        <div class="form-content-box">
+                            <%- include("../partials/products/productForm.ejs") %>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+</main>
+</body>
+</html>
