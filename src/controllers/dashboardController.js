@@ -109,8 +109,8 @@ const dashboardController = {
             let data = functions.productFormData("Editando - " + product.name, product);
             data.edit = true;
             data.dashboardlink = dashboardFunctions.dashboardLink;
-            data.scripts = ["validator.min", /* "dashboard/productsValidations" */];
-            return res.render("dashboard/dashboardProductsForm", data)
+            data.scripts = ["validator.min", "dashboard/dashboard"/*, "dashboard/productsValidations" */];
+            return res.render("dashboard/dashboardEditProduct", data)
         }
     },
 
