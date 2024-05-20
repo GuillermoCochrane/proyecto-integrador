@@ -2,7 +2,6 @@ window.addEventListener("load", ()=>{
     const $createProductForm = document.querySelector("#createProductForm");
     const $createProductBtn = document.querySelector("#createProductBtn");  
     const $name = document.querySelector("#name");
-    const $img = document.querySelector("#img");
     const $category = document.querySelector("#category");
     const $status = document.querySelector("#status");
     const $price = document.querySelector("#price");
@@ -94,23 +93,6 @@ window.addEventListener("load", ()=>{
         errors.description ? null : lengthValidation($description,3,250);
     };
 
-    let imgValidation = () => {
-        let error = document.querySelector(`#error-${$img.id}`);
-        requiredValidation($img);
-        let fileExtention = $img.value.split('.').pop();
-        if(!errors.img){
-            if(fileExtention != "jpg" && fileExtention != "png"  && fileExtention != "gif"  && fileExtention != "bmp" ){
-                let errormsg = 'El formato del archivo es incompatible';
-                error.innerText = errormsg;
-                errors.confirm = errormsg;
-                inputError($img);
-            }else{
-                error.innerText = '';
-                delete errors.confirm;
-                inputOK($img);
-            }
-        }
-    };
 
     $name.addEventListener('input', () => nameValidation());
     $name.addEventListener('blur', () => nameValidation());
@@ -124,8 +106,6 @@ window.addEventListener("load", ()=>{
     $discount.addEventListener('blur', () => discountValidation());
     $description.addEventListener('input', () => descriptionValidation());
     $description.addEventListener('blur', () => descriptionValidation());
-    $img.addEventListener('input', () => imgValidation());
-    $img.addEventListener('blur', () => imgValidation());
 
     $createProductBtn.addEventListener("click", async(e)=>{
         e.preventDefault();
@@ -136,7 +116,6 @@ window.addEventListener("load", ()=>{
         priceValidation();
         discountValidation();
         descriptionValidation();
-        imgValidation();
 
         if (Object.keys(errors).length == 0) {
             $createProductForm.submit();
