@@ -17,18 +17,5 @@ const productValidations = [
     body('description')
         .notEmpty().withMessage('Debes completar la descripción del producto').bail()
         .isLength({min:3, max:250}).withMessage("El nombre del producto debe tener entre 3 y 250 caracteres"),
-    body('img').custom((value, {req})=> {
-        let file = req.file;
-        let acceptedExt = [".bpm", ".png", ".jpg", ".gif"]
-        if(!file){
-            throw new Error("Debes incluir una imagen para el producto");
-        } else {
-            let ext = path.extname(file.originalname)
-            if(!acceptedExt.includes(ext)){
-                throw new Error("El formato del archivo es incompatible");
-            }
-        }
-        return true
-    }) 
 ]
 module.exports = productValidations
