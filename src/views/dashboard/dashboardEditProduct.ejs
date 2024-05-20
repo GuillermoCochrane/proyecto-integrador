@@ -18,14 +18,14 @@
             
         </nav>
 
-        <div class="dashboard-products hidden" id="dashboard-details">
+        <div class="dashboard-products <%= !locals.tab ? "hidden": null %>" id="dashboard-details">
 
             <div class="table-responsive">
                 <div class="form-box"> 
                     <form action="<%= (locals.dashboardlink ? dashboardlink : null) + "/products/image/" + product.id + "?_method=PUT" %>" method="post" enctype="multipart/form-data" >
-    
                         <div class="form-content-box">
                             <%- include("../partials/products/productImage.ejs") %>
+                            <%- include("../partials/dashboard/editProductBtn.ejs") %>
                         </div>
                     </form>
                 </div>
@@ -33,7 +33,7 @@
 
         </div>
 
-        <div class="dashboard-products" id="dashboard-table" >
+        <div class="dashboard-products <%= locals.tab ? "hidden": null %>" id="dashboard-table" >
 
             <div class="table-responsive">
                 <div class="form-box"> 
