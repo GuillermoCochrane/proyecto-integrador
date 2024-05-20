@@ -1,14 +1,12 @@
-<div class="form-input-label-box">
+<div class="form-input-label-box <%= locals.edit ? "big-box" : null %>" >
     <label for="name" class="form-label-product">Nombre del producto:</label>
     <input type="text" id="name" name="name" placeholder="Ej: Zapatillas Reebok" class="form-input-product"  value="<%= locals.product ? product.name : null %>" >
     <span class="login-item error" id="error-name"><%= (locals.errors && errors.name) ? errors.name.msg : null %></span>
 </div>
 
-<div class="form-input-label-box">
-    <label for="img" class="form-label-product">Imagen del producto:</label>
-    <input type="file" id="img" name="img" class="form-input-product" value="" type=".jpg,.png,.bmp,.gif">
-    <span class="login-item error" id="error-img"><%= (locals.errors && errors.img) ? errors.img.msg : null %></span>
-</div>
+<% if (!locals.edit) { %>
+    <%- include("../../partials/products/productImage.ejs") %>
+<% } %>
 
 <div class="form-input-label-box">
     <label for="category" class="form-label-product">Categoría:</label>
