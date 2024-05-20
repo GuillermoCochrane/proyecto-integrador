@@ -30,7 +30,7 @@ router.get("/searchProducts", dashboardRouter.allProducts);
 router.get("/products/edit/:id", dashboardRouter.editProduct);
 router.put("/products/edit/:id", productValidations,  dashboardRouter.update);
 //Change product image
-router.put("/products/edit/:id", upload.single("img"), imageValidations, dashboardRouter.updateImage);
+router.put("/products/image/:id", upload.single("img"), imageValidations, dashboardRouter.updateImage);
 
 //Product delete
 router.get("/products/delete/:id", dashboardRouter.delete);

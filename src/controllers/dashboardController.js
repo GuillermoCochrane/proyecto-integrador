@@ -121,7 +121,25 @@ const dashboardController = {
         data.id = req.params.id
         let old = functions.productFormData(title, data);
         if (errors.isEmpty()){
-            let id = productsFunctions.editProduct(data.id, data);
+            let id = productsFunctions.editProductData(data.id, data);
+            return res.redirect("/dashboard/products/" + id);
+        } else {
+            old.errors = errors.mapped();
+            old.dashboardlink = dashboardFunctions.dashboardLink;
+            old.scripts = ["validator.min", "dashboard/dashboard" , "dashboard/productsDataValidations"];
+            old.edit = true;
+            return res.render('dashboard/dashboardEditProduct',old);
+        }
+    },
+
+    updateImage: function(req,res){
+        let errors = validationResult(req);
+        let title = "Editando - " + req.body.name;
+        let data = req.body;
+        data.id = req.params.id
+        let old = functions.productFormData(title, data);
+        if (errors.isEmpty()){
+            let id = productsFunctions.editProductData(data.id, data);
             return res.redirect("/dashboard/products/" + id);
         } else {
             old.errors = errors.mapped();

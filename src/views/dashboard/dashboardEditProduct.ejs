@@ -22,7 +22,7 @@
 
             <div class="table-responsive">
                 <div class="form-box"> 
-                    <form action="<%= (locals.dashboardlink ? dashboardlink : null) + "/products/image/" + product.id + "?_method=PUT" %>" method="post" enctype="multipart/form-data" id="createProductForm">
+                    <form action="<%= (locals.dashboardlink ? dashboardlink : null) + "/products/image/" + product.id + "?_method=PUT" %>" method="post" enctype="multipart/form-data" >
     
                         <div class="form-content-box">
                             <%- include("../partials/products/productImage.ejs") %>
