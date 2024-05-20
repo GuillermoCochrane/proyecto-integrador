@@ -109,7 +109,7 @@ const dashboardController = {
             let data = functions.productFormData("Editando - " + product.name, product);
             data.edit = true;
             data.dashboardlink = dashboardFunctions.dashboardLink;
-            data.scripts = ["validator.min", "dashboard/dashboard"/*, "dashboard/productsValidations" */];
+            data.scripts = ["validator.min", "dashboard/dashboard", "dashboard/productsDataValidations"];
             return res.render("dashboard/dashboardEditProduct", data)
         }
     },
@@ -121,13 +121,14 @@ const dashboardController = {
         data.id = req.params.id
         let old = functions.productFormData(title, data);
         if (errors.isEmpty()){
-            let id = productsFunctions.editProduct(data.id, data, req.file);
+            let id = productsFunctions.editProduct(data.id, data);
             return res.redirect("/dashboard/products/" + id);
         } else {
             old.errors = errors.mapped();
             old.dashboardlink = dashboardFunctions.dashboardLink;
-            old.scripts = ["validator.min", "dashboard/productsValidations"];
-            return res.render('dashboard/dashboardProductsForm',old);
+            old.scripts = ["validator.min", "dashboard/dashboard" , "dashboard/productsDataValidations"];
+            old.edit = true;
+            return res.render('dashboard/dashboardEditProduct',old);
         }
     },
 
