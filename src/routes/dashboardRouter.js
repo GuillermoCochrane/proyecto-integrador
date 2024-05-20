@@ -5,6 +5,7 @@ const dashboardRouter = require("../controllers/dashboardController");
 //Middlewares
 const upload = require("../middlewares/multer/productsMulterMDW");
 const productValidations = require("../middlewares/validations/dashboard/productValidationsMDW");
+const imageValidations = require("../middlewares/validations/dashboard/productImageValidationsMDW");
 const mailValidations = require("../middlewares/validations/dashboard/mailConfigValidations");
 const categoryValidations = require("../middlewares/validations/dashboard/categoryValidationsMDW");
 const statusValidations = require("../middlewares/validations/dashboard/statusValidationsMDW");
@@ -18,16 +19,18 @@ router.post("/email", mailValidations, dashboardRouter.updateEmail);
 
 //Create new product form
 router.get("/new", dashboardRouter.newProduct);
-router.post("/products/create",upload.single("img"), productValidations, dashboardRouter.store);
+router.post("/products/create",upload.single("img"), productValidations, imageValidations, dashboardRouter.store);
 
 //Display all products and Searchbar
 router.get("/products", dashboardRouter.allProducts);
 router.get("/products/:id", dashboardRouter.product);
 router.get("/searchProducts", dashboardRouter.allProducts);
 
-// Edit product form
+//Edit products 
 router.get("/products/edit/:id", dashboardRouter.editProduct);
-router.put("/products/edit/:id", upload.single("img"), productValidations, dashboardRouter.update); 
+router.put("/products/edit/:id", productValidations,  dashboardRouter.update);
+//Change product image
+router.put("/products/edit/:id", upload.single("img"), imageValidations, dashboardRouter.updateImage);
 
 //Product delete
 router.get("/products/delete/:id", dashboardRouter.delete);
