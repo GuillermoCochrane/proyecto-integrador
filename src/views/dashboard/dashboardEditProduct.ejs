@@ -9,7 +9,7 @@
         <nav class="dashboard-products-buttons" >
 
             <button id="button1">
-                Cambiar imagen<!-- Todas las ventas -->
+                Cambiar imagen
             </button>
 
             <button id="button2"> 
@@ -22,7 +22,7 @@
 
             <div class="table-responsive">
                 <div class="form-box"> 
-                    <form action="<%= (locals.dashboardlink ? dashboardlink : null) + "/products/edit/" + product.id + "?_method=PUT" %>" method="post" enctype="multipart/form-data" id="createProductForm">
+                    <form action="<%= (locals.dashboardlink ? dashboardlink : null) + "/products/image/" + product.id + "?_method=PUT" %>" method="post" enctype="multipart/form-data" id="createProductForm">
     
                         <div class="form-content-box">
                             <%- include("../partials/products/productImage.ejs") %>
