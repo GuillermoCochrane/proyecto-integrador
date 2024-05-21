@@ -39,7 +39,7 @@ app.use('/', mainRoutes);
 app.use("/users", userRoutes);
 app.use("/products", productsRoutes);
 app.use("/cart", loggedMDW, cartRoutes);
-app.use("/dashboard", /* adminMDW, */  dashboardRoutes);
+app.use("/dashboard", adminMDW,  dashboardRoutes);
 app.use('/api', mainAPIRoutes);
 app.use('/api/users', userAPIRoutes);
 
