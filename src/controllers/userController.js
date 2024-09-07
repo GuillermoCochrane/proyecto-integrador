@@ -13,7 +13,7 @@ const userController = {
 
     login: function(req,res){
         let data = usersFunctions.data("Login");
-        data.pageScript = ["users/viewPassword", "users/validator.min", "users/loginValidations"];
+        data.pageScript = ["users/viewPassword", "validator.min", "users/loginValidations"];
         return res.render("users/login",data)
     },
 
@@ -31,7 +31,7 @@ const userController = {
             let data = usersFunctions.data("Login");
             data.error = errors.mapped();
             data.old = req.body.username;
-            data.pageScript = ["users/viewPassword", "users/validator.min", "users/loginValidations"];
+            data.pageScript = ["users/viewPassword", "validator.min", "users/loginValidations"];
             return res.render('users/login', data)
         }
     },
@@ -70,7 +70,7 @@ const userController = {
 
     register: function(req, res){
         let data = functions.userFormData("Registrate", [] );
-        data.pageScript = ["users/validator.min", "users/registerValidations" ,"users/viewPassword"];
+        data.pageScript = ["validator.min", "users/registerValidations" ,"users/viewPassword"];
         res.render("users/userRegister", data)
     },
 
@@ -83,7 +83,7 @@ const userController = {
             return res.redirect("/users/" + id)
         } else {
             old.errors = errors.mapped();
-            old.pageScript = ["users/validator.min", "users/registerValidations" ,"users/viewPassword"];
+            old.pageScript = ["validator.min", "users/registerValidations" ,"users/viewPassword"];
             return res.render('users/userRegister',old)
         }
     },
@@ -118,7 +118,7 @@ const userController = {
     profile: function(req,res){
         let data = usersFunctions.userProfileData(req.session.userlogged);
         data.userData = true;
-        data.pageScript = ["users/profile","users/viewPassword", "users/validator.min", "users/passwordValidations","users/editUserValidations","users/avatarValidations"];
+        data.pageScript = ["users/profile","users/viewPassword", "validator.min", "users/passwordValidations","users/editUserValidations","users/avatarValidations"];
         return res.render("users/userProfile", data)
     },
 
@@ -126,7 +126,7 @@ const userController = {
         let errors = validationResult(req);
         let file = req.file;
         let data = usersFunctions.userProfileData(req.session.userlogged);
-        data.pageScript = ["users/profile","users/viewPassword", "users/validator.min", "users/passwordValidations","users/editUserValidations","users/avatarValidations"];
+        data.pageScript = ["users/profile","users/viewPassword", "validator.min", "users/passwordValidations","users/editUserValidations","users/avatarValidations"];
         if (errors.isEmpty()){
             usersFunctions.changeAvatar(data.user.id, file);
             return res.redirect("/users/profile")
@@ -140,7 +140,7 @@ const userController = {
         let errors = validationResult(req);
         let info = req.body;
         let data = usersFunctions.userProfileData(req.session.userlogged);
-        data.pageScript = ["users/profile","users/viewPassword", "users/validator.min", "users/passwordValidations","users/editUserValidations","users/avatarValidations"];
+        data.pageScript = ["users/profile","users/viewPassword", "validator.min", "users/passwordValidations","users/editUserValidations","users/avatarValidations"];
         if (errors.isEmpty()){
             usersFunctions.changePassword(data.user.id, info);
             return res.redirect("/users/profile")
@@ -154,7 +154,7 @@ const userController = {
         let errors = validationResult(req);
         let info = req.body;
         let data = usersFunctions.userProfileData(req.session.userlogged);
-        data.pageScript = ["users/profile","users/viewPassword", "users/validator.min", "users/passwordValidations","users/editUserValidations","users/avatarValidations"];
+        data.pageScript = ["users/profile","users/viewPassword", "validator.min", "users/passwordValidations","users/editUserValidations","users/avatarValidations"];
         if (errors.isEmpty()){
             usersFunctions.editUserData(data.user.id, info);
             return res.redirect("/users/profile")
@@ -170,7 +170,7 @@ const userController = {
         let data = {
             title:      "Recuperar Contraseña " + functions.title,
             tokenInput: false,
-            pageScript: ["users/validator.min", "users/recoverValidations"],
+            pageScript: ["validator.min", "users/recoverValidations"],
         };
         return res.render("users/recovery",data);
     },
@@ -182,7 +182,7 @@ const userController = {
         let data = {
             title:      "Recuperar Contraseña - " + functions.title,
             tokenInput: false,
-            pageScript: ["users/validator.min", "users/recoverValidations"],
+            pageScript: ["validator.min", "users/recoverValidations"],
         };
 
         if (!errors.isEmpty()){
