@@ -7,6 +7,8 @@ const session = require('express-session');
 const userloggedMDW = require("./src/middlewares/userLoggedMDW");
 const loggedMDW = require("./src/middlewares/loggedMDW");
 const adminMDW = require("./src/middlewares/adminMDW");
+const cronJobs = require("./src/functions/cron");
+const endpointCron = "https://multihogar.onrender.com/api/up"; 
 
 //Routers dependencies
 const mainAPIRoutes = require("./src/routes/API/mainApiRouter");
@@ -21,7 +23,6 @@ const dashboardRoutes = require("./src/routes/dashboardRouter");
 const app = express();
 const port = process.env.PORT || 3003;
 app.use(express.static(path.join(__dirname + '/public')));
-//app.use(express.static('public'));// Set Static Resources folder
 app.use(express.urlencoded({ extended: false })); // Required for processing POST method information
 app.use(express.json()); // Required for processing POST method information
 app.use(methodOverride('_method')); // For overriding method="POST" in forms, with PUT and DELETE
@@ -40,7 +41,7 @@ app.use('/', mainRoutes);
 app.use("/users", userRoutes);
 app.use("/products", productsRoutes);
 app.use("/cart", loggedMDW, cartRoutes);
-app.use("/dashboard", /* adminMDW, */  dashboardRoutes);
+app.use("/dashboard", adminMDW,  dashboardRoutes);
 app.use('/api', mainAPIRoutes);
 app.use('/api/users', userAPIRoutes);
 
@@ -52,6 +53,8 @@ app.use((req,res,next) =>{
         label: "Error 404 - Página no encontrada",
     })
 })
+
+cronJobs(endpointCron);
 
 //Server Up!
 app.listen(port, ()=>{console.log("\n------------------------------------\nLevantando servidor en puerto " + port +  ": \nhttp://localhost:" + port + "\n------------------------------------\n")

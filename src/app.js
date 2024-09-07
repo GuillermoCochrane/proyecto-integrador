@@ -7,6 +7,8 @@ const session = require('express-session');
 const userloggedMDW = require("./middlewares/userLoggedMDW");
 const loggedMDW = require("./middlewares/loggedMDW");
 const adminMDW = require("./middlewares/adminMDW");
+const cronJobs = require("./functions/cron");
+const endpointCron = "https://multihogar.onrender.com/api/up"; 
 
 //Routers dependencies
 const mainAPIRoutes = require("./routes/API/mainApiRouter");
@@ -51,6 +53,8 @@ app.use((req,res,next) =>{
         label: "Error 404 - Página no encontrada",
     })
 })
+
+cronJobs(endpointCron);
 
 //Server Up!
 app.listen(port, ()=>{console.log("\n------------------------------------\nLevantando servidor en puerto " + port +  ": \nhttp://localhost:" + port + "\n------------------------------------\n")
