@@ -15,5 +15,9 @@ const mainController ={
         return res.json(info)
     },
 
+    up: function(req,res){
+        return res.send("App is running")
+    }
+
 }
 module.exports = mainController
