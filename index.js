@@ -54,7 +54,7 @@ app.use((req,res,next) =>{
     })
 })
 
-cronJobs(endpointCron);
+//cronJobs(endpointCron);
 
 //Server Up!
 app.listen(port, ()=>{console.log("\n------------------------------------\nLevantando servidor en puerto " + port +  ": \nhttp://localhost:" + port + "\n------------------------------------\n")
